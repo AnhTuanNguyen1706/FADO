@@ -1,0 +1,46 @@
+// Extend Libs
+// ---------
+@use "lib/fancybox/jquery.fancybox";
+@use "lib/fancybox/jquery.fancybox-custom" as fancy-box-custom;
+@use 'lib/flatpickr/flatpickr';
+
+// Global path
+//-------------
+@use 'partial/global/modal/user-address-book-update-info-modal';
+@use 'partial/global/modal/confirm-update-address-book-type-modal';
+@use 'partial/global/modal/ilogistics-modal';
+@use 'partial/global/modal/discount-exchange-modal';
+@use 'partial/global/modal/login-register-modal';
+@use 'partial/global/modal/forgot-password-modal';
+
+// modal
+//-------------
+@use 'partial/modal/order-rule-modal';
+@use "partial/modal/payoo-modal";
+
+// Partials in page
+// ---------
+@use "./_order-page";
+@use "./order-header-section";
+@use "./order-footer-section";
+@use "./order-layout";
+@use "./checkout-confirm-user-info-section";
+@use "./checkout-confirm-section";
+@use "./checkout-payment-info-section";
+@use "./payment-method-group-detail-block";
+@use "./checkout-finish-modal";
+@use "./enterprise-update-info-modal";
+
+// cart
+@use './cart-collapse';
+@use "./cart-product-section-wrapper";
+@use "./cart-product-section";
+@use "./product-cart-block";
+@use "./cart-empty-section";
+
+
+
+
+
+// Modal
+// ---------

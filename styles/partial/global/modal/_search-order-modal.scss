@@ -1,0 +1,59 @@
+@use 'vars' as vars;
+@use 'mixin/mz-animation' as mz-animation;
+
+.search-order-modal {
+
+}
+
+/* ------------------
+ Search order form
+--------------------- */
+.search-order-modal .search-order-form {
+  .response-alert {
+    display: none;
+  }
+
+  .form-body {
+    position: relative;
+  }
+
+  .loading-field {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background: rgba(#fff,0.85);
+    color: vars.$mz-gray-dark;
+    z-index: vars.$mz-z-index-lv-1;
+
+    &::before {
+      content: vars.$mz-font-content-loading;
+      font-family: vars.$mz-font-family-fa5;
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      @include mz-animation.mz-animation-spin();
+      width: 40px;
+      height: 40px;
+      top: 50%;
+      margin-top: -20px;
+      left: 50%;
+      margin-left: -20px;
+      font-size: 24px;
+      line-height: 1;
+    }
+  }
+
+  &.is-loading {
+    .loading-field {
+      display: block;
+    }
+
+    .submit-btn, .reset-btn {
+      pointer-events: none;
+    }
+  }
+}// .search-order-form

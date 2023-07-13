@@ -1,0 +1,115 @@
+@use 'vars' as vars;
+@use 'vars-v2' as vars-v2;
+@use 'mixin/mz-placeholder' as mz-placeholder;
+
+// Form group
+// ------------------------------------
+.my-form-group {
+  margin-bottom: 15px;
+}
+
+// Label
+// ------------------------------------
+.my-control-lbl {
+  display: block;
+  margin-bottom: 7px;
+}
+
+// Input, select box
+// ------------------------------------
+.my-form-control {
+  width: 100%;
+  padding: 5px 10px;
+  border-radius: 3px;
+  border: 1px solid #e1e1e1;
+  outline: none;
+  height: 40px;
+  background: #fff;
+
+  &.is-error, &.error {
+    border-color: vars-v2.$state2-500;
+  }
+
+  &:read-only:disabled, &:disabled {
+    background: lighten(#e1e1e1,8%);
+  }
+
+  &:hover, &:focus {
+    box-shadow: 0 0 0 3px rgba(#e1e1e1,0.3);
+  }
+
+  @include mz-placeholder.placeholder {
+    color: #999;
+    font-style: italic;
+  }
+}// .my-form-control
+
+input, textarea {
+  .my-form-control:read-only {
+    background: lighten(#e1e1e1,8%);
+  }
+}
+
+input[readonly] {
+  background: #fff,
+}
+
+select.my-form-control {
+  &:read-only { // Này đẻ làm gì ?
+    background: #fff;
+  }
+}
+
+// Size
+// ---------
+.-control-md {
+  height: 34px;
+
+  &:hover, &:focus {
+    box-shadow: 0 0 0 3px rgba(#e1e1e1,0.3);
+  }
+}
+
+.-control-sm {
+  height: 28px;
+  font-size: 13px;
+  line-height: 18px;
+
+  &:hover, &:focus {
+    box-shadow: 0 0 0 2px rgba(#e1e1e1,0.3);
+  }
+}
+
+.-control-xs {
+  height: 24px;
+  font-size: 12px;
+  padding: 3px 5px;
+  line-height: 16px;
+
+  &:hover, &:focus {
+    box-shadow: 0 0 0 2px rgba(#e1e1e1,0.3);
+  }
+}
+
+// Custom text area
+// ------------------------------------
+textarea.my-form-control {
+  height: auto;
+  min-height: 40px;
+
+  &.-control-md {
+    min-height: 34px;
+  }
+}
+
+// Label error
+// ------------------------------------
+.my-error-lbl {
+  color: #f44336;
+  margin: 5px 0 0;
+  display: block;
+
+  &.is-valid, &.valid {
+    display: none;
+  }
+}

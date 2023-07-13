@@ -1,0 +1,68 @@
+@use 'vars' as vars;
+@use 'function/mz/mz-line-height' as mz-line-height;
+
+.mz-style-block {
+  margin-bottom: 32px;
+
+  .block-title {
+    font-family: vars.$mz-font-family-oswald;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: mz-line-height.mz-get-line-height-from-font-size(30px);
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid vars.$mz-gray-light;
+  }
+
+  .group-btn {
+    .mz-btn, .mz-grd-btn {
+      margin-right: 8px;
+      margin-bottom: 16px;
+    }
+  }
+
+  .group-form {
+    margin-bottom: 16px;
+  }
+
+  .group-style {
+    margin-bottom: 16px;
+  }
+
+  .mz-dropdown-outer {
+    display: inline-block;
+    margin-right: 20px;
+  }
+
+  .test-scrollbar-panel {
+    background: #fff;
+    position: relative;
+    width: 300px;
+    border-radius: vars.$mz-rounded-xs;
+    box-shadow: vars.$mz-shadow-block;
+    max-height: 200px;
+    margin-top: 20px;
+    overflow: hidden;
+
+    ul {
+      list-style: none;
+    }
+
+    li {
+      padding: 5px 10px;
+      border-bottom: 1px solid #eee;
+
+      &:last-child {
+        border-bottom: 0;
+      }
+    }
+
+    &.scrollbar-horizontal {
+      max-width: 300px;
+
+      li {
+        white-space: nowrap;
+      }
+    }
+  }// .test-scrollbar-panel
+}

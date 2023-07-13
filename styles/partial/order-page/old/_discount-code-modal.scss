@@ -1,0 +1,91 @@
+@use 'vars' as vars;
+
+.discount-code-modal {
+  .modal-dialog {
+    max-width: 500px;
+  }
+}// .discount-code-modal
+
+// Enter code form
+// ------------------------------------
+.discount-code-modal {
+  &__enter-code-form {
+    position: relative;
+
+    &.is-loading {
+      &::before {
+        content: '';
+        background: rgba(#fff,0.8) url(vars.$mz-loading-image-url) no-repeat center;
+        z-index: 5;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        position: absolute;
+      }
+    }
+  }// &__enter-code-form
+
+  &__code-input {
+    width: 100%;
+    border-radius: 40px;
+    border: 1px solid #e1e1e1;
+    height: 40px;
+    padding: 0 20px;
+
+    &:hover, &:focus {
+      box-shadow: 0 0 0 3px rgba(#e1e1e1,0.4) inset;
+    }
+  }
+
+  &__btn-wrap {
+    text-align: center;
+    margin-top: 15px;
+
+    .my-btn {
+      margin: 0 5px;
+    }
+  }
+
+  &__discount-code-list {
+    margin-top: 15px;
+    max-height: calc(100vh - 400px);
+    overflow: auto;
+
+    &.is-loading {
+      min-height: 160px;
+    }
+  }
+
+  &__discount-code-item {
+    display: flex;
+    font-size: 13px;
+    line-height: 18px;
+
+    &:nth-child(2n+2) {
+      background: #f0f0f0;
+    }
+  }
+
+  &__discount-code-script, &__discount-code-value, &__discount-code-apply {
+    padding: 7px 10px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__discount-code-script {
+    white-space: nowrap;
+    text-align: left;
+    width: 50%;
+  }
+
+  &__discount-code-value {
+    width: 30%;
+    text-align: center;
+  }
+
+  &__discount-code-apply {
+    text-align: right;
+    width: 20%;
+  }
+}// .discount-code-modal

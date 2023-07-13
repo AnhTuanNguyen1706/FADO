@@ -1,0 +1,19 @@
+@use 'vars' as vars;
+
+.store-cate-layout {
+  // min-width: vars.$mz-page-min-width;
+
+  &__body {
+    display:flex;
+    justify-content: space-between;
+  }
+
+  &__sidebar-col {
+    position: relative;
+    width: 220px;
+  }
+
+  &__main-col {
+    width: 960px;
+  }
+}

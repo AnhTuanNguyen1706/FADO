@@ -1,0 +1,119 @@
+@use 'vars' as vars;
+@use 'vars-v2' as vars-v2;
+@use 'mixin/mz-placeholder' as mz-placeholder;
+@use 'function/mz/mz-color' as mz-color;
+@use 'mixin/mz-text-size' as mz-text-size;
+
+.mz-form-control {
+  &__input {
+    width: 100%;
+    padding: 0 12px;
+    transition: vars.$mz-transition-time-xs;
+    background: #fff;
+    border: 2px solid vars-v2.$secondary-700;
+    // border-radius: vars.$mz-rounded-xs;
+    height: vars.$mz-form-height-default;
+    color: vars.$mz-text-body-color;
+
+    &:focus {
+      border-color: vars.$mz-gray;
+      box-shadow: 0 0 0 4px rgba(vars.$mz-gray-lighter,0.6);
+    }
+
+    @include mz-placeholder.placeholder() {
+      color: vars.$mz-gray-light;
+    }
+
+    &:disabled {
+      background: vars.$mz-gray-lightest;
+    }
+  }
+
+  &.is-error {
+    .mz-form-control__input {
+      border-color: vars-v2.$state2-500;
+    }
+  }
+}// .mz-form-control
+
+input.mz-form-control__input {
+  &:read-only {
+    background: vars.$mz-gray-lightest;
+    color: vars.$mz-gray;
+  }
+}
+
+textarea.mz-form-control__input {
+  height: auto;
+  min-height: 112px;
+  padding: 8px 12px;
+}
+
+// -------------------
+// Form number control
+// -------------------
+.mz-form-control-number {
+  $_btn-width: vars.$mz-form-height-default + 6px;
+  $_padding-x-space: 12px + $_btn-width;
+
+  position: relative;
+
+  .mz-form-control__input {
+    padding: 0 $_padding-x-space;
+    text-align: center;
+  }
+
+  .mz-form-control__up-btn, .mz-form-control__down-btn {
+    height: vars.$mz-form-height-default;
+    width: $_btn-width;
+    background: vars.$mz-gray-lightest;
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid vars.$mz-gray-light;
+    cursor: pointer;
+    transition: vars.$mz-transition-time-xs;
+
+    &:hover {
+      background: mz-color.mz-get-hover-color(vars.$mz-gray-lightest);
+    }
+  }
+
+  .mz-form-control__down-btn {
+    border-radius: vars.$mz-rounded-xs 0 0 vars.$mz-rounded-xs;
+    left: 0;
+  }
+
+  .mz-form-control__up-btn {
+    border-radius: 0 vars.$mz-rounded-xs vars.$mz-rounded-xs 0;
+    right: 0;
+  }
+}
+
+// -------------------
+// Generate form control size
+// -------------------
+@each $_breakpoint-key, $_height-value in vars.$mz-map-form-height {
+  $_font-size-key: map-get(vars.$mz-map-form-font-size-key, $_breakpoint-key);
+
+  .mz-form-control-#{$_breakpoint-key} {
+    @include mz-text-size.mz-text-size($_font-size-key);
+
+    .mz-form-control__input {
+      height: map-get(vars.$mz-map-form-height, $_breakpoint-key);
+    }
+  }
+}
+
+// -------------------
+// Generate form control border-radius
+// -------------------
+@each $_breakpoint-key, $_border-radius-value in vars.$mz-map-rounded {
+  .mz-form-control-bdr-#{$_breakpoint-key} {
+    .mz-form-control__input {
+      border-radius: $_border-radius-value;
+    }
+  }
+}

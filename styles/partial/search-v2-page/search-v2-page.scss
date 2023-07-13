@@ -1,0 +1,27 @@
+// Partials global
+// ---------
+@use "component/_sort-bar-section";
+@use "component/_product-titlebar-section";
+@use "component/_filter-selectedbar-section";
+@use 'partial/global/product/product-card';
+@use "partial/global/related-blog-section";
+
+// category
+@use "partial/category-page/category-layout";
+@use "partial/category-page/category-product-card-wrap";
+@use "partial/category-page/mkt-event-top-block";
+@use "partial/category-page/mkt-event-content-block";
+@use "partial/category-page/mkt-event-menu-sblock";
+@use "partial/category-page/mkt-content-block";
+@use "partial/category-page/category-parent-section";
+@use "partial/category-page/category-side-col";
+@use "partial/category-page/category-info-section";
+@use "partial/category-page/category-related-list-section";
+@use './hot-product-section';
+
+// Other
+@use 'partial/fado-category-page/category-page-description-section';
+
+// Locale
+// ---------
+@use './page';

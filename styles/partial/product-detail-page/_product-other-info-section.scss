@@ -1,0 +1,16 @@
+.product-other-info-section {
+  &__inner {
+    display: flex;
+  }
+
+  &__col-1 {
+    flex: 1 1;
+    min-width: 1px;
+  }
+
+  &__col-2 {
+    min-width: 1px;
+    flex: 0 0 240px;
+    margin-left: 16px;
+  }
+}// .product-other-info-section

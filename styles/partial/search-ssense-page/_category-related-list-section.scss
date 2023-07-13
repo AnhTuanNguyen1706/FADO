@@ -1,0 +1,11 @@
+@use 'vars' as vars;
+
+.category-related-list-section {
+  background: #fff;
+  padding: 16px 0;
+  border-top: solid 1px vars.$mz-gray-lighter;
+
+  .category-expand-all-related-keyword {
+    border-color: vars.$mz-primary-lightest;
+  }
+}

@@ -1,0 +1,20 @@
+.global-page {
+  background: #ffffff;
+
+  .global-page-section {
+    min-height: 50vh;
+    margin-bottom: 24px;
+  }
+
+  .header-block {
+    position: absolute;
+  }
+
+  .header-section {
+    transform: none;
+
+    &.headroom--unpinned {
+      transform: none;
+    }
+  }
+}// .global-page

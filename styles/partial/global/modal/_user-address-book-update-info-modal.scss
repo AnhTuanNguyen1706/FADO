@@ -1,0 +1,460 @@
+@use 'vars' as vars;
+@use 'vars-v2' as vars-v2;
+@use 'mixin/mz-text-size' as mz-text-size;
+@use 'mixin/mz-placeholder' as mz-placeholder;
+@use 'mixin/mz-animation' as mz-animation;
+
+//==================================================
+// user-address-book-update-info-modal
+//==================================================
+.user-address-book-update-info-modal {
+  .modal-dialog {
+    width: 360px;
+  }
+}
+
+//==================================================
+// modal-body
+//==================================================
+// .location-type-select-item
+//==================================================
+.user-address-book-update-info-modal {
+  .mz-check-control {
+    .is-disabled {
+      opacity: 0.3;
+      cursor: none;
+    }
+  }
+
+  .user-address-book-modal-inner {
+    position: relative;
+
+    .mz-form-group {
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    .loading-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(#fff, 0.5);
+      left: 0;
+      top: 0;
+      z-index: vars.$mz-z-index-lv-1;
+
+      .loading-icon {
+        font-style: normal;
+        @include mz-animation.mz-animation-spin();
+
+        &::before {
+          @include mz-text-size.mz-text-size(24px);
+          color: vars.$mz-gray;
+          content: "\f110";
+          font-weight: 700;
+          font-family: vars.$mz-font-family-fa5;
+        }
+      }
+    }
+  }
+
+  .modal-body {
+    padding-bottom: 0;
+  }
+
+  .location-type-select-wrap {
+    display: flex;
+    align-items: center;
+    padding-bottom: 16px;
+  }
+
+  .location-type-select-item {
+    display: inline-flex;
+    justify-content: center;
+    text-align: center;
+    flex: 0 0 calc(50% - 4px);
+    padding: 10px;
+    border-radius: 24px;
+    border: 1px dashed vars.$mz-gray-light;
+    background: vars.$mz-gray-lightest;
+    color: vars.$mz-gray;
+    margin-right: 8px;
+    cursor: pointer;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &.is-active {
+      color: #ffffff;
+      border-style: solid;
+    }
+  }
+
+  .home-type-select-item {
+    &.is-active {
+      background: #14a5d9;
+      border-color: #14a5d9;
+      box-shadow: 0 8px 16px -4px rgba(#14a5d9,0.4);
+    }
+  }
+
+  .office-type-select-item {
+    &.is-active {
+      background: vars.$mz-secondary;
+      border-color: vars.$mz-secondary;
+      box-shadow: 0 8px 16px -4px rgba(vars.$mz-secondary,0.4);
+    }
+  }
+
+  .type-select-icon-col {
+    margin-right: 8px;
+  }
+
+  .type-select-label-col {
+    font-weight: 700;
+  }
+}
+
+//==================================================
+// .address-book-type-dropdown-box
+//==================================================
+.user-address-book-update-info-modal {
+  .address-book-type-dropdown-box {
+    padding: 12px 16px;
+    background: #ebf5ff;
+    margin: 0 -16px;
+    border-top: 1px dashed;
+    border-bottom: 1px dashed;
+    border-top-color: #cce6ff;
+    border-bottom-color: #cce6ff;
+
+    &.is-empty {
+      background: vars.$mz-gray-lightest;
+      border-top-color: vars.$mz-gray-light;
+      border-bottom-color: vars.$mz-gray-light;
+      padding: 0 16px;
+
+      .box-head {
+        margin: 0 -16px;
+      }
+
+      .box-title {
+        display: none;
+      }
+
+      .address-book-type-dropdown {
+        width: 100%;
+
+        .dropdown-head {
+          width: 100%;
+          padding: 12px 16px;
+        }
+
+        .dropdown-body {
+          right: 8px;
+        }
+      }
+
+      .icon-shape {
+        margin-left: auto;
+        padding-left: 8px;
+      }
+
+      .dropdown-option--selected {
+        color: vars.$mz-gray-dark;
+        font-weight: 700;
+      }
+    }
+
+    .box-head {
+      display: flex;
+      align-items: center;
+    }
+
+    .box-title {
+      font-weight: 700;
+      color: vars.$mz-gray-dark;
+      margin-right: 8px;
+    }
+
+    .box-body {
+      margin-top: 12px;
+    }
+  }
+
+  .address-book-type-dropdown {
+    margin-left: auto;
+
+    // .dropdown-head
+    .dropdown-head {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+
+    .icon-shape {
+      margin-left: 8px;
+
+      i {
+        position: relative;
+        @include mz-text-size.mz-text-size(16px);
+        line-height: 0;
+        top: 2px;
+      }
+    }
+
+    .dropdown-option--selected {
+      max-width: 200px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    // .dropdown-body
+    .dropdown-body {
+      width: 172px;
+      min-width: 172px;
+      padding: 4px;
+    }
+
+    .address-book-type-item {
+      display: flex;
+      align-items: center;
+      padding: 8px;
+      border-radius: 2px;
+      cursor: pointer;
+      color: vars.$mz-gray-darker;
+
+      &.is-active {
+        color: vars.$mz-primary;
+      }
+
+      .icon-col {
+        margin-left: auto;
+        padding-left: 8px;
+      }
+
+      &:hover {
+        background: #ebf5ff;
+        color: vars.$mz-primary;
+      }
+    } //.address-book-type-item
+  } // .address-book-type-dropdown
+
+  .vat-code-field {
+    display: inline-flex;
+    border-radius: 4px;
+    border: 1px solid vars.$mz-gray-light;
+    overflow: hidden;
+    background: #ffffff;
+    width: 100%;
+
+    .field-title-col {
+      border-right: 1px solid vars.$mz-gray-light;
+      padding: 6px 12px;
+      white-space: nowrap;
+    }
+
+    .field-input-col {
+      padding: 0 16px;
+      flex: 1 1;
+    }
+
+    .field-input {
+      border: none;
+      height: 100%;
+      width: 100%;
+
+      @include mz-placeholder.placeholder {
+        color: vars.$mz-gray;
+      }
+    }
+  } // .vat-code-field
+}
+
+//==================================================
+// form control stype
+//==================================================
+.user-address-book-update-info-modal {
+  .label-col-inline {
+    display: flex;
+    align-items: center;
+
+    .checkbox-col {
+      position: relative;
+      margin-left: auto;
+      top: -2px;
+    }
+
+    .mz-state-control__inner {
+      padding-left: 0;
+      padding-right: 16px;
+    }
+
+    .mz-state-control__label {
+      @include mz-text-size.mz-text-size-from-font-size-key('sm');
+      margin-left: 0;
+      margin-right: 8px;
+      color: vars.$mz-primary;
+    }
+
+    .mz-state-control__icon {
+      left: auto;
+      right: 0;
+    }
+  }
+
+  .info-required-field {
+    margin-left: -16px;
+    margin-right: -16px;
+    padding: 16px;
+    background: vars-v2.$secondary-200;
+
+    border-top: 1px dashed vars-v2.$secondary-300;
+    border-bottom: 1px dashed vars-v2.$secondary-300;
+  }
+
+  .sub-label {
+    @include mz-text-size.mz-text-size-from-font-size-key('xs');
+    color: vars.$mz-gray-dark;
+  }
+
+  .correct-address-input {
+    height: 64px;
+    min-height: 64px;
+  }
+
+  .address-select-form-group {
+    .city-select-control {
+      .vs__dropdown-toggle {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+    }
+
+    .district-select-control {
+      .vs__dropdown-toggle {
+        position: relative;
+        border-top: none;
+        border-bottom: none;
+        border-radius: 0;
+
+        &:before {
+          position: absolute;
+          content: none;
+          width: 100%;
+          height: 1px;
+          background: vars.$mz-danger;
+          top: -1px;
+          left: 0;
+        }
+
+        &:after {
+          position: absolute;
+          content: none;
+          width: 100%;
+          height: 1px;
+          background: vars.$mz-danger;
+          bottom: -1px;
+          left: 0;
+        }
+      }
+
+      &.is-error {
+        .vs__dropdown-toggle {
+          &:before,
+          &:after {
+            content: '';
+          }
+        }
+      }
+    }
+
+    .ward-select-control {
+      .vs__dropdown-toggle {
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+      }
+    }
+
+    .address-select-form-error-label {
+      color: vars-v2.$state2-500;
+      @include mz-text-size.mz-text-size-from-font-size-key('xs');
+      margin-top: 10px;
+    }
+  } // .address-select-form-group
+
+  .address-select-form-control-outer {
+    position: relative;
+  }
+
+  // .update-info-to-api-checkbox-field
+  //-----------------------------------
+  .update-info-to-api-checkbox-field {
+    padding: 2rem;
+    border-top: 1px dashed vars.$mz-gray-light;
+    border-bottom: 1px dashed vars.$mz-gray-light;
+    background: vars.$mz-gray-lightest;
+    margin-bottom: 2rem;
+
+    &.is-hide-border-bottom {
+      border-bottom: none;
+    }
+
+    &.is-hide-border-top {
+      border-top: none;
+    }
+
+    .field-label-col {
+      padding-left: 1rem;
+    }
+
+    .field-label {
+      margin-left: 0;
+      color: vars.$mz-gray-dark;
+    }
+
+    .field-desc {
+      font-size: 1.5rem;
+      margin-top: 4px;
+    }
+  }
+}
+
+//==================================================
+// modal-footer
+//==================================================
+.user-address-book-update-info-modal {
+  .modal-foot {
+    padding-top: 0;
+    border-top: none;
+    flex-wrap: wrap;
+
+    .foot-control-group {
+      display: flex;
+      align-items: center;
+      width: 100%;
+      justify-content: space-between;
+    }
+
+    .close-modal-btn {
+      cursor: pointer;
+    }
+
+    .remove-btn {
+      border: none;
+      color: vars.$mz-danger;
+      cursor: pointer;
+
+      &.disabled-btn {
+        opacity: 0.3;
+        cursor: default;
+      }
+    } // .remove-btn
+  }
+}

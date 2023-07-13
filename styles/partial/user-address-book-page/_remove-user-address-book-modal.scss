@@ -1,0 +1,45 @@
+@use 'vars' as vars;
+@use 'mixin/mz-text-size' as mz-text-size;
+@use 'mixin/mz-animation' as mz-animation;
+
+///==========================================================
+// remove user address book modal
+///==========================================================
+.remove-user-address-book-modal {
+  .modal-dialog {
+    width: 360px;
+  }
+
+  .close-modal-btn {
+    cursor: pointer;
+  }
+
+  .remove-address-book-label {
+    text-align: center;
+  }
+
+  .loading-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(#fff, 0.5);
+    left: 0;
+    top: 0;
+
+    .loading-icon {
+      font-style: normal;
+      @include mz-animation.mz-animation-spin();
+
+      &::before {
+        @include mz-text-size.mz-text-size(24px);
+        color: vars.$mz-gray;
+        content: "\f110";
+        font-weight: 700;
+        font-family: vars.$mz-font-family-fa5;
+      }
+    }
+  }
+}

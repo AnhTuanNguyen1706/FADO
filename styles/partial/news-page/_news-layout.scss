@@ -1,0 +1,24 @@
+@use 'vars' as vars;
+
+.news-layout {
+  min-width: vars.$mz-page-min-width;
+  margin-bottom: 40px;
+
+  &__container {
+    background: #fff;
+    border-radius: 4px;
+    display: flex;
+  }
+
+  &__main-col {
+    flex: 1 1;
+    min-width: 1px;
+    padding: 20px 20px 0;
+  }
+
+  &__sidebar-col {
+    flex: 0 0 400px;
+    min-width: 1px;
+    border-left: 1px solid #ededed;
+  }
+}// .news-layout

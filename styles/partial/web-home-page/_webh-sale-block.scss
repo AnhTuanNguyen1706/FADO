@@ -1,0 +1,31 @@
+@use 'vars' as vars;
+
+.webh-sale-block {
+  min-width: vars.$mz-page-min-width;
+  margin-bottom: 40px;
+
+  &__title {
+    font-size: 20px;
+    line-height: 26px;
+    text-align: center;
+    font-weight: 500;
+    margin-bottom: 5px;
+  }
+
+  &__desc {
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  &__product-segment {
+    &.is-start {
+      height: 1060px; // Giả chiều cao lúc đầu để hiện loading tránh giật
+    }
+  }
+
+  &__view-more-btn {
+    display: flex;
+    width: 140px;
+    margin: 20px auto 0;
+  }
+}// .webh-sale-block

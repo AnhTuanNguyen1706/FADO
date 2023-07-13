@@ -1,0 +1,77 @@
+@use 'vars' as vars;
+
+//=======================================================
+// checkout finish modal
+//=======================================================
+.checkout-finish-modal {
+  .modal-dialog {
+    max-width: 512px;
+  }
+
+  .modal-content {
+    overflow: hidden;
+    border-radius: 16px;
+  }
+
+  .modal-header {
+    text-align: center;
+    padding: 24px 40px 24px;
+    background: vars.$mz-primary;
+
+    + .modal-body {
+      padding-top: 24px;
+    }
+  }
+
+  .alert-label {
+    font-size: 2rem;
+    color: #ffffff;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .alert-content {
+    color: #ffffff;
+  }
+
+  .link-label {
+    color: #ffffff;
+  }
+
+  .full-order-id {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #ffffff;
+  }
+
+  .link-label {
+    color: #ffffff;
+  }
+
+  .modal-body {
+    padding: 24px 40px 16px;
+    text-align: center;
+  }
+
+  .alert-body-content {
+    color: vars.$mz-gray-dark;
+    margin-bottom: 10px;
+  }
+
+  .downtime-label {
+    font-size: 2.5rem;
+  }
+
+  .request-label {
+    color: vars.$mz-primary;
+    cursor: pointer;
+  }
+
+  .break-line {
+    width: 100%;
+    height: 1px;
+    background: vars.$mz-gray-light;
+    margin: 16px 0 16px;
+  }
+}

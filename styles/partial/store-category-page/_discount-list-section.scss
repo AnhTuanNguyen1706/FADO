@@ -1,0 +1,10 @@
+.discount-list-section {
+  margin-top: 24px;
+  margin-bottom: 8px;
+}
+
+.discount-list {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 20px;
+}

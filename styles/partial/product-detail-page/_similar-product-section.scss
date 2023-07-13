@@ -1,0 +1,208 @@
+@use 'vars' as vars;
+@use 'mixin/mz-text-size' as mz-text-size;
+@use 'mixin/mz-general' as general;
+@use 'mixin/mz-animation' as mz-animation;
+@use 'function/mz/mz-color' as mz-color;
+
+//===================================
+//  similar product block
+//===================================
+.similar-product-section {
+  .similar-product-panel-outer {
+    padding: 8px 0;
+
+    &:last-child {
+      border-bottom: none;
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
+  }
+
+  .similar-product-panel {
+    position: relative;
+    display: flex;
+    align-items: center;
+
+    &__body {
+      min-width: 0;
+    }
+
+    &__img-col {
+      flex: 0 0 80px;
+      width: 80px;
+      min-width: 1px;
+      margin-right: 8px;
+    }
+
+    &__info-col {
+      flex: 1 1;
+      min-width: 1px;
+    }
+
+    &:last-child {
+      padding-bottom: 0;
+      margin-bottom: 0;
+      border-bottom: 0;
+    }
+
+    &__name {
+      color: vars.$mz-text-body-color;
+      display: block;
+      @include mz-text-size.mz-text-size('sm');
+      @include general.mz-limit-text-line('sm',2);
+    }
+
+    &__rating-field {
+      display: flex;
+      align-items: center;
+      margin-top: 2px;
+    }
+
+    &__rating-star {
+      i {
+        @include mz-text-size.mz-text-size(10px);
+      }
+    }
+
+    &__comment {
+      @include mz-text-size.mz-text-size(11px);
+      line-height: 17px;
+      margin-left: 2;
+      color: vars.$mz-gray-dark;
+      margin-top: 2px;
+    }
+
+    &__current-price {
+      font-family: vars.$mz-font-family-oswald;
+      @include mz-text-size.mz-text-size('md');
+      color: vars.$mz-warning;
+      font-weight: 400;
+      margin-bottom: 4px;
+    }
+
+    &__min-price {
+      display: flex;
+      align-items: flex-end;
+    }
+
+    &__min-price-prefix {
+      @include mz-text-size.mz-text-size(12px);
+      color: vars.$mz-gray;
+      margin-top: 4px;
+      margin-right: 4px;
+    }
+
+    &__min-price-number {
+      font-family: vars.$mz-font-family-oswald;
+      @include mz-text-size.mz-text-size('md');
+      color: vars.$mz-warning;
+      font-weight: 400;
+    }
+
+    &__old-price {
+      font-family: vars.$mz-font-family-oswald;
+      @include mz-text-size.mz-text-size(10px);
+      color: vars.$mz-gray;
+      text-decoration: line-through;
+    }
+
+    &__alert {
+      @include mz-text-size.mz-text-size('sm');
+      color: vars.$mz-warning-dark;
+      font-weight: 400;
+
+      a {
+        color: vars.$mz-warning-dark;
+
+        &:hover {
+          color: mz-color.mz-get-hover-color(vars.$mz-warning-dark);
+        }
+      }
+    }
+
+    &__body {
+      position: relative;
+    }
+
+    &__loading-box {
+      position: absolute;
+      display: flex;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(#fff, 0.7);
+      justify-content: center;
+      align-items: center;
+      color: vars.$mz-gray;
+      @include mz-text-size.mz-text-size(24px);
+      transition: vars.$mz-transition-time-xs;
+      z-index: 3;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    &__loading-icon {
+      font-style: normal;
+      @include mz-animation.mz-animation-spin();
+
+      &::before {
+        content: "\f110";
+        font-weight: 700;
+        font-family: vars.$mz-font-family-fa5;
+      }
+    }
+
+    &.is-get-extra-info-loading {
+      .similar-product-panel__loading-box {
+        opacity: 1;
+        pointer-events: auto;
+      }
+    }
+
+    &:hover {
+      .similar-product-panel__name {
+        color: mz-color.mz-get-hover-color(vars.$mz-text-body-color);
+      }
+    }
+
+    &__img-outer {
+      display: flex;
+      height: 80px;
+      align-items: center;
+      justify-content: center;
+    }
+
+  }// .similar-product-panel
+}
+
+.similar-product-section-new {
+  .similar-slide-control {
+    position: absolute;
+    top: 2px;
+    right: 0;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+
+    .slide-prev-btn, .slide-next-btn {
+      background: vars.$mz-primary;
+      color: #fff;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-left: 8px;
+      cursor: pointer;
+      outline: unset!important;
+
+      &.swiper-button-disabled {
+        background: vars.$mz-gray-lightest;
+        color: vars.$mz-gray-light;
+      }
+    }
+  }
+}

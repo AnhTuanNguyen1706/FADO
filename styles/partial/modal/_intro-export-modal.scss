@@ -1,0 +1,113 @@
+@use 'vars' as vars;
+
+.intro-export-modal {
+  .modal-dialog {
+    max-width: none;
+    width: auto;
+    justify-content: center;
+  }
+
+  .modal-content {
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    border: 0;
+    width: auto;
+  }
+
+  .modal-body {
+    padding: 0;
+  }
+
+  button.close {
+    background: vars.$mz-danger;
+    color: #fff!important;
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: -8px;
+    right: -8px;
+    opacity: 1!important;
+    border-radius: 50%;
+    z-index: 5;
+
+    &::before {
+      content: "\f00d";
+      font-family: vars.$mz-font-family-fa5;
+      font-size: 14px;
+      line-height: 14px;
+      font-weight: 300;
+    }
+
+    &:hover {
+      background: darken(vars.$mz-danger,5%);
+    }
+  }// button.close
+
+  .export-bner-outer {
+    position: relative;
+    text-align: center;
+    background: url(vars.$mz-image-url + '/modal/export-modal-bg.jpg') no-repeat center;
+    width: 670px;
+    height: 420px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .modal-title {
+    font-size: 44px;
+    line-height: 52px;
+    color: #fff;
+    font-weight: 500;
+    margin-bottom: 25px;
+  }
+
+  .btn-wrap {
+    width: 240px;
+  }
+
+  .modal-btn {
+    height: 46px;
+    width: 100%;
+    color: #fff;
+    display: flex;
+    border-radius: 40px;
+    box-shadow: 0 3px 3px rgba(#000,0.1);
+    margin-bottom: 20px;
+    line-height: 18px;
+    font-size: 18px;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 2px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .import-btn {
+    background: linear-gradient(to bottom, #66c66f, #28aa38);
+
+    &:hover {
+      background: linear-gradient(to bottom, darken(#66c66f,2%), darken(#28aa38,2%));
+    }
+
+    .sub-text {
+      font-size: 12px;
+    }
+  }
+
+  .export-btn {
+    background: linear-gradient(to bottom, #4dc4ee, #07a1e3);
+
+    &:hover {
+      background: linear-gradient(to bottom, darken(#4dc4ee,2%), darken(#07a1e3,2%));
+    }
+  }
+}// .bner-center-modal

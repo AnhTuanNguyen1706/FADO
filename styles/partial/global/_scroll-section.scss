@@ -1,0 +1,591 @@
+@use 'sass:math';
+@use 'vars' as vars;
+@use 'vars-v2' as vars-v2;
+@use 'mixin/mz-text-size' as mz-text-size;
+@use 'mixin/mz-general' as general;
+@use 'mixin/mz-box-shadow' as mz-shadow;
+@use 'function/mz/mz-color' as mz-color;
+
+$_block-width: 40px;
+
+.scroll-section {
+  position: fixed;
+  bottom: 434px;
+  right: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  width: $_block-width;
+  will-change: transform;
+} // .scroll-section
+
+// ------------------------------------
+// Compare block
+// ------------------------------------
+.scroll-section {
+  .compare-block {
+    margin-bottom: 1px;
+    position: relative;
+    height: vars.$mz-form-height-lg;
+    width: vars.$mz-form-height-lg;
+    z-index: 3;
+    display: none;
+
+    &__inner {
+      position: absolute;
+      top: 0;
+      right: -104px;
+      width: 104px;
+      transition: vars.$mz-transition-time-xs;
+      @include mz-shadow.mz-shadow-from-key('sm');
+    }
+
+    // Button
+    &__btn {
+      height: vars.$mz-form-height-lg;
+      width: vars.$mz-form-height-lg;
+      border-radius: vars.$mz-rounded-xs 0 0 vars.$mz-rounded-xs;
+      background: vars-v2.$primary-900;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      top: 0;
+      left: - vars.$mz-form-height-lg;
+      font-size: vars.$mz-font-size-lg;
+      cursor: pointer;
+      transition: vars.$mz-transition-time-xs;
+
+      &:hover {
+        background: mz-color.mz-get-hover-color(vars.$mz-gray-dark);
+        color: #fff;
+      }
+
+      &.is-effect {
+        animation: mz-pop vars.$mz-transition-time-xs linear;
+      }
+    }// &__btn
+
+    &__quantity-field {
+      $_field-width: 22px;
+      width: $_field-width;
+      height: $_field-width;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      position: absolute;
+      left: -#{math.div($-field-width, 2)};
+      top: -#{math.div($-field-width, 2)};
+      line-height: 1;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: vars.$mz-font-size-xs;
+      background: vars.$mz-primary;
+    }
+
+    &__head {
+      height: vars.$mz-form-height-lg;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: vars.$mz-primary;
+      color: #fff;
+      transition: vars.$mz-transition-time-xs;
+
+      &:hover {
+        background: mz-color.mz-get-hover-color(vars.$mz-primary);
+      }
+    }
+
+    &__body {
+      background: #fff;
+      border-radius: 0 0 0 vars.$mz-rounded-sm;
+      border: 1px solid rgba(vars.$mz-gray-darker,0.4);
+      border-top: 0;
+      max-height: 400px;
+
+      @media (min-height: 700px) {
+        max-height: none;
+        overflow: visible;
+      }
+    }
+
+    .btn-wrap {
+      text-align: center;
+      padding: 0 8px 8px;
+    }
+
+    .remove-all-btn {
+      padding: 0 4px;
+      width: 100%;
+    }
+  }// .compare-block
+
+  .product-item {
+    padding: 8px;
+    border-bottom: 1px solid vars.$mz-gray-lighter;
+    position: relative;
+
+    &:last-child {
+      border-bottom: 0;
+    }
+
+    &__remove-btn {
+      position: absolute;
+      top: 0;
+      right: 0;
+      z-index: 2;
+      line-height: 1;
+      font-size: 16px;
+      border: 0;
+      border-radius: 0 0 0 vars.$mz-rounded-xs;
+      background: #fff;
+      display: flex;
+      justify-items: center;
+      align-items: center;
+      width: 24px;
+      height: 24px;
+
+      &:hover {
+        color: mz-color.mz-get-hover-color(vars.$mz-text-body-color);
+      }
+    }
+
+    &__img-field {
+      display: block;
+      position: relative;
+      margin-bottom: 8px;
+
+      &::before {
+        content: '';
+        display: block;
+        padding-bottom: 100%;
+      }
+    }
+
+    &__img-field-inner {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    &__name {
+      display: block;
+      @include mz-text-size.mz-text-size('sm');
+      @include general.mz-limit-text-line('sm',2);
+      color: vars.$mz-text-body-color;
+
+      &:hover {
+        color: mz-color.mz-get-hover-color(vars.$mz-text-body-color);
+      }
+    }
+  }// .product-item
+
+  .compare-block.is-show {
+    display: block;
+  }
+
+  .compare-block.is-expand {
+    z-index: 4;
+    .compare-block__btn {
+      background: vars-v2.$primary-900;
+
+      &:hover {
+        background: mz-color.mz-get-hover-color(vars.$mz-primary-light);
+      }
+    }
+
+    .compare-block__inner {
+      right: 0;
+      @include mz-shadow.mz-shadow-from-key('sm');
+    }
+  }// .compare-block
+}// .scroll-section
+
+// ------------------------------------
+// Feedback button
+// ------------------------------------
+.scroll-section {
+  &__feedback-btn {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: $_block-width;
+    margin-bottom: 1px;
+    padding: 147px 0 5px; // 147: padding-top bao gồm chiều cao div con btn-title + padding-top (5px) + khoảng cách so với icon bên dưới
+    white-space: nowrap;
+    background: vars.$mz-gray-dark;
+    border-radius: 3px 0 0 3px;
+    color: #fff;
+    transition: vars.$mz-transition-time-xs;
+
+    &:hover {
+      background: mz-color.mz-get-hover-color(vars.$mz-gray-dark);
+      color: #fff;
+    }
+  }
+
+  &__feedback-btn-title {
+    position: absolute;
+    top: -15px; // -15px lùi lại chiều cao của text
+    right: 10px;
+    transform: rotate(-90deg);
+    transform-origin: bottom right;
+  }
+
+  &__feedback-btn-icon {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    line-height: 20px;
+  }
+} // .scroll-section
+
+// Question anwser button
+// ------------------------------------
+.scroll-section {
+  &__qa-btn {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: $_block-width;
+    margin-bottom: 1px;
+    padding: 57px 0 5px;
+    white-space: nowrap;
+    background: vars.$mz-gray-dark;
+    border-radius: 3px 0 0 3px;
+    color: #fff;
+    transition: vars.$mz-transition-time-xs;
+
+    &:hover {
+      background: mz-color.mz-get-hover-color(vars.$mz-gray-dark);
+      color: #fff;
+    }
+  }
+
+  &__qa-btn-title {
+    position: absolute;
+    top: -15px;
+    right: 10px;
+    transform: rotate(-90deg);
+    transform-origin: bottom right;
+  }
+
+  &__qa-btn-icon {
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    line-height: 20px;
+  }
+}// .scroll-section
+
+// ------------------------------------
+// loyalty points feature block
+// ------------------------------------
+$_fado-coin-feature-block-inner-width: 336px;
+$_fado-coin-feature-item-list: $_fado-coin-feature-block-inner-width - 48px;
+
+.scroll-section {
+  .fado-coin-feature-block {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    margin-top: 4px;
+    z-index: 3;
+    background: #000;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+
+    &__inner {
+      position: absolute;
+      width: $_fado-coin-feature-block-inner-width;
+      top: 0;
+      right: -#{$_fado-coin-feature-block-inner-width};
+      transition: 0.3s;
+    }
+
+    &.is-fade-show {
+      z-index: 4;
+      .fado-coin-feature-block__inner {
+        right: 0;
+      }
+    }
+
+    &__tool-tip-label {
+      position: absolute;
+      top: 0;
+      right: calc(100% + 2px);
+      background: vars.$mz-primary;
+      padding: 10px 16px;
+      height: 100%;
+      font-weight: 700;
+      color: #fff;
+      border-radius: 4px;
+      opacity: 0;
+      transition: 0.3s;
+      white-space: nowrap;
+      visibility: hidden;
+    }
+
+    &__interactive-btn {
+      position: relative;
+      display: flex;
+      height: 40px;
+      width: 40px;
+      top: 0;
+      cursor: pointer;
+
+      &.close-btn {
+        display: flex;
+        width: 48px;
+        height: 48px;
+        align-items: center;
+        justify-content: center;
+        left: 0;
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px;
+        background: #fff;
+        box-shadow: 0 0 4px 0 rgba(vars.$mz-gray-darker, 0.4);
+
+        i {
+          @include mz-text-size.mz-text-size(20px);
+          color: vars.$mz-gray-dark;
+        }
+      }
+    }
+
+    .open-btn {
+      padding: 8px;
+      // background: vars-v2.$primary-900;
+
+      &.is-hide {
+        right: -40px;
+        .fado-coin-feature-block__tool-tip-label {
+          display: none;
+        }
+      }
+
+      &:hover {
+        .fado-coin-feature-block__tool-tip-label {
+          visibility: visible;
+          opacity: 1;
+        }
+      }
+    }
+  } // .fado-coin-feature-block
+}
+
+// ------------------------------------
+// loyalty points feature item list
+// ------------------------------------
+.scroll-section {
+  .fado-coin-feature-item-list {
+    position: absolute;
+    width: $_fado-coin-feature-item-list;
+    top: 0;
+    right: -#{$_fado-coin-feature-item-list + 4px};
+    transition: 0.3s;
+    background: #fff;
+    border-bottom-left-radius: 6px;
+    box-shadow: 0 0 4px 0 rgba(vars.$mz-gray-dark, 0.4);
+
+    &.is-show {
+      transition: none;
+      right: 0;
+    }
+
+    &.is-fade-show {
+      right: 0;
+      z-index: 1;
+    }
+
+    // &__header
+    &__header {
+      // padding: 4px;
+    }
+
+    &__title {
+      position: relative;
+      padding: 8px;
+      font-weight: 700;
+
+      &:before {
+        position: absolute;
+        content: '';
+        display: block;
+        width: 100%;
+        height: 1px;
+        bottom: 0;
+        left: 0;
+        background: vars.$mz-gray-light;
+        opacity: 0.4;
+      }
+    } // &__title
+
+    &__bner {
+      position: relative;
+      background: vars-v2.$primary-900;
+    }
+
+    &__bner-inner {
+      // position: absolute;
+      display: flex;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      align-items: center;
+      padding: 18px 0;
+      padding-left: 18px;
+
+      .bner-label {
+        display: inline-block;
+        width: 180px;
+        @include mz-text-size.mz-text-size('md');
+        color: #fff;
+        font-weight: 700;
+      }
+    }
+
+    // &__body
+    &__body {
+      padding: 4px;
+      padding-top: 0;
+    }
+
+    // &__footer
+    &__footer {
+      padding: 0 16px;
+    }
+
+    &__more-btn {
+      display: flex;
+      cursor: pointer;
+      padding: 12px;
+      @include mz-text-size.mz-text-size('sm');
+      text-align: center;
+      align-items: center;
+      justify-content: center;
+      color: vars.$mz-primary;
+    }
+
+    .user-discount-code-btn {
+      margin-bottom: 16px;
+    }
+
+    &__img {
+      filter: grayscale(1);
+    }
+  } // .fado-coin-feature-item-list
+}
+
+// ------------------------------------
+// loyalty points feature item
+// ------------------------------------
+.scroll-section {
+  .fado-coin-feature-item-list {
+    &__feature-item {
+      position: relative;
+      display: block;
+      padding: 4px 0;
+
+      &:before {
+        position: absolute;
+        content: '';
+        display: block;
+        width: 100%;
+        height: 1px;
+        bottom: 0;
+        left: 0;
+        background: vars.$mz-gray-light;
+        //! có opacity nên phải dùng before thay vì border-bottom
+        opacity: 0.4;
+      }
+
+      &:first-child {
+        padding-top: 0;
+      }
+    } // &__feature-item
+
+    &__feature-item-inner {
+      display: flex;
+      padding: 8px;
+
+      .feature-item-icon-col {
+        margin-right: 8px;
+      }
+
+      .feature-item-icon-shape {
+        display: flex;
+        width: 32px;
+        height: 32px;
+        align-items: center;
+        justify-content: center;
+        left: 0;
+        top: 0;
+
+        i {
+          position: absolute;
+          color: vars.$mz-gray-dark;
+          @include mz-text-size.mz-text-size(20px);
+        }
+      }
+
+      .feature-item-name-col {
+        flex: 1 1;
+        margin-right: 24px;
+      }
+
+      .feature-item-name-label {
+        display: inline-block;
+        color: vars.$mz-gray-darker;
+      }
+
+      .feature-item-amount-coin-col {
+        margin-left: auto;
+      }
+
+      .feature-item-amount-coin-label {
+        display: block;
+        color: vars.$mz-warning;
+        font-weight: 700;
+        text-align: right;
+      }
+    } // &__feature-item-inner
+  }
+
+  a[class="fado-coin-feature-item-list__feature-item"] {
+    &:hover {
+      .fado-coin-feature-item-list__feature-item-inner {
+        background: vars-v2.$secondary-300;
+
+        .feature-item-icon-shape {
+          i {
+            color: mz-color.mz-get-hover-color(vars.$mz-gray-darker);
+          }
+        }
+
+        .feature-item-name-label {
+          color: mz-color.mz-get-hover-color(vars.$mz-gray-darker);
+        }
+      }
+    }
+  } // a[class="fado-coin-feature-item-list__feature-item"]
+}

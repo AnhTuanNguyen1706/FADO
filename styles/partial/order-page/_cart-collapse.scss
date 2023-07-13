@@ -1,0 +1,53 @@
+@use 'vars' as vars;
+
+.cart-collapse {
+  position: relative;
+
+  .expand-field {
+    display: flex;
+    margin-top: 16px;
+    justify-content: center;
+  }
+
+  .expand-btn {
+    background: vars.$mz-gray-lightest;
+    border-radius: vars.$mz-rounded-round;
+    height: 34px;
+    padding: 0 16px;
+    border: 0;
+
+    &:hover {
+      background: vars.$mz-primary;
+      color: #fff;
+    }
+  }
+
+  &.is-collapse {
+    margin-bottom: 37px;
+
+    .cart-collapse-body {
+      overflow: hidden;
+      position: relative;
+      border-radius: 0 0 vars.$mz-rounded-md vars.$mz-rounded-md;
+
+      &::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 180px;
+        background: linear-gradient(to top, #fff, rgba(#fff,0));
+        z-index: vars.$mz-z-index-lv-1;
+      }
+    }
+
+    .expand-field {
+      position: absolute;
+      bottom: -17px;
+      left: 0;
+      width: 100%;
+      z-index: vars.$mz-z-index-lv-2;
+    }
+  }
+}// .cart-collapse

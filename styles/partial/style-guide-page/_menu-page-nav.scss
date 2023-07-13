@@ -1,0 +1,33 @@
+@use 'vars' as vars;
+
+.menu-page-nav {
+  padding: 4px;
+
+  .menu-list {
+    list-style: none;
+  }
+
+  .menu-item-outer {
+    margin-bottom: 1px;
+
+    &.is-active {
+      .menu-item {
+        background: vars.$mz-primary-darker;
+        color: #fff !important;
+      }
+    }
+  }
+
+  .menu-item {
+    display: block;
+    padding: 8px 12px;
+    color: rgba(#fff,0.8);
+    border-radius: vars.$mz-rounded-xs;
+    transition: vars.$mz-transition-time-xs;
+
+    &:hover {
+      background: vars.$mz-gray-dark;
+      color: #fff !important;
+    }
+  }
+}

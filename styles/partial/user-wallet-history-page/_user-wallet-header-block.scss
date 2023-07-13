@@ -1,0 +1,47 @@
+@use 'vars' as vars;
+@use 'mixin/mz-text-size' as mz-text-size;
+
+//===========================================
+//  user wallet header block
+//===========================================
+.user-wallet-header-block {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+
+  .user-wallet-title {
+    @include mz-text-size.mz-text-size(24px);
+    color: vars.$mz-gray-dark;
+    font-weight: 700;
+  }
+
+  .wallet-disabled-adding-btn {
+    background: vars.$mz-primary-lightest;
+    color: vars.$mz-gray-dark;
+    opacity: 1;
+  }
+
+  .mz-dropdown-menu {
+    left: unset;
+    right: 0;
+  }
+
+  .wallet-adding-btn {
+    .mz-btn__icon-right-col {
+      margin-left: 4px;
+      padding-bottom: 4px;
+    }
+  }
+
+  // Width tự do
+  .mz-dropdown-menu {
+    min-width: unset;
+    .mz-dropdown-menu__list-item__label-col {
+      white-space: nowrap;
+    }
+  }
+}
+
+.user-wallet-header-empty-block {
+  margin-bottom: 56px;
+}

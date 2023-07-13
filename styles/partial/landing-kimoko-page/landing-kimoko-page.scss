@@ -1,0 +1,11 @@
+// Partials global
+// ---------
+@use 'partial/global/product/product-deal-card';
+@use 'partial/home-sub/home-sub-article-section';
+
+
+// Partials in page
+// ---------
+@use './_landing-kimoko-page';
+@use './top-bner-section';
+@use './product-box-section';

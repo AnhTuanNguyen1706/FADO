@@ -1,0 +1,29 @@
+@use 'vars' as vars;
+
+.product-desc-section {
+  .desc-list {
+    list-style: none;
+
+    li {
+      margin-bottom: 8px;
+      position: relative;
+      padding-left: 18px;
+
+      &::before {
+        content: '';
+        position: absolute;
+        height: 6px;
+        width: 6px;
+        background: vars.$mz-gray;
+        border-radius: 50%;
+        top: calc((1em / 2 + 1em) / 2 - 0.5px);
+        margin-top: -3px;
+        left: 0;
+      }
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }// .desc-list
+}// .product-desc-section

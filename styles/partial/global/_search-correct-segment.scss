@@ -1,0 +1,34 @@
+@use 'vars' as vars;
+@use 'mixin/mz-text-size' as mz-text-size;
+
+.search-correct-segment {
+  .segment-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+  }
+
+  .segment-keywords-label {
+    font-weight: 700;
+    margin: 0 4px;
+  }
+
+  .segment-language-label {
+    position: relative;
+    color: vars.$mz-primary;
+    font-weight: 700;
+    margin-left: 4px;
+
+    i {
+      position: relative;
+      top: -1px;
+      font-size: 8px;
+      margin-right: 4px;
+    }
+
+    span {
+      @include mz-text-size.mz-text-size(12px);
+      font-weight: normal;
+    }
+  }
+}

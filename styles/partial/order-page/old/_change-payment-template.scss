@@ -1,0 +1,798 @@
+@use 'sass:math';
+@use 'vars' as vars;
+@use 'mixin/mz-text-size' as mz-text-size;
+@use 'mixin/mz-border-radius' as mz-border-radius;
+@use 'mixin/mz-general' as general;
+@use 'function/mz/mz-color' as mz-color;
+
+.change-payment-template {
+  display: flex;
+  flex-wrap: wrap;
+
+  &__sidebar-col {
+    width: 220px;
+    flex: 0 0 220px;
+    min-width: 1px;
+  }
+
+  &__main-col {
+    flex: 1 1;
+    min-width: 1px;
+    border: 1px solid #f2f2f2;
+    padding: 15px 15px 15px 20px;
+    position: relative;
+
+    &::before {
+      background: rgba(#fff,0.8) url(vars.$mz-loading-image-url) no-repeat center;
+      z-index: 5;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      top: 0;
+    }
+
+    &.is-loading {
+      &::before {
+        content: '';
+      }
+    }
+
+    // Custom loading field component
+    .loading-field-component {
+      margin-bottom: 15px;
+    }
+  }// &__main-col
+
+  &__alert-guide-outer {
+    position: relative;
+    margin-bottom: 32px;
+
+    &.is-show {
+      .change-payment-template__alert-guide {
+        height: auto;
+
+        &:before {
+          content: none;
+        }
+      }
+
+      .change-payment-template__expand-icon {
+        &:before {
+          content: '\f077';
+        }
+      }
+    }
+  } // end __alert-guide-outer
+
+  &__alert-guide {
+    position: relative;
+    height: 52px;
+    overflow: hidden;
+
+    &:before {
+      position: absolute;
+      content: '';
+      display: block;
+      left: 0;
+      right: 0;
+      height: 30px;
+      margin: 0 auto;
+      bottom: 0;
+      background-image: -webkit-gradient(linear,left top,left bottom,color-stop(0, transparent),color-stop(1, #fff));
+    }
+  }
+
+  &__expand-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: calc(100% - 1px);
+    left: 50%;
+    transform: translateX(-50%);
+    height: 20px;
+    padding: 0 16px;
+    border: 1px dashed #ffe9b5;
+    border-top: none;
+    background: #fffef9;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+  }
+
+  &__expand-icon {
+    position: relative;
+    @include mz-text-size.mz-text-size('normal');
+    color: #FFA400;
+    top: -2px;
+
+    &:before {
+      font-family: vars.$mz-font-family-fa5;
+      content: '\f078';
+      display: inline-block;
+    }
+  }
+}// .change-payment-template
+
+// =============================================
+//  Sidebar col
+// =============================================
+// Choose payment panel
+// ------------------------------------
+.change-payment-template {
+  &__choose-payment-panel {
+    display: flex;
+    align-items: center;
+    padding: 5px 10px;
+    margin-bottom: 1px;
+    height: 100px;
+    background: linear-gradient(90deg,#f9f9f9,#f2f2f2);
+    position: relative;
+    cursor: pointer;
+    background: #f2f2f2;
+
+    &::before {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 3px;
+      height: 100%;
+      @include old-bg-fd-grd.old-bg-fd-grd(135deg);
+    }
+
+    &::after {
+      position: absolute;
+      right: -10px;
+      top: 50%;
+      margin-top: -50px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 50px 0 50px 10px;
+      border-color: transparent transparent transparent #f2f2f2;
+      z-index: 6;
+    }
+
+    &.is-active {
+      &::before, &::after {
+        content: "";
+      }
+    }// &.is-active
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }// &__choose-payment-panel
+
+  &__choose-payment-panel__icon {
+    flex: 0 0 32px;
+    width: 32px;
+    margin-right: 10px;
+  }
+
+  &__choose-payment-panel__title {
+  }
+
+  &__choose-payment-panel__suggest-tag {
+    display: inline-flex;
+    padding: 2px 6px;
+    font-size: 10px;
+    line-height: 1;
+    color: #fff;
+    margin-top: 2px;
+    @include mz-border-radius.mz-border-radius-from-key('round');
+    background: vars.$mz-warning;
+  }
+}// .change-payment-template
+
+// =============================================
+//  Cod payment panel
+// =============================================
+.change-payment-template {
+  &__cod-payment-panel {
+    display: flex;
+    align-items: center;
+    padding: 16px 0;
+    text-align: center;
+    justify-content: center;
+    cursor: pointer;
+  }
+
+  &__cod-payment-panel__title {
+    display: inline-flex;
+    position: relative;
+
+    &::before {
+      content: '';
+      height: 2px;
+      left: 0;
+      right: 0;
+      bottom: -4px;
+      background: rgba(vars.$mz-text-body-color,0.5);
+      display: block;
+      position: absolute;
+    }
+  }
+}
+
+// =============================================
+//  Main col
+// =============================================
+.change-payment-template {
+  &__payment-form {
+    display: none;
+
+    &.is-show {
+      display: block;
+    }
+  }
+}// .change-payment-template
+
+// Prepayment segment
+// ------------------------------------
+.change-payment-template {
+  &__prepayment-segment {
+    margin-bottom: 15px;
+  }
+
+  &__prepayment-segment__title {
+    margin-bottom: 10px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+  }
+}// .change-payment-template
+
+// Prepayment panel
+// ------------------------------------
+.change-payment-template {
+  &__prepayment-panel {
+    margin-bottom: 10px;
+    border-radius: 4px;
+    border: 1px solid #e1e1e1;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &.is-loading {
+      font-family: vars.$mz-font-family-flow-rounded;
+      color: vars.$mz-gray-light;
+      word-spacing: 1px;
+      letter-spacing: 0;
+    }
+  }
+
+  &__prepayment-control {
+    padding: 8px 10px;
+    background: linear-gradient(#fff,#f2f8f8);
+    border-radius: 5px;
+  }
+
+  &__prepayment-panel__head {
+    position: relative;
+    padding: 8px 10px;
+    background: linear-gradient(#fff, #f2f8f8);
+    border-radius: 5px 5px 0 0;
+  }
+
+  &__prepayment-panel__body {
+    padding: 10px;
+    display: none;
+  }
+
+  &__prepayment-panel.is-uncollapse {
+    .change-payment-template {
+      &__prepayment-control {
+        border-radius: 5px 5px 0 0;
+      }
+
+      &__prepayment-panel__body {
+        display: block;
+      }
+    }// .change-payment-template
+  }// &__prepayment-panel.is-uncollapse
+
+  &__price-item {
+    display: flex;
+    align-items: center;
+    padding: 5px 0;
+
+    &:hover {
+      background: #f5f5f5;
+    }
+  }
+
+  &__price-item__lbl-col {
+    flex: 1 1;
+    display: flex;
+    align-items: center;
+  }
+
+  &__price-item__info-col {
+    white-space: nowrap;
+    margin-left: 15px;
+    font-size: 15px;
+  }
+
+  &__title {
+    display: inline-flex;
+    flex-wrap: wrap;
+    width: 95px;
+  }
+
+  &__price-line-break {
+    background: linear-gradient(to right,#f4f9f8,#a9b7ce,#f4f9f8);
+    margin: 5px auto;
+    height: 1px;
+
+    &.-half-right {
+      width: 40%;
+      margin: 5px 0 5px auto;
+    }
+  }
+
+  &__code-applied {
+    display: inline-flex;
+    padding: 3px 5px;
+    font-size: 12px;
+    line-height: 16px;
+    border: 1px dashed vars.$mz-success;
+    cursor: pointer;
+    margin: 0 10px 0 5px;
+
+    i {
+      margin-right: 5px;
+    }
+
+    &:hover {
+      color: vars.$mz-link-color;
+    }
+  }
+
+  &__add-code-btn {
+    display: inline-flex;
+    padding: 3px 8px;
+    font-size: 13px;
+    line-height: 18px;
+    border: 1px dashed vars.$mz-link-color;
+    color: #999;
+    font-style: italic;
+    cursor: pointer;
+    align-items: center;
+    margin-left: 5px;
+
+    i {
+      margin-right: 5px;
+    }
+
+    &:hover {
+      color: vars.$mz-text-body-color;
+    }
+  }
+}// .change-payment-template
+
+// Transfer bank segment
+// ------------------------------------
+.change-payment-template {
+  &__transfer-bank-segment {
+    margin-bottom: 15px;
+  }
+
+  &__transfer-bank-segment__title {
+    margin-bottom: 10px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  // transfer bank panel
+  // ---------
+  &__transfer-bank-panel__control {
+    position: relative;
+
+    &::before {
+      content: "";
+      left: 130px;
+      right: 0;
+      height: 1px;
+      top: 50%;
+      position: absolute;
+      margin-top: -0.5px;
+      background: #e1e1e1;
+    }
+
+    .check-control__check-icon {
+      top: 50%;
+      margin-top: -7px;
+    }
+
+    .check-control__label {
+      height: 40px;
+      width: 100px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #e1e1e1;
+      border-radius: 4px;
+      background: #fff;
+    }
+  }
+
+  &__transfer-bank-img {
+    max-width: 90px;
+    max-height: 34px;
+  }
+
+  &__transfer-bank-panel__body {
+    padding-left: 20px;
+    margin-top: 10px;
+    display: none;
+  }
+
+  &__transfer-bank-panel.is-uncollapse {
+    .change-payment-template {
+      &__transfer-bank-panel__body {
+        display: block;
+      }
+    }
+  }// &__transfer-bank-panel.is-uncollapse
+
+  // transfer bank tb
+  // ---------
+  &__transfer-bank-tb {
+    width: 100%;
+    font-size: 13px;
+    line-height: 18px;
+
+    td {
+      padding: 4px 0;
+    }
+  }
+
+  &__bank-info-tr {
+    &:hover {
+      td {
+        background: #ededed;
+      }
+    }
+  }
+
+  &__bank-lbl-td {
+    color: #999;
+    font-style: italic;
+    padding-right: 10px!important;
+    width: 160px;
+  }
+
+  &__alert-note-transfer {
+    margin-top: 5px;
+    font-size: 13px;
+    line-height: 18px;
+  }
+}// .change-payment-template
+
+// ------------------------------------
+// Bank segment
+// ------------------------------------
+.change-payment-template {
+  &__bank-segment {
+    margin-bottom: 15px;
+  }
+
+  &__bank-segment__title {
+    margin-bottom: 10px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  &__bank-segment__select-field {
+    display: flex;
+  }
+
+  &__bank-segment__select-input-item {
+    padding: 6px 12px;
+    background: vars.$mz-gray-lighter;
+    color: vars.$mz-gray-dark;
+    border-radius: 4px;
+    margin-right: 8px;
+    cursor: pointer;
+
+    &.is-actived {
+      background: vars.$mz-primary;
+      color: #ffffff;
+
+      &:hover {
+        background: mz-color.mz-get-hover-color(vars.$mz-primary);
+      }
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &:hover {
+      background: mz-color.mz-get-hover-color(vars.$mz-gray-lighter);
+    }
+  }
+
+  // Payment gate select
+  // ---------
+  &__payment-gate-select {
+    height: 40px;
+    border: 1px solid #dfe6ea;
+    background: linear-gradient(#fff,#f3f8f9)!important;
+    border-radius: 4px;
+  }
+
+  // Bank control
+  // ---------
+  &__bank-control-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -5px 0;
+  }
+
+  &__bank-control {
+    flex: 0 0 percentage(math.div(1, 5));
+    margin-top: 10px;
+    margin-bottom: 0;
+    padding: 0 5px;
+  }// &__bank-control
+
+  &__bank-input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+
+    &:checked {
+      &+ .change-payment-template__bank-img-field {
+        border-color: vars.$mz-link-color;
+        opacity: 1;
+      }
+    }
+  }// &__bank-input
+
+  &__bank-img-field {
+    border: 1px solid lighten(#e1e1e1,3%);
+    border-radius: 4px;
+    display: flex;
+    width: 100%;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    opacity: 0.5;
+    cursor: pointer;
+
+    &:hover {
+      border-color: #e1e1e1;
+      opacity: 1;
+    }
+  }
+
+  &__bank-img-loading {
+    height: 100%;
+    width: 100%;
+  }
+
+  &__bank-img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+}// .change-payment-template
+
+// Installment segment
+// ------------------------------------
+.change-payment-template {
+  &__installment-segment {
+    margin-bottom: 15px;
+  }
+
+  &__installment-segment__title {
+    margin-bottom: 10px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  // Installment month
+  // ---------
+  &__installment-month-select {
+    height: 40px;
+    border: 1px solid #dfe6ea;
+    background: linear-gradient(#fff,#f3f8f9)!important;
+    border-radius: 4px;
+
+    [hidden] {
+      display: block !important;
+    }
+  }
+}
+
+// Payment info segment
+// ------------------------------------
+.change-payment-template {
+  &__payment-info-segment {
+    margin-bottom: 15px;
+  }
+
+  &__payment-info-segment__title {
+    margin-bottom: 10px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+  }
+}
+
+// Payment store segment
+// ------------------------------------
+.change-payment-template {
+  &__store-segment {
+    margin-bottom: 15px;
+  }
+
+  &__store-segment__title {
+    margin-bottom: 10px;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  &__list-store-img {
+    opacity: .5;
+  }
+}
+
+// Confirm segment
+// ------------------------------------
+.change-payment-template {
+  &__confirm-segment {
+    border-top: 1px solid #e1e1e1;
+    padding-top: 15px;
+  }
+}// .change-payment-template
+
+// wallet warning
+// ------------------------------------
+.change-payment-template {
+  .wallet-notice-error-list {
+    padding: 0 16px;
+  }
+
+  .wallet-notice-error-list-inner {
+    padding-top: 16px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid vars.$mz-gray-lighter;
+  }
+
+  .wallet-notice-error-item {
+    margin-bottom: 8px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .wallet-notice-error-label {
+    font-weight: 700;
+  }
+
+  .wallet-add-point-btn-outer {
+    display: flex;
+    justify-content: center;
+    margin-top: 16px;
+  }
+}
+
+// payment tab box
+// ------------------------------------
+.change-payment-template {
+  &__sub-payment-tab-box {
+    border-radius: 4px;
+    overflow: hidden;
+    border: 1px solid vars.$mz-gray-lighter;
+    margin-top: 12px;
+
+    &__head {
+      margin-bottom: 16px;
+    }
+
+    &__body {
+      padding: 0 16px 16px;
+    }
+  }
+
+  &__sub-payment-tab-wrap {
+    display: flex;
+  }
+
+  &__sub-payment-tab-col {
+    flex: 0 0 percentage(math.div(1, 2));
+  }
+
+  &__sub-payment-tab-item {
+    display: flex;
+    padding: 10px 16px;
+    align-items: center;
+    background: vars.$mz-gray-lighter;
+    @include general.mz-fix-event-click();
+    color: vars.$mz-gray;
+
+    &__title-col {
+      display: flex;
+      flex: 1 1;
+      align-items: center;
+    }
+
+    &__title-icon-shape {
+      display: flex;
+      flex: 0 0 24px;
+      height: 24px;
+      align-items: center;
+      justify-content: center;
+      margin-right: 2px;
+    }
+
+    &__title-label {
+      position: relative;
+      top: -1px;
+    }
+
+    &__icon-col {
+      margin-left: 4px;
+    }
+
+    &__icon-shape {
+      display: flex;
+      flex: 0 0 24px;
+      height: 24px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &__check-icon {
+      display: none;
+    }
+  }
+
+  &__sub-payment-tab-item-fake {
+    display: none;
+
+    &:checked {
+      $_class-payment-tab-item: '.change-payment-template__sub-payment-tab-item';
+
+      + #{$_class-payment-tab-item} {
+        background: #ffffff;
+        color: vars.$mz-primary;
+
+        #{$_class-payment-tab-item}__title-label {
+          font-weight: 600;
+        }
+
+        #{$_class-payment-tab-item}__empty-check-icon {
+          display: none;
+        }
+
+        #{$_class-payment-tab-item}__check-icon {
+          display: inline-block;
+        }
+      }
+    }
+  } // .change-payment-template__sub-payment-tab-item-fake
+
+  &__sub-payment-content {
+    background: #ffffff;
+    min-height: 271px;
+
+    .change-payment-template__bank-control-wrap {
+      margin: -10px -5px 0;
+    }
+  }
+
+  &__sub-payment-title {
+    margin-bottom: 8px;
+    color: vars.$mz-gray-darker;
+  }
+}

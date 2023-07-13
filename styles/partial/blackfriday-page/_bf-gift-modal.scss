@@ -1,0 +1,162 @@
+@use 'vars' as vars;
+@use 'mixin/mz-text-size' as mz-text-size;
+
+$_font-family-r0c0iLinotte: 'r0c0iLinotte', 'Fadofont', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', sans-serif;
+
+.bf-gift-modal {
+  .modal-dialog {
+    width: 630px;
+  }
+
+  .modal-content {
+    background: none;
+    border: 0;
+    width: auto;
+  }
+
+  .close-btn {
+    position: absolute;
+    background: url(vars.$mz-image-url + '/page/blackfriday-page/gift-modal/close-gift-modal-btn.png') no-repeat center;
+    background-size: contain;
+    top: 90px;
+    right: -20px;
+    width: 50px;
+    height: 50px;
+    z-index: 5;
+    cursor: pointer;
+
+    &:hover {
+      background-image: url(vars.$mz-image-url + '/page/blackfriday-page/gift-modal/close-gift-modal-btn-hover.png');
+    }
+  }
+
+  .frame-leaf-left {
+    position: absolute;
+    background: url(vars.$mz-image-url + '/page/blackfriday-page/gift-modal/frame-leaf-left.png') no-repeat center;
+    background-size: contain;
+    bottom: 0;
+    width: 227px;
+    height: 234px;
+    left: -100px;
+    pointer-events: none;
+  }
+
+  .frame-leaf-right {
+    position: absolute;
+    background: url(vars.$mz-image-url + '/page/blackfriday-page/gift-modal/frame-leaf-right.png') no-repeat center;
+    background-size: contain;
+    bottom: 0;
+    width: 192px;
+    height: 254px;
+    right: -60px;
+    pointer-events: none;
+  }
+
+  .frame-people-left {
+    position: absolute;
+    background: url(vars.$mz-image-url + '/page/blackfriday-page/gift-modal/frame-people-left.png') no-repeat center;
+    background-size: contain;
+    bottom: -80px;
+    width: 375px;
+    height: 383px;
+    left: -130px;
+    z-index: 6;
+    pointer-events: none;
+  }
+
+  .frame-people-right {
+    position: absolute;
+    background: url(vars.$mz-image-url + '/page/blackfriday-page/gift-modal/frame-people-right.png') no-repeat center;
+    background-size: contain;
+    bottom: -120px;
+    width: 289px;
+    height: 406px;
+    right: -120px;
+    pointer-events: none;
+    z-index: 6;
+  }
+
+  .modal-body {
+    background: url(vars.$mz-image-url + '/page/blackfriday-page/gift-modal/gift-modal-frame.png') no-repeat top center;
+    background-size: contain;
+    width: 630px;
+    height: 716px;
+    padding: 300px 100px 50px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    position: relative;
+    z-index: 4;
+    justify-content: center;
+  }
+
+  .welcome-title {
+    @include mz-text-size.mz-text-size(24px);
+    font-weight: 700;
+    margin-bottom: 12px;
+    color: vars.$mz-primary;
+    font-family: $_font-family-r0c0iLinotte;
+  }
+
+  .gift-title {
+    text-transform: uppercase;
+    @include mz-text-size.mz-text-size(28px);
+    margin-bottom: 8px;
+    font-weight: 800;
+    font-family: $_font-family-r0c0iLinotte;
+  }
+
+  .gift-field {
+    margin: 0 auto 30px;
+    width: 320px;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url(vars.$mz-image-url + '/page/blackfriday-page/gift-modal/gift-decor-bg.png') no-repeat center;
+    background-size: contain;
+  }
+
+  .icon-shape {
+    text-align: center;
+    height: 154px;
+  }
+
+  .gift-img {
+
+  }
+
+  .btn-field {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .continue-btn, .continue-gift-list-btn {
+    width: 168px;
+    height: 86.5px;
+    cursor: pointer;
+    background: url(vars.$mz-image-url + '/page/blackfriday-page/gift-modal/btn-sprite@2x.png' + vars.$mz-cache-ver-suffix) no-repeat top left;
+    background-size: 336px auto;
+    background-position: 0 0;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .continue-btn {
+    &:hover {
+      background-position: 0 -85px;
+    }
+  }
+
+  .continue-gift-list-btn {
+    background-position: -168px 0;
+
+    &:hover {
+      background-position: -168px -85px;
+    }
+  }
+}// .bf-gift-modal

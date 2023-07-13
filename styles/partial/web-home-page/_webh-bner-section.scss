@@ -1,0 +1,21 @@
+.webh-bner-section {
+  &__inner {
+    position: relative;
+    height: 272px;
+  }
+
+  &__img-outer {
+    position: absolute;
+    height: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    z-index: 5;
+  }
+
+  &__img {
+    object-fit: cover;
+    height: 100%;
+    max-width: none;
+  }
+}

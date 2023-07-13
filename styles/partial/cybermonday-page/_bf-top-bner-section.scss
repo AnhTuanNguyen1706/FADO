@@ -1,0 +1,26 @@
+@use 'vars' as vars;
+
+.bf-top-bner-section {
+  height: 728px;
+  position: relative;
+  overflow: hidden;
+  background: #f1f2f2;
+  z-index: vars.$mz-z-index-lv-1;
+  background-color: #FFFFFF;
+
+  .bner-field {
+    text-align: center;
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .bner-img {
+    height: auto;
+    width: auto;
+    max-width: none;
+    max-height: none;
+  }
+}

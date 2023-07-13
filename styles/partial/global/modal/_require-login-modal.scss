@@ -1,0 +1,50 @@
+@use 'vars' as vars;
+
+.require-login-modal {
+  .mz-basic-modal__head {
+    background: #fff;
+    border-bottom: 0;
+  }
+
+  .mz-basic-modal__title {
+    color: vars.$mz-text-body-color;
+  }
+
+  .mz-basic-modal__body {
+    padding: 0;
+  }
+
+  .bner-segment {
+    position: relative;
+
+    &::before {
+      content: '';
+      display: block;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 2px;
+      background: vars.$mz-primary;
+    }
+  }
+
+  .modal-bner-img {
+    width: 100%;
+    filter: grayscale(100%);
+  }
+
+  .content-segment {
+    padding: 16px;
+    text-align: center;
+  }
+
+  .btn-wrap {
+    margin-top: 16px;
+
+    .mz-btn {
+      width: 156px;
+      margin: 0 4px;
+    }
+  }
+}

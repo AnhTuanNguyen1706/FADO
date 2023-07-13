@@ -1,0 +1,11 @@
+@mixin mz-animation-spin($_time: 1.5s) {
+  animation: mz-animation-spin $_time infinite linear;
+}
+
+@mixin mz-animation-pop($_time: 0.3s) {
+  animation: mz-animation-pop $_time ease;
+}
+
+@mixin mz-animation-fade-in($_time: 0.3s, $_delay: 0s) {
+  animation: mz-animation-fade-in $_time ease $_delay;
+}

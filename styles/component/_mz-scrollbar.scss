@@ -1,0 +1,47 @@
+@use 'vars' as vars;
+
+.mz-scrollbar {
+  $_transition-time: 0.2s;
+  position: relative;
+
+  .os-scrollbar-vertical {
+    right: 4px !important;
+    top: 4px !important;
+    bottom: 4px !important;
+    padding: 0 0 0 4px !important;
+    width: 8px;
+  }// .os-scrollbar-vertical
+
+  .os-scrollbar-track {
+    background: rgba(vars.$mz-gray,0) !important;
+    border-radius: vars.$mz-rounded-round !important;
+    transition: $_transition-time !important;
+  }
+
+  .os-scrollbar-handle {
+    background: vars.$mz-gray-darker !important;
+    opacity: 0.5;
+    left: auto;
+    right: 0;
+    transition: width $_transition-time !important;
+    width: 4px;
+
+    &::before {
+      left: 0 !important;
+      right: 0 !important;
+    }
+  }
+
+  // Hover to show scrollbar track
+  .os-scrollbar-vertical:hover {
+    padding-left: 0 !important;
+
+    .os-scrollbar-track {
+      background: rgba(vars.$mz-gray,0.2) !important;
+    }
+
+    .os-scrollbar-handle {
+      width: 8px;
+    }
+  }
+}// .mz-scrollbar

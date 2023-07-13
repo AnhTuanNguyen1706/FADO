@@ -1,0 +1,23 @@
+// Partials global
+// ---------
+@use "component/_product-titlebar-section";
+@use 'partial/product/product-box';
+@use "partial/global/suggest-product-deal-block";
+@use 'partial/global/product/product-card';
+@use 'partial/global/product/product-deal-action-card';
+@use 'partial/global/search-tab-section';
+@use "partial/global/search-correct-segment";
+@use "partial/global/search-fail-keyword-block";
+
+// Partials other page
+//----------
+@use "partial/search-page/search-correct-dropdown";
+
+// Partials in category
+// ---------
+@use "./partial/category-page/category-side-col";
+@use "./partial/category-page/category-info-section";
+
+// Partials in page
+// ---------
+@use "./_store-search-page";

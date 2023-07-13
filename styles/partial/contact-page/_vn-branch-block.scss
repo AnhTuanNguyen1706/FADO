@@ -1,0 +1,171 @@
+@use 'vars' as vars;
+
+$tmp-border-color: #e1e1e1;
+
+.vn-branch-block {
+  margin-bottom: 40px;
+
+  &__title {
+    text-align: center;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 20px;
+  }
+
+  &__body {
+    display: flex;
+    width: 100%;
+    align-items: center;
+  }
+
+  &__map-col {
+    flex: 1 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__branch-col {
+    flex: 1 1;
+  }
+}// .vn-branch-block
+
+// ===================================
+// Map col
+// ===================================
+.vn-branch-block {
+  &__map-field {
+    width: 316px;
+    height: 550px;
+    background: url(vars.$mz-image-url + '/other/vn-map.png' + vars.$mz-cache-ver-suffix) no-repeat center;
+    position: relative;
+  }
+
+  &__map-pin {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    transform: translate(-20px,-33px);
+    z-index: 2;
+  }
+
+  &__map-pin__icon {
+    flex: 0 0 32px;
+    margin-right: 3px;
+  }
+
+  &__map-pin__title {
+    font-weight: 500;
+    text-shadow: 1px 1px 0 #fff;
+    white-space: nowrap;
+  }
+}// .vn-branch-block
+
+// ===================================
+// Branch col
+// ===================================
+.vn-branch-block {
+  //#region - Branch segment
+  &__branch-segment {
+    border: 1px solid $tmp-border-color;
+    margin-bottom: 15px;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+
+  &__branch-segment__head {
+    padding: 10px 40px 10px 15px;
+    background: lighten($tmp-border-color,6%);
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+    cursor: pointer;
+    position: relative;
+
+    &::before {
+      content: "\f055";
+      font-family: vars.$mz-font-family-fa5;
+      position: absolute;
+      right: 15px;
+      top: 50%;
+      font-size: 16px;
+      line-height: 16px;
+      margin-top: -8px;
+      font-weight: 700;
+      color: vars.$mz-link-color;
+    }
+
+    &:hover {
+      background: lighten($tmp-border-color,3%);
+    }
+  }
+
+  &__branch-segment__body {
+    display: none;
+    padding: 15px;
+    height: 128px;
+    overflow: auto;
+  }
+
+  &__branch-segment.is-expand {
+    .vn-branch-block__branch-segment__head {
+      cursor: auto;
+      background: lighten($tmp-border-color,6%);
+
+      &::before {
+        content: none;
+      }
+    }
+
+    .vn-branch-block__branch-segment__body {
+      display: block;
+    }
+  }
+  //#endregion - branch segment
+
+  //#region - branch panel
+  &__branch-panel {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed lighten($tmp-border-color,6%);
+
+    &:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
+  }
+
+  &__branch-info-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }// &__branch-info-item
+
+  &__branch-info-item__icon-col {
+    color: vars.$mz-link-color;
+    flex: 0 0 24px;
+    margin-right: 10px;
+  }
+
+  &__branch-work-time {
+    color: #2c931d;
+    font-style: italic;
+  }
+
+  &__branch-phone {
+    color: vars.$mz-text-body-color;
+
+    &:hover {
+      color: vars.$mz-link-color;
+    }
+  }
+  //#endregion - branch panel
+}// .vn-branch-block

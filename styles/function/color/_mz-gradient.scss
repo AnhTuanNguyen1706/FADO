@@ -1,0 +1,43 @@
+@function mz-get-gradient-bg($_map-grd-color, $_rotate: null, $_has-important: false) {
+  @if($_rotate == null) {
+    $_rotate: $mz-gradient-rotate-default;
+  }
+
+  @if(type-of($_map-grd-color) == 'list') {
+    // Kiểm tra các màu truyền vào có hợp lệ không
+    $_is-valid-color: true;
+    @each $_color in $_map-grd-color {
+      @if not(is-color($_color)) {
+        $_is-valid: false;
+      }
+    }
+
+    @if($_is-valid-color) {
+      // Xử lý in màu
+      $_total-color: length($_map-grd-color);
+      $_idx: 0;
+
+      @each $_color in $_map-grd-color {
+        $_idx: $_idx + 1;
+
+        @if not(is-color($_color)) {
+          $_is-valid: false;
+        }
+      }
+
+      @if($_has-important) {
+        @return linear-gradient(#{$_rotate},#{$_map-grd-color}) !important;
+      } @else {
+        @return linear-gradient(#{$_rotate},#{$_map-grd-color});
+      }
+    } @else {
+      @warn '$_map-grd-color is not valid color type';
+      @return null;
+    }
+  } @else {
+    @warn '$_map-grd-color: ' + $_map-grd-color + ' is not type list';
+    @return null;
+  }
+
+  @return null;
+}

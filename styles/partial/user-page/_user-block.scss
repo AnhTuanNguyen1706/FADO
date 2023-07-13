@@ -1,0 +1,287 @@
+@use 'vars' as vars;
+@use 'mixin/mz-text-size' as mz-text-size;
+@use 'mixin/is-loading' as is-loading;
+
+@keyframes showAFffiliateLinkBlock {
+  0% {
+    opacity: 0;
+  }
+  25% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
+  75% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+$tmp-table-border: darken(#ededed, 0);
+.user-block {
+  margin-bottom: 40px;
+  padding:0 0 15px;
+  background: #fff;
+  border-radius: 4px;
+}
+// Form
+// ------------------
+.user-block {
+  &__input-form {
+    position: relative;
+    .my-form-control {
+      max-width: 340px;
+    }
+    &.is-loading {
+      &::before {
+        content: '';
+        @include is-loading.beforeIsLoading;
+      }
+    }
+  }
+  &__form-group {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 15px;
+  }
+  &__form-group__lbl-col {
+    flex: 0 0 130px;
+    min-width: 1px;
+    margin-right: 10px;
+    line-height: 34px;
+    text-align: right;
+  }
+  &__form-group__info-col {
+    position: relative;
+    flex: 1 1;
+    min-width: 1px;
+  }
+  .check-control {
+    &__check-icon {
+      top: 50%;
+      margin-top: -7px;
+    }
+    &__indicator {
+      display: flex;
+      align-items: center;
+      min-height: 34px;
+    }
+  }
+  &__form-input-icon-col {
+    display: flex;
+    align-items: center;
+  }
+  &__form-input-icon-col__icon {
+    margin-right: 10px;
+    font-size: 18px;
+    line-height: 24px;
+  }
+} // .user-block
+// Data table
+// ------------------
+.user-block {
+  &__data-tb {
+    width: 100%;
+    margin-top: 15px;
+    border: 1px solid $tmp-table-border;
+    th {
+      align-items: center;
+      padding: 10px;
+      font-weight: 500;
+      white-space: nowrap;
+      text-align: center;
+      background: lighten($tmp-table-border, 1%);
+      border-bottom: 1px solid $tmp-table-border;
+      line-height: 18px;
+    }
+    td {
+      padding: 7px 10px;
+      font-size: 13px;
+      line-height: 18px;
+      text-align: center;
+      border-bottom: 1px solid $tmp-table-border;
+    }
+    tr {
+      &:nth-of-type(even) {
+        td {
+          background: lighten($tmp-table-border, 5%);
+        }
+      }
+      &:hover {
+        td {
+          background: lighten($tmp-table-border, 3%);
+        }
+      }
+    }
+    .user-block__control-td {
+      width: 50px;
+    }
+    .user-block__control-btn {
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 24px;
+      margin-bottom: 5px;
+      padding: 0 5px;
+      color: vars.$mz-text-body-color;
+      font-size: 12px;
+      line-height: 16px;
+      white-space: nowrap;
+      background: lighten(#e1e1e1, 10%);
+      border: 1px solid #e1e1e1;
+      border-radius: 4px;
+      &:hover {
+        background: lighten(#e1e1e1, 4%);
+      }
+      &:last-child {
+        margin-bottom: 0;
+      }
+    } // &__control-btn
+  } // &__data-tb
+} // .user-block
+// Pagination nav
+// ------------------
+.user-block {
+  .pagination-nav-old {
+    margin-top: 15px;
+  }
+}
+// ===================================
+// Block head
+// ===================================
+.user-block {
+  &__head {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid vars.$mz-gray-lighter;
+  }
+  &__body {
+    position: relative;
+    padding: 0 1px;
+    &.is-loading {
+      &::before {
+        content: '';
+        background: rgba(#fff,0.8) url(vars.$mz-loading-image-url) no-repeat center;
+        z-index: 5;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        position: absolute;
+      }
+    }
+  }
+  &__head__title-col {
+    font-weight: 700;
+    @include mz-text-size.mz-text-size(24px);
+    line-height: 36px;
+    color: vars.$mz-gray-dark;
+  }
+  &__head__control-col {
+    margin-left: 15px;
+  }
+}
+// ===================================
+// Block body
+// ===================================
+.user-block {
+  &__body {
+    .loading-field-component {
+      background: vars.$mz-gray-lightest;
+    }
+  }
+}// .user-block
+// ===================================
+// Affiliate create link page
+// ===================================
+.user-block {
+  &__link-form-group {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    margin-bottom: 15px;
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+  &__link-form-group__lbl-col {
+    flex: 0 0 150px;
+    min-width: 1px;
+    margin-right: 10px;
+    line-height: 34px;
+    text-align: right;
+  }
+  &__link-form-group__info-col {
+    position: relative;
+    flex: 1 1;
+    min-width: 1px;
+  }
+  &__link-form-group__control-col {
+    flex: 0 0 155px;
+    margin-left: 15px;
+  }
+  &__result-affiliate-link-field {
+    position: relative;
+    margin-top: 15px;
+    padding-top: 16px;
+    &::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 100px;
+      left: 100px;
+      height: 1px;
+      background: lighten(#e1e1e1, 5%);
+    }
+  }
+  &.after-get-link {
+    &.is-show {
+      display: block;
+    }
+  }
+  &__affiliate-link-list {
+    padding: 20px 0;
+    border-bottom: 1px dashed #e1e1e1;
+    &:first-child {
+      padding-top: 0;
+    }
+    &:last-child {
+      padding-bottom: 0;
+      border-bottom: none;
+    }
+    &.--new-affiliate-link-list {
+      opacity: 0;
+      animation: showAFffiliateLinkBlock 1s ease-in-out both;
+      animation-iteration-count: 3;
+    }
+  }
+}
+// ===================================
+// Register agent button
+// ===================================
+.user-block {
+  &__head {
+    &__register-agent {
+      justify-self: flex-end;
+    }
+    &__register-agent-btn {
+      background: vars.$mz-link-color;
+      padding: 1px;
+      .fa-chevron-double-right {
+        font-size: 12px;
+        margin-left: 5px;
+      }
+      &:hover {
+        .my-btn__inner {
+          color: #fff;
+          background: vars.$mz-link-color;
+        }
+      }
+    }
+  }
+} // end .user-block

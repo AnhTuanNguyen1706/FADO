@@ -1,0 +1,24 @@
+// Extend Libs
+// ---------
+@use 'lib/flatpickr/flatpickr';
+
+// Partials user page
+//-------------
+@use 'partial/user-page/user-layout';
+@use 'partial/user-page/user-head-section';
+@use 'partial/user-page/user-sblock';
+@use 'partial/user-page/user-block';
+
+// Patials in page
+// ---------
+@use './_user-wallet-history-page';
+@use './user-wallet-history-section';
+@use './user-wallet-header-block';
+@use './user-wallet-empty-block';
+@use './user-wallet-control-block';
+@use './user-wallet-auto-payment-block';
+@use './user-wallet-manage-block';
+@use './user-wallet-main-info-block';
+@use './user-wallet-interest-modal';
+@use './user-wallet-history-manage-block';
+@use './regist-get-point-success-modal';

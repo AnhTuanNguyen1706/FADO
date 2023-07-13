@@ -1,0 +1,106 @@
+@use 'vars' as vars;
+@use 'mixin/mz-text-size' as mz-text-size;
+@use 'mixin/mz-general' as general;
+
+// =============================================
+// Modal affiliate
+// =============================================
+.product-affiliate-modal {
+  .modal-dialog {
+    width: 488px;
+  }
+
+  &__login-block {
+    text-align: center;
+  }
+
+  &__login-des {
+    margin-bottom: 8px;
+  }
+
+  &__readmore-link {
+    position: relative;
+    height: 80px;
+    margin: 16px 0 0;
+  }
+
+  &__readmore-content {
+    position: absolute;
+    left: 60px;
+    top: 16px;
+    text-align: center;
+  }
+
+  &__readmore-title {
+    margin-bottom: 4px;
+    font-weight: bold;
+    color: vars.$mz-primary;
+  }
+
+  &__des {
+    display: flex;
+    flex-wrap: nowrap;
+    margin-bottom: 16px;
+    padding: 10px 8px;
+    border: solid 1px vars.$mz-primary-lighter;
+    background: vars.$mz-primary-lightest;
+    color: vars.$mz-gray-dark;
+    @include mz-text-size.mz-text-size(13px);
+  }
+
+  &__des-icon {
+    flex: 0 0 24px;
+    margin-right: 6px;
+    font-size: 18px;
+    color: vars.$mz-primary;
+  }
+
+  &__link-item {
+    margin-bottom: 16px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__link-title {
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: vars.$mz-gray;
+  }
+
+  &__link-fake-input {
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    height: 34px;
+    width: 100%;
+    position: relative;
+    border: solid 1px vars.$mz-gray-light;
+    border-radius: 100px;
+    padding: 0 100px 0 12px;
+    cursor: pointer;
+  }
+
+  &__link-show {
+    @include general.mz-limit-text-line(14px, 1);
+    word-break: break-all;
+    // pointer-events: none;
+  }
+
+  &__link-copy-btn {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    top: -1px;
+    right: -1px;
+    padding: 0 12px;
+    height: 34px;
+    border-top-right-radius: 100px;
+    border-bottom-right-radius: 100px;
+    background: vars.$mz-primary;
+    color: #fff;
+    flex: 0 0 auto;
+    // pointer-events: none;
+  }
+}// .modal-affiliate

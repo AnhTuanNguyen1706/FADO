@@ -1,0 +1,38 @@
+@use 'vars' as vars;
+@use 'mixin/mz-text-size' as mz-text-size;
+@use 'lib/mz-grid-framework/mixin/mz-grid' as mz-grid;
+
+.group-product-section {
+  padding-bottom: 48px;
+
+  .alert-no-data-text {
+    @include mz-text-size.mz-text-size(12px);
+    color: vars.$mz-gray;
+    text-align: center;
+  }
+
+  .pagination-nav {
+    padding-top: 16px;
+  }
+}
+
+// Group product block
+.group-product-block {
+
+  &.is-start {
+    min-height: 300px;
+  }
+
+  .product-row {
+    @include mz-grid.mz-make-row(6);
+    margin: 0 -8px;
+  }
+
+  .product-col {
+    @include mz-grid.mz-make-col-ready(6);
+    @include mz-grid.mz-make-col(1,5);
+    margin-bottom: 16px;
+    padding: 0 8px;
+    display: flex;
+  }
+}

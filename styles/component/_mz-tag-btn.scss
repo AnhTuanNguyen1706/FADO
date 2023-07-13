@@ -1,0 +1,101 @@
+@use 'vars' as vars;
+@use 'mixin/mz-text-size' as mz-text-size;
+@use 'function/mz/mz-color' as mz-color;
+
+.mz-tag-btn {
+  height: vars.$mz-form-height-default;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: vars.$mz-form-border-radius-default;
+  border: 1px solid transparent;
+  background-color: transparent;
+  padding: 0 12px;
+  text-align: center;
+  vertical-align: middle;
+  transition: vars.$mz-transition-time-xs;
+  background: vars.$mz-gray-lighter;
+  color: vars.$mz-gray-dark;
+
+  &__icon-col {
+    &:first-child {
+      margin-right: 4px;
+    }
+
+    &:last-child {
+      margin-left: 4px;
+    }
+  }
+
+  &:hover {
+    color: vars.$mz-gray-darker;
+  }
+
+  &.is-disabled, &:disabled {
+    pointer-events: none;
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+
+  &:active, &:focus {
+    color: vars.$mz-text-body-color;
+  }
+}
+
+// Generate button size
+// -------------------
+@each $_breakpoint-key, $_height-value in vars.$mz-map-form-height {
+  $_font-size-key: map-get(vars.$mz-map-form-font-size-key, $_breakpoint-key);
+
+  .mz-tag-btn-#{$_breakpoint-key} {
+    height: map-get(vars.$mz-map-form-height, $_breakpoint-key);
+    @include mz-text-size.mz-text-size($_font-size-key);
+  }
+}
+
+// Generate other button active color
+// -------------------
+$_map-btn-type: ('primary','info','warning','secondary','success','danger');
+@each $_btn-type in $_map-btn-type {
+  $_color-name: $_btn-type;
+  $_class-name: $_btn-type;
+
+  .mz-tag-btn-#{$_class-name}{
+    $_bg-color: mz-color.mz-get-color-with-level($_color-name);
+
+    &:hover {
+      background: vars.$mz-gray-lighter;
+      color: vars.$mz-gray-dark;
+    }
+
+    &.is-active{
+      background: $_bg-color;
+      color: #fff;
+
+      &:hover {
+        background: mz-color.mz-get-hover-color($_bg-color);
+      }
+    }
+  }// .mz-tag-btn-#{$_class-name}
+
+  .mz-tag-btn-outline-#{$_class-name} {
+    $_bg-color: mz-color.mz-get-color-with-level($_color-name);
+    background: transparent;
+    border: 1px solid vars.$mz-gray;
+
+    &:hover{
+      background: vars.$mz-gray-lightest;
+      color: vars.$mz-gray-dark;
+    }
+
+    &.is-active {
+      border-color: transparent;
+      background: $_bg-color;
+      color: #fff;
+
+      &:hover {
+        background: mz-color.mz-get-hover-color($_bg-color);
+      }
+    }
+  }
+}// end @each

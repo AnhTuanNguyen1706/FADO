@@ -1,0 +1,11 @@
+// Extend Libs
+// ---------
+@use 'lib/flatpickr/flatpickr';
+
+// Partials in page
+// ---------
+@use './_page';
+@use './auth-header-block';
+@use 'auth-block';
+@use 'requets-password-modal';
+@use 'request-password-finish-modal';

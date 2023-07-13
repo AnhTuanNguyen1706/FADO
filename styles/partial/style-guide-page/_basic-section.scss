@@ -1,0 +1,67 @@
+@use 'vars' as vars;
+@use 'mixin/mz-text-size' as mz-text-size;
+
+.basic-section {
+  margin-bottom: 32px;
+
+  .section-head {
+    padding-bottom: 8px;
+    margin-bottom: 16px;
+    border-bottom: 1px solid vars.$mz-gray-lighter;
+  }
+
+  .section-title {
+    font-family: vars.$mz-font-family-oswald;
+    font-weight: 400;
+    color: vars.$mz-primary-darker;
+    @include mz-text-size.mz-text-size(28px);
+  }
+
+  .sub-title-lv2 {
+    @include mz-text-size.mz-text-size(22px);
+    color: vars.$mz-gray-dark;
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+
+  .group-style, .group-btn {
+    margin-bottom: 8px;
+  }
+
+  .group-form {
+    margin-bottom: 16px;
+  }
+
+  .feedback-product-tag-item {
+    margin-bottom: 8px;
+    margin-right: 8px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+}// .basic-section
+
+// ===================================
+// Dropdown section
+// ===================================
+.basic-section {
+  .mz-dropdown {
+    display: inline-block;
+    margin-right: 16px;
+  }
+}// .dropdown-section
+
+// ===================================
+// Scrollbar section
+// ===================================
+.basic-section {
+  .test-scrollbar {
+    padding: 16px;
+    border-radius: vars.$mz-rounded-xs;
+    background: #fff;
+    border: 1px solid vars.$mz-gray-lighter;
+    max-height: 200px;
+    overflow: auto;
+  }
+}// .basic-section

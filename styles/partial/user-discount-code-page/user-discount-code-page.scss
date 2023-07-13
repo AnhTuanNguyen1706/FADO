@@ -1,0 +1,19 @@
+// Extend Libs
+// ---------
+// @use 'lib/flatpickr/flatpickr';
+
+// Partials global
+//-------------
+@use 'partial/global/modal/discount-exchange-modal';
+@use 'partial/global/discount-item';
+
+// Partials user page
+//-------------
+@use 'partial/user-page/user-layout';
+@use 'partial/user-page/user-head-section';
+@use 'partial/user-page/user-sblock';
+@use 'partial/user-page/user-block';
+
+// Patials in page
+// ---------
+@use './user-discount-section';

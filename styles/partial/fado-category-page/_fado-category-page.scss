@@ -1,0 +1,13 @@
+.fado-category-page {
+  // background: #e9edf1;
+
+  .product-card {
+    &__add-cart-btn {
+      display: none;
+    }
+  }
+}
+
+.cate-description-section + .category-layout {
+  margin-top: 16px;
+}

@@ -1,0 +1,66 @@
+@use 'vars' as vars;
+@use 'mixin/mz-text-size' as mz-text-size;
+
+.store-category-nav {
+
+  .store-nav-list {
+    display: flex;
+    align-items: center;
+    border-bottom: solid 1px vars.$mz-gray-lighter;
+  }
+
+  .store-nav-item {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 14px 16px;
+    color: vars.$mz-gray-dark;
+    transition: vars.$mz-transition-time-default;
+    text-transform: uppercase;
+    font-weight: 600;
+    @include mz-text-size.mz-text-size(13px);
+    border-radius: 32px;
+
+    &:first-child {
+      padding-left: 0;
+    }
+
+    &::before {
+      position: absolute;
+      content: "";
+      width: 1px;
+      height: 50%;
+      left: 0;
+      top: 25%;
+      background: vars.$mz-gray-lighter;
+    }
+
+    &::after {
+      position: absolute;
+      content: "";
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50%;
+      height: 4px;
+      border-radius: 2px;
+      background: vars.$mz-primary;
+      opacity: 0;
+      transition: vars.$mz-transition-time-default;
+    }
+
+    &:first-child {
+      &::before {
+        opacity: 0;
+      }
+    }
+
+    &:hover, &.is-active {
+      color: vars.$mz-primary;
+
+      &::after {
+        opacity: 1;
+      }
+    }
+  }
+}

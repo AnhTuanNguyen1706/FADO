@@ -1,0 +1,37 @@
+@use 'lib/mz-grid-framework/var/grid' as grid-var;
+@use 'lib/mz-grid-framework/mixin/mz-grid' as mz-grid;
+@use 'lib/mz-grid-framework/function/mz-grid' as mz-grid-function;
+
+$_map-breakpoint-key: grid-var.$mz-map-breakpoint-key;
+
+// ===================================
+// Container
+// ===================================
+.mz-container {
+  width: grid-var.$mz-breakpoint-xl;
+  padding: 0 grid-var.$mz-side-space-default;
+  margin: 0 auto;
+}
+
+// ===================================
+// Container extend
+// ===================================
+// ! Việc sắp xếp thứ tự trong map breakpoint sẽ ảnh hưởng tới việc ghi đè hiển thị, cẩn thận khi sắp xếp
+$_map-container-extend-breakpoint: (
+  '2xl',
+  '3xl',
+);
+
+.mz-container-extend {
+  width: map-get(grid-var.$mz-map-breakpoint, grid-var.$mz-breakpoint-key-default);
+  padding: 0 grid-var.$mz-side-space-default;
+  margin: 0 auto;
+
+  @each $breakpoint-key in $_map-container-extend-breakpoint {
+    $breakpoint-width: map-get(grid-var.$mz-map-breakpoint, $breakpoint-key);
+
+    @media (min-width: $breakpoint-width) {
+      width: $breakpoint-width;
+    }
+  }
+}

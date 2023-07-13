@@ -1,0 +1,8 @@
+@use 'vars' as vars;
+@use 'function/font-awesome/font-awesome' as font-awesome;
+
+@mixin mz-get-font-awesome-icon($_codeFont,$_fontWeightName){
+  content:'' + $_codeFont;
+  font-family: vars.$mz-font-family-fa5;
+  font-weight: font-awesome.mz-get-font-awesome-weight($_fontWeightName);
+}

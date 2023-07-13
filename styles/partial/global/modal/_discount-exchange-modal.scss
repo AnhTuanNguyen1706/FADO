@@ -1,0 +1,125 @@
+@use 'vars' as vars;
+@use 'mixin/mz-text-size' as mz-text-size;
+
+.discount-exchange-modal {
+  .modal-content {
+    position: relative;
+  }
+
+  &__loading {
+    position: absolute;
+    z-index: vars.$mz-z-index-lv-2;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background: #fff;
+    font-size: 20px;
+    color: vars.$mz-gray;
+    align-items: center;
+    justify-content: center;
+    opacity: 0.7;
+  }
+
+  &__des {
+    margin: 0 -16px 16px;
+    border-radius: unset;
+  }
+
+  &__content {
+    position: relative;
+    z-index: vars.$mz-z-index-lv-1;
+  }
+
+  .modal-dialog {
+    width: 380px;
+  }
+
+  &__title {
+    padding: 8px 0;
+  }
+
+  // &__title-name {
+  //   @include mz-text-size.mz-text-size(16px);
+  //   font-weight: 600;
+  // }
+
+  // &__title-des {
+  //   margin-top: 4px;
+  //   @include mz-text-size.mz-text-size(12px);
+  // }
+
+  .mz-basic-modal__body {
+    padding-bottom: 0;
+    padding-top: 0;
+    transition: vars.$mz-transition-time-default;
+  }
+
+  &__fado-coin-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__fado-coin {
+    margin-left: 16px;
+  }
+
+  &__fado-coin-name {
+    @include mz-text-size.mz-text-size(12px);
+  }
+
+  &__fado-coin-valid {
+    font-weight: 600;
+  }
+
+  &__fado-coin-input {
+    position: relative;
+  }
+
+  &__foot {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    padding: 0 16px;
+  }
+
+  &__close-btn {
+    cursor: pointer;
+    padding: 8px 8px 8px 0;
+  }
+
+  &__submit-btn {
+    margin-left: 16px;
+  }
+
+  &__discount-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    // height: 214px;
+    position: relative;
+    z-index: vars.$mz-z-index-lv-1;
+  }
+
+  &__discount-code {
+    width: 100%;
+  }
+
+  &__discount-code-text {
+    text-align: center;
+    font-weight: 600;
+    @include mz-text-size.mz-text-size(16px);
+  }
+
+  &__discount-code-control {
+    margin: 12px 0 16px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}

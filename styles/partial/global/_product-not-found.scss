@@ -1,0 +1,18 @@
+.product-not-found {
+  &__inner {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .character-img {
+    max-width: 460px;
+    margin: 0 auto;
+    margin-bottom: 16px;
+  }
+
+  .main-content {
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: center;
+  }
+}

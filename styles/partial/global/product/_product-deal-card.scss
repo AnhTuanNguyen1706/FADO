@@ -1,0 +1,404 @@
+@use 'vars' as vars;
+@use 'vars-v2' as vars-v2;
+@use 'mixin/mz-text-size' as mz-text-size;
+@use 'mixin/mz-border-radius' as mz-border-radius;
+@use 'mixin/mz-box-shadow' as mz-shadow;
+@use 'mixin/mz-general' as general;
+@use 'mixin/mz-animation' as mz-animation;
+@use 'function/mz/mz-line-height' as mz-line-height;
+@use 'function/mz/mz-color' as mz-color;
+
+.product-deal-card {
+  // @include mz-border-radius.mz-border-radius-from-key('md');
+  position: relative;
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  transition: vars.$mz-transition-time-default;
+  background: #fff;
+
+  &.has-box {
+    padding: 16px;
+    border: 1px solid vars-v2.$primary-900;
+
+    &:hover {
+      transform: translateY(-4px);
+      @include mz-shadow.mz-shadow-from-key('lg');
+    }
+  }
+
+  &.is-updating-price{
+    pointer-events: none;
+    cursor: none;
+  }
+}// .product-deal-card
+
+// ###########################################################
+// Card head
+// ###########################################################
+.product-deal-card {
+  &__head {
+    margin-bottom: 8px;
+  }
+}
+
+/* =============================================
+  Image field
+================================================ */
+.product-deal-card {
+  &__img-field {
+    position: relative;
+    display: block;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+
+    &:before {
+      content: '';
+      display: block;
+      padding-bottom: 100%;
+    }
+  }
+
+  &__img-field-inner {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+  }
+
+   // SALE TAG
+   &__sale-tag {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: vars.$mz-z-index-lv-1;
+    height: 20px;
+    padding: 2px;
+    box-shadow: 0 0 0 2px #fff;
+    @include mz-border-radius.mz-border-radius-from-key('round');
+    background: vars-v2.$state2-400;
+    display: flex;
+    align-items: center;
+    color: #fff;
+  }
+
+  &__discount-percent {
+    @include mz-text-size.mz-text-size('xs');
+    font-weight: bold;
+    margin: 0 4px;
+    line-height: 10px;
+    position: relative;
+    top: -1px;
+  }
+
+  &__flash-deal {
+    line-height: 1;
+  }
+
+  &__flash-deal-icon {
+    background: url(vars.$mz-image-icons-url + '/flash-deal.svg' + vars.$mz-cache-ver-suffix) no-repeat center;
+    height: 16px;
+    width: 64px;
+    font-style: normal;
+    display: block;
+    background-size: contain;
+  }
+
+  // CUSTOM DEAL ICON
+  &__custom-deal {
+    line-height: 1;
+  }
+
+  &__custom-deal-icon {
+    background: url(vars.$mz-image-icons-url + '/product-item/custom-deal-tag.svg' + vars.$mz-cache-ver-suffix) no-repeat center;
+    height: 16px;
+    width: 92px;
+    font-style: normal;
+    display: block;
+    background-size: contain;
+  }
+}// .product-deal-card
+
+// ###########################################################
+// card body
+// ###########################################################
+.product-deal-card {
+  &__body {
+    position: relative;
+    flex: 1 1;
+  }
+
+  // Loading box
+  &__loading-box {
+    position: absolute;
+    display: flex;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(#fff, 0.7);
+    justify-content: center;
+    align-items: center;
+    color: vars.$mz-gray;
+    @include mz-text-size.mz-text-size(24px);
+    transition: vars.$mz-transition-time-xs;
+    z-index: 3;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &__loading-icon {
+    font-style: normal;
+    @include mz-animation.mz-animation-spin();
+
+    &::before {
+      content: "\f110";
+      font-weight: 700;
+      font-family: vars.$mz-font-family-fa5;
+    }
+  }
+
+  &.is-get-extra-info-loading {
+    .product-deal-card__loading-box {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+}
+
+// =============================================
+// Price group
+// =============================================
+.product-deal-card {
+  &__price-group {
+    display: flex;
+    align-items: baseline;
+    height: mz-line-height.mz-get-line-height-from-font-size('md');
+    margin-bottom: 8px;
+  }
+
+  &__price-label {
+    color: vars.$mz-gray;
+    margin-right: 8px;
+  }
+
+  &__current-price {
+    font-family: vars.$mz-font-family-oswald;
+    @include mz-text-size.mz-text-size('md');
+    color: vars.$mz-warning;
+    font-weight: 400;
+
+    &.is-alert { // Dành cho style khi hiển thị thông báo dạng text thay vì có giá cụt hể
+      color: vars.$mz-warning-dark;
+      font-family: vars.$mz-font-family-default;
+      @include mz-text-size.mz-text-size-from-key('sm');
+      font-weight: 400;
+
+      a {
+        color:vars.$mz-warning-dark;
+
+        &:hover {
+          color: mz-color.mz-get-hover-color(vars.$mz-warning-dark);
+        }
+      }
+    }
+  }
+
+  &__old-price {
+    @include mz-text-size.mz-text-size('xs');
+    margin-left: 4px;
+    text-decoration: line-through;
+    color: vars.$mz-gray;
+    font-family: vars.$mz-font-family-oswald;
+  }
+}
+
+// =============================================
+// Sold field
+// =============================================
+.product-deal-card {
+  &__sold-field {
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    @include mz-text-size.mz-text-size-from-font-size-key('sm');
+  }
+
+  &__sold-label {
+    color: vars.$mz-gray;
+    font-weight: 700;
+    margin-right: auto;
+  }
+
+  &__sold-progress-bar {
+    height: 8px;
+    @include mz-border-radius.mz-border-radius-from-key('round');
+    background: vars.$mz-gray-lighter;
+    overflow: hidden;
+    flex: 1 1;
+    margin-left: 16px;
+    position: relative;
+    max-width: 100px;
+  }
+
+  &__sold-progress-bar-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: vars.$mz-warning;
+    @include mz-border-radius.mz-border-radius-from-key('round');
+  }
+}// .product-deal-card
+
+//===================================
+// .product-deal-card__countdown
+//===================================
+.product-deal-card {
+  &__countdown-field {
+    @include mz-text-size.mz-text-size('sm');
+    height: mz-line-height.mz-get-line-height-from-font-size(vars.$mz-font-size-sm);
+    margin-bottom: 8px;
+    font-weight: 700;
+    color: vars.$mz-gray-dark;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+/* =============================================
+  Title
+================================================ */
+.product-deal-card {
+  &__title {
+    display: block;
+  }
+
+  &__h3 {
+    margin-bottom: 0;
+    font-weight: normal;
+  }
+
+  &__title-inner {
+    color: vars.$mz-text-body-color;
+    @include mz-text-size.mz-text-size(14px);
+    @include general.mz-limit-text-line(14px,2);
+  }
+
+  &:hover {
+    .product-deal-card__title-inner {
+      color: mz-color.mz-get-hover-color(vars.$mz-text-body-color);
+    }
+  }
+}
+
+/* =============================================
+
+============================================= */
+.product-deal-card {
+  &__swap-name-field {
+    margin-top: 4px;
+    font-weight: 700;
+  }
+
+  &__swap-name-btn {
+    display: inline-block;
+    @include general.mz-fix-event-click();
+    @include mz-text-size.mz-text-size-from-font-size-key('xs');
+
+    &:hover {
+      color: vars.$mz-link-color;
+    }
+  }
+}
+
+
+//===================================
+// Control row
+//===================================
+.product-deal-card {
+  &__control-row {
+    display: flex;
+    margin-top: 8px;
+  }
+
+  &__meta-col {
+    flex: 1 1;
+    min-width: 0;
+  }
+
+  &__rating {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &__control-col {
+    margin-left: 8px;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+  }
+
+  &__add-cart-btn {
+    margin-right: 8px;
+  }
+
+  &__favorite-btn {
+    margin-left: auto;
+  }
+
+  &__country-field {
+    @include mz-text-size.mz-text-size(10px);
+    margin-top: 4px;
+    color: vars.$mz-gray-dark;
+  }
+}
+
+
+//===================================
+//  .product-deal-panel__control-btn-group
+//===================================
+.product-deal-card {
+
+}
+
+//===================================
+//  .product-deal-active-card__out-of-stock-tag
+//===================================
+.product-deal-card {
+  &__out-of-stock-tag {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 0 0 77px;
+    width: 77px;
+    height: 28px;
+    background: url(vars.$mz-image-svg-url + '/out-of-stock-tag.svg') left top/100% 100% no-repeat;
+    left: -4px;
+    top: 16px;
+
+    @include mz-text-size.mz-text-size-from-font-size-key('sm');
+    color: #ffffff;
+    font-weight: 700;
+    z-index: vars.$mz-z-index-lv-2;
+
+    &:before {
+      content: '';
+      position: absolute;
+      display: block;
+      top: -4px;
+      left: 0;
+      border: 2px solid transparent;
+      border-right-color:#848fa0;
+      border-bottom-color:#848fa0;
+    }
+  }
+}

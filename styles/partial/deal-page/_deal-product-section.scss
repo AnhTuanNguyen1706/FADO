@@ -1,0 +1,43 @@
+@use 'vars' as vars;
+@use 'mixin/mz-box-shadow' as mz-shadow;
+@use 'lib/mz-grid-framework/mixin/mz-grid' as mz-grid;
+@use 'lib/mz-grid-framework/mixin/general' as grid-general;
+@use 'lib/mz-grid-framework/mixin/mz-media-query' as mz-media-query;
+
+.deal-product-section {
+  background: #fff;
+  margin-bottom: 16px;
+  border-top: 1px solid vars.$mz-gray-light;
+  @include mz-shadow.mz-shadow-from-key('block');
+  position: relative;
+  z-index: vars.$mz-z-index-lv-1; // ! để giải quyết vấn đề mũi tên nhọn active của `today-deals-country-header-section`
+  @include grid-general.mz-fix-width-for-small-screen();
+
+  .section-body {
+    padding: 24px 0;
+  }
+
+  .product-row {
+    @include mz-grid.mz-make-row(6);
+    margin-top: -24px;
+  }
+
+  .product-col {
+    @include mz-grid.mz-make-col-ready(6);
+    @include mz-grid.mz-make-col(1,4);
+    margin-top: 24px;
+    display: flex;
+
+    @include mz-media-query.mz-media-breakpoint-up('2xl') {
+      @include mz-grid.mz-make-col(1,5);
+    }
+
+    @include mz-media-query.mz-media-breakpoint-up('3xl') {
+      @include mz-grid.mz-make-col(1,6);
+    }
+  }
+
+  .pagination-nav-old {
+    margin-top: 48px;
+  }
+}// .deal-product-section

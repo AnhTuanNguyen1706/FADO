@@ -1,0 +1,19 @@
+.category-v2-layout {
+  padding: 24px 0 32px;
+  background: #fff;
+
+  &__container {
+    display: flex;
+  }
+
+  &__sidebar-col {
+    min-width: 0;
+    flex: 0 0 230px;
+    margin-right: 16px;
+  }
+
+  &__main-col {
+    flex: 1 1;
+    min-width: 0;
+  }
+}// .category-layout

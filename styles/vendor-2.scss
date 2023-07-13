@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+@use './fix-charset';
+
+// Fontawesome
+@use 'lib/fontawesome/fontawesome';
+
+// Layout
+// ---------
+@use 'layout/fd-font';
+@use 'layout/fado-font';
+@use 'layout/font';
+@use 'layout/reset';
+@use 'layout/heading';
+@use 'layout/svg-images';
+
+// Extend Lib
+// ---------
+@use 'lib/overlays-scrollbar/overlays-scrollbar';
+@use 'lib/swiper/swiper';
+@use 'lib/noty/noty';
+// @use 'lib/bootbox-modal/bootbox-modal';
+@use 'lib/vue/vue';
+@use 'lib/insider/insider';
+@use './lib/tippy/tippy';
+@use './lib/google-translate/google-translate';
+@use './lib/zalo/zalo';

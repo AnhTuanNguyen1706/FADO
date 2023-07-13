@@ -1,0 +1,109 @@
+@use 'vars' as vars;
+@use 'mixin/mz-text-size' as mz-text-size;
+
+.request-quotation-modal {
+  .mz-basic-modal__body {
+    padding: 0;
+  }
+
+  .mz-basic-modal__foot {
+    border-top: 0;
+  }
+}// .request-quotation-modal
+
+// =============================================
+// Product segment
+// =============================================
+.request-quotation-modal {
+  .product-segment {
+    padding: 16px;
+    border-bottom: 1px dashed vars.$mz-gray-light;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+
+    &__col-1 {
+      width: 64px;
+      margin-right: 16px;
+      min-width: 1px;
+    }
+
+    &__col-2 {
+      flex: 1 1;
+      min-width: 1px;
+    }
+  }// .product-segment
+
+  .product-img-outer {
+    width: 64px;
+    height: 64px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .product-name {
+    font-weight: 700;
+    @include mz-text-size.mz-text-size('h6');
+  }
+
+  .product-meta-item {
+    margin-top: 6px;
+  }
+
+  .product-meta-item-label {
+    color: vars.$mz-gray;
+  }
+
+  .quotation-control-disabled {
+    background: vars.$mz-gray-lightest;
+    opacity: 0.3;
+    pointer-events: none;
+
+    &:hover {}
+  }
+}// .request-quotation-modal
+
+// =============================================
+// Form segment
+// =============================================
+.request-quotation-modal {
+  .form-segment {
+    padding: 16px;
+    padding-bottom: 0;
+  }
+
+  .error-alert {
+    display: none;
+  }
+
+  .form-group {
+    margin-bottom: 16px;
+  }
+
+  .form-label {
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+
+  &.is-loading {
+    .form-segment {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+  }
+}// .request-quotation-modal
+
+// =============================================
+// alert segment
+// =============================================
+.request-quotation-modal {
+  .alert-segment {
+    border-radius: 0;
+    border-left: 0;
+    border-right: 0;
+    @include mz-text-size.mz-text-size('sm');
+    color: vars.$mz-gray-dark;
+    margin: 0;
+  }// .alert-segment
+}// .request-quotation-modal

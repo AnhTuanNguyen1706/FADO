@@ -1,0 +1,14 @@
+@use 'vars' as vars;
+
+.mz-dropdown {
+  position: relative;
+
+  [data-mz-dropdown-trigger] {
+    cursor: pointer;
+  }
+
+  [data-mz-dropdown-target] {
+    z-index: vars.$mz-z-index-lv-2;
+  }
+}
+

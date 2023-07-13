@@ -1,0 +1,27 @@
+@use 'vars' as vars;
+
+.store-category-product-layout {
+  background: #fff;
+  border-radius: 4px;
+  padding: 20px 30px 30px 30px;
+  margin-bottom: 40px;
+
+  &__head {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e1e1e1;
+  }
+
+  &__title {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 22px;
+    margin-bottom: 3px;
+    color: vars.$mz-text-body-color;
+  }
+
+  &__desc {
+    font-size: 14px;
+    color: #999;
+  }
+} // .store-custom-layout

@@ -1,0 +1,57 @@
+@use 'vars' as vars;
+@use 'mixin/mz-text-size' as mz-text-size;
+
+.search-fail-keyword-section {
+  min-height: 560px;
+  background: #fff;
+}
+
+.search-fail-keyword-block {
+  padding: 32px 0;
+
+  .block-avatar {
+    margin-top: 16px;
+    text-align: center;
+  }
+
+  .block-avatar-img {
+    max-width: 464px;
+  }
+
+  .block-content {
+    margin-top: 16px;
+    text-align: center;
+  }
+
+  .block-text {
+    @include mz-text-size.mz-text-size(16px);
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .block-keywords, .block-language {
+    // margin: 0 4px;
+    display: inline;
+  }
+
+  .block-keywords-trigger, .block-language-trigger {
+    display: inline;
+  }
+
+  .block-keywords-label, .block-language-label {
+    color: vars.$mz-primary;
+    font-weight: 700;
+    display: inline;
+  }
+
+  .block-btn-list {
+    margin-top: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+  }
+
+  .block-btn-col {
+    margin: 0 4px;
+  }
+}

@@ -1,0 +1,423 @@
+@use 'vars' as vars;
+@use 'mixin/mz-text-size' as mz-text-size;
+@use 'mixin/mz-animation' as mz-animation;
+@use 'function/mz/mz-color' as mz-color;
+
+//==========================================
+// user home segment
+//==========================================
+.user-home-segment {
+  display: flex;
+
+  .mz-btn {
+    position: relative;
+    overflow: hidden;
+
+    &.is-loading {
+      cursor: default;
+
+      .loading-box {
+        z-index: 1;
+        opacity: 1;
+        transition: 0.3s;
+        transition-property: opacity;
+      }
+    }
+
+    .loading-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(#fff, 0.5);
+      left: 0;
+      top: 0;
+      opacity: 0;
+      z-index: -1;
+
+      .loading-icon {
+        font-style: normal;
+        @include mz-animation.mz-animation-spin();
+
+        &::before {
+          @include mz-text-size.mz-text-size(16px);
+          color: vars.$mz-gray;
+          content: "\f110";
+          font-weight: 700;
+          font-family: vars.$mz-font-family-fa5;
+        }
+      }
+    } // .loading-box
+  }
+}
+
+//==========================================
+// segment user info col
+//==========================================
+.user-home-segment {
+  .segment-user-info-col {
+    flex: 1 1;
+  }
+}
+
+// .content-head
+// .card-foot
+// .foot-info-item-list
+// .info-item
+// .info-item-label"
+//==========================================
+// user info card
+//==========================================
+.user-home-segment {
+  .card-row {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    margin: 0 -4px;
+  }
+
+  .card-col {
+    padding: 0 4px;
+  }
+
+  .user-info-card {
+    border: 1px solid vars.$mz-gray-lighter;
+    border-radius: 4px;
+    background: #ffffff;
+    padding: 14px 20px 20px;
+    margin-bottom: 24px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  } // end .user-info-card
+
+  // card head
+  .card-head {
+    margin-bottom: 8px;
+  }
+
+  .title-label {
+    @include mz-text-size.mz-text-size-from-font-size-key('md');
+    font-weight: 700;
+    color: vars.$mz-gray-darker;
+  }
+
+  // card body
+  .card-body {
+    // padding-bottom: 12px;
+    // margin-bottom: 20px;
+    // border-bottom: 1px solid rgba(vars.$mz-gray-lighter, 0.5);
+
+    // &:last-child {
+    //   margin-bottom: 0;
+    //   padding-bottom: 0;
+    //   border-bottom: none;
+    // }
+  }
+
+  .card-content {
+    flex: 1 1 auto;
+  }
+
+  .card-control-group {
+    margin-top: 12px;
+  }
+
+  .fadopay-add-money-link {
+    display: block;
+    margin-top: 16px;
+  }
+
+  .card-info {
+    flex: 0 0 114px;
+  }
+
+  .card-des {
+    margin-top: 12px;
+    @include mz-text-size.mz-text-size-from-font-size-key('xs');
+    color: vars.$mz-gray;
+  }
+
+  .card-link-list {
+    margin-top: 16px;
+  }
+
+  .card-link-item {
+    margin-bottom: 20px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .card-link-item-label {
+    color: vars.$mz-gray-darker;
+    cursor: pointer;
+
+    &:hover {
+      color: mz-color.mz-get-hover-color(vars.$mz-gray-darker);
+    }
+  }
+
+  $_card-title-vertical-line-bg: (
+    'primary': vars.$mz-primary,
+    'green': #30c472,
+    'warning': #ffa600,
+    'secondary-darker': vars.$mz-secondary-darker,
+    'gray': #9fabbe,
+    'red': #ce373d,
+  );
+
+  .card-title {
+    position: relative;
+    display: flex;
+    align-items: center;
+    margin-bottom: 8px;
+    padding-left: 20px;
+    margin-left: -20px;
+
+    &:hover {
+      .title-label {
+        color: mz-color.mz-get-hover-color(vars.$mz-gray-darker);
+      }
+
+      .icon-shape {
+        color: mz-color.mz-get-hover-color(vars.$mz-gray-darker);
+      }
+    }
+
+    .title-label {
+      white-space: nowrap;
+      @include mz-text-size.mz-text-size-from-font-size-key('md');
+      font-weight: 700;
+      color: vars.$mz-gray-darker;
+    }
+
+    .icon-shape {
+      @include mz-text-size.mz-text-size-from-font-size-key('md');
+      color: vars.$mz-gray-darker;
+      margin-left: 8px;
+    }
+
+    &:before {
+      position: absolute;
+      content: '';
+      display: block;
+      height: 100%;
+      width: 3px;
+      top: 0;
+      left: -1px;
+    }
+
+    @each $key ,$var in $_card-title-vertical-line-bg {
+      &.card-title--#{$key} {
+        &:before {
+          background: #{$var};
+        }
+      }
+    }
+  } // .card-title
+
+  .card-content-col {
+    flex: 0 0 136px;
+    max-width: 136px;
+    margin-right: 16px;
+  }
+
+  .card-bg-col {
+    flex: 1 1 105px;
+    min-width: 105px;
+    margin-left: auto;
+  }
+
+  .card-info-alert {
+    display: flex;
+    border-radius: 4px;
+    padding: 8px;
+    border: 1px solid vars.$mz-warning-lighter;
+    background: vars.$mz-warning-lightest;
+    margin-bottom: 16px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .card-info-content-col {
+    flex: 1 1;
+  }
+
+  .card-info-content {
+    @include mz-text-size.mz-text-size-from-font-size-key('xs');
+    color: vars.$mz-gray-dark;
+  }
+
+  .card-info-control-col {
+    display: flex;
+    margin-left: 8px;
+    align-items: center;
+  }
+
+  .body-control-group {
+    display: flex;
+    align-items: center;
+  }
+
+  .control-info-label {
+    @include mz-text-size.mz-text-size-from-font-size-key('xs');
+    margin-top: 8px;
+  }
+
+  .loyalty-point-number {
+    color: vars.$mz-warning;
+    font-family: vars.$mz-font-family-oswald;
+    font-weight: 600;
+  }
+
+  // card foot
+  .foot-info-item-list {
+    list-style: none;
+    list-style-type: none;
+    margin-bottom: 20px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .info-item {
+    list-style-type: none;
+    margin-bottom: 20px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .card-link-item-label {
+    display: flex;
+  }
+
+  .info-icon-shape {
+    position: relative;
+    margin-left: 4px;
+    top: 1px;
+  }
+
+  a.card-link-item-label {
+    .info-item-label,
+    .info-item-notice-label,
+    .info-icon-shape {
+      color: vars.$mz-primary;
+    }
+
+    &:hover {
+      color: mz-color.mz-get-hover-color(vars.$mz-primary);
+    }
+  }
+
+  .info-item-label {
+    color: vars.$mz-gray-darker;
+    cursor: pointer;
+
+    &:hover {
+      color: mz-color.mz-get-hover-color(vars.$mz-gray-darker);
+    }
+  } // end info-item-label
+
+  .info-item-notice-label {
+    margin-left: auto;
+    padding-left: 16px;
+    color: vars.$mz-primary;
+  }
+}
+
+//==========================================
+// user manage product item wrap
+//==========================================
+.card-farvorite-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 8px;
+  margin-top: 16px;
+
+  .wrap-head {
+    margin-bottom: 14px;
+  }
+
+  .head-title {
+    color: vars.$mz-gray-darker;
+  }
+
+  a.head-title {
+    &:hover {
+      color: mz-color.mz-get-hover-color(vars.$mz-gray-darker);
+    }
+  }
+
+  .farvorite-item {
+    position: relative;
+    display: block;
+    border-radius: 4px;
+    border: 1px solid rgba(vars.$mz-gray-light, 0.5);
+    opacity: 0.5;
+
+    &:before {
+      content: '';
+      display: block;
+      width: 100%;
+      padding-bottom: 100%;
+    }
+
+    &.product-item-quantity {
+      // opacity: 1;
+
+      &:hover {
+        border-color: vars.$mz-primary;
+
+        .farvorite-label {
+          color: mz-color.mz-get-hover-color(vars.$mz-gray-darker);
+        }
+      }
+    }
+  } // .farvorite-item
+
+  .farvorite-item-inner {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    padding: 10px;
+  }
+
+  .farvorite-label {
+    display: inline-block;
+    white-space: nowrap;
+    @include mz-text-size.mz-text-size(24px);
+    color: vars.$mz-gray-darker;
+  }
+}
+
+//==========================================
+// segment bg col
+//==========================================
+.user-home-segment {
+  .segment-bg-col {
+    flex: 0 0 242px;
+    margin-left: 24px;
+  }
+
+  // .card-bg-img {
+  //   &.gray-scale-bg {
+  //     -webkit-filter: grayscale(1); /* Google Chrome, Safari 6+ & Opera 15+ */
+  //     filter: grayscale(1); /* Microsoft Edge and Firefox 35+ */
+  //   }
+  // }
+}

@@ -1,0 +1,28 @@
+@use 'vars' as vars;
+
+.bner-bottom-block {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  z-index: vars.$mz-z-index-lv-6;
+  width: 1200px;
+  margin-left: -600px;
+
+  &__remove-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 24px;
+    height: 24px;
+    background: vars.$mz-danger;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    &:hover {
+      background: darken(vars.$mz-danger,5%);
+    }
+  }
+} // .bner-bottom-block

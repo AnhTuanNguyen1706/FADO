@@ -1,0 +1,52 @@
+@use 'vars' as vars;
+@use 'vars-v2' as vars-v2;
+@use 'mixin/mz-text-size' as mz-text-size;
+
+//==========================================
+//  mz wallet status tag
+//==========================================
+.mz-wallet-status-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  @include mz-text-size.mz-text-size('xs');
+  padding: 4px 12px;
+  border-radius: 40px;
+  color: vars.$mz-gray-dark;
+}
+
+$_map-wallet-status-tag-color: (
+  -1: (
+    'bgColor': vars.$mz-gray-lighter,
+    'textColor': vars.$mz-gray-dark,
+  ),
+  0: (
+    'bgColor': vars.$mz-warning-lighter,
+    'textColor': vars.$mz-gray-dark,
+  ),
+  1: (
+    'bgColor': vars.$mz-success-lighter,
+    'textColor': vars.$mz-gray-dark,
+  ),
+  3: (
+  'textColor': #fff,
+  'bgColor': vars.$mz-primary-light,
+  ),
+  2: (
+    'bgColor': vars.$mz-primary-lighter,
+    'textColor': vars.$mz-text-body-color,
+  ),
+);
+
+@each $_intWalletStatusCode, $_mapWalletStatusTagColor in $_map-wallet-status-tag-color {
+
+  .mz-wallet-status-tag-#{$_intWalletStatusCode} {
+    // background: map-get($_mapWalletStatusTagColor, 'bgColor');
+    background: vars-v2.$primary-900;
+
+    .mz-wallet-status-tag__label {
+      // color: map-get($_mapWalletStatusTagColor, 'textColor');
+      color: #fff;
+    }
+  }
+}

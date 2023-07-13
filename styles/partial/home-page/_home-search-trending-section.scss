@@ -1,0 +1,184 @@
+@use 'sass:math';
+@use 'vars' as vars;
+@use 'mixin/mz-text-size' as mz-text-size;
+@use 'mixin/mz-animation' as mz-animation;
+@use 'function/mz/mz-color' as mz-color;
+
+//===========================================================
+// home search trending section
+//===========================================================
+.home-search-trending-section {
+  margin: vars.$mz-home-page-section-margin 0;
+
+  // loading-box
+  //---------------
+  .loading-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 185px;
+    background: #ffffff;
+
+    .loading-icon {
+      font-style: normal;
+      @include mz-animation.mz-animation-spin();
+
+      &::before {
+        @include mz-text-size.mz-text-size(24px);
+        color: vars.$mz-gray;
+        content: "\f110";
+        font-weight: 700;
+        font-family: vars.$mz-font-family-fa5;
+      }
+    }
+  }
+} // .home-search-trending-section
+
+//===========================================================
+// home search trending block
+//===========================================================
+.home-search-trending-block {
+  // .block-head
+  //--------------
+  .block-head {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+
+  .head-title {
+    @include mz-text-size.mz-text-size(20px);
+    font-weight: 800;
+    color: vars.$mz-gray-darker;
+    flex: 1 1;
+  }
+
+  .head-control {
+    margin-left: auto;
+    padding-left: 8px;
+  }
+
+  .update-btn {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    color: vars.$mz-primary;
+    outline: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+
+    -ms-user-select: none;
+    user-select: none;
+
+    &:hover {
+      color: mz-color.mz-get-hover-color(vars.$mz-primary);
+    }
+
+    .icon-shape {
+      margin-right: 6px;
+      line-height: 1;
+
+      i {
+        font-size: 13px;
+      }
+    }
+
+    .title-label {
+      font-size: 13px;
+      line-height: 1;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+  } // .update-btn
+
+  // .block-body
+  //--------------
+  .search-trending-alert-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 185px;
+  }
+
+  .list-effect-enter-active, .list-effect-leave-active {
+    transition: 0.2s;
+  }
+
+  .list-effect-enter, .list-effect-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
+  }
+
+  .search-trending-item-wrap {
+    padding: 1px 1px 24px;
+    margin-top: -16px;
+  }
+
+  .search-trending-item-col {
+    flex: 0 0 percentage(math.div(1, 5));
+    margin-top: 16px;
+  }
+
+  .search-trending-item {
+    display: flex;
+    padding: 8px;
+    // border-radius: 8px;
+    box-shadow: 0 2px 4px 0 rgba(vars.$mz-gray-light, 0.2), 0 0 2px 1px rgba(vars.$mz-gray-light, 0.4);
+    transition: vars.$mz-transition-time-xs;
+    align-items: center;
+
+    .img-col {
+      position: relative;
+      flex: 0 0 68px;
+      margin-right: 12px;
+
+      &:before {
+        content: '';
+        display: block;
+        width: 100%;
+        padding-bottom: 100%;
+      }
+    }
+
+    .img-item-outer {
+      position: absolute;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .info-col {
+      flex: 1 1;
+      min-width: 0;
+    }
+
+    .keyword-label {
+      @include mz-text-size.mz-text-size(14px);
+      font-weight: 600;
+      color: vars.$mz-gray-darker;
+      max-width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .total-search {
+      @include mz-text-size.mz-text-size-from-font-size-key('xs');
+      color: vars.$mz-gray;
+      margin-top: 4px;
+    }
+
+    &:hover {
+      box-shadow: 0 16px 24px -8px rgba(vars.$mz-gray-light, 0.4);
+
+      .keyword-label {
+        color: mz-color.mz-get-hover-color(vars.$mz-gray-darker);
+      }
+    }
+  } // .search-trending-item
+}

@@ -1,0 +1,13 @@
+// Partials in page
+// ---------
+@use './_cart-page';
+@use './cart-tab-section';
+@use './cart-product-section';
+@use './cart-product-section-wrapper';
+@use './product-cart-block';
+@use './cart-summary-section';
+@use './cart-empty-section';
+
+// Partials global
+//-------------
+@use 'partial/global/modal/discount-exchange-modal';

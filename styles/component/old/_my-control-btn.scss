@@ -1,0 +1,55 @@
+@use 'vars' as vars;
+
+/**
+  Các button xám nhỏ dùng trong  các trường hợp nút xóa, in, sửa,....
+*/
+.my-control-btn {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 40px;
+  margin-bottom: 5px;
+  padding: 0 15px;
+  color: vars.$mz-text-body-color;
+  font-size: 14px;
+  line-height: 20px;
+  white-space: nowrap;
+  background: lighten(#e1e1e1, 10%);
+  border: 1px solid #e1e1e1;
+  border-radius: 4px;
+
+  &:hover {
+    color: vars.$mz-text-body-color;
+    background: lighten(#e1e1e1, 4%);
+  }
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &.-btn-block {
+    display: flex;
+  }
+}// .my-control-btn
+
+.my-control-btn.-btn-md {
+  height: 34px;
+  padding: 2px 15px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.my-control-btn.-btn-sm {
+  height: 28px;
+  padding: 2px 10px;
+  font-size: 13px;
+  line-height: 19px;
+}
+
+.my-control-btn.-btn-xs {
+  height: 22px;
+  padding: 2px 7px;
+  font-size: 12px;
+  line-height: 16px;
+}

@@ -1,0 +1,68 @@
+@use 'function/mz/mz-space' as mz-space;
+@use 'vars' as vars;
+@use 'vars-v2' as vars-v2;
+
+//====================================================
+// feedback-summary-review-type-segment
+//====================================================
+.feedback-summary-review-type-segment {
+  margin-top: mz-space.mz-get-space-from-base(3.5);
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &__type-row {
+    display: flex;
+    align-items: center;
+    padding: mz-space.mz-get-space-from-base(1.25) mz-space.mz-get-space-from-base(1);
+    border-radius: 4px;
+    background: #ffffff;
+    border: 1px solid vars.$mz-gray-lighter;
+    overflow: hidden;
+    cursor: pointer;
+    margin-bottom: mz-space.mz-get-space-from-base(1);
+    max-height: 50px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    &:hover {
+      // border-color: #c0d9fd;
+      background: vars-v2.$secondary-300;
+
+      .feedback-summary-review-type-segment {
+        &__label-col {
+          color: vars.$mz-primary;
+        }
+      }
+    } // .feedback-summary-review-type-segment__type-row:hover
+  } // .feedback-summary-review-type-segment__type-row
+
+  &__percentage-col {
+    display: flex;
+    align-items: center;
+    align-self: stretch;
+    justify-content: center;
+    min-width: 70px;
+    padding: mz-space.mz-get-space-from-base(1.25) 0;
+    margin: -#{ mz-space.mz-get-space-from-base(1.25) } 0 -#{ mz-space.mz-get-space-from-base(1.25) } -#{ mz-space.mz-get-space-from-base(1) };
+    background: vars-v2.$primary-900;
+    color: #fff;
+    font-size: 2.5rem;
+    font-weight: 600;
+  }
+
+  &__label-col {
+    flex: 1 1;
+    padding: 0 mz-space.mz-get-space-from-base(1);
+    color: vars.$mz-gray-darker;
+  }
+
+  &__icon-col {
+    font-size: 3rem;
+    color: vars.$mz-gray-darker;
+    margin-left: auto
+  }
+}

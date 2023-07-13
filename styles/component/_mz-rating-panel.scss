@@ -1,0 +1,318 @@
+@use 'vars' as vars;
+@use 'vars-v2' as vars-v2;
+
+//===========================================
+// mz rating
+//===========================================
+$_mz-rating-size-default: 16px;
+$_mz-rating-star-item-letter-spacing-default: 4px;
+$_mz-rating-label-size-default: 16px;
+
+$_mz-rating-star-color-default: vars-v2.$primary-300;
+$_mz-rating-star-color-empty: vars-v2.$secondary-300;
+
+.mz-rating {
+  display: flex;
+
+  // mz rating rating number col
+  //----------------------------
+  &__rating-number-col {
+    margin-right: 8px;
+  }
+
+  &__rating-number {
+    position: relative;
+    font-weight: 600;
+    color: vars.$mz-gray-darker;
+    line-height: 1;
+    top: 1px;
+  }
+
+  // mz rating group col
+  //----------------------------
+  &.is-inline {
+    align-items: center;
+
+    .mz-rating__group-col {
+      display: flex;
+      flex: 1 1;
+      align-items: center;
+    }
+  }
+
+  // mz rating rating star field
+  //----------------------------
+  &__rating-star-field {
+    font-size: $_mz-rating-size-default;
+    line-height: 1;
+    color: $_mz-rating-star-color-default;
+
+    .is-empty {
+      color: $_mz-rating-star-color-empty;
+    }
+
+    i {
+      margin-right: $_mz-rating-star-item-letter-spacing-default;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  } // .mz-rating__rating-star-field
+
+  // mz rating total review field
+  //------------------------------
+  &.is-inline {
+    .mz-rating__label {
+      line-height: 1;
+      margin-right: 4px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+
+    .mz-rating__label-field {
+      display: inline-flex;
+    }
+  }
+
+  &__label {
+    color: vars.$mz-gray-dark;
+    line-height: 1;
+  }
+} // .mz-rating
+
+.mz-rating {
+  // NOTE - Định nghĩa danh sách kích thước của rating star
+  $_mz-rating-star-size: (
+    'xl': 40px,
+    'lg': 32px,
+    'md': 24px,
+    'normal': $_mz-rating-size-default,
+    'sm': 12px,
+    'xs': 8px,
+  );
+
+  $_mz-rating-star-item-letter-spacing: (
+    'xl': 8px,
+    'lg': 4px,
+    'md': 4px,
+    'normal': $_mz-rating-star-item-letter-spacing-default,
+    'sm': 4px,
+    'xs': 2px,
+  );
+
+  $_mz-rating-number-size: (
+    'xl': 40px,
+    'lg': 32px,
+    'md': 24px,
+    'normal': $_mz-rating-size-default,
+    'sm': 12px,
+    'xs': 12px,
+  );
+
+  $_mz-rating-number-margin-right: (
+    'xl': 8px,
+    'lg': 8px,
+    'md': 8px,
+    'normal': 8px,
+    'sm': 8px,
+    'xs': 4px,
+  );
+
+  $_mz-rating-number-position-top: (
+    'xl': 3px,
+    'lg': 2px,
+    'md': 1px,
+    'normal': 1px,
+    'sm': 0px,
+    'xs': -1px,
+  );
+
+  $_mz-rating-label-size: (
+    'xl': 14px,
+    'lg': 14px,
+    'md': 24px,
+    'normal': $_mz-rating-label-size-default,
+    'sm': 12px,
+    'xs': 10px,
+  );
+
+  $_mz-rating-label-margin-left: (
+    'xl': 8px,
+    'lg': 8px,
+    'md': 8px,
+    'normal': 8px,
+    'sm': 4px,
+    'xs': 4px,
+  );
+
+  $_mz-rating-label-margin-top: (
+    'xl': 10px,
+    'lg': 8px,
+    'md': 8px,
+    'normal': 8px,
+    'sm': 4px,
+    'xs': 4px,
+  );
+
+  $_mz-rating-label-position-top: (
+    'xl': 0,
+    'lg': 0,
+    'md': 0,
+    'normal': 0,
+    'sm': 0,
+    'xs': 1px,
+  );
+
+  // NOTE - Định nghĩa danh sách màu của rating star
+  $_mz-rating-star-color: (
+    'primary': vars.$mz-primary,
+    'warning': $_mz-rating-star-color-default,
+  );
+
+  @each $_rating-star-size-key, $_rating-star-size-value in $_mz-rating-star-size {
+    &--#{ $_rating-star-size-key } {
+
+      .mz-rating {
+        &__rating-star-field {
+          font-size: $_rating-star-size-value;
+        } // .mz-rating__rating-field
+
+        &__rating-number-col {
+          margin-right: map-get($_mz-rating-number-margin-right, $_rating-star-size-key);
+          line-height: 1;
+        }
+
+        &__rating-number {
+          font-size: map-get($_mz-rating-number-size, $_rating-star-size-key);
+          top: map-get($_mz-rating-number-position-top, $_rating-star-size-key);
+        } // .mz-rating__rating-number
+
+        &__label-field {
+          margin-left: 0;
+          margin-top: map-get($_mz-rating-label-margin-left, $_rating-star-size-key);
+        } // .mz-rating__label-field
+
+        &__label {
+          font-size: map-get($_mz-rating-label-size, $_rating-star-size-key);
+        }
+
+        &__rating-star-field {
+          i {
+            margin-right: map-get($_mz-rating-star-item-letter-spacing, $_rating-star-size-key);
+
+            &:last-child {
+              margin-right: 0;
+            }
+          }
+        } // .mz-rating__rating-star-field
+      } // .mz-rating
+
+      &.is-inline {
+        .mz-rating__label-field {
+          margin-top: 0;
+          margin-left: map-get($_mz-rating-label-margin-top, $_rating-star-size-key);
+        }
+
+        .mz-rating__label {
+          top: map-get($_mz-rating-label-position-top, $_rating-star-size-key);
+        }
+      } // .mz-rating.is-inline
+    }
+  }
+
+  @each $_rating-star-color-key, $_rating-star-color-value in $_mz-rating-star-color {
+    &--#{ $_rating-star-color-key } {
+      .mz-rating__rating-star-field {
+        color: $_rating-star-color-value;
+      } // .mz-rating__rating-star-field
+    }
+  }
+}
+
+//===========================================
+// mz rating panel
+//===========================================
+.mz-rating-panel {
+  min-width: 245px;
+
+  .mz-rating {
+    align-items: center;
+    margin-bottom: 20px;
+
+    &__rating-number {
+      font-size: 56px;
+      top: 0;
+      font-family: vars.$mz-font-family-oswald;
+    }
+
+    &__label-field {
+      margin-top: 8px;
+    }
+
+    &__label {
+      font-size: 14px;
+    }
+
+    &__percent-bar-row {
+      display: flex;
+      align-items: center;
+      margin-bottom: 14px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    &__rating-star-col {
+      position: relative;
+      display: flex;
+      flex: 0 0 53px;
+      margin-right: 8px;
+      line-height: 1;
+      align-items: center;
+      top: -1px;
+      justify-content: flex-end;
+
+      i {
+        font-size: 8px;
+        color: vars.$mz-gray;
+        margin-right: 2px;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    } // .rating-star__rating-star-col
+
+    &__percent-bar-col {
+      display: flex;
+      align-items: center;
+    }
+
+    &__percent-bar {
+      flex: 0 0 145px;
+      height: 8px;
+      border-radius: 4px;
+      background: vars.$mz-gray-lighter;
+      overflow: hidden;
+    }
+
+    &__process-bar {
+      height: 100%;
+      width: 0;
+      border-radius: 4px;
+      background: vars.$mz-warning;
+    }
+
+    &__percent-label {
+      font-size: 12px;
+      line-height: 1;
+      color: vars.$mz-gray-darker;
+      margin-left: 12px;
+      flex: 0 0 31px;
+    }
+  }
+}

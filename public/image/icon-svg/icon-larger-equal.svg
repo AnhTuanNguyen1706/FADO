@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="10px" height="14px" viewBox="0 0 10 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>icon-larger-equal</title>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round">
+        <g id="@WebUIComponents/Header/Header_Inside_case" transform="translate(-445.000000, -782.000000)" stroke="#979797">
+            <g id="Group-2" transform="translate(93.000000, 614.000000)">
+                <g id="Group-4" transform="translate(12.000000, 149.000000)">
+                    <g id="coin" transform="translate(318.000000, 16.000000)">
+                        <g id="icon-larger-equal" transform="translate(23.000000, 4.000000)">
+                            <polyline id="Path-2" stroke-linejoin="round" points="-2.10502384e-12 0 6.05859375 6 -4.99938957e-13 12.5"></polyline>
+                            <line x1="3.69726562" y1="12.5" x2="8.37890625" y2="7.47363281" id="Path-3"></line>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

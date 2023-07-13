@@ -1,0 +1,94 @@
+//================================================
+// user order history page
+//================================================
+@use 'vars' as vars;
+@use 'vars-v2' as vars-v2;
+@use 'mixin/mz-text-size' as mz-text-size;
+@use 'function/mz/mz-color' as mz-color;
+@use 'mixin/mz-border-radius' as mz-border-radius;
+
+.user-order-history-page {
+  background: #ffffff;
+}
+
+.user-block--order-history {
+  padding: 16px 16px;
+  background: #fff;
+  @include mz-border-radius.mz-border-radius(8px);
+  box-shadow: 0 0 4px 0 rgba(vars.$mz-gray, 0.2);
+
+  &__head-title {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 700;
+    margin-right: 8px;
+  }
+  .manage-item-status-tag {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 12px;
+    padding: 2px 12px;
+    border-radius: 40px;
+    background: vars-v2.$primary-900;
+    color: #fff;
+  }
+
+  &__head {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 16px;
+  }
+
+  &__block-body {
+    margin: 0 -16px;
+  }
+
+  &__manage-body {
+    display: grid;
+    grid-template-columns: repeat(6, auto);
+  }
+
+  &__manage-item {
+    padding: 16px;
+    border-bottom: 1px solid vars.$mz-gray-lighter;
+  }
+
+  &__item-title {
+    padding: 16px;
+    color: vars.$mz-gray;
+    font-weight: 700;
+
+    background: rgba(vars.$mz-gray-lighter, 0.2);
+    border-top: 1px solid vars.$mz-gray-lighter;
+    border-bottom: 1px solid vars.$mz-gray-lighter;
+    width: 100%;
+  }
+
+  .user-block__manage-control-col {
+    .user-block__filter-order-form {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+
+  .order-history-search-btn {
+    width: 28px;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.pagination {
+  padding: 16px 0 0;
+}
+
+.current-price{
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 36px;
+  font-family: "Oswald", "Roboto", "Helvetica Neue", sans-serif;
+  color: vars-v2.$primary-900;;
+}

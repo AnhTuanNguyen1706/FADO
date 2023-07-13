@@ -1,0 +1,65 @@
+@use 'vars' as vars;
+@use 'mixin/mz-text-size' as mz-text-size;
+
+.prime-rule-modal {
+  .modal-dialog {
+    width: 480px;
+  }
+
+  .modal-content {
+    background: none;
+    border: 0;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px -8px rgba(vars.$mz-gray-light, 0.4), 0 0 8px 0 rgba(#000, 0.16);
+  }
+
+  .modal-head {
+    display: flex;
+    align-items: center;
+    height: 80px;
+    background: url(vars.$mz-image-url + '/page/prime-day/prime-rule-modal-head-bg@2x.jpg') no-repeat bottom left;
+    background-size: auto 80px;
+    border-radius: 16px 16px 0 0;
+    position: relative;
+    z-index: 2;
+  }
+
+  .head-icon-shape {
+    display: flex;
+    align-self: flex-end;
+    margin: 0 24px -8px 16px;
+  }
+
+  .head-icon-img {
+    height: 72px;
+  }
+
+  .modal-title {
+    @include mz-text-size.mz-text-size(24px);
+    font-weight: 700;
+    color: #fff;
+  }
+
+  .close-btn {
+    background: transparent;
+    height: 32px;
+    width: 32px;
+    display: flex;
+    padding: 0;
+    border: 0;
+    align-items: center;
+    justify-content: center;
+    margin: 0 24px 0 auto;
+    border-radius: 4px;
+
+    &:hover {
+      background: rgba(#fff,0.2);
+    }
+  }
+
+  .modal-body {
+    background: #fff;
+    border-radius: 0 0 16px 16px;
+    padding: 24px;
+  }
+}// .prime-rule-modal

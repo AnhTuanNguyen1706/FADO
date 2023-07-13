@@ -1,0 +1,57 @@
+@use 'vars' as vars;
+@use 'mixin/mz-text-size' as mz-text-size;
+
+//==========================================
+//  mz feedback product tag
+//==========================================
+.mz-feedback-product-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  @include mz-text-size.mz-text-size(12px);
+  padding: 4px 12px;
+  border-radius: 40px;
+}
+
+$_map-feedback-code-list: (
+  1: 1,
+  2: 1,
+  3: 2,
+  4: 2,
+  5: 3,
+  6: 3,
+  7: 4,
+  8: 4,
+);
+
+$_map-feedback-product-tag-color: (
+  1: (
+    'bgColor': vars.$mz-success-lighter,
+    'textColor': vars.$mz-text-body-color,
+  ),
+  2: (
+    'bgColor': vars.$mz-primary-lighter,
+    'textColor': vars.$mz-text-body-color,
+  ),
+  3: (
+    'bgColor': vars.$mz-warning-lighter,
+    'textColor': vars.$mz-text-body-color,
+  ),
+  4: (
+    'bgColor': vars.$mz-danger-lighter,
+    'textColor': vars.$mz-text-body-color,
+  ),
+);
+
+@each $_intFeedbackCode, $_intFeedbackValue in $_map-feedback-code-list {
+  $_map-feedback-product-tag-color-item: map-get($_map-feedback-product-tag-color, $_intFeedbackValue);
+
+  .mz-feedback-product-#{$_intFeedbackCode} {
+    background: map-get($_map-feedback-product-tag-color-item, 'bgColor');
+
+    .mz-feedback-product__label {
+      // color: map-get($_map-feedback-product-tag-color-item, 'textColor');
+      color: #fff;
+    }
+  }
+}

@@ -1,0 +1,35 @@
+@use 'vars' as vars;
+@use 'mixin/mz-text-size' as mz-text-size;
+@use 'mixin/mz-border-radius' as mz-border-radius;
+
+//=============================================
+// user wallet auto payment block
+//=============================================
+.user-wallet-auto-payment-block {
+  display: flex;
+  padding: 12px 16px;
+  background: #fff;
+  box-shadow: 0 0 4px 0 rgba(vars.$mz-gray, 0.2);
+  margin-bottom: 24px;
+  @include mz-border-radius.mz-border-radius(6px);
+
+  .auto-payment-content-col {
+    margin-right: 16px;
+  }
+
+  .auto-payment-head-label {
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+
+  .auto-payment-bottom-label {
+    @include mz-text-size.mz-text-size('sm');
+    color: vars.$mz-gray-dark;
+  }
+
+  .auto-payment-control-col {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+  }
+}

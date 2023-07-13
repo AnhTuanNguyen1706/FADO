@@ -1,0 +1,9 @@
+// Partials global
+// ---------
+@use 'partial/global/discount-item';
+
+// Partials home page
+// ---------
+@use 'partial/home-page/home-slider-section';
+
+@use './discount-section';

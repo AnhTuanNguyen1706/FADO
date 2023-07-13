@@ -1,0 +1,16 @@
+// Partials global
+// ---------
+@use 'partial/global/global-section';
+@use 'partial/global/mz-masonry';
+@use 'partial/global/global/global-deal-card';
+@use 'partial/global/product/product-deal-card';
+@use 'partial/global/product/product-horizontal-card';
+
+// Partials in page
+// ---------
+@use './video-product-section';
+@use './bf-product-section';
+
+// Modal
+// ---------
+@use 'partial/product-detail-page/product-afiliate-modal';

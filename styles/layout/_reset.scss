@@ -1,0 +1,68 @@
+@use 'vars' as vars;
+@use 'vars-v2' as vars-v2;
+@use 'lib/mz-grid-framework/mixin/general' as grid-general;
+
+html {
+  font-size: vars.$mz-font-size-root;
+  line-height: vars.$mz-line-height-default;
+}
+
+body {
+  line-height: vars.$mz-line-height-default;
+  font-size: vars.$mz-font-size-default;
+  font-family: vars.$mz-font-family-default;
+  background: #fff;
+  color: vars-v2.$text-color;
+  top: 0 !important; // ! Fix cho trình duyệt khi dùng google translate
+  @include grid-general.mz-fix-width-for-small-screen(); // ! Fix bug scroll ngang gây vỡ layout cho màn hình nhỏ hơn container support
+
+  &.is-disable-scroll {
+    overflow: hidden;
+  }
+}
+
+a {
+  color: vars.$mz-link-color;
+  text-decoration: none;
+  outline: none;
+
+  &:hover {
+    color: vars.$mz-link-hover-color;
+    text-decoration: none;
+  }
+
+  &:focus, &:active {
+    color: vars.$mz-primary-darker;
+  }
+}
+
+p {
+  margin-bottom: 10px;
+}
+
+ul {
+  list-style: inside;
+  margin: 0;
+  padding: 0;
+}
+
+button, input, select, textarea {
+  outline: none!important;
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+  max-height: 100%;
+  vertical-align: middle;
+  color: transparent;
+}
+
+input:-webkit-autofill {
+  background-color: inherit;
+  background-image: inherit;
+  color: inherit;
+}

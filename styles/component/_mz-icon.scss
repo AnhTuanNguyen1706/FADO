@@ -1,0 +1,13 @@
+@use 'vars' as vars;
+@use 'mixin/mz-animation' as mz-animation;
+@use 'mixin/mz-icon' as mz-icon;
+
+.mz-icon-loading {
+  @include mz-icon.mz-make-icon-ready();
+  @include mz-animation.mz-animation-spin();
+
+  &::before {
+    content: vars.$mz-font-content-loading;
+    font-family: vars.$mz-font-family-fa5;
+  }
+}

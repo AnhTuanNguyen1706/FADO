@@ -1,0 +1,20 @@
+.noel-page {
+  background: #fff;
+
+  .header-section {
+    transform: none;
+
+    &.headroom--unpinned {
+      transform: none;
+    }
+  }
+}
+
+// =============================================
+// Fix google translate
+// =============================================
+html.translated-ltr .noel-page {
+  .header-section {
+    top: 0;
+  }
+}

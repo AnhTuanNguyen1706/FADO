@@ -1,0 +1,11 @@
+.payoo-modal {
+  .modal-dialog {
+    max-width: 900px;
+  }
+
+  &__map-iframe {
+    width: 100%;
+    border: 1px solid #e1e1e1;
+    height: 600px;
+  }
+}// .payoo-modal

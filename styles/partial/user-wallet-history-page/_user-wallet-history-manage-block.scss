@@ -1,0 +1,11 @@
+//===================================================
+//  user wallet history manage block
+//===================================================
+.user-wallet-history-manage-block {
+  .wallet-manage-item-title,
+  .wallet-manage-item-info {
+    &:last-child {
+      width: 39%;
+    }
+  }
+}

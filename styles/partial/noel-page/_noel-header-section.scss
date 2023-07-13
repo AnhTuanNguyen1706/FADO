@@ -1,0 +1,89 @@
+@use 'vars' as vars;
+@use 'mixin/mz-text-size' as mz-text-size;
+
+.noel-header-section {
+  position: relative;
+
+  .section-bg {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    text-align: center;
+    overflow-x: hidden;
+    padding-bottom: 200%;
+    z-index: vars.$mz-z-index-lv-n1;
+  }
+
+  .section-inner {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding: 36px 0;
+    width: 100%;
+  }
+}// .noel-header-section
+
+
+/* =============================================
+  title col
+================================================ */
+.noel-header-section {
+  .title-col {
+    display: flex;
+    align-items: baseline;
+    color: #b01d2f;
+  }
+
+  .section-title {
+    @include mz-text-size.mz-text-size(40px);
+    font-weight: 700;
+  }
+
+  .country-list {
+    display: flex;
+    align-items: baseline;
+    list-style: none;
+    margin-left: 44px;
+  }
+
+  .country-item-outer {
+    margin-right: 40px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .country-item {
+    @include mz-text-size.mz-text-size(24px);
+    position: relative;
+    display: block;
+    color: #b01d2f;
+
+    &-label {
+      display: block;
+      position: relative;
+      z-index: vars.$mz-z-index-lv-2;
+    }
+
+    &:hover {
+      color: vars.$mz-link-color;
+    }
+  }// .country-item
+}// .noel-header-section
+
+/* =============================================
+  Right col
+================================================ */
+.noel-header-section {
+  .right-col {
+    margin-left: auto;
+  }
+
+  .bner-field {
+    .bner-img {
+      height: 100px;
+    }
+  }
+}// .noel-header-section

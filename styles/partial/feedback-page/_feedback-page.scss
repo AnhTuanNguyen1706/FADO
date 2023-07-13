@@ -1,0 +1,18 @@
+//=====================================
+// feedback page
+//=====================================
+.feedback-page {
+  background: #ffffff;
+
+  .fancybox-image {
+    background-color: #ffffff;
+  }
+
+  .header-section {
+    transform: none;
+
+    &.headroom--unpinned {
+      transform: none;
+    }
+  }
+}

@@ -1,0 +1,140 @@
+@use 'vars' as vars;
+@use 'mixin/mz-text-size' as mz-text-size;
+@use 'mixin/mz-border-radius' as mz-border-radius;
+@use 'mixin/mz-placeholder' as mz-placeholder;
+@use 'mixin/mz-hover' as mz-hover;
+
+.noel-header-sticky-section {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: vars.$mz-page-min-width;
+  width: 100%;
+  background: rgba(vars.$mz-gray-darker,0.92);
+  z-index: vars.$mz-z-index-lv-4!important;
+  color: #fff;
+  opacity: 0;
+  pointer-events: none;
+  will-change: transform opacity;
+  transition: vars.$mz-transition-time-xs;
+  transform: translateY(-16px);
+
+  .mz-container-extend {
+    display: flex;
+    align-items: center;
+  }
+
+  .section-inner {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 76px;
+  }
+}// .noel-header-sticky-section
+
+.noel-header-sticky-section-outer {
+  height: 0 !important;
+  z-index: vars.$mz-z-index-lv-6;
+
+  &.is-sticky .noel-header-sticky-section {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+}
+
+/* =============================================
+  element style
+================================================ */
+.noel-header-sticky-section {
+  .section-title {
+    @include mz-text-size.mz-text-size(40px);
+    font-weight: 700;
+  }
+}// .noel-header-sticky-section
+
+/* ------------------
+  Country list
+--------------------- */
+.noel-header-sticky-section {
+  // COUNTRY LIST
+  .country-list {
+    display: flex;
+    list-style: none;
+    margin-left: 24px;
+    align-self: stretch;
+  }
+
+  .country-item-outer {
+    display: flex;
+    margin-right: 8px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .country-item {
+    color: rgba(#fff,0.8);
+    @include mz-text-size.mz-text-size(24px);
+    position: relative;
+    display: flex;
+    transition: vars.$mz-transition-time-default;
+    align-items: center;
+    padding: 8px 16px 0;
+
+    &-label {
+      display: block;
+      position: relative;
+      z-index: vars.$mz-z-index-lv-2;
+    }
+
+    &.is-active, &:hover {
+      color: #fff;
+      background: vars.$mz-primary;
+    }
+  }// .country-item
+}// .noel-header-sticky-section
+
+/* ------------------
+  Search form
+--------------------- */
+.noel-header-sticky-section {
+  .search-form {
+    margin-left: auto;
+    align-self: center;
+    position: relative;
+    width: 256px;
+
+    .keyword-input {
+      height: 40px;
+      width: 100%;
+      @include mz-border-radius.mz-border-radius-from-key('xs');
+      padding: 0 48px 0 16px;
+      background: #fff;
+      transition: vars.$mz-transition-time-default;
+      border: 0;
+
+      @include mz-placeholder.placeholder() {
+        color: vars.$mz-gray-light;
+      }
+
+      @include mz-hover.mz-hover-focus() {
+        box-shadow: 0 0 0 4px rgba(#fff,0.1);
+      }
+    }
+
+    .submit-btn {
+      position: absolute;
+      width: 32px;
+      height: 32px;
+      top: 50%;
+      margin-top: -16px;
+      right: 8px;
+      background: #fff;
+      font-size: 16px;
+      line-height: 1;
+      border: 0;
+    }
+  }// .search-form
+}// .noel-header-sticky-section

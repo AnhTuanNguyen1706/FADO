@@ -1,0 +1,286 @@
+@use 'vars' as vars;
+@use 'mixin/mz-text-size' as mz-text-size;
+
+.prime-gift-list-modal {
+  .modal-dialog {
+    width: 480px;
+  }
+
+  .modal-content {
+    background: none;
+    border: 0;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px -8px rgba(vars.$mz-gray-light, 0.4), 0 0 8px 0 rgba(#000, 0.16);
+  }
+
+  .modal-head {
+    display: flex;
+    align-items: center;
+    height: 80px;
+    background: url(vars.$mz-image-url + '/page/prime-day/prime-gift-list-modal-head-bg@2x.jpg') no-repeat left center;
+    background-size: auto 80px;
+    border-radius: 16px 16px 0 0;
+    position: relative;
+    z-index: 2;
+  }
+
+  .head-icon-shape {
+    display: flex;
+    align-self: flex-end;
+    margin: 0 24px -8px 16px;
+  }
+
+  .head-icon-img {
+    height: 72px;
+  }
+
+  .modal-title {
+    @include mz-text-size.mz-text-size(24px);
+    font-weight: 700;
+    color: #fff;
+  }
+
+  .close-btn {
+    background: transparent;
+    height: 32px;
+    width: 32px;
+    display: flex;
+    padding: 0;
+    border: 0;
+    align-items: center;
+    justify-content: center;
+    margin: 0 24px 0 auto;
+    border-radius: 4px;
+
+    &:hover {
+      background: rgba(#fff,0.2);
+    }
+  }
+
+  .modal-body {
+    background: #fff;
+    border-radius: 0 0 16px 16px;
+    padding: 24px;
+  }
+}// .prime-gift-list-modal
+
+
+
+
+
+
+
+
+/* ------------------
+  Special gift segment
+--------------------- */
+.prime-gift-list-modal {
+  .special-gift-segment {
+    margin: 0 -24px;
+    padding: 16px 24px;
+    background-image: linear-gradient(to bottom, #fff 50%, #d6e9fc 100%);
+
+    .segment-head {
+      @include mz-text-size.mz-text-size(16px);
+      font-weight: 800;
+      color: vars.$mz-gray-dark;
+      margin-bottom: 16px;
+    }
+
+    .segment-body {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-gap: 24px;
+    }
+
+    .gift-col {
+      min-width: 0;
+    }
+
+    .gift-item {
+      .icon-shape {
+        position: relative;
+
+        &::before {
+          content: '';
+          display: block;
+          padding-bottom: 100%;
+        }
+      }
+
+      .icon-shape-inner {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        padding: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #fff;
+        border-radius: 8px;
+      }
+    }// .gift-card
+  }// .special-gift-segment
+
+  .seperate-line {
+    margin: 0 -24px;
+    height: 16px;
+    background-color: rgba(204, 230, 255, 0.64);
+    border-top: 1px solid #cce6ff;
+  }
+}
+
+
+
+
+
+
+
+/* ------------------
+  Note segment
+--------------------- */
+.prime-gift-list-modal {
+  .note-segment {
+    margin: 0 -24px;
+    padding: 12px 24px;
+    border-bottom: 1px dashed vars.$mz-primary-light;
+    background: linear-gradient(to right, #fff, vars.$mz-primary-lightest);
+    @include mz-text-size.mz-text-size-from-font-size-key('sm');
+  }// .note-segment
+}
+
+
+
+
+
+
+
+/* ------------------
+  Gift list segment
+--------------------- */
+.prime-gift-list-modal {
+  .gift-list-segment {
+    margin: 0 -24px;
+    padding: 0 24px;
+    max-height: 400px;
+    overflow: auto;
+
+    .gift-card {
+      display: flex;
+      padding: 16px 0;
+      border-bottom: 1px solid vars.$mz-gray-lighter;
+
+      &.is-coupon:not(.is-used) {
+        cursor: pointer;
+
+        &:hover .title {
+          color: vars.$mz-primary;
+        }
+      }
+
+      &.is-used {
+        .title, .discount-code, .desc, .created-date {
+          opacity: 0.7;
+        }
+
+        .title, .discount-code {
+          text-decoration: line-through;
+        }
+      }
+
+      &:last-child {
+        border-bottom: 0;
+      }
+    }// .gift-card
+
+    .icon-col {
+      width: 64px;
+      min-width: 0;
+      margin-right: 16px;
+    }
+
+    .icon-shape {
+      width: 64px;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .info-col {
+      flex: 1 1;
+      min-width: 0;
+    }
+
+    .title {
+      @include mz-text-size.mz-text-size(16px);
+      font-weight: 700;
+    }
+
+    .discount-code {
+      margin-top: 4px;
+      font-weight: 700;
+      @include mz-text-size.mz-text-size-from-font-size-key('sm');
+      color: vars.$mz-gray-dark;
+    }
+
+    .desc {
+      margin-top: 4px;
+      @include mz-text-size.mz-text-size-from-font-size-key('sm');
+      color: vars.$mz-gray-dark;
+    }
+
+    .created-date {
+      margin-top: 4px;
+      @include mz-text-size.mz-text-size-from-font-size-key('xs');
+      color: vars.$mz-gray;
+    }
+
+    .state-col {
+      position: relative;
+      align-self: center;
+      margin-left: 16px;
+      min-width: 16px; // === button .copy-coupon-btn
+    }
+
+    .copy-coupon-btn {
+      .copy-icon {
+        color: vars.$mz-primary;
+        font-size: 16px;
+        line-height: 1;
+      }
+    }
+
+    .copied-tag {
+      position: absolute;
+      top: 50%;
+      right: 0;
+      margin-top: -12px;
+      white-space: nowrap;
+      display: inline-flex;
+      align-items: center;
+      background: vars.$mz-success;
+      height: 24px;
+      @include mz-text-size.mz-text-size-from-font-size-key('xs');
+      font-weight: 700;
+      color: #fff;
+      border-radius: vars.$mz-rounded-round;
+      padding: 0 12px;
+    }
+
+    .used-tag {
+      display: inline-flex;
+      align-items: center;
+      background: vars.$mz-gray;
+      height: 24px;
+      @include mz-text-size.mz-text-size-from-font-size-key('xs');
+      font-weight: 700;
+      color: #fff;
+      border-radius: vars.$mz-rounded-round;
+      padding: 0 12px;
+    }
+
+  }// .gift-list-segment
+}// .prime-gift-list-modal

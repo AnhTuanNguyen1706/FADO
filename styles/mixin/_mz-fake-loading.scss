@@ -1,0 +1,69 @@
+@use 'vars' as vars;
+
+@keyframes  fake-loading {
+  0%{
+    opacity: 1;
+    width: 0;
+  }
+
+  50%{
+    opacity: 0.5;
+    width: 100%;
+  }
+
+  100%{
+    opacity: 0;
+    width: 100%;
+  }
+}
+
+@-webkit-keyframes fake-loading {
+  0%{
+    opacity: 1;
+    width: 0;
+  }
+
+  50%{
+    opacity: 0.5;
+    width: 100%;
+  }
+
+  100%{
+    opacity: 0;
+    width: 100%;
+  }
+}
+
+/*
+DOC:
+- Khởi tạo bộ khung cơ bản cho 1 mz-fake-loading
+*/
+@mixin mz-make-fake-loading-ready {
+  &:before {
+    content: '';
+    position: absolute;
+    display: block;
+    opacity: 1;
+    height: 100%;
+    width: 0;
+    left: 0;
+    top: 0;
+    background: linear-gradient(90deg, rgba(vars.$mz-gray-lighter,0.1) 0%, rgba(vars.$mz-gray-lighter,0.3) 50%, rgba(vars.$mz-gray-lighter,0.5) 100%);
+    background-repeat: no-repeat;
+    animation: fake-loading 1.5s infinite;
+  }
+}
+
+/*
+DOC:
+- Khởi tạo bộ khung cơ bản cho 1 mz-fake-loading-square
+*/
+@mixin mz-make-fake-loading-square {
+  position: relative;
+  width: 100%;
+  padding-bottom: 100%;
+  overflow: hidden;
+  background: vars.$mz-gray-lightest;
+  margin-bottom: 16px;
+  overflow: hidden;
+}

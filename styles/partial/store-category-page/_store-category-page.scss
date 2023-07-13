@@ -1,0 +1,15 @@
+//=================================================
+// store-category-page
+//=================================================
+.store-category-page {
+  background: #fff;
+}
+
+.store-category-page-title {
+  position: absolute;
+  z-index: -1;
+  visibility: hidden;
+  opacity: 0;
+  top: 0;
+  left: 0;
+}

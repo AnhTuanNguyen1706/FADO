@@ -1,0 +1,11 @@
+@use 'mixin/mz-btn' as mz-btn;
+@use 'mixin/mz-hover' as mz-hover;
+
+.custom-btn {
+  @include mz-btn.mz-make-btn-ready();
+  @include mz-btn.mz-make-btn-color('danger');
+
+  @include mz-hover.mz-hover() {
+    @include mz-btn.mz-make-btn-hover-color('danger');
+  }
+}

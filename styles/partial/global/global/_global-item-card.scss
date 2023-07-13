@@ -1,0 +1,145 @@
+@use 'sass:math';
+@use 'vars' as vars;
+@use 'mixin/mz-text-size' as mz-text-size;
+@use 'mixin/mz-border-radius' as mz-border-radius;
+
+.global-item-card {
+  @include mz-border-radius.mz-border-radius-from-key('xl');
+  background: #fff;
+  position: relative;
+
+  &::after {
+    content: '';
+    border: 1px solid rgba(vars.$mz-gray-darker,0.1);
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    @include mz-border-radius.mz-border-radius-from-key('xl');
+    z-index: 2;
+    pointer-events: none;
+  }
+}// .global-item-card
+
+
+/* =============================================
+  Image field
+================================================ */
+.global-item-card {
+  &__img-field {
+    display: block;
+    position: relative;
+    border-radius: #{(vars.$mz-rounded-xl - 0px)} #{(vars.$mz-rounded-xl - 0px)} 0 0;
+
+    &::before {
+      content: "";
+      display: block;
+      padding-bottom: percentage(math.div(9, 16));
+    }
+  }
+
+  &__img-field-inner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: #{(vars.$mz-rounded-xl - 0px)} #{(vars.$mz-rounded-xl - 0px)} 0 0;
+  }
+}// .global-item-card
+
+
+/* =============================================
+  Body
+================================================ */
+.global-item-card {
+  &__body {
+    display: flex;
+  }
+
+  // ## CONTENT COL ##
+  &__content-col {
+    flex: 1 1;
+    padding: 16px;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__title {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    font-weight: 700;
+    display: block;
+    color: vars.$mz-text-body-color;
+  }
+
+  &__meta-field {
+    margin-top: 4px;
+    @include mz-text-size.mz-text-size-from-font-size-key('xs');
+    color: vars.$mz-gray;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__price {
+    color: vars.$mz-warning;
+  }
+
+  &__dot-item {
+    margin: 0 4px;
+
+    &::before {
+      content: '･';
+    }
+
+    &:last-child {
+      display: none;;
+    }
+  }
+
+  // ## SALE COL ##
+  &__sale-col {
+    flex: 0 0 60px;
+    min-width: 60px;
+    padding: 16px 0;
+    border-bottom-right-radius: vars.$mz-rounded-xl;
+    border-left: 1px solid vars.$mz-gray-lightest;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  &__sale-label {
+    @include mz-text-size.mz-text-size-from-font-size-key('xs');
+    color: vars.$mz-gray-dark;
+  }
+
+  &__sale {
+    @include mz-text-size.mz-text-size(22px);
+    font-weight: 700;
+    line-height: 26px;
+    color: vars.$mz-danger;
+
+    sup {
+      top: -4px;
+      font-weight: 400;
+    }
+  }
+
+  &:hover {
+    .global-item-card__title {
+      color: vars.$mz-link-color;
+    }
+  }
+}// .global-item-card

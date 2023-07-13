@@ -1,0 +1,124 @@
+@use 'vars' as vars;
+@use 'mixin/old-bg-fd-grd' as old-bg-fd-grd;
+
+$tmp-border-color: darken(#e1e1e1,2%);
+
+.pagination-nav-old {
+  text-align: center;
+
+  &__page-list {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__page-item {
+    height: 30px;
+    margin: 0 5px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }// &__page-item
+
+  &__lbl-btn {
+    height: 30px;
+    min-width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0 8px;
+    border-radius: 3px;
+    color: #999;
+
+    &.is-active {
+      border: 1px solid $tmp-border-color;
+      background: $tmp-border-color;
+      color: vars.$mz-text-body-color;
+    }
+  }// &__lbl-btn
+
+  &__change-page-btn {
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }// &__change-page-btn
+
+  &__change-page-btn.-arrow {
+    width: 30px;
+    background: $tmp-border-color;
+    border-radius: 50%;
+    color: #999;
+    padding: 1px;
+
+    .pagination-nav-old__change-page-btn__inner {
+      display: flex;
+      border-radius: 50%;
+      height: 100%;
+      width: 100%;
+      background: #fff;
+      align-items: center;
+      justify-content: center;
+    }
+
+    &:hover {
+      color: #fff;
+      @include old-bg-fd-grd.old-bg-fd-grd(135deg);
+
+      .pagination-nav-old__change-page-btn__inner {
+        background: transparent;
+
+      }
+    }
+  }// &__change-page-btn.-arrow
+
+  &__change-page-btn.is-disabled {
+    background: vars.$mz-gray-light;
+
+    .pagination-nav-old__change-page-btn__inner {
+      opacity: 0.3;
+      background: transparent;
+    }
+
+    &:hover {
+      background: vars.$mz-gray-light;
+      color: #999;
+
+      .pagination-nav-old__change-page-btn__inner {
+        background: transparent;
+      }
+    }
+  } // &__change-page-btn.is-disabled
+
+  &__change-page-btn.-number {
+    padding: 0 8px;
+    border-radius: 3px;
+    border: 1px solid $tmp-border-color;
+    color: #999;
+    min-width: 30px;
+
+    &:hover {
+      color: vars.$mz-link-color;
+      border-color: vars.$mz-link-color;
+    }
+  }
+
+  &__change-page-btn.-next {
+    @include old-bg-fd-grd.old-bg-fd-grd(135deg);
+    color: #fff;
+
+    .pagination-nav-old__change-page-btn__inner {
+      background: transparent;
+    }
+
+    &:hover {
+      @include old-bg-fd-grd.old-bg-fd-grd(135deg,5%);
+    }
+  }
+}// .pagination-nav-old

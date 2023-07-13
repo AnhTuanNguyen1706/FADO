@@ -1,0 +1,34 @@
+@use 'vars' as vars;
+@use 'mixin/mz-text-size' as mz-text-size;
+
+//===============================================
+// order finish head block
+//===============================================
+.order-finish-head-block {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+
+  // head content col
+  .head-content-col {
+    flex: 1 1;
+    margin-right: 6px;
+
+    .title-label {
+      @include mz-text-size.mz-text-size(24px);
+      font-weight: 700;
+      color: vars.$mz-gray-darker;
+      margin-bottom: 8px;
+    }
+
+    .content-label {
+      color: vars.$mz-gray-dark;
+    }
+  }
+
+  // head bg col
+  .head-bg-col {
+    max-width: 228px;
+    flex: 0 0 228px;
+  }
+}

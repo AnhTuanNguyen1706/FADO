@@ -1,0 +1,185 @@
+@use 'sass:math';
+@use 'vars' as vars;
+@use 'mixin/mz-text-size' as mz-text-size;
+
+.today-deals-country-header-section {
+  .mz-container-extend {
+    display: flex;
+    align-items: center;
+    height: 120px;
+  }
+
+  .section-inner {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 100%;
+  }
+
+  &.section-style-blackfriday {
+    background: url(vars.$mz-image-url + '/page/today-deals/dealBanner.jpg') no-repeat center;
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-size: auto 120px;
+    color: #333;
+    position: relative;
+    z-index: vars.$mz-z-index-lv-4;
+    background-color:#FFFFFF ;
+  }
+
+  &.section-style-lunar-new-year {
+    background: #ffd070;
+    color: #6f121d;
+  }
+}// .today-deal-country-header-section
+
+/* ##############################################################
+  Menu Column
+################################################################# */
+.today-deals-country-header-section {
+  .menu-col {
+    display: flex;
+    align-items: baseline;
+    position: relative;
+    flex: 1 1;
+  }
+
+  .section-title {
+    @include mz-text-size.mz-text-size(40px);
+    font-weight: 700;
+  }
+}
+
+/* ------------------
+  Country list
+--------------------- */
+.today-deals-country-header-section {
+  .country-list {
+    display: flex;
+    align-items: baseline;
+    list-style: none;
+    margin-left: 44px;
+  }
+
+  .country-item-outer {
+    margin-right: 40px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .country-item {
+    @include mz-text-size.mz-text-size(24px);
+    position: relative;
+    display: block;
+    color: vars.$mz-text-body-color;
+
+    // Mũi tên ở góc dưới khi active
+    &::after {
+      position: absolute;
+      bottom: -38px;
+      left: 50%;
+      margin-left: -12px;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 0 12px 14px 12px;
+      border-color: transparent transparent #fff transparent;
+      z-index: vars.$mz-z-index-lv-3;
+    }
+
+    &-label {
+      display: block;
+      position: relative;
+      z-index: vars.$mz-z-index-lv-2;
+    }
+
+    &:hover, &.is-active {
+      color: vars.$mz-link-color;
+    }
+
+    &.is-active {
+      &::after {
+        content: '';
+      }
+    }
+  }// .country-item
+
+  // BLACKFRIDAY STYLE
+  &.section-style-blackfriday {
+    .country-item {
+      color: #333;
+
+      &:hover {
+        color: black;
+      }
+
+      &.is-active {
+        color: black;
+
+        .country-item-bg-field {
+          display: block;
+        }
+      }
+    }
+
+    .country-item-bg-field {
+      display: none;
+      position: absolute;
+      text-align: center;
+      width: 98px;
+      left: 50%;
+      bottom: -36px;
+      margin-left: -(math.div(98px, 2));
+    }
+  }// &.section-style-blackfriday
+
+  // LUNAR NEW YEAR
+  &.section-style-lunar-new-year {
+    .country-item {
+      color: #6f121d;
+
+      &:hover {
+        color: #bd2032;
+      }
+    }
+  }
+}// .today-deals-country-header-section
+
+/* ##############################################################
+  Right Column
+################################################################# */
+.today-deals-country-header-section {
+  .right-col {
+    margin-left: auto;
+    padding-left: 16px;
+
+    .bner-field {
+      position: relative;
+      width: 400px;
+
+      &:before {
+        content: '';
+        display: block;
+        width: 100%;
+        padding-bottom: percentage(math.div(1, 4));
+      }
+
+      a {
+        position: absolute;
+        display: block;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+      }
+
+      .bner-img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+  }
+}// .today-deals-country-header-section

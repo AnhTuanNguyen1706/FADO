@@ -1,0 +1,335 @@
+@use 'vars' as vars;
+@use 'mixin/mz-text-size' as mz-text-size;
+@use 'mixin/mz-general' as general;
+@use 'mixin/mz-border-radius' as mz-border-radius;
+@use 'function/mz/mz-color' as mz-color;
+@use 'lib/mz-grid-framework/mixin/mz-media-query' as mz-media-query;
+@use 'lib/mz-grid-framework/mixin/mz-grid' as mz-grid;
+
+.today-deals-country-section {
+  margin-bottom: 40px;
+  position: relative;
+  z-index: vars.$mz-z-index-lv-3;
+}
+
+/* ##############################################################
+  Section head
+################################################################# */
+$_map-color: (
+  'us': (
+    'bg-color': linear-gradient(96deg, #4994f2, vars.$mz-secondary),
+  ),
+  'de': (
+    'bg-color': linear-gradient(96deg, vars.$mz-warning-light, vars.$mz-warning-dark),
+  ),
+  'jp': (
+    'bg-color': linear-gradient(96deg, #eb5766, vars.$mz-danger),
+  ),
+  'uk': (
+    'bg-color': linear-gradient(96deg, #55daec, vars.$mz-info),
+  ),
+  'sgp': (
+    'bg-color': linear-gradient(96deg, #00d2ff, vars.$mz-primary),
+  ),
+);
+
+
+.today-deals-country-section {
+  .section-head {
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: vars.$mz-rounded-xl vars.$mz-rounded-xl 0 0;
+    position: relative;
+    border-bottom: 1px solid rgba(vars.$mz-gray-darker,0.1);
+  }
+
+  .section-title {
+    @include mz-text-size.mz-text-size(40px);
+    padding: 24px;
+    position: relative;
+    z-index: vars.$mz-z-index-lv-1;
+
+    a {
+      color: vars.$mz-text-body-color;
+
+      &:hover {
+        color: mz-color.mz-get-hover-color(vars.$mz-text-body-color);
+      }
+    }
+  }
+
+  &.has-color-style {
+    .section-head-bg {
+      position: absolute;
+      background: url(vars.$mz-image-url + '/page/today-deals/country-section-head-bg@2x.png') no-repeat -80px top;
+      background-size: cover;
+      height: 100%;
+      width: 658px;
+      mix-blend-mode: difference;
+      border-top-left-radius: vars.$mz-rounded-xl;
+    }
+
+    .section-head {
+      $_bg-color: map-get(map-get($_map-color,'us'),'bg-color');
+      background: $_bg-color;
+      color: #fff;
+
+      a {
+        color: #fff;
+
+        &:hover {
+          color: mz-color.mz-get-hover-color(#fff);
+        }
+      }
+    }
+
+    .section-title {
+      font-weight: 700;
+    }
+
+    @each $_country-code, $_map-country in $_map-color {
+      &.section-#{$_country-code} {
+        .section-head {
+          $_bg-color: map-get($_map-country,'bg-color');
+          background: $_bg-color;
+        }
+      }
+    }
+  }// &.has-color-style
+}// .today-deals-country-section
+
+/* ------------------
+  Menu item wrap
+--------------------- */
+.today-deals-country-section {
+  .menu-item-wrap {
+    position: relative;
+    z-index: vars.$mz-z-index-lv-1;
+    display: flex;
+    margin-left: auto;
+    flex-wrap: nowrap;
+  }
+
+  .menu-item {
+    padding: 16px 24px;
+    display: none;
+    color: vars.$mz-text-body-color;
+    text-align: center;
+    min-width: 0;
+
+    &:nth-child(n + 4) {
+      display: block;
+    }
+
+    @include mz-media-query.mz-media-breakpoint-up('2xl') {
+      &:nth-child(n + 3) {
+        display: block;
+      }
+    }
+
+    @include mz-media-query.mz-media-breakpoint-up('3xl') {
+      &:nth-child(n) {
+        display: block;
+      }
+    }
+
+    &:hover {
+      color: mz-color.mz-get-hover-color(vars.$mz-text-body-color);
+
+      .menu-item-img {
+        transform: scale(1.2);
+      }
+    }
+  }
+
+  .menu-item-img-field {
+    margin-bottom: 8px;
+  }
+
+  .menu-item-img-shape {
+    width: 88px;
+    height: 88px;
+    background: #fff;
+    @include mz-border-radius.mz-border-radius-from-key('circle');
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+  }
+
+  .menu-item-img {
+    width: 72px;
+    height: 72px;
+    object-fit: contain;
+    transform-origin: bottom center;
+    transition: vars.$mz-transition-time-default;
+  }
+
+  .menu-item-title {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    max-width: 88px;
+  }
+
+  // CUSTOM STYLE
+  &.has-color-style {
+    .menu-item {
+      color: #fff;
+
+      &:hover {
+        color: mz-color.mz-get-hover-color(#fff);
+      }
+    }
+  }
+}// .today-deals-country-section
+
+/* ------------------
+  View more column
+--------------------- */
+.today-deals-country-section {
+  .view-more-col {
+    align-self: stretch;
+    border-left: 1px solid rgba(vars.$mz-gray-darker,0.1);
+  }
+
+  .view-more-item {
+    padding: 16px 24px;
+    text-align: center;
+    color: vars.$mz-text-body-color;
+
+    &:hover {
+      color: mz-color.mz-get-hover-color(vars.$mz-text-body-color);
+
+      .view-more-item-img {
+        transform: scale(1.2);
+      }
+    }
+  }
+
+  .view-more-item-img-field {
+    margin-bottom: 8px;
+  }
+
+  .view-more-item-img-shape {
+    width: 88px;
+    height: 88px;
+    background: transparent;
+    @include mz-border-radius.mz-border-radius-from-key('circle');
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+  }
+
+  .view-more-item-img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    transform-origin: bottom center;
+    transition: vars.$mz-transition-time-default;
+  }
+
+  .view-more-item-title {
+    @include general.mz-limit-text-line('normal',2);
+    max-width: 120px;
+  }
+
+  // CUSTOm
+  &.has-color-style {
+    .view-more-col {
+      border-left-color: rgba(#fff,0.2);
+    }// .view-more-col
+
+    .view-more-item {
+      color: #fff;
+
+      &:hover {
+        color: mz-color.mz-get-hover-color(#fff);
+      }
+    }
+  }// &.has-color-style
+}// .today-deals-country-section
+
+/* ##############################################################
+  Section body
+################################################################# */
+.today-deals-country-section {
+  .section-body {
+    padding: 24px 24px 48px;
+    background: #fff;
+    border-radius: 0 0 vars.$mz-rounded-xl vars.$mz-rounded-xl;
+  }
+
+  .product-row {
+    @include mz-grid.mz-make-row(6);
+
+    &:not(.is-start) {
+      margin-bottom: 24px;
+    }
+  }
+
+  .product-col {
+    @include mz-grid.mz-make-col-ready(6);
+    @include mz-grid.mz-make-col(1,4);
+    display: none;
+
+    &:nth-child(n + 3) {
+      display: flex;
+    }
+
+    @include mz-media-query.mz-media-breakpoint-up('2xl') {
+      @include mz-grid.mz-make-col(1,5);
+
+      &:nth-child(n + 2) {
+        display: flex;
+      }
+    }
+
+    @include mz-media-query.mz-media-breakpoint-up('3xl') {
+      @include mz-grid.mz-make-col(1,6);
+
+      &:nth-child(n) {
+        display: flex;
+      }
+    }
+  }
+
+  .view-more-field {
+    text-align: center;
+
+    .view-more-btn {
+      padding: 0 24px;
+    }
+  }
+}
+
+/* =============================================
+  Banner list
+================================================ */
+.today-deals-country-section {
+  .bner-row {
+    @include mz-grid.mz-make-row(4);
+    margin-bottom: 40px;
+  }
+
+  .bner-col {
+    @include mz-grid.mz-make-col-ready(4);
+    @include mz-grid.mz-make-col(1,3);
+    display: none;
+
+    &:nth-child(n + 2) {
+      display: block;
+    }
+
+    @include mz-media-query.mz-media-breakpoint-up('3xl') {
+      @include mz-grid.mz-make-col(1,4);
+
+      &:nth-child(n) {
+        display: block;
+      }
+    }
+  }
+}// .today-deals-country-section

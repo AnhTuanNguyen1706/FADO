@@ -1,0 +1,35 @@
+.user-block--order-history {
+  &__filter-order-form__order-type-col {
+    border-right: 1px solid lighten(#e1e1e1, 6%);
+  }
+
+  .order-history-filter-input-outer {
+    position: relative;
+    width: 128px;
+    margin-right: 8px;
+    z-index: 0;
+  }
+  
+  .filter-date-icon {
+    display: inline-flex;
+    position: absolute;
+    align-items: center;
+    font-size: 16px;
+    line-height: 24px;
+    top: 0;
+    bottom: 0;
+    right: 8px;
+    z-index: 0;
+  }
+
+  .user-block__data-tb {
+    .user-block__control-th {
+      width: 80px;
+    }
+
+    .user-block__total-price-td {
+      color: #FF6F00;
+      font-weight: 500;
+    }
+  }// .user-block
+}// .user-block--order-history

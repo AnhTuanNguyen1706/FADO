@@ -1,0 +1,40 @@
+@use 'vars' as vars;
+
+.contact-layout {
+  margin-bottom: 40px;
+  min-width: vars.$mz-page-min-width;
+  padding-top: 240px;
+  position: relative;
+
+  &__bner {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 280px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: vars.$mz-danger;
+    background-image: url(vars.$mz-upload-url + '/bner/contact-page-bner.png' + vars.$mz-cache-ver-suffix);
+  }
+
+  .container {
+    background: #fff;
+    padding: 20px;
+    position: relative;
+    z-index: 2;
+    min-height: 300px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 200px;
+      z-index: -1;
+      box-shadow: 0 20px 0 0 #fff, 0 0 15px 0 rgba(0,0,0,.08);
+    }
+  }
+}// .contact-layout

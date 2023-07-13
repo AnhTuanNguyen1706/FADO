@@ -1,0 +1,27 @@
+@use 'vars' as vars;
+@use 'function/mz/mz-color' as mz-color;
+
+@mixin mz-gradient-bg($_color-name,$_rotate: vars.$mz-gradient-rotate-default) {
+  @if map-has-key(vars.$mz-map-color-overlay,$_color-name){
+    $_color-from: mz-color.mz-get-color-overlay($_color-name);
+    $_color-to: mz-color.mz-get-color-with-level($_color-name);
+    background: linear-gradient($_rotate, $_color-from, $_color-to);
+  } @else if($_color-name == 'mixed') {
+    background: linear-gradient($_rotate, vars.$mz-danger, vars.$mz-purple);
+  }
+}
+
+@mixin mz-gradient-active-bg($_color-name,$_rotate: vars.$mz-gradient-rotate-default) {
+  @if map-has-key(vars.$mz-map-color-overlay,$_color-name){
+    $_color-from: mz-color.mz-get-color-overlay($_color-name);
+    $_color-to: mz-color.mz-get-color-with-level($_color-name);
+    background:
+      linear-gradient(to bottom, rgba(#000, 0.3), rgba(#000,0.3)),
+      linear-gradient($_rotate, $_color-from, $_color-to)
+    ;
+  } @else if($_color-name == 'mixed') {
+    background:
+      linear-gradient(to bottom, rgba(#000, 0.3), rgba(#000,0.3)),
+      linear-gradient($_rotate, vars.$mz-danger, vars.$mz-purple);
+  }
+}

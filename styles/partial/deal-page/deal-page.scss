@@ -1,0 +1,10 @@
+// Local global
+// ---------
+@use './partial/global/product/product-deal-action-card';
+@use './partial/today-deals-country-page/today-deals-country-header-section';
+@use './partial/today-deals-country-page/today-deals-country-header-sticky-section';
+
+// Local partial
+// ---------
+@use './_deal-page';
+@use './deal-product-section';

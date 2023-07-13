@@ -1,0 +1,126 @@
+@use 'vars' as vars;
+@use 'mixin/mz-gradient' as mz-gradient;
+@use 'function/mz/mz-color' as mz-color;
+
+//Check background and return text color
+@function _get-text-color($_bg-color){
+  @if(lightness($_bg-color) > 70){
+    @return vars.$mz-gray-darker;
+  }
+  @else{
+    @return #ffffff;
+  }
+}
+
+// Define default
+.color-hex-size{
+  font-size: vars.$mz-font-size-md;
+}
+
+.color-panel{
+  justify-content: space-between;
+}
+
+.color-box {
+  flex: 1;
+  text-align: center;
+  padding: 16px 4px;
+  margin: 2px;
+  font-weight: 500;
+  font-size: vars.$mz-font-size-sm;
+  align-self: center;
+}
+
+.color-help{
+  flex: 1;
+  text-align: center;
+  padding: 16px 4px;
+  margin: 2px;
+  font-weight: 500;
+  font-size: vars.$mz-font-size-md;
+  align-self: center;
+  background:vars.$mz-success-root;
+  color:#ffffff;
+}
+
+.color-title{
+  font-size: vars.$mz-font-size-md;
+  font-weight: 700;
+}
+// Generate color from palette
+$_arrColorList : (
+  'gray',
+  'primary',
+  'secondary',
+  'info',
+  'success',
+  'warning',
+  'danger',
+);
+$_arrColorLevelKey : (
+  'lightest',
+  'lighter',
+  'light',
+  'root',
+  'dark',
+  'darker',
+);
+$_arrColorExtend : (
+  'purple',
+);
+// Genarate palette color
+@each $_colorName in $_arrColorList {
+  $color-name : $_colorName;
+
+  @each $_colorLevel in $_arrColorLevelKey{
+    $color-level : $_colorLevel;
+    $background-color: mz-color.mz-get-color-with-level($color-name, $color-level);
+    $text-color: _get-text-color($background-color);
+
+    .color-#{$color-name}-#{$color-level}{
+      background: $background-color;
+      color: $text-color;
+    }
+  };
+  // Overlay color
+  .color-overlay-#{$color-name}{
+    $background-overlay: mz-color.mz-get-color-overlay($color-name);
+    $text-overlay: _get-text-color($background-overlay);
+
+    background: $background-overlay;
+    color: $text-overlay;
+  }
+
+  // Gradient color
+  .color-gradient-#{$color-name}{
+
+    @include mz-gradient.mz-gradient-bg($color-name);
+    color: #ffffff;
+  }
+};
+// Extend color PURPLE
+@each $_colorName in $_arrColorExtend {
+  $color-name : $_colorName;
+
+  @each $_colorLevel in $_arrColorLevelKey{
+    $color-level : $_colorLevel;
+    $background-extend: mz-color.getColorExtend($color-name);
+    $text-extend: _get-text-color($background-extend);
+
+    .color-#{$color-name}-#{$color-level}{
+      opacity: 0;
+    }
+
+    .color-purple-root{
+      opacity: 1;
+      background: $background-extend;
+      color: $text-extend;
+    }
+  }
+  .color-overlay-#{$color-name}{
+    opacity: 0;
+  }
+  .color-gradient-#{$color-name}{
+    opacity: 0;
+  }
+};

@@ -1,0 +1,92 @@
+@use 'vars' as vars;
+@use 'mixin/mz-text-size' as mz-text-size;
+@use 'mixin/mz-image' as mz-image;
+@use 'mixin/mz-general' as general;
+
+.related-blog-section {
+  background: #fff;
+  padding: 24px 0;
+  border-top: solid 1px vars.$mz-gray-lighter;
+}
+
+.related-blog {
+  &__section-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+  }
+
+  &__title {
+    @include mz-text-size.mz-text-size(18px);
+    font-weight: 600;
+  }
+
+  &__viewmore {
+    display: flex;
+    align-items: baseline;
+    color: vars.$mz-primary;
+
+    i {
+      margin-left: 8px;
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -16px;
+  }
+
+  &__item {
+    display: flex;
+    align-items: flex-start;
+    flex-wrap: nowrap;
+    margin-top: 24px;
+    max-width: 50%;
+    flex: 0 0 50%;
+    padding: 0 16px;
+    @include mz-text-size.mz-text-size(12px);
+  }
+
+  &__item-image-col {
+    @include mz-image.mz-img-outer;
+    flex: 0 0 132px;
+    max-width: 132px;
+    min-width: 0;
+    margin-right: 16px;
+  }
+
+  &__item-image-outer {
+    @include mz-image.mz-img-inner;
+  }
+
+  &__item-img {
+    @include mz-image.mz-img-img-post;
+    border-radius: 10px;
+  }
+
+  &__item-title {
+    @include mz-text-size.mz-text-size(14px);
+    font-weight: 600;
+    color: vars.$mz-gray-dark;
+
+    &:hover {
+      color: vars.$mz-gray-dark;
+    }
+  }
+
+  &__description {
+    color: vars.$mz-gray-dark;
+    margin-top: 8px;
+    @include general.mz-limit-text-line(12px, 4);
+  }
+
+  &__related-keyword-list {
+    margin-top: 8px;
+    color: vars.$mz-primary;
+  }
+
+  &__related-keyword {
+    margin-top: 8px;
+  }
+}

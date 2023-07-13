@@ -1,0 +1,11 @@
+// Partials global
+// ---------
+@use 'partial/global/product/product-deal-action-card';
+@use 'partial/global/mkt-editor';
+
+// Partials in page
+// ---------
+@use './_landing-product-page';
+@use 'landing-product-layout';
+@use 'landing-product-section';
+@use 'mkt-editor-wrap';

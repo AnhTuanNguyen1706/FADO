@@ -1,0 +1,164 @@
+@use 'vars' as vars;
+
+//======================================================
+// order header section
+//======================================================
+.order-header-section {
+  box-shadow: 0 2px 4px 0 rgba(vars.$mz-gray-light, 0.4);
+  background-color: #ffffff;
+  margin-bottom: 4rem;
+} // .order-header-section
+
+//======================================================
+// order header block
+//======================================================
+.order-header-block {
+  display: flex;
+  align-items: center;
+  padding: 1.25rem 0;
+
+  // .header-logo-segment
+  //---------------------
+  .header-logo-segment {
+    height: 48px;
+
+    .logo-item {
+      display: flex;
+      height: 100%;
+    }
+  }
+
+  // .header-info-segment
+  //---------------------
+  .header-info-segment {
+    display: inline-flex;
+    align-items: center;
+    margin-left: auto;
+    padding-left: 2rem;
+
+    .info-row {
+      display: flex;
+    }
+
+    .info-col {
+      display: inline-flex;
+      align-items: center;
+      position: relative;
+      padding: 0 2rem;
+
+      &:before {
+        position: absolute;
+        content: '';
+        left: 0;
+        top: -10px;
+        width: 1px;
+        height: calc(100% + 20px);
+        background: vars.$mz-gray-lightest;
+      }
+
+      &.is-hide-left-border {
+        &:before {
+          content: none;
+        }
+      } // .info-col.is-hide-left-border
+
+      &.header-title-col {
+        padding-left: 0;
+        padding-right: 2.5rem;
+      }
+
+      &:last-child {
+        padding-right: 0;
+      }
+    } // .info-col
+
+    .header-title {
+      color: vars.$mz-gray-darker;
+      font-size: 2.5rem;
+      font-weight: 700;
+    }
+
+    .header-cart-info {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+
+      &:hover {
+        .header-cart-btn {
+          background: vars.$mz-primary;
+
+          i {
+            color: #ffffff;
+          }
+        }
+      }
+    } // .header-cart-info
+
+    .header-cart-btn {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 40px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: vars.$mz-primary-lightest;
+      margin-right: 1rem;
+
+      i {
+        font-size: 2rem;
+        color: vars.$mz-primary;
+      }
+
+      &.is-active {
+        background: vars.$mz-primary;
+
+        i {
+          color: #ffffff;
+        }
+
+        .header-cart-quantity {
+          opacity: 1;
+        }
+      }
+    } // .header-cart-btn
+
+    .header-cart-quantity {
+      $quantity-width: 20px;
+      opacity: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      min-width: $quantity-width;
+      height: $quantity-width;
+      top: -6px;
+      right: -6px;
+      background: vars.$mz-danger;
+      border: 2px solid #ffffff;
+      padding: 0 4px;
+      border-radius: vars.$mz-rounded-round;
+      color: #fff;
+      transition: vars.$mz-transition-time-xs;
+      font-size: 10px;
+      line-height: 1;
+      font-weight: 700;
+    }
+
+    .header-cart-title {
+      color: vars.$mz-primary;
+      font-weight: 700;
+    }
+
+    .contact-info {
+      text-align: right;
+    }
+
+    .contact-suggest-label {
+      font-size: 1.5rem;
+      margin-bottom: 6px;
+      color: vars.$mz-gray-dark;
+    }
+  } // .header-info-segment
+} // .order-header-block

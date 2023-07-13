@@ -1,0 +1,31 @@
+@use 'mixin/old-bg-fd-grd' as old-bg-fd-grd;
+
+.mkt-event-content-block {
+  padding: 10px 20px 20px;
+  background: #fff;
+  margin-bottom: 40px;
+  border-radius: 4px;
+
+  &__head {
+    border-bottom: 1px solid #e1e1e1;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    font-weight: 500;
+  }
+
+  &__title {
+    position: relative;
+    font-size: 16px;
+    line-height: 22px;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: -20px;
+      height: 100%;
+      top: 0;
+      width: 5px;
+      @include old-bg-fd-grd.old-bg-fd-grd(135deg);
+    }
+  }
+}

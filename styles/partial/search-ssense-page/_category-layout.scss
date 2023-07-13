@@ -1,0 +1,53 @@
+@use 'vars' as vars;
+@use 'mixin/mz-image' as mz-image;
+
+.category-page {
+  // background: #e9edf1;
+}
+
+.category-layout {
+  background: #fff;
+  min-width: vars.$mz-page-min-width;
+
+  .mz-basic-sidebox {
+    border-color: vars.$mz-gray-lighter;
+  }
+
+  &__foot {
+    padding: 12px 0;
+    border-top: solid 1px vars.$mz-gray-lighter;
+  }
+
+  &__related-list {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0 -2px;
+  }
+
+  &__related-keyword {
+    display: block;
+    padding: 4px 2px;
+  }
+
+  .mz-basic-sidebox {
+    border-color: vars.$mz-gray-lighter;
+  }
+}// .category-layout
+
+//! Tạm thời để code đây xóa sau khi hết sự kiện prime day
+.bner-adidas {
+  @include mz-image.mz-img-outer-post;
+  height: 272px;
+  background: rgb(227,218,211);
+  background: linear-gradient(90deg, rgba(227,218,211,1) 0%, rgba(215,205,196,1) 100%);
+}
+
+.bner-adidas-inner {
+  @include mz-image.mz-img-inner;
+}
+
+.bner-adidas-img {
+  @include mz-image.mz-img-img-post;
+  width: unset;
+}

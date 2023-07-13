@@ -1,0 +1,30 @@
+@use 'vars' as vars;
+
+//========================================================
+// order page
+//========================================================
+.order-page {
+  background: vars.$mz-gray-lighter;
+
+  .ins-gdpr-wrapper {
+    display: none !important;
+  }
+
+  .store-app-info {
+    width: 100%;
+    text-align: center;
+  }
+
+  .fado-app-btn {
+    display: inline-block;
+
+    img {
+      height: 40px;
+      width: auto;
+    }
+
+    &:first-child {
+      margin-right: 8px;
+    }
+  }
+}

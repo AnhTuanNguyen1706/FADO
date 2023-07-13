@@ -1,0 +1,15 @@
+// Extend Libs
+// ---------
+@use "lib/fancybox/fancybox";
+
+// Partials in page
+// ---------
+@use "seller-product-section";
+@use 'seller-sidebar-col';
+@use 'seller-main-col';
+@use "seller-product-block";
+@use "seller-product-tab";
+@use "seller-list-block";
+
+// Modal
+// ---------

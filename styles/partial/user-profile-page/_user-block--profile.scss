@@ -1,0 +1,45 @@
+@use 'vars' as vars;
+@use 'mixin/mz-text-size' as mz-text-size;
+@use 'function/mz/mz-color' as mz-color;
+
+.user-block--profile {
+  .user-block__input-form {
+    width: 480px;
+
+    .my-form-control {
+      max-width: none;
+    }
+  }
+
+  &__birthday-input-alert {
+    position: absolute;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    top: 0;
+    left: calc(100% + 10px);
+    width: 300px;
+    font-size: 12px;
+    line-height: 16px;
+    color: vars.$mz-gray-dark;
+    font-style: italic;
+  }
+}
+
+.user-block {
+  &__input-form-group {
+    width: 412px;
+    margin: 0 auto;
+    padding-top: 8px;
+  }
+
+  &__button-submit {
+    display: flex;
+    justify-content: center;
+    padding-top: 16px;
+  }
+
+  &__alert {
+    text-align: center;
+  }
+}

@@ -1,0 +1,16 @@
+/*
+- Trường hợp chỉ có 1 dòng sản phẩm, không có phân trang - http://dev-v2.fado.vn/us/s/search?rh=k:sadsadasd&keywords=sadsadasd
+*/
+// Partials global
+// ---------
+@use 'partial/global/product/product-card';
+@use "partial/global/product-not-found";
+
+// Partials category page
+// ---------
+@use "partial/category-page/category-layout";
+@use "partial/category-page/category-product-card-wrap";
+@use "partial/category-page/category-side-col";
+@use "partial/category-page/category-info-section";
+
+@use "./global-deal-wrapper";

@@ -1,0 +1,28 @@
+@use 'vars' as vars;
+
+//=============================================
+//  user wallet history empty
+//=============================================
+.user-wallet-empty-block {
+  display: flex;
+  justify-content: center;
+
+  .wallet-empty-content {
+    width: 373px;
+  }
+
+  .wallet-empty-bg-outer {
+    margin-bottom: 32px;
+    padding: 0 24px;
+  }
+
+  .wallet-empty-content-inner {
+    text-align: center;
+    color: vars.$mz-gray-dark;
+  }
+
+  .wallet-adding-label {
+    color: vars.$mz-primary;
+    cursor: pointer;
+  }
+}

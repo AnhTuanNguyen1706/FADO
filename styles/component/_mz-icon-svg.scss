@@ -1,0 +1,61 @@
+@use 'vars' as vars;
+
+.mz-icon-svg {
+  display: inline-block;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  font-style: normal;
+  line-height: 1;
+}
+
+// ------------------
+// Image size
+// ------------------
+@each $_size-key, $_size-val in vars.$mz-map-size-extend {
+  .mz-icon-svg-#{$_size-key} {
+    width: $_size-val;
+    min-width: $_size-val;
+    height: $_size-val;
+  }
+}
+
+// ------------------
+// Image list
+// ------------------
+$_svg-list-image: (
+  // Flag
+  'flag-circle-us',
+  'flag-circle-de',
+  'flag-circle-jp',
+  'flag-circle-ja',
+  'flag-circle-uk',
+  'flag-circle-en',
+  'flag-circle-sgp',
+  'flag-circle-hkg',
+  'flag-circle-vn',
+  'flag-circle-vi',
+  'flag-circle-gb',
+  'flag-circle-au',
+  'flag-circle-idn', // Indonesia
+  'flag-circle-khm', // Cambodia
+
+  // Payment
+  'payment-transfer',
+  'payment-atm',
+  'payment-cc',
+  'payment-installment',
+  'payment-zalopay',
+  'payment-fado',
+  'payment-home',
+  'payment-store',
+  'payment-cod',
+  'payment-wallet',
+);
+
+@for $i from 1 through length($_svg-list-image) {
+  .mz-icon-svg-#{nth($_svg-list-image, $i)} {
+    background-image: url(vars.$mz-image-icon-svg-url + '/' + nth($_svg-list-image, $i) + '.svg' + vars.$mz-cache-ver-suffix);
+  }
+}

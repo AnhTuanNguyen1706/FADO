@@ -1,0 +1,53 @@
+
+@use 'vars' as vars;
+@use 'mixin/mz-text-size' as mz-text-size;
+@use 'mixin/mz-animation' as mz-animation;
+
+//=======================================
+// search section
+//=======================================
+.search-total-wrapper{
+  background: #ffffff;
+
+  &.is-loading {
+    .loading-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 435px;
+      background: rgba(#fff, 0.5);
+      left: 0;
+      top: 0;
+
+      .loading-icon {
+        font-style: normal;
+        @include mz-animation.mz-animation-spin();
+
+        &::before {
+          @include mz-text-size.mz-text-size(24px);
+          color: vars.$mz-gray;
+          content: "\f110";
+          font-weight: 700;
+          font-family: vars.$mz-font-family-fa5;
+        }
+      }
+    }
+  }
+}
+
+//================================================
+// search suggest keyword block
+//================================================
+.search-total-wrapper{
+  .search-suggest-keyword-block {
+    padding: 16px 0;
+    border-top: solid 1px vars.$mz-gray-lighter;
+  }
+}
+
+.search-total-wrapper{
+  .mz-basic-sidebox {
+    border-color: vars.$mz-gray-lighter;
+  }
+}

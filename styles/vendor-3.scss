@@ -1,0 +1,89 @@
+@charset "UTF-8";
+
+// utility
+// ---------
+@use './utility/animation';
+@use './utility/text-payment-status';
+
+// Component
+// ---------
+@use 'component/old/container';
+@use 'component/old/my-btn';
+@use 'component/old/my-control-btn';
+@use 'component/old/my-alert';
+@use 'component/old/my-form';
+@use 'component/old/my-modal';
+@use 'component/old/check-control';
+@use 'component/old/my-quantity-control'; // ! (05/10/2020) loại bỏ bộ component này vì hết chỗ sử dụng
+@use 'component/old/loading-field-component';
+
+@use 'component/mz-alert';
+@use 'component/mz-btn';
+@use 'component/mz-grd-btn';
+@use 'component/mz-tag-btn';
+@use 'component/mz-form';
+@use 'component/mz-form-control';
+@use 'component/mz-number-control';
+@use 'component/mz-tag-control';
+@use 'component/mz-basic-box';
+@use 'component/mz-basic-sidebox';
+@use 'component/mz-basic-tab';
+@use 'component/modal/mz-basic-modal';
+@use 'component/modal/mz-confirm-modal';
+@use 'component/mz-dropdown';
+@use 'component/mz-dropdown-menu';
+@use 'component/mz-scrollbar';
+@use 'component/mz-icon';
+@use 'component/mz-fake-loading';
+@use 'component/mz-status-tag';
+@use 'component/mz-feedback-product-tag';
+@use 'component/mz-wallet-status-tag';
+@use 'component/mz-icon-svg';
+@use 'component/mz-keyword-list';
+@use 'component/mz-user-lv';
+@use 'component/mz-notification-shape';
+@use 'component/mz-state-control';
+@use 'component/mz-layout';
+@use 'component/mz-rating-panel';
+
+// Partial
+// ---------
+@use 'partial/global/side-sticky-bar-section';
+@use 'partial/global/scroll-section';
+@use 'partial/global/footer-section';
+@use 'partial/global/breadcrumb-block';
+@use 'partial/global/pagination-nav-old';
+@use 'partial/global/search-fail-block';
+@use 'partial/global/bner-bottom-block';
+@use 'partial/global/pagination-nav';
+
+// Header section
+@use 'partial/global/header/header-section';
+@use 'partial/global/header/header-top-block';
+@use 'partial/global/header/header-main-block';
+@use 'partial/global/header/header-menu-nav';
+
+// New component
+@use 'partial/global/mz-breadcrumb-section';
+
+// Modal
+// ---------
+@use 'partial/modal/alert-payment-banking-modal';
+@use 'partial/modal/bner-center-modal';
+@use 'partial/modal/intro-export-modal';
+@use 'partial/global/modal/fado-video-modal';
+@use 'partial/global/modal/add-cart-success-modal';
+@use 'partial/global/modal/regist-get-point-modal';
+@use 'partial/global/modal/user-wallet-modal';
+@use 'partial/global/modal/user-wallet-e-gift-modal';
+@use 'partial/global/modal/user-wallet-add-money-modal';
+@use 'partial/global/modal/user-wallet-add-money-notice-modal';
+@use 'partial/global/modal/user-fado-vip-info-modal';
+@use './partial/global/modal/require-login-modal';
+@use './partial/global/sticky-float-bner-section';
+@use './partial/global/fullscreen-loading-section';
+@use './partial/global/header/user-fado-vip-panel';
+@use './partial/global/page-title-section';
+
+// Panel
+@use './partial/global/chat-panel';

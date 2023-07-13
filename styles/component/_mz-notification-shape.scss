@@ -1,0 +1,89 @@
+@use 'vars' as vars;
+@use 'mixin/mz-border-radius' as mz-border-radius;
+
+.mz-notification-shape {
+  width: 40px;
+  height: 40px;
+  background: vars.$mz-primary;
+  @include mz-border-radius.mz-border-radius-from-key('circle');
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  &__icon {
+    width: 20px;
+    height: 20px;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-image: url(vars.$mz-image-url + '/notification/icon-notification-group-0.svg');
+    -webkit-filter: brightness(0) invert(1);
+    filter: brightness(0) invert(1);
+  }
+}
+
+/* ##############################################################
+  Item style
+################################################################# */
+$_map-notification-list: (
+  'group-0': (
+    'shape-bg-color': vars.$mz-primary,
+    'icon-width': 20px,
+  ),
+  'group-1': (
+    'shape-bg-color': vars.$mz-primary,
+    'icon-width': 26px,
+  ),
+  'group-2': (
+    'shape-bg-color': vars.$mz-warning-light,
+    'icon-width': 20px,
+  ),
+  'group-3': (
+    'shape-bg-color': vars.$mz-primary,
+    'icon-width': 20px,
+  ),
+  'type-10': (
+    'shape-bg-color': vars.$mz-primary-light,
+    'icon-width': 18px,
+  ),
+  'type-11': (
+    'shape-bg-color': vars.$mz-info,
+    'icon-width': 20px,
+  ),
+  'type-12': (
+    'shape-bg-color': vars.$mz-success,
+    'icon-width': 20px,
+  ),
+  'type-13': (
+    'shape-bg-color': vars.$mz-gray,
+    'icon-width': 20px,
+  ),
+  'type-14': (
+    'shape-bg-color': vars.$mz-success,
+    'icon-width': 20px,
+  ),
+  'type-15': (
+    'shape-bg-color': vars.$mz-info,
+    'icon-width': 20px,
+  ),
+  'type-16': (
+    'shape-bg-color': vars.$mz-success-light,
+    'icon-width': 20px,
+  ),
+  'type-17': (
+    'shape-bg-color': vars.$mz-warning,
+    'icon-width': 20px,
+  ),
+);
+
+@each $_key, $_map-item in $_map-notification-list {
+  .mz-notification-shape-#{ $_key } {
+    background: map-get($_map-item, 'shape-bg-color');
+
+    .mz-notification-shape__icon {
+      width: map-get($_map-item, 'icon-width');
+      height: map-get($_map-item, 'icon-width');
+      background-image: url(vars.$mz-image-url + '/notification/icon-notification-' + $_key + '.svg');
+    }
+  }
+}

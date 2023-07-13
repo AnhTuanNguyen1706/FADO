@@ -1,0 +1,47 @@
+@use 'vars' as vars;
+@use 'mixin/old-bg-fd-grd' as old-bg-fd-grd;
+
+$tmp-bg-color: #f2f2f2;
+
+.feedback-menu-sblock {
+  will-change: position, transform, left;
+
+  &__menu-list {
+    list-style: none;
+
+    li {
+      margin-bottom: 1px;
+    }
+
+    li.is-active {
+      a {
+        background: darken($tmp-bg-color,6%);
+
+        &::before {
+          content: "";
+        }
+      }
+    }
+
+    a {
+      display: block;
+      background: darken($tmp-bg-color,2%);
+      padding: 8px 15px;
+      color: vars.$mz-text-body-color;
+      position: relative;
+
+      &::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 3px;
+        height: 100%;
+        @include old-bg-fd-grd.old-bg-fd-grd(135deg);
+      }
+
+      &:hover {
+        background: darken($tmp-bg-color,4%);
+      }
+    }// a
+  }// &__menu-list
+}// .feedback-menu-sblock

@@ -1,0 +1,128 @@
+@use 'vars' as vars;
+@use 'vars-v2' as vars-v2;
+@use 'mixin/mz-text-size' as mz-text-size;
+@use 'function/mz/mz-color' as mz-color;
+@use 'mixin/mz-border-radius' as mz-border-radius;
+
+
+.user-block--affiliate-order {
+  padding: 16px 16px;
+  background: #fff;
+  @include mz-border-radius.mz-border-radius(8px);
+  box-shadow: 0 0 4px 0 rgba(vars.$mz-gray, 0.2);
+
+  &__filter-form {
+    margin-bottom: 16px;
+  }
+
+  &__commission-price {
+    color: vars-v2.$primary-900;;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  &__head-title {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 700;
+    margin-right: 8px;
+  }
+
+  &__text-payment  {
+    justify-content: center;
+    align-items: center;
+    border-radius: 60px;
+    display: inline-flex;
+    padding: 0 6px;
+    background: vars-v2.$primary-900;
+    color: #fff;
+  }
+
+  &__head {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 16px;
+  }
+
+  &__block-body {
+    margin: 0 -16px;
+  }
+
+  &__manage-body {
+    display: grid;
+    grid-template-columns: repeat(7, auto);
+  }
+
+  &__manage-item {
+    padding: 10px;
+    border-bottom: 1px solid vars.$mz-gray-lighter;
+  }
+
+  &__item-title {
+    padding: 10px;
+    color: vars.$mz-gray;
+    font-weight: 700;
+    text-align: center;
+
+    background: rgba(vars.$mz-gray-lighter, 0.2);
+    border-top: 1px solid vars.$mz-gray-lighter;
+    border-bottom: 1px solid vars.$mz-gray-lighter;
+    width: 100%;
+  }
+
+
+  &__share-segment {
+    width: 700px;
+    margin: 0 auto 15px;
+  }
+
+  &__agency-code-outer {
+    padding: 0 0 16px;
+    text-align: center;
+  }
+
+  &__agency-code-title {
+    @include mz-text-size.mz-text-size('md');
+  }
+
+  &__agency-code-label {
+    @include mz-text-size.mz-text-size(28px);
+    font-weight: 700;
+    margin-left: 8px;
+  }
+
+  // Affiliate order table
+  .user-block__data-tb {
+    .user-block {
+      &__code-td {
+        width: 140px;
+        white-space: nowrap;
+      }
+
+      &__total-price-td {
+        font-weight: 500;
+        white-space: nowrap;
+      }
+
+      &__date-td {
+        width: 80px;
+        white-space: nowrap;
+      }
+    }
+  } // &__data-tb.-discount-code
+}// .user-block--affiliate-order
+
+.current-price{
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 36px;
+  font-family: "Oswald", "Roboto", "Helvetica Neue", sans-serif;
+  color: vars-v2.$primary-900;;
+}
+
+.item-label {
+    font-size: 13px;
+    line-height: 18px;
+    text-align: center;
+    border-bottom: 1px solid #ededed;
+}

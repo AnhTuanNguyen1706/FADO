@@ -1,0 +1,66 @@
+@use 'vars' as vars;
+
+.suggest-product-deal-section {
+  padding-top: 16px;
+  background: #fff;
+}
+
+.suggest-product-deal-block {
+  min-width: vars.$mz-page-min-width;
+  margin-top: 0;
+
+  .container {
+    position: relative;
+  }
+
+  &.is-start {
+    min-height: 403px;
+  }
+}
+
+// ===================================
+// Head
+// ===================================
+.suggest-product-deal-block {
+  &__title-col {
+    position: relative;
+    text-transform: uppercase;
+    font-weight: 800;
+  }
+
+  &__quantity-field {
+    font-size: 14px;
+    line-height: 22px;
+    color: #999;
+    font-weight: 400;
+  }
+
+  &__control-col {
+    text-align: right;
+    padding-left: 15px;
+  }
+}
+
+// ===================================
+// suggest product card col
+// ===================================
+.suggest-product-deal-block {
+  .suggest-product-card-col {
+    .product-card {
+      background: #ffffff;
+      padding: 12px;
+      height: 100%;
+      border-radius: 8px;
+    }
+  }
+}
+
+// ===================================
+// Loading segment
+// ===================================
+.suggest-product-deal-block {
+  .loading-field-component {
+    background: #fff;
+    height: 360px;
+  }
+}// .suggest-product-deal-block

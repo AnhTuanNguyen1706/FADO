@@ -1,0 +1,71 @@
+// ######################################################
+// Scrollbar
+// ######################################################
+$mz-window-scrollbar-width: 24px; // Chiều rộng của thanh scrollbar native của cửa sổ browser
+
+// ######################################################
+// Grid
+// ######################################################
+$mz-breakpoint-xl: 1280px;
+$mz-breakpoint-2xl: 1576px;
+$mz-breakpoint-3xl: 1896px;
+$mz-breakpoint-default: $mz-breakpoint-xl;
+$mz-breakpoint-key-default: 'xl';
+
+$mz-map-breakpoint: (
+  'xl': $mz-breakpoint-xl,
+  '2xl': $mz-breakpoint-2xl,
+  '3xl': $mz-breakpoint-3xl,
+);
+
+$mz-map-breakpoint-key: map-keys($mz-map-breakpoint);
+
+// ######################################################
+// Side space
+// ######################################################
+$mz-side-space-default: 32px;
+
+/* ######################################################
+  CONTAINER
+  - Kích thước sẽ tương được breakpoint min
+  - Phần content chính là bằng kích thước breakpoint - side-space * 2
+###################################################### */
+// CONTAINER INNER WITH (phần width chứa content chính của layout)
+$mz-container-inner-width-xl: $mz-breakpoint-xl - ($mz-side-space-default * 2);
+$mz-container-inner-width-2xl: $mz-breakpoint-2xl - ($mz-side-space-default * 2);
+$mz-container-inner-width-3xl: $mz-breakpoint-3xl - ($mz-side-space-default * 2);
+
+
+// ######################################################
+// Space
+// ######################################################
+$mz-space-base: 8px; // ! Sử dụng này rồi nhân lên * x để lấy số chính xác. Sử dụng cho margin,padding
+$mz-map-space-rate: (
+  0: 0,
+  1: 0.25,
+  2: 0.5,
+  3: 0.75,
+  4: 1,
+  5: 1.25,
+  6: 1.5,
+  7: 1.75,
+  8: 2,
+  9: 2.25,
+  10: 2.5,
+  11: 2.75,
+  12: 3,
+  13: 3.25,
+  14: 3.5,
+  15: 3.75,
+  16: 4,
+  17: 4.25,
+  18: 4.5,
+  19: 4.75,
+  20: 5,
+);
+
+// ######################################################
+// Grid colum
+// ######################################################
+$mz-grid-total-column: 12;
+$mz-grid-decimal-total-column: 10;

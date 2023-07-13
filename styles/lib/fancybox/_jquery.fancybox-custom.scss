@@ -1,0 +1,56 @@
+@use 'vars' as vars;
+
+.fancybox-is-open .fancybox-bg {
+  background: #000;
+  opacity: 0.9;
+}
+
+.fancybox-thumbs {
+  top: auto;
+  width: auto;
+  bottom: 0;
+  left: 0;
+  right : 0;
+  height: 72px;
+  padding: 8px 16px;
+  box-sizing: border-box;
+  background: rgba(0, 0, 0, 0.3);
+  text-align: center;
+
+  ul {
+    display: inline-block;
+    width: auto;
+
+    li {
+      width: 56px;
+      height: 56px;
+      display: flex;
+      background-color: #fff;
+      background-position: center;
+      background-size: contain;
+      max-width: none!important;
+      max-height: none!important;
+      margin: 0 8px 0 0;
+      border-radius: vars.$mz-rounded-md;
+      box-shadow: 0 0 0 1px rgba(#000,0.1) inset;
+      transition: vars.$mz-transition-time-xs;
+
+      &::before {
+        border: 0;
+      }
+
+      &:hover, &.fancybox-thumbs-active {
+        box-shadow: 0 0 0 3px vars.$mz-primary inset;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }// li
+  }// ul
+}// .fancybox-thumbs
+
+.fancybox-show-thumbs .fancybox-inner {
+  right: 0;
+  bottom: 70px;
+}

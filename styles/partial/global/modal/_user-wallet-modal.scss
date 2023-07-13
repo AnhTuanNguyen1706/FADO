@@ -1,0 +1,244 @@
+@use 'vars' as vars;
+@use 'mixin/mz-text-size' as mz-text-size;
+@use 'mixin/mz-border-radius' as mz-border-radius;
+@use 'mixin/mz-animation' as mz-animation;
+@use 'function/mz/mz-color' as mz-color;
+
+//============================================
+// user wallet sheet
+//============================================
+.user-wallet-modal {
+  position: fixed;
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  &.is-show {
+    display: flex;
+  }
+
+  .modal-dialog {
+    width: 488px;
+  }
+}
+
+//===============================================
+//  loading box
+//===============================================
+.user-wallet-modal-inner {
+  .loading-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(#fff, 0.5);
+    left: 0;
+    top: 0;
+    z-index: 1;
+
+    .loading-icon {
+      font-style: normal;
+      @include mz-animation.mz-animation-spin();
+
+      &::before {
+        @include mz-text-size.mz-text-size(24px);
+        color: vars.$mz-gray;
+        content: "\f110";
+        font-weight: 700;
+        font-family: vars.$mz-font-family-fa5;
+      }
+    }
+  }
+}
+
+//============================================
+// user wallet sheet inner
+//============================================
+.user-wallet-modal-inner {
+  position: relative;
+  background: #fff;
+  overflow: hidden;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+}
+
+//============================================
+// user wallet sheet body
+//============================================
+.user-wallet-modal-body {
+  padding-top: 0;
+
+  // wallet-input-group
+  .wallet-input-group {
+    display: none;
+    margin-bottom: 16px;
+
+    &.is-show {
+      display: block;
+    }
+  }
+
+  .cost-item-wrap {
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
+
+  .cost-input-outer {
+    position: relative;
+    z-index: 0;
+    background: #fff;
+    @include mz-border-radius.mz-border-radius(4px);
+    overflow: hidden;
+  }
+
+  .wallet-input {
+    background: none;
+  }
+
+  .cost-input {
+    padding-right: 56px;
+  }
+
+  .price-unit {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: vars.$mz-gray-lightest;
+    color: vars.$mz-gray-light;
+    width: 50px;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto 0;
+    z-index: -1;
+  }
+}
+
+//=====================================================
+//  wallet-head-alert
+//=====================================================
+.user-wallet-modal-body {
+  .wallet-head-alert {
+    margin: 0 -16px 16px;
+    border-radius: unset;
+  }
+}
+
+//=====================================================
+//  wallet-notice-segment
+//=====================================================
+.user-wallet-modal-body {
+  .wallet-notice-segment {
+    margin: 24px 0;
+  }
+
+  .notice-segment-title {
+    @include mz-text-size.mz-text-size('lg');
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 8px;
+  }
+
+  .notice-segment-sub-title {
+    text-align: center;
+    margin-bottom: 8px;
+  }
+
+  .notice-money-value {
+    @include mz-text-size.mz-text-size(32px);
+    font-weight: 700;
+    text-align: center;
+  }
+}
+
+//=====================================================
+//  wallet-status-field
+//=====================================================
+.user-wallet-modal-body {
+  .wallet-status-field {
+    position: relative;
+    z-index: 0;
+    text-align: center;
+
+    &::before {
+      position: absolute;
+      content: '';
+      display: block;
+      height: 1px;
+      background: vars.$mz-gray-lightest;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      margin: auto;
+      z-index: -1;
+    }
+  }
+
+  .wallet-status-tag-item {
+    padding: 6px 32px;
+  }
+
+  .wallet-status-tag-label {
+    @include mz-text-size.mz-text-size('md');
+  }
+}
+
+//=====================================================
+//  wallet-surplus-alert
+//=====================================================
+.user-wallet-modal-body {
+  .wallet-surplus-alert {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: vars.$mz-gray-lightest;
+    @include mz-border-radius.mz-border-radius(4px);
+    padding: 16px;
+    margin-top: 16px;
+  }
+
+  .wallet-surplus-title {
+    color: vars.$mz-gray;
+  }
+
+  .wallet-surplus-label {
+    @include mz-text-size.mz-text-size-from-key('h3');
+  }
+}
+
+//===============================================
+//  user-wallet-modal-foot
+//===============================================
+.user-wallet-modal-foot {
+  .user-wallet-canceled-process-btn {
+    color: vars.$mz-danger;
+    cursor: pointer;
+
+    &:hover {
+      color: mz-color.mz-get-hover-color(vars.$mz-danger);
+    }
+  }
+
+  .wallet-cancel-btn {
+    margin-left: auto;
+  }
+
+  .wallet-modal-btn-group {
+    width: 100%;
+    display: flex;
+  }
+
+  .wallet-modal-center-btn-group {
+    justify-content: center;
+    align-items: center;
+
+    .mz-btn {
+      min-width: 122px;
+      margin-left: 0;
+    }
+  }
+}

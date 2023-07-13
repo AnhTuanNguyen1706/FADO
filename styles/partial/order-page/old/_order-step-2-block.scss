@@ -1,0 +1,64 @@
+@use 'vars' as vars;
+@use 'mixin/mz-text-size' as mz-text-size;
+
+// =============================================
+//  Block head
+// =============================================
+.order-step-2-block {
+  &__head {
+    background: #f2f2f2;
+    border: 1px solid #e1e1e1;
+    position: relative;
+    display: flex;
+    height: 38px;
+    border-radius: 4px;
+    padding: 0 10px 0 105px;
+    align-items: center;
+  }
+
+  &__prefix-head {
+    position: absolute;
+    left: -1px;
+    top: -1px;
+    height: 38px;
+    background: url(vars.$mz-image-url + '/svg/order-step-head.svg') no-repeat right center;
+    background-size: contain;
+    width: 95px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-right: 20px;
+    font-weight: 500;
+    color: #fff;
+  }
+
+  &__title {
+    font-weight: 500;
+    flex: 1 1;
+    color: vars.$mz-secondary-dark;
+  }
+}// .order-step-2-block
+
+// =============================================
+//  Block body
+// =============================================
+.order-step-2-block {
+  &__body {
+    margin-top: 10px;
+  }
+}// .order-step-2-block
+
+
+// =============================================
+// Loading field component
+// =============================================
+.order-step-2-block {
+  .loading-field-component {
+    background: rgba(#ededed,0.2);
+  }
+
+  .km20-alert {
+    @include mz-text-size.mz-text-size-from-font-size-key('xs');
+    color: vars.$mz-success-dark;
+  }
+}// .order-step-2-block

@@ -1,0 +1,17 @@
+@use 'vars' as vars;
+
+.category-same-level-section {
+  background: #fff;
+  padding: 12px 0 16px;
+  border-top: solid 1px vars.$mz-gray-lighter;
+
+  .category-same-level-list {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .category-same-level-col {
+    margin-right: 16px;
+    margin-top: 4px;
+  }
+}

@@ -1,0 +1,111 @@
+@use 'vars' as vars;
+@use 'mixin/mz-border-radius' as mz-border-radius;
+@use 'mixin/mz-text-size' as mz-text-size;
+
+//========================================
+// mz status tag
+//========================================
+.mz-status-tag {
+  display: inline-flex;
+  padding: 3px 12px;
+  @include mz-border-radius.mz-border-radius(12px);
+}
+
+.mz-status-tag__label {
+  text-align: center;
+  @include mz-text-size.mz-text-size('xs');
+}
+
+//========================================
+// mz status tag discount code
+//========================================
+$_map-status-tag-discount-code: (
+  -1, 1, 2, 100
+);
+
+$_map-status-tag-discount-code-bg-color: (
+  -1 : vars.$mz-gray-light,
+  1 : vars.$mz-primary-lightest,
+  2 : vars.$mz-gray-light,
+  100: vars.$mz-warning-lightest,
+);
+
+$_map-status-tag-discount-code-text-color: (
+  -1 : vars.$mz-gray-dark,
+  1 : vars.$mz-primary,
+  2 : vars.$mz-gray-dark,
+  100: vars.$mz-warning,
+);
+
+@each $_intStatusCode in $_map-status-tag-discount-code {
+  .mz-status-tag-discount-code-#{$_intStatusCode} {
+    background: map-get($_map-status-tag-discount-code-bg-color , $_intStatusCode);
+
+    .mz-status-tag__label {
+      // color: map-get($_map-status-tag-discount-code-text-color, $_intStatusCode);
+      color: #fff;
+    }
+  }
+}
+
+//========================================
+// mz status tag order
+//========================================
+$_map-status-order-tag: (
+  -4: ( // Đã hủy - Chờ hoàn tiền
+    'text-color': vars.$mz-gray-dark,
+    'bg-color': vars.$mz-danger-lightest,
+  ),
+  -3: ( // Đã thanh toán - Chờ đối soát
+    'text-color': vars.$mz-gray-dark,
+    'bg-color': vars.$mz-primary-lighter,
+  ),
+  -2: ( // Đã thanh toán - chờ xác nhận
+    'text-color': vars.$mz-gray-dark,
+    'bg-color': vars.$mz-warning-lightest,
+  ),
+  -1: ( // Đã thanh toán - Chờ kiểm duyệt
+    'text-color': vars.$mz-gray-dark,
+    'bg-color': vars.$mz-primary-lighter,
+  ),
+  0: ( // Đã hủy
+    'text-color': vars.$mz-gray-dark,
+    'bg-color': #eaedf1,
+  ),
+  1: ( // Chờ thanh toán
+    'text-color': vars.$mz-gray-dark,
+    'bg-color': vars.$mz-primary-lightest,
+  ),
+  2: ( // Chờ thanh toán
+    'text-color': vars.$mz-gray-dark,
+    'bg-color': vars.$mz-primary-lightest,
+  ),
+  3: ( // Đang mua hàng
+    'text-color': #fff,
+    'bg-color': vars.$mz-primary-light,
+  ),
+  4: ( // Đã mua hàng - Đợi tracking
+    'text-color': vars.$mz-gray-dark,
+    'bg-color': vars.$mz-success-lightest,
+  ),
+  5: ( // Đã có tracking - Đợi về kho
+    'text-color': vars.$mz-gray-dark,
+    'bg-color': vars.$mz-success-lighter,
+  ),
+  6: ( // Hàng đã về
+    'text-color': #fff,
+    'bg-color': vars.$mz-success-light,
+  ),
+);
+
+
+@each $_status-code, $_map-order-tag in $_map-status-order-tag {
+  .mz-status-tag-order-#{$_status-code} {
+    background: map-get($_map-order-tag , 'bg-color');
+
+    .mz-status-tag__label {
+      // color: map-get($_map-order-tag , 'text-color');
+      color: #fff;
+    }
+  }
+}

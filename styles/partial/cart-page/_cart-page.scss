@@ -1,0 +1,9 @@
+@use 'vars' as vars;
+
+.cart-page {
+  background: vars.$mz-body-bg-color;
+}
+
+.mz-breadcrumb-section {
+  margin-bottom: 8px;
+}

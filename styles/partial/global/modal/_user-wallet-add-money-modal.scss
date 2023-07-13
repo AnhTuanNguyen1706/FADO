@@ -1,0 +1,51 @@
+@use 'vars' as vars;
+@use 'mixin/mz-border-radius' as mz-border-radius;
+
+//=============================================
+//  user wallet add money block
+//=============================================
+
+//=============================================
+//  wallet add money alert
+//=============================================
+.user-wallet-add-money-modal {
+  .wallet-add-money-alert {
+    margin: -16px -16px 0;
+    border-radius: unset;
+    margin-bottom: 12px;
+  }
+
+  .wallet-add-money-content {
+    color: vars.$mz-gray-dark;
+  }
+
+  .wallet-error-item {
+    display: block;
+    margin-bottom: 8px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  // cost-item-wrap
+  .cost-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 6px;
+    margin-bottom: 0;
+    @include mz-border-radius.mz-border-radius(4px);
+    color: vars.$mz-gray-dark;
+    border: 1px solid vars.$mz-gray;
+    cursor: pointer;
+  }
+
+  input[id^="cost-item-"]:checked {
+    + .cost-item {
+      background: vars.$mz-primary;
+      color: #fff;
+      border-color: vars.$mz-primary;
+    }
+  }
+}

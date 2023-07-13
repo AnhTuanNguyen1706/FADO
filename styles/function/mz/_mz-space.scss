@@ -1,0 +1,10 @@
+@use 'lib/mz-grid-framework/var/grid' as grid-var;
+
+/*
+Exam:
+  - getSpacing(1) => 8px
+  - getSpacing(2) => 16px
+*/
+@function mz-get-space-from-base($_scale) {
+  @return grid-var.$mz-space-base * $_scale;
+}

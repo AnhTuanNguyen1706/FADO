@@ -1,0 +1,118 @@
+@use 'vars' as vars;
+
+.check-control {
+  position: relative;
+  display: block;
+  cursor: pointer;
+  margin: 0;
+
+  &__check-input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  // Radio
+  // ------------------
+  &__check-input[type="radio"] {
+    + .check-control__indicator {
+      .check-control__check-icon {
+        border-radius: 50%;
+      }
+    }
+
+    &:checked + .check-control__indicator {
+      .check-control__check-icon {
+        border-color: vars.$mz-link-color;
+
+        &::before {
+          content: "";
+          position: absolute;
+          left: 2px;
+          top: 2px;
+          width: 8px;
+          height: 8px;
+          background: vars.$mz-link-color;
+          border-radius: 50%;
+        }
+      }
+    }
+  }// &__check-input[type="radio"]
+
+  // checkbox
+  // ------------------
+  &__check-input[type="checkbox"] {
+    + .check-control__indicator {
+      .check-control__check-icon {
+        border-radius: 3px;
+      }
+    }
+
+    &:checked + .check-control__indicator {
+      .check-control__check-icon {
+        border-color: vars.$mz-link-color;
+
+        &::before {
+          content: "\f00c";
+          position: absolute;
+          left: 1px;
+          top: 1px;
+          width: 10px;
+          height: 10px;
+          font-family: vars.$mz-font-family-fa5;
+          font-weight: 400;
+          font-size: 10px;
+          line-height: 10px;
+          color: vars.$mz-link-color;
+        }
+      }
+    }
+  }//   &__check-input[type="checkbox"]
+
+  // Indicatior
+  // ------------------
+  &__indicator {
+    padding-left: 19px;
+    position: relative;
+
+    &:hover {
+      .check-control__check-icon {
+        border-color: vars.$mz-link-color;
+      }
+    }
+  }
+
+  &__check-icon {
+    position: absolute;
+    top: 3px;
+    left: 0;
+    width: 14px;
+    height: 14px;
+    background: #fff;
+    border: 1px solid #e1e1e1;
+    line-height: 14px;
+  }
+
+  // has only icon
+  // ------------------
+  &.-has-only-icon {
+    min-width: 14px;
+    min-height: 14px;
+    line-height: 10px;
+    display: inline-block;
+
+    .check-control {
+      &__indicator {
+        display: inline-block;
+        padding: 0;
+        width: 14px;
+        height: 14px;
+      }
+
+      &__check-icon {
+        top: 0;
+      }
+    }
+  }// &.-has-only-icon
+}// .check-control

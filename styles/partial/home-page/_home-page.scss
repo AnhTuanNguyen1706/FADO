@@ -1,0 +1,75 @@
+@use 'vars' as vars;
+@use 'mixin/mz-general' as general;
+@use 'mixin/mz-text-size' as mz-text-size;
+@use 'function/mz/mz-line-height' as mz-line-height;
+
+.home-page {
+  background: #fff;
+}
+
+.home-page-title {
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  z-index: -1;
+}
+
+/* =============================================
+  Custom insider section
+================================================ */
+.home-page {
+  .ins-preview-wrapper {
+    margin-top: 48px;
+    margin-bottom: 24px;
+  }
+
+  .ins-preview-wrapper-4018 .ins-instory #ins-api-stories.stories.carousel .story {
+    width: 110px;
+    flex: 0 0 110px;
+    margin: 0 32px 0 0!important;
+    display: block;
+
+    &:last-child {
+      margin-right: 0 !important;
+    }
+
+    > a {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+
+      > .ins-story-img {
+        width: 70px;
+      }
+    }
+
+    &:hover {
+      > a {
+        color: vars.$mz-link-color;
+      }
+    }
+  }// .story
+
+  .ins-preview-wrapper-4018 .ins-instory #ins-api-stories.stories.carousel .story > a > .ins-story-img.ins-story-circle svg {
+    stroke: vars.$mz-primary; // Border của khung tròn
+  }
+
+  // Title
+  .ins-preview-wrapper-4018 .ins-instory #ins-api-stories.stories.carousel .story > a > .ins-story-info {
+    strong {
+      line-height: mz-line-height.mz-get-line-height-from-font-size(15px);
+      @include general.mz-limit-text-line(15px,2);
+    }
+  }
+
+  .home-h2-title {
+    @include mz-text-size.mz-text-size(22px);
+    margin-bottom: 0;
+    font-weight: bold;
+    color: vars.$mz-gray-darker;
+
+    a {
+      color: vars.$mz-gray-darker;
+    }
+  }
+}// .home-page

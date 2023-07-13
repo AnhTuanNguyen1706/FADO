@@ -1,0 +1,13 @@
+// Partials global
+// ---------
+@use 'partial/global/product/product-deal-card';
+@use 'partial/home-sub/home-sub-article-section';
+@use 'partial/global/global-section';
+@use 'partial/global/mz-masonry';
+@use 'partial/global/global/global-deal-card';
+
+// Partials in page
+// ---------
+@use './_home-landing-page';
+@use './top-bner-section';
+@use './product-box-section';

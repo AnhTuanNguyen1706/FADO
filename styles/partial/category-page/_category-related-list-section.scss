@@ -1,0 +1,12 @@
+@use 'vars' as vars;
+@use 'vars-v2' as vars-v2;
+
+.category-related-list-section {
+  background: #fff;
+  padding: 16px 0;
+  border-top: solid 1px vars.$mz-gray-lighter;
+
+  .category-expand-all-related-keyword {
+    border-color: vars.$mz-primary-lightest;
+  }
+}

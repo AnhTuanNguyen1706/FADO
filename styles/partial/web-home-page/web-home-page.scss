@@ -1,0 +1,22 @@
+// Partials global
+// ---------
+@use 'partial/global/product/product-card';
+@use 'partial/home-page/home-slider-section';
+@use 'partial/home-page/home-keyword-section';
+@use 'partial/home-page/home-feature-section';
+@use 'partial/global/our-feature-segment';
+
+// deal
+@use 'partial/global/product/product-deal-action-card';
+@use 'partial/global/product/product-deal-slide-card';
+@use 'partial/global/product/product-deal-slide-card-wrap';
+
+// In page
+// ---------
+@use './webh-bner-section';
+@use 'webh-bner-block';
+@use 'webh-sale-block';
+@use 'webh-cate-layout';
+@use './_web-home-page';
+@use './webh-cate-section';
+@use './webh-deal-section';

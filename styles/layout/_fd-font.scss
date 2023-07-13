@@ -1,0 +1,162 @@
+@use 'vars' as vars;
+
+@mixin fd-font {
+  /* use !important to prevent issues with browser extensions that change font */
+  font-family: 'fd' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  font-size: inherit;
+  vertical-align: middle;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+@font-face {
+  font-family: 'fd';
+  font-display: swap;
+  src:  url(vars.$mz-font-url + '/fd/fd.eot?t2rofx');
+  src:  url(vars.$mz-font-url + '/fd/fd.eot?t2rofx#iefix') format('embedded-opentype'),
+    url(vars.$mz-font-url + '/fd/fd.ttf?t2rofx') format('truetype'),
+    url(vars.$mz-font-url + '/fd/fd.woff?t2rofx') format('woff'),
+    url(vars.$mz-font-url + '/fd/fd.svg?t2rofx#fd') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.fd {
+  @include fd-font;
+}
+
+.fd-check:before {
+  content: "\e922";
+}
+.fd-trash:before {
+  content: "\e921";
+}
+.fd-clock:before {
+  content: "\e91f";
+}
+.fd-comment:before {
+  content: "\e920";
+}
+.fd-add-cart:before {
+  content: "\e91d";
+}
+.fd-dollar-circle:before {
+  content: "\e91e";
+}
+.fd-angle-up:before {
+  content: "\e91c";
+}
+.fd-angle-down:before {
+  content: "\e91b";
+}
+.fd-filter:before {
+  content: "\e90d";
+}
+.fd-angle-double-left:before {
+  content: "\e917";
+}
+.fd-angle-double-right:before {
+  content: "\e918";
+}
+.fd-angle-left:before {
+  content: "\e919";
+}
+.fd-angle-right:before {
+  content: "\e91a";
+}
+.fd-sort-grid:before {
+  content: "\e915";
+}
+.fd-sort-vertical:before {
+  content: "\e916";
+}
+.fd-filter-asc:before {
+  content: "\e910";
+}
+.fd-filter-desc:before {
+  content: "\e911";
+}
+.fd-filter-hightlight:before {
+  content: "\e912";
+}
+.fd-filter-top-new:before {
+  content: "\e913";
+}
+.fd-filter-top-sale:before {
+  content: "\e914";
+}
+.fd-user:before {
+  content: "\e90f";
+}
+.fd-cart:before {
+  content: "\e90c";
+}
+.fd-heart:before {
+  content: "\e90e";
+}
+.fd-cate-do-dien-gia-dung:before {
+  content: "\e927";
+}
+.fd-cate-kinh-do-thoi-trang:before {
+  content: "\e928";
+}
+.fd-cate-thuc-pham:before {
+  content: "\e929";
+}
+.fd-cate-nuoc-hoa:before {
+  content: "\e923";
+}
+.fd-cate-san-hang-hot:before {
+  content: "\e924";
+}
+.fd-cate-the-thao:before {
+  content: "\e925";
+}
+.fd-cate-thoi-trang-nam:before {
+  content: "\e926";
+}
+.fd-cate-all:before {
+  content: "\e900";
+}
+.fd-cate-dien-tu:before {
+  content: "\e901";
+}
+.fd-cate-do-choi:before {
+  content: "\e902";
+}
+.fd-cate-dong-ho:before {
+  content: "\e903";
+}
+.fd-cate-me-va-be:before {
+  content: "\e904";
+}
+.fd-cate-my-pham:before {
+  content: "\e905";
+}
+.fd-cate-nha-cua:before {
+  content: "\e906";
+}
+.fd-cate-o-to:before {
+  content: "\e907";
+}
+.fd-cate-sach:before {
+  content: "\e908";
+}
+.fd-cate-suc-khoe:before {
+  content: "\e909";
+}
+.fd-cate-thoi-trang:before {
+  content: "\e90a";
+}
+.fd-cate-trang-suc:before {
+  content: "\e90b";
+}

@@ -1,0 +1,55 @@
+// Extend Libs
+// ---------
+@use "lib/fancybox/jquery.fancybox";
+@use "lib/fancybox/jquery.fancybox-custom" as fancy-box-custom;
+@use 'lib/flatpickr/flatpickr';
+
+// Partials global
+// ---------
+@use 'partial/global/product/product-card';
+@use 'partial/global/product/product-deal-action-card';
+@use 'partial/global/our-feature-segment';
+@use 'partial/global/mz-define-amazon-content';
+@use 'partial/global/modal/discount-modal';
+@use 'partial/global/discount-item';
+@use 'partial/feedback-page/feedback-post-block';
+@use 'partial/feedback-page/_feedback-summary-rating-star-segment';
+@use 'partial/feedback-page/_feedback-summary-review-type-segment';
+@use "partial/global/modal/feedback-form-modal";
+@use "partial/global/modal/feedback-complete-modal";
+// Partials component
+// ---------
+@use 'component/mz-description';
+
+// Local partial
+// ---------
+@use './_product-detail-page';
+@use './product-other-info-section';
+@use './product-detail-section';
+@use './similar-product-section';
+@use './also-bought-product-section';
+@use './product-price-history-section';
+@use './product-desc-section';
+@use './product-specification-section';
+@use './facebook-comment-section';
+@use './review-product-video-section';
+@use './product-comment-section';
+@use './product-info-section';
+@use './product-scroll-section';
+@use './product-related-info-section';
+@use './related-keyword-block';
+@use './related-product-block';
+@use './merchant-info-section';
+@use './product-image-section';
+@use './guide-side-section';
+@use './our-feature-side-section';
+@use './product-matrix-section';
+@use './product-detail-section/product-option-segment';
+@use './rating-side-section';
+
+
+// Modal
+// ---------
+@use './request-quotation-modal';
+@use './product-afiliate-modal';
+@use './tracking-price-modal';

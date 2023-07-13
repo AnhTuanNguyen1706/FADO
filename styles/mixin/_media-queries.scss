@@ -1,0 +1,8 @@
+
+// Firefox browser
+// ------------------------------------
+@mixin media-firefox-only {
+  @-moz-document url-prefix() {
+    @content;
+  }
+}

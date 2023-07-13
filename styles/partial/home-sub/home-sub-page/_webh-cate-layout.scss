@@ -1,0 +1,18 @@
+.webh-cate-layout {
+  margin-bottom: 40px;
+
+  &.is-start {
+    height: 480px;
+  }
+
+  &__loading-field-component {
+    background: #fff;
+    height: 480px;
+  }
+
+  .home-cate-block {
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

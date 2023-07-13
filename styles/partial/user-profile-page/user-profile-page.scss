@@ -1,0 +1,15 @@
+// Extend Libs
+// ---------
+@use 'lib/flatpickr/flatpickr';
+
+// Partials user page
+//-------------
+@use 'partial/user-page/user-layout';
+@use 'partial/user-page/user-head-section';
+@use 'partial/user-page/user-sblock';
+@use 'partial/user-page/user-block';
+
+// Partials in page
+//-------------
+@use './_user-profile-page';
+@use './user-block--profile';

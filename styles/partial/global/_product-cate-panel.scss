@@ -1,0 +1,245 @@
+@use 'vars' as vars;
+@use 'vars-v2' as vars-v2;
+@use 'mixin/mz-text-size' as mz-text-size;
+@use 'mixin/mz-general' as general;
+@use 'function/mz/mz-color' as mz-color;
+@use 'function/mz/mz-line-height' as mz-line-height;
+@use 'mixin/mz-btn' as mz-btn;
+@use 'mixin/mz-animation' as mz-animation;
+@use 'mixin/mz-hover' as mz-hover;
+
+// ###########################################################
+// Home cate panel
+// ###########################################################
+.product-cate-panel {
+}
+
+// ###########################################################
+// Pnael head
+// ###########################################################
+.product-cate-panel {
+  &__head {
+    position: relative;
+  }
+}
+
+//===================================
+// Image field
+//===================================
+.product-cate-panel {
+  &__img-field {
+    position: relative;
+    display: block;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 8px;
+
+    &:before {
+      content: '';
+      display: block;
+      padding-bottom: 100%;
+    }
+  }
+
+  &__img-field-inner {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    left: 0;
+  }
+
+  &__sale-tag {
+    position: absolute;
+    padding: 2px 8px;
+    color: #fff;
+    border-radius: 4px;
+    background: vars-v2.$state2-400;
+    left: 0;
+    bottom: 0;
+  }
+}
+
+//===================================
+// Product title
+//===================================
+.product-cate-panel {
+  &__title {
+    display: block;
+    width: 100%;
+    @include general.mz-limit-text-line(vars.$mz-font-size-key-default,2);
+    margin-bottom: 8px;
+    height: #{mz-line-height.mz-get-line-height-from-font-size('default') * 2};
+  }
+
+  &__h3 {
+    margin-bottom: 0;
+    font-weight: normal;
+  }
+
+  &__title-inner {
+    color: vars.$mz-text-body-color;
+    transition: vars.$mz-transition-time-xs vars.$mz-transition-function-default;
+
+    &:hover {
+      color: mz-color.mz-get-hover-color(vars.$mz-gray-darker);
+    }
+  }
+
+  &:hover {
+    .product-cate-panel__title-inner {
+      color: mz-color.mz-get-hover-color(vars.$mz-gray-darker);
+    }
+  }
+}// .product-cate-panel
+
+// Product swap name field
+// ------------------
+.product-cate-panel {
+  &__swap-name-field {
+    margin-bottom: 4px;
+    font-weight: 700;
+  }
+
+  &__swap-name-btn {
+    display: inline-block;
+    @include general.mz-fix-event-click();
+    @include mz-text-size.mz-text-size-from-font-size-key('xs');
+
+    &:hover {
+      color: vars.$mz-link-color;
+    }
+  }
+}
+
+// ###########################################################
+// Panel body
+// ###########################################################
+.product-cate-panel {
+  &__body {
+    position: relative;
+  }
+
+  &__loading-box {
+    position: absolute;
+    display: flex;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(#fff, 0.7);
+    justify-content: center;
+    align-items: center;
+    color: vars.$mz-gray;
+    @include mz-text-size.mz-text-size(24px);
+    transition: vars.$mz-transition-time-xs;
+    z-index: 3;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &__loading-icon {
+    font-style: normal;
+    @include mz-animation.mz-animation-spin();
+
+    &::before {
+      content: "\f110";
+      font-weight: 700;
+      font-family: vars.$mz-font-family-fa5;
+    }
+  }
+
+  &.is-get-extra-info-loading {
+    .product-cate-panel__loading-box {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+
+  // meta item info
+  &__meta-item-wrap {
+    display: flex;
+    margin-bottom: 8px;
+    align-items: center;
+    color: vars.$mz-gray-dark;
+    @include mz-text-size.mz-text-size('xs');
+  }
+
+  &__rating-star {
+    @include mz-text-size.mz-text-size(10px);
+  }
+
+  &__total-comment {
+    display: inline-block;
+    color: vars.$mz-gray-dark;
+    margin-left: 4px;
+  }
+
+  &__country-code {
+    margin-left: 4px;
+  }
+}// .product-cate-panel
+
+// =============================================
+// Price group
+// =============================================
+.product-cate-panel {
+  &__price-group {
+    display: flex;
+    align-items: baseline;
+    height: mz-line-height.mz-get-line-height-from-font-size('md');
+  }
+
+  &__curr-price {
+    font-family: vars.$mz-font-family-oswald;
+    font-weight: 400;
+    @include mz-text-size.mz-text-size('md');
+    color: vars.$mz-warning;
+
+    &.is-alert { // Dành cho style khi hiển thị thông báo dạng text thay vì có giá cụt hể
+      color: vars.$mz-warning-dark;
+      font-family: vars.$mz-font-family-default;
+      @include mz-text-size.mz-text-size-from-key('sm');
+      font-weight: 400;
+
+      a {
+        color:vars.$mz-warning-dark;
+
+        &:hover {
+          color: mz-color.mz-get-hover-color(vars.$mz-warning-dark);
+        }
+      }
+    }
+  }
+
+  &__old-price {
+    margin-left: 4px;
+    color: vars.$mz-gray;
+    @include mz-text-size.mz-text-size-from-key('xs');
+    text-decoration: line-through;
+  }
+}// .product-cate-panel
+
+// =============================================
+// Control button
+// =============================================
+.product-cate-panel {
+  &__control-btn-group {
+    display: flex;
+    margin-top: 12px;
+  }
+
+  &__add-cart-btn {
+    margin-right: 8px;
+  }
+
+  @include mz-hover.mz-hover() {
+    .product-cate-panel__add-cart-btn {
+      @include mz-btn.mz-make-btn-outline-hover-color('primary');
+    }
+  }
+}// .product-cate-panel

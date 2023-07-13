@@ -1,0 +1,53 @@
+@use 'vars' as vars;
+
+.bner-center-modal {
+  .modal-dialog {
+    max-width: none;
+    width: auto;
+    justify-content: center;
+  }
+
+  .modal-content {
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    border: 0;
+    width: auto;
+  }
+
+  .modal-body {
+    padding: 0;
+  }
+
+  .bner-img {
+    max-width: 640px;
+    max-height: 640px;
+  }
+
+  button.close {
+    background: vars.$mz-danger;
+    color: #fff!important;
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: -8px;
+    right: -8px;
+    opacity: 1!important;
+    border-radius: 50%;
+
+    &::before {
+      content: "\f00d";
+      font-family: vars.$mz-font-family-fa5;
+      font-size: 14px;
+      line-height: 14px;
+      font-weight: 300;
+    }
+
+    &:hover {
+      background: darken(vars.$mz-danger,5%);
+    }
+  }// button.close
+}// .bner-center-modal

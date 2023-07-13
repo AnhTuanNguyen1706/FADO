@@ -1,0 +1,49 @@
+@use 'vars' as vars;
+@use 'vars-v2' as vars-v2;
+
+.sort-bar-section {
+  margin-bottom: 16px;
+
+  .section-inner {
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid vars.$mz-gray-100;
+  }
+
+  .left-col {
+    flex: 1 1;
+    display: flex;
+  }
+
+  .right-col {
+    margin-left: 24px;
+  }
+
+  .sort-item {
+    padding: 8px 12px 12px;
+    color: vars.$mz-gray-500;
+    position: relative;
+    margin-right: 4px;
+
+    &::before {
+      position: absolute;
+      height: 3px;
+      background: vars-v2.$primary-900;
+      left: 0;
+      right: 0;
+      bottom: -1px;
+    }
+
+    &:hover, &.is-selected {
+      color: vars-v2.$text-color;
+    }
+
+    &.is-selected {
+      font-weight: 600;
+
+      &::before {
+        content: '';
+      }
+    }
+  }
+}// .sort-bar-section

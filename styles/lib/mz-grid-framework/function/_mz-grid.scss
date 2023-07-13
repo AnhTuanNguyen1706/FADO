@@ -1,0 +1,16 @@
+@use 'lib/mz-grid-framework/var/grid' as grid-var;
+
+/*
+  Container hiện tại ~ với breakpoint min
+*/
+@function mz-get-container-width($_breakpoint-key: grid-var.$mz-breakpoint-key-default) {
+  $_container-width: 0;
+
+  @if(map-has-key(grid-var.$mz-map-breakpoint, $_breakpoint-key)) {
+    $_container-width: map-get(grid-var.$mz-map-breakpoint, $_breakpoint-key);
+  } @else {
+    @error '$_breakpoint-key: ' + $_breakpoint-key + ' is not valid';
+  }
+
+  @return $_container-width;
+}

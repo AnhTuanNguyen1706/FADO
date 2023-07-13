@@ -1,0 +1,10 @@
+@use './gg-translate-plugin';
+
+// GOOGLE TRANSLATE TOOLBAR
+.skiptranslate {
+  .goog-te-banner-frame {
+    display: none;
+    top: auto;
+    bottom: 0;
+  }
+}

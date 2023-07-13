@@ -1,0 +1,50 @@
+@use 'vars' as vars;
+@use 'mixin/mz-text-size' as mz-text-size;
+@use 'lib/mz-grid-framework/mixin/mz-media-query' as mz-media-query;
+
+.today-deals-code-section {
+  color: #fff;
+  padding: 32px 0;
+  margin-bottom: 32px;
+}
+
+/* ##############################################################
+  Section head
+################################################################# */
+.today-deals-code-section {
+  .section-head {
+    margin-bottom: 24px;
+  }
+
+  .section-title {
+    @include mz-text-size.mz-text-size(18px);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+  }
+
+  .guide-text {
+    font-style: italic;
+    color: vars.$mz-gray-light;
+    @include mz-text-size.mz-text-size-from-font-size-key('normal');
+    margin-left: 8px;
+  }
+}
+
+/* ##############################################################
+  Section body
+################################################################# */
+.today-deals-code-section {
+  .discount-code-row-outer {
+    max-width: 1000px;
+    margin: 0 auto;
+
+    @include mz-media-query.mz-media-breakpoint-up('3xl') {
+      max-width: 1200px;
+    }
+  }
+
+  .discount-code-item {
+    cursor: pointer;
+  }
+}

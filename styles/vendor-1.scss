@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+/*
+! Lưu ý:
+- Cẩn thận thứ tự sắp xếp import các file, đặc biệt các file ở trên cùng
+*/
+// Base Lib
+// ---------
+//@use 'lib/mz-grid-framework/mz-grid-framework';
+@use 'lib/fix';
+@use 'lib/prophiler/prophiler-custom';
+@use 'lib/vue-select/vue-select';
+@use 'lib/bootstrap/bootstrap';
+@use 'lib/bootstrap/bootrap-custom';
+
+// Tailwind
+@use './lib/tailwind/tailwind';

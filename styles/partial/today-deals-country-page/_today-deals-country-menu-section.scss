@@ -1,0 +1,163 @@
+@use 'vars' as vars;
+
+.today-deals-country-menu-section {
+  background: #fff;
+  border-top: 1px solid rgba(vars.$mz-gray-darker,0.1);
+  position: relative;
+  z-index: vars.$mz-z-index-lv-2;
+}// .today-deals-country-menu-section
+
+/* ##############################################################
+  Section inner
+################################################################# */
+.today-deals-country-menu-section {
+  .section-inner {
+    display: flex;
+  }
+
+  .menu-item {
+    width: 120px;
+    flex: 0 0 120px;
+    text-align: center;
+    color: vars.$mz-text-body-color;
+    padding: 16px 0;
+    margin-left: 16px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:hover {
+      color: vars.$mz-link-color;
+
+      .menu-item-img {
+        transform: scale(1.4);
+      }
+    }
+
+    .menu-item-img-field {
+      display: flex;
+      height: 64px;
+      width: 64px;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto;
+    }
+
+    .menu-item-img {
+      transition: vars.$mz-transition-time-xs;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      transform-origin: bottom center;
+    }
+
+    .menu-item-name {
+      margin-top: 8px;
+    }
+
+    &.is-hide {
+      display: none;
+    }
+  }// .menu-item
+}// .today-deals-country-menu-section
+
+/* ------------------
+  Menu list col
+--------------------- */
+.today-deals-country-menu-section {
+  .menu-list-col {
+    min-width: 0;
+    margin-top: -36px;
+    padding-top: 36px;
+    overflow: hidden;
+  }
+
+  .menu-item-wrap {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+}
+
+/* ------------------
+  Expand col
+--------------------- */
+.today-deals-country-menu-section {
+  .expand-col {
+    flex: 0 0 120px;
+    width: 120px;
+    margin-left: 16px;
+    display: flex;
+    position: relative;
+
+    &.is-hide {
+      display: none;
+    }
+  }
+
+  .expand-btn {
+    cursor: pointer;
+
+    .menu-item-img {
+      width: 32px;
+      height: 32px;
+    }
+  }
+
+  .expand-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background: #fff;
+    display: none;
+    width: 240px;
+    border: 1px solid vars.$mz-gray-light;
+    z-index: vars.$mz-z-index-lv-3;
+    max-height: calc(100vh - 140px - 130px - 145px);
+    overflow: auto;
+
+    &.is-show {
+      display: block;
+    }
+  }
+
+  .dropdown-menu-item {
+    display: flex;
+    padding: 16px;
+    align-items: center;
+    color: vars.$mz-text-body-color;
+    margin-bottom: 1px;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: 16px;
+      right: 16px;
+      bottom: -1px;
+      height: 1px;
+      background: vars.$mz-gray-lighter;
+    }
+
+    .menu-item-img-field {
+      width: 62px;
+      height: 62px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 16px;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+
+      &::before {
+        display: none;
+      }
+    }
+
+    &:hover {
+      color: vars.$mz-link-color;
+    }
+  }// .dropdown-menu-item
+}// .today-deals-country-menu-section

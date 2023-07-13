@@ -1,0 +1,22 @@
+@use 'sass:math';
+@use 'lib/mz-grid-framework/mixin/mz-media-query' as mz-media-query;
+
+.noel-middle-layout {
+  position: relative;
+  padding-bottom: 32px;
+
+  .layout-bg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background: #b01d2f;
+    bottom: 0;
+
+    @include mz-media-query.mz-media-breakpoint-up('3xl') {
+      width: 1920px;
+      margin-left: -#{(math.div(1920px, 2))};
+      left: 50%;
+    }
+  }
+}

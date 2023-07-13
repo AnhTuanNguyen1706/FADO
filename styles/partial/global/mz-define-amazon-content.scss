@@ -1,0 +1,34 @@
+@use 'vars' as vars;
+@use 'mixin/mz-text-size' as mz-text-size;
+
+.mz-define-amazon-content {
+  @include mz-text-size.mz-text-size(14px);
+
+  h2, h3, h4, h5 {
+    font-weight: 800;
+    color: vars.$mz-gray-dark;
+  }
+
+  h2 {
+    @include mz-text-size.mz-text-size(20px);
+  }
+
+  h3 {
+    margin-top: 16px;
+    @include mz-text-size.mz-text-size(18px);
+
+    &:first-child {
+      @include mz-text-size.mz-text-size(16px);
+      margin-top: 0;
+    }
+  }
+
+  h4 {
+    @include mz-text-size.mz-text-size(16px);
+  }
+
+  h5 {
+    color: vars.$mz-gray;
+    text-transform: uppercase;
+  }
+}

@@ -1,0 +1,84 @@
+@use 'vars' as vars;
+
+//=============================================
+// ilogistics-modal
+//=============================================
+.ilogistics-modal {
+  &__body {
+    padding-bottom: 0;
+
+    &__basic-box {
+      margin: -8px -8px 0;
+      padding: 0;
+
+      &__head {
+        margin-bottom: 0;
+        border-bottom: 1px solid vars.$mz-gray-lighter;
+
+        .mz-basic-tab__item {
+          padding: 12px 29px;
+          cursor: pointer;
+        }
+      }
+    }
+
+    &__ilogistics-address-scroll {
+      max-height: 550px;
+      margin: 0 -8px;
+      padding: 0 8px;
+    } // .ilogistics-modal__body__ilogistics-address-scroll
+
+    &__ilogistics-address-list {
+      &__item {
+        border-bottom: 1px solid vars.$mz-gray-lighter;
+
+        &:last-child {
+          border-bottom: none;
+        }
+
+        .mz-state-control__icon {
+          border-radius: 50%;
+          top: 3px;
+          bottom: 0;
+          margin: auto 0;
+        }
+      } // .ilogistics-modal__body__ilogistics-address-list__item
+
+      &__item--select {
+        padding: 8px 8px 20px;
+        margin-bottom: 0;
+
+        .mz-check-control {
+          cursor: default;
+        }
+
+        &.enable-hover {
+          cursor: pointer;
+
+          .mz-check-control {
+            cursor: pointer;
+          }
+
+          &:hover {
+            background: rgba(vars.$mz-primary-lightest, 0.5);
+          }
+        }
+      }
+    }
+  } // .ilogistics-modal__body
+
+  &__foot {
+    padding: 8px 16px;
+    margin: 0;
+
+    &__close-label {
+      cursor: pointer;
+
+      &.is-disabled {
+        opacity: 0.5;
+        pointer-events: none;
+        cursor: default;
+      }
+    }
+  } // .ilogistics-modal__foot
+} // .ilogistics-modal

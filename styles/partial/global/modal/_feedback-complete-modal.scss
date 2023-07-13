@@ -1,0 +1,49 @@
+@use 'lib/mz-grid-framework/function/mz-grid' as mz-grid;
+@use 'function/mz/mz-space' as mz-space;
+@use 'function/mz/mz-color' as mz-color;
+@use 'vars' as vars;
+
+//==========================================
+// feedback-complete-modal
+//==========================================
+.feedback-complete-modal {
+
+}
+
+//==========================================
+// feedback-complete-modal
+//==========================================
+// feedback-complete-modal__body
+//==========================================
+.feedback-complete-modal {
+  &__dialog {
+    width: 422px !important;
+  }
+
+  &__body {
+    &__bg {
+      position: relative;
+      height: 160px;
+      width: 298px;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    &__bg-img {
+      position: absolute;
+      width: 100%;
+      height: auto;
+      max-width: none;
+      max-height: none;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    &__content {
+      text-align: center;
+      width: 298px;
+      margin: 0 auto;
+    }
+  } // .feedback-complete-modal__body
+} // .feedback-complete-modal

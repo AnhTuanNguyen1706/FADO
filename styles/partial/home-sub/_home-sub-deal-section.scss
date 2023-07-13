@@ -1,0 +1,349 @@
+@use 'vars' as vars;
+@use 'mixin/mz-text-size' as mz-text-size;
+@use 'mixin/mz-border-radius' as mz-border-radius;
+@use 'function/mz/mz-color' as mz-color;
+@use 'lib/mz-grid-framework/mixin/mz-grid' as mz-grid;
+
+.home-sub-deal-section {
+  margin: vars.$mz-home-page-section-margin 0;
+}
+
+/* ##############################################################
+  Section head
+################################################################# */
+.home-sub-deal-section {
+  .section-head {
+    display: flex;
+    align-items: flex-end;
+  }
+
+  .head-title-col {
+    margin-right: auto;
+    min-width: 0;
+  }
+
+  .head-countdown-col {
+    margin-left: 24px;
+  }
+}// .home-sub-deal-section
+
+/* =============================================
+  Title segment
+================================================ */
+.home-sub-deal-section {
+  .title-segment {
+    display: flex;
+
+    .icon-col {
+      flex: 0 0 28px;
+      margin-right: 12px;
+      padding-top: 4px; // Để cho icon cân với title
+    }
+
+    .section-title {
+      @include mz-text-size.mz-text-size(20px);
+      font-weight: 800;
+    }
+
+    .section-sub-desc {
+      @include mz-text-size.mz-text-size-from-font-size-key('sm');
+      color: vars.$mz-gray-dark;
+      margin-top: 4px;
+    }
+  }// .title-segment
+}
+
+/* =============================================
+  tab segment
+================================================ */
+.home-sub-deal-section {
+  .tab-segment {
+    display: flex;
+    align-items: center;
+    margin-top: 16px;
+
+    .tab-item {
+      cursor: pointer;
+      height: 56px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      margin-right: 16px;
+      background: vars.$mz-gray-lighter;
+      color: vars.$mz-gray;
+      padding: 0 12px;
+      transition: vars.$mz-transition-time-default;
+      white-space: nowrap;
+      min-width: 0;
+
+      .item-inner {
+        display: flex;
+      }
+
+      .icon-col {
+        margin-right: 4px;
+        @include mz-text-size.mz-text-size(16px);
+      }
+
+      .tab-name {
+        font-weight: 700;
+      }
+
+      .state-title {
+        margin-top: 4px;
+        @include mz-text-size.mz-text-size-from-font-size-key('sm');
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      &:not(.is-in-time):not(.is-active):hover, &:not(.is-in-time).is-active {
+        background: vars.$mz-gray-dark;
+        box-shadow: 0 16px 24px -8px rgba(vars.$mz-gray-dark, 0.4);
+        color: #fff;
+
+        .state-title {
+          color: vars.$mz-gray-light;
+        }
+      }
+
+      &.is-active {
+        cursor: auto;
+      }
+
+      &.is-in-time {
+        background: vars.$mz-primary;
+        color: #fff;
+        box-shadow: 0 8px 16px -4px rgba(vars.$mz-primary, 0.4);
+      }
+    }// .tab-item
+  }// .tab-segment
+}
+
+/* =============================================
+  countdown segment
+================================================ */
+.home-sub-deal-section {
+  .head-img-col {
+    max-width: 360px;
+    margin-left: 24px;
+    flex: 1 0;
+
+    .main-img {
+      max-height: 102px;
+    }
+  }
+}
+
+/* =============================================
+  countdown segment
+================================================ */
+.home-sub-deal-section {
+  .countdown-segment {
+    .countdown-label {
+      font-weight: 700;
+      margin-bottom: 12px;
+      text-align: right;
+    }
+
+    .time-item-wrap {
+      display: flex;
+      align-items: center;
+    }
+
+    .time-item {
+      width: 40px;
+      height: 40px;
+      box-shadow: 0 12px 16px -8px vars.$mz-danger;
+      @include mz-border-radius.mz-border-radius-from-key('circle');
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      background: linear-gradient(135deg, #eb5766, vars.$mz-danger);
+      font-weight: 700;
+      @include mz-text-size.mz-text-size(16px);
+    }
+
+    .seperate-item {
+      margin: 0 8px;
+      color: vars.$mz-gray-light;
+    }
+  }// .countdown-segment
+}// .home-sub-deal-section
+
+
+/* ##############################################################
+  Section body
+################################################################# */
+.home-sub-deal-section {
+  .section-body {
+    position: relative;
+  }
+
+  .swiper-container {
+    padding-top: 24px;
+  }
+}
+
+/* =============================================
+  Large product
+================================================ */
+.home-sub-deal-section {
+  .product-large-row {
+    @include mz-grid.mz-make-row(4);
+  }
+
+  .product-large-col {
+    @include mz-grid.mz-make-col-ready(4);
+    @include mz-grid.mz-make-col(1,5);
+    display: flex;
+  }
+}// .home-sub-deal-section
+
+/* =============================================
+  mini product
+================================================ */
+.home-sub-deal-section {
+  .product-mini-row {
+    @include mz-grid.mz-make-row(8);
+    margin-top: 24px;
+  }
+
+  // NOTE - Hiện tại có tình huống product item có has-box sẽ cần chỉnh lại space giữa các col, nên đặt thêm 1 class .sub-deal-product-mini-row để điều chỉnh mà không làm ảnh hưởng đến style chính
+  .sub-deal-product-mini-row {
+    @include mz-grid.mz-make-row(4);
+    margin-top: 16px;
+
+    .product-mini-col {
+      @include mz-grid.mz-make-col-ready(4);
+      @include mz-grid.mz-make-col(1,3);
+      display: flex;
+    }
+  }
+
+  .product-mini-col {
+    @include mz-grid.mz-make-col-ready(8);
+    @include mz-grid.mz-make-col(1,3);
+    display: flex;
+  }
+}// .home-sub-deal-section
+
+/* =============================================
+  Slider button control
+================================================ */
+.home-sub-deal-section {
+  .slider-next-btn,
+  .slider-prev-btn {
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    background: rgba(vars.$mz-gray-darker, 0.6);
+    z-index: 3;
+    top: 34%;
+    width: 40px;
+    height: 40px;
+    margin-top: -20px;
+    @include mz-border-radius.mz-border-radius-from-key('circle');
+    border: 0;
+    display: none;
+
+    i.fal {
+      color: #fff;
+      font-size: 24px;
+      line-height: 1;
+    }
+
+    &:hover {
+      background: vars.$mz-primary;
+
+      i.fal {
+        color: #fff;
+      }
+    }
+
+    &.is-disabled {
+      opacity: 0.4;
+    }
+  }// slider btn
+
+  .slider-next-btn {
+    right: -20px;
+  }
+
+  .slider-prev-btn {
+    left: -20px;
+  }
+
+  .section-body {
+    &:hover {
+      .slider-next-btn,
+      .slider-prev-btn {
+        display: flex;
+      }
+    }
+  }
+}
+
+/* =============================================
+  Slider pagination control
+================================================ */
+.home-sub-deal-section {
+  .slider-pagination {
+    position: relative;
+    text-align: center;
+    margin-top: 24px;
+    background: #fff;
+    z-index: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 10px;
+
+    &:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      display: block;
+      width: 100%;
+      height: 1px;
+      background: vars.$mz-gray-lightest;
+      top: 50%;
+      margin-top: -0.5px;
+      z-index: -1;
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      left: 50%;
+      width: 100px;
+      margin-left: -50px;
+      display: block;
+      height: 100%;
+      background: #fff;
+      top: 0;
+      z-index: -1;
+    }
+
+    .slider-bullet-item {
+      width: 10px;
+      height: 10px;
+      background: vars.$mz-gray-light;
+      opacity: 1;
+      cursor: pointer;
+      @include mz-border-radius.mz-border-radius-from-key('circle');
+      margin: 0 4px;
+      outline: none;
+
+      &:hover {
+        background: mz-color.mz-get-hover-color(vars.$mz-gray-light);
+      }
+
+      &.is-active {
+        background: vars.$mz-primary;
+      }
+    }// .slider-bullet-item
+  }// .slide-pagination
+}

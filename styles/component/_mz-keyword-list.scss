@@ -1,0 +1,29 @@
+$_keywords-color-key: 'gray';
+
+.mz-keyword-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: -8px -2px 0;
+
+  &__item {
+    margin-top: 8px;
+    padding: 0 2px;
+
+    .mz-btn {
+      max-width: 200px;
+      cursor: pointer;
+
+      &__label-col {
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        max-width: 100%;
+        max-height: 24px;
+      }
+    } // .mz-btn
+
+    &.is-hidden {
+      display: none;
+    }
+  }
+}

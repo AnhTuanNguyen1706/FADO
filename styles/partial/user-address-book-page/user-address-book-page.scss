@@ -1,0 +1,17 @@
+// Global path
+//-------------
+@use 'partial/global/modal/user-address-book-update-info-modal';
+@use 'partial/global/modal/confirm-update-address-book-type-modal';
+
+// Partials user page
+//-------------
+@use 'partial/user-page/user-layout';
+@use 'partial/user-page/user-head-section';
+@use 'partial/user-page/user-sblock';
+@use 'partial/user-page/user-block';
+
+// Patials in page
+// ---------
+@use './_user-address-book-page';
+@use './user-address-book-block';
+@use './remove-user-address-book-modal';

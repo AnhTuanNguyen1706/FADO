@@ -1,0 +1,84 @@
+@use 'vars' as vars;
+@use 'mixin/mz-text-size' as mz-text-size;
+@use 'mixin/mz-general' as general;
+
+//=============================================
+// discount code finish modal
+//=============================================
+.discount-code-finish-modal {
+  // .discount-code-finish-modal__head
+  &__head {
+    display: flex;
+    position: static;
+    background: none;
+    padding: 16px 16px 0;
+    border-bottom: none;
+
+    .head-control {
+      margin-left: auto;
+    }
+  }
+
+  &__close-btn {
+    position: static;
+    margin-top: 0;
+    @include mz-text-size.mz-text-size(24px);
+    line-height: 0;
+  }
+
+  // .discount-code-finish-modal__body
+  &__body {
+    padding: 0;
+    margin-bottom: 16px;
+
+    .body-content {
+      text-align: center;
+    }
+  }
+
+  .main-notice-content {
+    margin-bottom: 8px;
+  }
+
+  &__info-content {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 8px;
+  }
+
+  &__info-content-inner {
+    display: flex;
+    padding: 8px 32px;
+    align-items: center;
+    border: 1px solid vars.$mz-gray-lighter;
+    border-left: none;
+    border-right: none;
+    @include general.mz-fix-event-click();
+
+    .discount-code-label {
+      @include mz-text-size.mz-text-size(24px);
+      color: vars.$mz-primary;
+    }
+
+    .copy-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+
+      i {
+        position: relative;
+        @include mz-text-size.mz-text-size-from-font-size-key('md');
+        top: 2px;
+      }
+    }
+  }
+
+  // .discount-code-finish-modal__foot
+  &__group-btn {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+  }
+}

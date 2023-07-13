@@ -1,0 +1,22 @@
+@use 'vars' as vars;
+@use 'function/mz/mz-line-height' as mz-line-height;
+
+/*
+- Tạo thẻ h1,h2...
+- Tạo class .h1 , h2,...
+*/
+@each $heading-tag, $font-size in vars.$mz-map-heading-font-size {
+  #{$heading-tag} {
+    font-size: $font-size;
+    line-height: mz-line-height.mz-get-line-height-from-font-size($font-size);
+    font-weight: 400;
+    margin-bottom: 8px;
+  }
+
+  .#{$heading-tag} {
+    font-size: $font-size;
+    line-height: mz-line-height.mz-get-line-height-from-font-size($font-size);
+    font-weight: 400;
+    margin-bottom: 8px;
+  }
+}

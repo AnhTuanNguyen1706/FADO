@@ -1,0 +1,153 @@
+@use 'vars' as vars;
+@use 'vars-v2' as vars-v2;
+@use 'mixin/mz-text-size' as mz-text-size;
+@use 'function/mz/mz-color' as mz-color;
+@use 'mixin/mz-btn' as mz-btn;
+
+.home-deal-section {
+  margin: vars.$mz-home-page-section-margin 0;
+}// .home-deal-section
+
+// Section head
+// ------------------
+.home-deal-section {
+  .section-head {
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+
+    .head-icon-col {
+      min-width: 0;
+      flex: 0 0 28px;
+      width: 28px;
+      margin-right: 12px;
+    }
+
+    .icon-shape {
+      margin-top: 4px;
+    }
+
+    .head-title-col {
+
+    }
+
+    .section-title {
+    }
+
+    a.section-title {
+      &:hover {
+        color: vars.$mz-link-color;
+      }
+    }
+
+    .sub-title {
+      color: vars.$mz-gray-dark;
+      margin-top: 4px;
+    }
+
+    .head-tab-col {
+      align-self: center;
+      margin-left: auto;
+    }
+
+    // tab item wrap
+    .tab-item-wrap {
+      display: flex;
+      margin-left: auto;
+    }
+
+    .tab-item {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      height: 44px;
+      margin-right: 16px;
+      @include mz-text-size.mz-text-size(14px);
+      color: vars.$mz-gray;
+      font-weight: 700;
+      cursor: pointer;
+
+      &:hover {
+        color: mz-color.mz-get-hover-color(vars.$mz-gray);
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      &.is-active {
+        color: vars.$mz-primary;
+
+        &:before {
+          position: absolute;
+          content: '';
+          display: block;
+          width: 100%;
+          height: 3px;
+          background: vars.$mz-primary;
+          bottom: 0;
+          left: 0;
+        }
+      }
+    } // end .tab-item
+  }// .section-head
+}// .home-deal-section
+
+
+
+
+
+// Section body
+// ------------------
+.home-deal-section {
+  .product-grid {
+    display: grid;
+    gap: 16px;
+    grid-template-columns: repeat(5, 1fr);
+    background: #fff;
+  }
+
+  .product-grid-col {
+    min-width: 0;
+    display: flex;
+  }
+
+  .pagination-nav {
+    margin-top: 24px;
+  }
+
+  .paging-nav {
+    margin-right: 8px;
+  }
+
+  .paging-btn {
+    margin-right: 8px;
+    opacity: 1;
+    outline: none;
+    color: vars-v2.$primary-50;
+    width: 22px;
+    height: 22px;
+    font-weight: 700;
+
+    &.is-active {
+      color: vars-v2.$primary-900;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }// .swiper-pagination-bullet
+
+  .view-more-btn {
+    padding: 0 30px;
+    font-weight: bold;
+  }
+
+  .list-effect-enter-active, .list-effect-leave-active {
+    transition: 0.2s;
+  }
+
+  .list-effect-enter, .list-effect-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
+  }
+}// .home-deal-section

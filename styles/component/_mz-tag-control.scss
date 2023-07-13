@@ -1,0 +1,118 @@
+@use 'vars' as vars;
+@use 'mixin/mz-text-size' as mz-text-size;
+@use 'function/mz/mz-color' as mz-color;
+
+.mz-tag-control {
+  display: inline-flex;
+  vertical-align: middle;
+  height: vars.$mz-form-height-default;
+  margin: 0;
+  padding: 0;
+  @include mz-text-size.mz-text-size(vars.$mz-form-font-size-key-default);
+
+  &__input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    pointer-events: none;
+    outline: none;
+
+    &:checked + .mz-tag-control__inner {
+
+    }
+  }
+
+  &__inner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    vertical-align: middle;
+    border-radius: vars.$mz-rounded-xs;
+    border: 1px solid transparent;
+    cursor: pointer;
+    padding: 0 12px;
+    transition: vars.$mz-transition-time-xs;
+    height: vars.$mz-form-height-default;
+    background: vars.$mz-gray-lighter;
+    color: vars.$mz-gray-dark;
+  }
+
+  &:hover {
+    .mz-tag-control__inner {
+      background: vars.$mz-gray-lighter;
+      color: vars.$mz-gray-darker;
+    }
+  }
+}
+
+// Generate button color and outline
+// -------------------
+$_map-color-name: (
+  'primary',
+  'info',
+  'warning',
+  'secondary',
+  'success',
+  'danger'
+);
+
+@each $_color-name in $_map-color-name {
+  $_color-bg: mz-color.mz-get-color-with-level($_color-name);
+
+  .mz-tag-control-#{$_color-name} {
+    .mz-tag-control__input {
+      &:checked + .mz-tag-control__inner {
+        background: mz-color.mz-get-color-with-level($_color-name);
+        color: #fff;
+      }
+    }
+
+    &:hover {
+      .mz-tag-control__input:checked {
+        & + .mz-tag-control__inner {
+          background: mz-color.mz-get-hover-color($_color-bg);
+        }
+      }
+    }
+  }
+
+  // Outline Tag
+  .mz-tag-control-outline-#{$_color-name} {
+    .mz-tag-control__inner{
+      border: 1px solid vars.$mz-gray;
+      color: vars.$mz-gray-dark;
+      background: #ffffff;
+    }
+
+    .mz-tag-control__input {
+      &:checked + .mz-tag-control__inner {
+        background: mz-color.mz-get-color-with-level($_color-name);
+        border-color: transparent;
+        color: #fff;
+      }
+    }
+
+    &:hover {
+      .mz-tag-control__input:checked {
+        & + .mz-tag-control__inner {
+          background: mz-color.mz-get-hover-color($_color-bg);
+        }
+      }
+    }
+  }
+}
+
+// Generate size
+// -------------------
+@each $_breakpoint-key, $_height-value in vars.$mz-map-form-height {
+  $_font-size-key: map-get(vars.$mz-map-form-font-size-key, $_breakpoint-key);
+
+  .mz-tag-control-#{$_breakpoint-key} {
+    height: map-get(vars.$mz-map-form-height, $_breakpoint-key);
+    @include mz-text-size.mz-text-size($_font-size-key);
+
+    .mz-tag-control__inner {
+      height: map-get(vars.$mz-map-form-height, $_breakpoint-key);
+    }
+  }
+}

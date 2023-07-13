@@ -1,0 +1,90 @@
+@use 'sass:math';
+@use 'vars-v2' as vars-v2;
+@use 'mixin/mz-text-size' as mz-text-size;
+@use 'mixin/mz-general' as general;
+
+.user-discount-section {
+  .discount-warning-alert {
+    margin-top: 16px;
+  }
+
+  .section-title {
+    @include mz-text-size.mz-text-size(20px);
+  }
+
+  .section-head {
+    margin-top: 12px;
+    padding-bottom: 12px;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-bottom: solid 1px vars-v2.$secondary-400;
+  }
+
+  .filter-list {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+
+  .filter-item {
+    position: relative;
+    margin-left: 24px;
+    @include mz-text-size.mz-text-size(12px);
+    text-transform: uppercase;
+    color: vars-v2.$secondary-700;
+
+    .filter-item-link {
+      color: vars-v2.$secondary-700;
+    }
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &::before {
+      position: absolute;
+      content: "";
+      bottom: -13px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: vars-v2.$primary-900;
+      opacity: 0;
+    }
+
+    &.is-active {
+      color: vars-v2.$primary-900;
+
+      .filter-item-link {
+        color: vars-v2.$primary-900;
+      }
+
+      &::before {
+        opacity: 1;
+      }
+    }
+  }
+
+  .control-list {
+    .mz-btn {
+      margin-left: 12px;
+    }
+  }
+
+  .discount-list {
+    margin-top: 24px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 24px;
+  }
+
+  .section-foot {
+    margin-top: 24px;
+
+    .pagination-nav {
+      justify-content: flex-end;
+    }
+  }
+}

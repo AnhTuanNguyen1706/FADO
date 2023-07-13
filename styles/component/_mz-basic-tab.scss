@@ -1,0 +1,52 @@
+@use 'vars' as vars;
+@use 'vars-v2' as vars-v2;
+@use 'mixin/mz-text-size' as mz-text-size;
+@use 'function/mz/mz-color' as mz-color;
+
+.mz-basic-tab {
+  display: flex;
+
+  &__item {
+    color: vars-v2.$secondary-500;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 24px;
+    cursor: pointer;
+    position: relative;
+    @include mz-text-size.mz-text-size('md');
+    padding: 12px 0;
+
+    &::before {
+      background: vars-v2.$secondary-900;
+      position: absolute;
+      bottom: -1px;
+      left: 0;
+      right: 0;
+      height: 3px;
+      z-index: 1;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &:hover {
+      color: mz-color.mz-get-hover-color(vars.$mz-text-body-color);
+    }
+
+    &.is-active {
+      color: vars-v2.$secondary-900;
+
+      &::before {
+        content: '';
+      }
+    }
+
+    &.is-disabled {
+      color: vars.$mz-gray-light;
+      pointer-events: none;
+    }
+  }
+}

@@ -1,0 +1,136 @@
+@use 'vars' as vars;
+@use 'vars-v2' as vars-v2;
+@use 'mixin/mz-text-size' as mz-text-size;
+@use 'lib/mz-grid-framework/mixin/mz-grid' as mz-grid;
+@use 'function/color/mz-gradient' as mz-gradient;
+
+//=========================================
+//  home quicklink section
+//=========================================
+.home-quicklink-section {
+  margin: vars.$mz-home-page-section-margin 0;
+}
+
+//=========================================
+//  home quicklink block
+//=========================================
+$_map-icon-color: (
+  '1': (
+    'bg': mz-gradient.mz-get-gradient-bg((#ff8ecc, #f2319d),135deg),
+    'shadow': 0 12px 10px -6px rgba(242, 49, 157, 0.5),
+  ),
+  '2': (
+    'bg': mz-gradient.mz-get-gradient-bg((#aad9ff 23%, #378be7 112%),135deg),
+    'shadow': 0 12px 10px -6px rgba(55, 139, 231, 0.5),
+  ),
+  '3': (
+    'bg': mz-gradient.mz-get-gradient-bg((#feb984, #ff5542 102%),135deg),
+    'shadow': 0 12px 10px -6px rgba(255, 85, 66, 0.5),
+  ),
+  '4': (
+    'bg': mz-gradient.mz-get-gradient-bg((#d597d6, #974ef6 102%),135deg),
+    'shadow': 0 12px 10px -6px rgba(151, 78, 246, 0.5),
+  ),
+  '5': (
+    'bg': mz-gradient.mz-get-gradient-bg((#83fff2, #75b8d8),135deg),
+    'shadow': 0 12px 10px -6px rgba(117, 184, 216, 0.5),
+  ),
+  '6': (
+    'bg': mz-gradient.mz-get-gradient-bg((#ffd529, #fd8440 102%),135deg),
+    'shadow': 0 12px 10px -6px rgba(253, 132, 64, 0.5),
+  ),
+  '7': (
+    'bg': mz-gradient.mz-get-gradient-bg((#8d99ff, #3a42d2 100%),135deg),
+    'shadow': 0 12px 10px -6px rgba(58, 66, 210, 0.5),
+  ),
+  '8': (
+    'bg': mz-gradient.mz-get-gradient-bg((#49e9bb, vars.$mz-success),135deg),
+    'shadow': 0 12px 10px -6px rgba(vars.$mz-success, 0.5),
+  ),
+  '9': (
+    'bg': mz-gradient.mz-get-gradient-bg((#ff7a88, vars.$mz-danger),135deg),
+    'shadow': 0 12px 10px -6px rgba(vars.$mz-danger, 0.5),
+  ),
+  '10': (
+    'bg': mz-gradient.mz-get-gradient-bg((#00d2ff, vars.$mz-primary),135deg),
+    'shadow': 0 12px 10px -6px rgba(vars.$mz-primary, 0.5),
+  ),
+);
+
+.home-quicklink-block {
+  .quicklink-item-wrap {
+    justify-content: center;
+    @include mz-grid.mz-make-row(1);
+  }
+
+  .quicklink-item-col {
+    @include mz-grid.mz-make-col-ready(1);
+    @include mz-grid.mz-make-col(1,10);
+
+    :hover {
+      background: vars-v2.$secondary-50;
+      color: vars-v2.$primary-700;
+      transition: 0.1s;
+    }
+  }
+
+  .quicklink-item {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 136px;
+    background: vars-v2.$secondary-200;
+    border-radius: 8px;
+
+    &:hover {
+      .item-title-box {
+        box-shadow: 0 20px 24px -16px rgba(vars.$mz-gray-light, 0.4);
+        background: vars-v2.$secondary-50;
+        transition: 0.1s;
+      }
+    }
+  }
+
+  .item-icon-shape {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    z-index: 1;
+    padding-top: 24px;
+
+    @each $_color-key, $_map-color in $_map-icon-color {
+      $_bg-color: map-get($_map-color, 'bg');
+      $_shadow-color: map-get($_map-color, 'shadow');
+
+      &.shape-#{$_color-key} {
+        background: $_bg-color;
+        box-shadow: $_shadow-color;
+      }
+    }
+  }
+
+  .item-icon-img {
+    max-height: 32px;
+
+    // &.svg-img {
+    //   -webkit-filter: brightness(0) invert(1);
+    //   filter: brightness(0) invert(1);
+    // }
+  }
+
+  .item-title-box {
+    min-height: 80px;
+    width: 100%;
+    padding: 24px 12px 16px;
+    margin-top: -16px;
+    text-align: center;
+    background: vars-v2.$secondary-200;
+    color: vars-v2.$secondary-900;
+    @include mz-text-size.mz-text-size('sm');
+  }
+}

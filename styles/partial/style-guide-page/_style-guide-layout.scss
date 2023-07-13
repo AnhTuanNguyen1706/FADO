@@ -1,0 +1,19 @@
+@use 'vars' as vars;
+
+.style-guide-layout {
+  padding-left: 232px;
+
+  .layout-aside {
+    position: fixed;
+    left: 0;
+    width: 232px;
+    top: 0;
+    height: 100%;
+    overflow: auto;
+    background: vars.$mz-gray-darker;
+  }
+
+  .layout-body {
+    padding: 32px;
+  }
+}// .style-guide-layout

@@ -1,0 +1,50 @@
+@use 'vars' as vars;
+@use 'mixin/mz-text-size' as mz-text-size;
+@use 'mixin/mz-general' as general;
+@use 'mixin/mz-image' as mz-image;
+
+.product-matrix-section {
+  background: #fff;
+  padding: 16px 0;
+  border-top: solid 1px vars.$mz-gray-lighter;
+
+  .matrix-list {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 16px;
+  }
+
+  .matrix-item {
+    display: flex;
+    flex-wrap: nowrap;
+    padding: 8px;
+    border: solid 1px vars.$mz-gray-lighter;
+    border-radius: 8px;
+    color: vars.$mz-gray-dark;
+
+    &__image {
+      margin-right: 8px;
+      @include mz-image.mz-img-outer;
+      max-width: 48px;
+    }
+
+    &__image-inner {
+      @include mz-image.mz-img-inner;
+    }
+
+    &__image-link {
+      @include mz-image.mz-img-img;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    &__name {
+      @include mz-text-size.mz-text-size(12px);
+      @include general.mz-limit-text-line(12px, 3);
+    }
+  }
+}
+
+.product-related-info-section + .product-matrix-section {
+  border-top: unset;
+}

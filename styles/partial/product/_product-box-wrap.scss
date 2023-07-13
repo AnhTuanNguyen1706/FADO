@@ -1,0 +1,12 @@
+.product-box-wrap {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 -10px -20px;
+
+  &__col {
+    flex: 0 0 20%;
+    padding: 0 10px;
+    margin-bottom: 20px;
+    min-width: 1px;
+  }
+}

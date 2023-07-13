@@ -1,0 +1,23 @@
+@use 'vars' as vars;
+
+.home-sub-middle-bner-section {
+  margin: vars.$mz-home-page-section-margin 0;
+
+  .bner-item {
+    display: block;
+    margin-bottom: 20px;
+
+    &[href*="javascript"] {
+      cursor: auto;
+    }
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .bner-item-img {
+    width: 100%;
+    border-radius: 8px;
+  }
+}

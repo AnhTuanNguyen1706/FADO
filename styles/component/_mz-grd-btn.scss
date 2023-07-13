@@ -1,0 +1,71 @@
+@use 'vars' as vars;
+@use 'mixin/mz-text-size' as mz-text-size;
+@use 'mixin/mz-grd-btn' as mz-grd-btn;
+
+.mz-grd-btn {
+  @include mz-grd-btn.mz-make-grd-btn-ready();
+}
+
+.mz-grd-btn-block {
+  @include mz-grd-btn.mz-make-grd-btn-block();
+}
+
+// ###########################################################
+// Generate gradient button
+// ###########################################################
+$_map-theme-color: vars.$mz-map-theme-color;
+$_map-theme-color: map-remove($_map-theme-color, 'gray');
+$_map-theme-color: map-merge((
+  'mixed': null, // Giả giá trị để hàm merge chạy được
+), $_map-theme-color);
+
+@each $_color-key, $_color-value in $_map-theme-color {
+  .mz-grd-btn-#{$_color-key} {
+    @include mz-grd-btn.mz-make-grd-btn-color($_color-key);
+
+    .mz-grd-btn__inner {
+      background: transparent;
+    }
+
+    @include mz-grd-btn.mz-make-grd-btn-hover($_color-key);
+    @include mz-grd-btn.mz-make-grd-btn-focus-active($_color-key);
+  }
+
+  // Outline style
+  .mz-grd-btn-outline-#{$_color-key} {
+    @include mz-grd-btn.mz-make-grd-btn-outline-color($_color-key);
+
+    .mz-grd-btn__inner {
+      background: #fff;
+    }
+
+    @include mz-grd-btn.mz-make-grd-btn-outline-hover-focus-active($_color-key);
+  }
+}
+
+// ###########################################################
+// Generate button border radius
+// ###########################################################
+$_map-border-radius: vars.$mz-map-rounded;
+@each $_bdr-key, $_bdr-value in $_map-border-radius {
+  .mz-grd-btn-bdr-#{$_bdr-key} {
+    @include mz-grd-btn.mz-make-grd-btn-border-radius($_bdr-key);
+  }
+}
+
+
+// ###########################################################
+// Generate button size
+// ###########################################################
+$_map-form-height: vars.$mz-map-form-height;
+@each $_size-key, $_size-value in $_map-form-height {
+  .mz-grd-btn-#{$_size-key} {
+    @include mz-grd-btn.mz-make-grd-btn-size($_size-key);
+
+    &.mz-grd-btn-bdr-circle {
+      $_height-value: map-get($_map-form-height, $_size-key);
+      @include mz-grd-btn.mz-make-grd-btn-border-radius('circle',null,$_height-value);
+    }
+  }
+}
+

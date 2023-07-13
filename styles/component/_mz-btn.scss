@@ -1,0 +1,259 @@
+@use 'vars' as vars;
+@use 'vars-v2' as vars-v2;
+@use 'mixin/mz-animation' as mz-animation;
+@use 'mixin/mz-btn' as mz-btn;
+@use 'function/mz/mz-color' as mz-color;
+@use 'mixin/mz-hover' as mz-hover;
+
+.mz-btn {
+  @include mz-btn.mz-make-btn-ready();
+}
+
+.mz-btn-block {
+  @include mz-btn.mz-make-btn-block();
+}
+
+// ###########################################################
+// Generate button fill / outline color
+// ###########################################################
+$_map-theme-color: vars.$mz-map-theme-color;
+
+@each $_color-key, $_color-value in $_map-theme-color {
+  // Button fill color (dạng fill full màu button)
+  .mz-btn-#{$_color-key} {
+    @include mz-btn.mz-make-btn-color($_color-key);
+
+    @include mz-hover.mz-hover() {
+      @include mz-btn.mz-make-btn-hover-color($_color-key);
+    }
+
+    &:not(.is-no-focus) { // ! Class đặc biệt để chặn hiệu ứng focus
+      @include mz-hover.mz-focus-active() {
+        @include mz-btn.mz-make-btn-focus-color($_color-key);
+      }
+    }
+
+    &.is-active {
+      @include mz-btn.mz-make-btn-focus-color($_color-key);
+    }
+  }
+
+  // Button outline
+  .mz-btn-outline-#{$_color-key} {
+    @include mz-btn.mz-make-btn-outline-color($_color-key);
+
+    @include mz-hover.mz-hover() {
+      @include mz-btn.mz-make-btn-outline-hover-color($_color-key);
+    }
+
+    &:not(.is-no-focus) { // ! Class đặc biệt để chặn hiệu ứng focus
+      @include mz-hover.mz-focus-active() {
+        @include mz-btn.mz-make-btn-outline-focus-color($_color-key);
+      }
+    }
+
+    &.is-active {
+      @include mz-btn.mz-make-btn-outline-focus-color($_color-key);
+    }
+  }
+}
+
+// ###########################################################
+// Generate favorite / compare fill btn
+// ###########################################################
+$_map-btn-icon: (
+  'favorite': (
+    'text-color-active': #fff,
+    'text-color-active-hover': #fff,
+    'bg-color-active': vars-v2.$primary-900,
+    'bg-color-active-hover': vars-v2.$primary-900,
+    'font-content': '\f004',
+    'font-weight': 300,
+    'font-weight-active': 700,
+  ),
+  'compare': (
+    'text-color-active': #fff,
+    'text-color-active-hover': #fff,
+    'bg-color-active': vars-v2.$primary-900,
+    'bg-color-active-hover': vars-v2.$primary-900,
+    'font-content': '\f516',
+    'font-weight': 300,
+    'font-weight-active': 700,
+  ),
+);
+
+// Generate basic style
+$_group-btn-icon-class: '.mz-btn-favorite, .mz-btn-compare';
+#{$_group-btn-icon-class} {
+  @include mz-btn.mz-make-btn-icon-ready();
+}
+
+// Generate every button style
+@each $_btn-class, $_map-btn in $_map-btn-icon {
+  .mz-btn-#{$_btn-class} {
+    $_text-color-active: map-get($_map-btn,'text-color-active');
+    $_text-color-active-hover: map-get($_map-btn,'text-color-active-hover');
+    $_bg-color-active: map-get($_map-btn,'bg-color-active');
+    $_bg-color-active-hover: map-get($_map-btn,'bg-color-active-hover');
+    $_font-content: map-get($_map-btn,'font-content');
+    $_font-weight: map-get($_map-btn,'font-weight');
+    $_font-weight-active: map-get($_map-btn,'font-weight-active');
+
+    .mz-btn__icon {
+      display: block; // block mới add animation vào được
+
+      @if($_btn-class == 'favorite') {
+        padding-top: 1px;
+      }
+
+      &::before {
+        content: $_font-content;
+        font-family: vars.$mz-font-family-fa5;
+        font-weight: $_font-weight;
+      }
+    }
+
+    &.is-loading {
+      .mz-btn__icon {
+        @include mz-animation.mz-animation-spin();
+
+        &::before {
+          content: vars.$mz-font-content-loading;
+          font-weight: 400;
+        }
+      }
+    }
+
+    &.is-active {
+      background: $_bg-color-active;
+      color: $_text-color-active;
+      border-color: $_bg-color-active;
+
+      .mz-btn__icon {
+        &::before {
+          font-weight: $_font-weight-active;
+        }
+      }
+
+      @include mz-hover.mz-hover() {
+        background: $_bg-color-active-hover;
+        color: $_text-color-active-hover;
+        border-color: $_bg-color-active-hover;
+      }
+    }
+  }
+}
+
+// ###########################################################
+// Generate favorite / compare outline btn
+// ###########################################################
+$_map-btn-icon-trans: (
+  'trans-favorite': (
+    'text-color-active': vars.$mz-danger-light,
+    'text-color-active-hover': mz-color.mz-get-hover-color(vars.$mz-danger-light),
+    'font-content': '\f004',
+    'font-weight': 300,
+    'font-weight-active': 700,
+  ),
+  'trans-compare': (
+    'text-color-active': vars.$mz-primary,
+    'text-color-active-hover': mz-color.mz-get-hover-color(vars.$mz-primary),
+    'font-content': '\f516',
+    'font-weight': 300,
+    'font-weight-active': 700,
+  ),
+);
+
+// Generate basic style
+$_group-btn-icon-trans-class: '.mz-btn-trans-favorite';
+@each $_btn-key, $_map-btn in $_map-btn-icon-trans {
+  $_btn-class: '.mz-btn-' + $_btn-key;
+  @if not(str-index($_group-btn-icon-trans-class, $_btn-class)) {
+    $_group-btn-icon-trans-class: $_group-btn-icon-trans-class + ', ' + $_btn-class;
+  }
+}
+#{$_group-btn-icon-trans-class} {
+  @include mz-btn.mz-make-btn-icon-trans-ready();
+}
+
+@each $_btn-class, $_map-btn in $_map-btn-icon-trans {
+  .mz-btn-#{$_btn-class} {
+    $_text-color-active: map-get($_map-btn,'text-color-active');
+    $_text-color-active-hover: map-get($_map-btn,'text-color-active-hover');
+    $_bg-color-active: map-get($_map-btn,'bg-color-active');
+    $_bg-color-active-hover: map-get($_map-btn,'bg-color-active-hover');
+    $_font-content: map-get($_map-btn,'font-content');
+    $_font-weight: map-get($_map-btn,'font-weight');
+    $_font-weight-active: map-get($_map-btn,'font-weight-active');
+
+    background: transparent;
+    border-color: transparent;
+
+    .mz-btn__icon {
+      display: block;
+
+      @if($_btn-class == 'trans-favorite') {
+        padding-top: 1px;
+      }
+
+      &::before {
+        content: $_font-content;
+        font-family: vars.$mz-font-family-fa5;
+        font-weight: $_font-weight;
+      }
+    }
+
+    &.is-loading {
+      .mz-btn__icon {
+        @include mz-animation.mz-animation-spin();
+
+        &::before {
+          content: vars.$mz-font-content-loading;
+          font-weight: 400;
+        }
+      }
+    }
+
+    &.is-active {
+      color: $_text-color-active;
+
+      .mz-btn__icon {
+        &::before {
+          font-weight: $_font-weight-active;
+        }
+      }
+
+      @include mz-hover.mz-hover() {
+        background: $_bg-color-active-hover;
+        color: $_text-color-active-hover;
+        border-color: $_bg-color-active-hover;
+      }
+    }
+  }
+}
+
+
+// ###########################################################
+// Generate button radius
+// ###########################################################
+$_map-border-radius: vars.$mz-map-rounded;
+@each $_bdr-key, $_bdr-value in $_map-border-radius {
+  .mz-btn-bdr-#{$_bdr-key} {
+    @include mz-btn.mz-make-btn-border-radius($_bdr-key);
+  }
+}
+
+// ###########################################################
+// Generate button size
+// ###########################################################
+$_map-form-height: vars.$mz-map-form-height;
+@each $_size-key, $_size-value in $_map-form-height {
+  .mz-btn-#{$_size-key} {
+    @include mz-btn.mz-make-btn-size($_size-key);
+
+    &.mz-btn-bdr-circle {
+      $_height-value: map-get($_map-form-height, $_size-key);
+      @include mz-btn.mz-make-btn-border-radius('circle',null,$_height-value);
+    }
+  }
+}

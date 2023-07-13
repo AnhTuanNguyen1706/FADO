@@ -1,0 +1,26 @@
+@use 'vars' as vars;
+
+@mixin mz-border-radius($_border-radius-value: vars.$mz-rounded-default, $_has-important: false) {
+  @if($_has-important) {
+    border-radius: $_border-radius-value !important;
+  } @else {
+    border-radius: $_border-radius-value;
+  }
+}
+
+/*
+DOC:
+- Dùng để in border-radius dựa trên mã key của map
+- Truyền dạng key. VD: `xs`,`sm`,...
+
+EXAM:
+  @include mz-border-radius('xs') => border-radius: 4px;
+*/
+@mixin mz-border-radius-from-key($_border-radius: vars.$mz-rounded-key-default, $_map-border-radius: vars.$mz-map-rounded) {
+  @if(map-has-key($_map-border-radius, $_border-radius)) {
+    $_border-radius-value: map-get($_map-border-radius, $_border-radius);
+    border-radius: $_border-radius-value;
+  } @else {
+    @error '$_border-radius: ' + $_border-radius + ' is not valid';
+  }
+}

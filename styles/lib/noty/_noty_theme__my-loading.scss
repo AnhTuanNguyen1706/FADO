@@ -1,0 +1,79 @@
+@use 'vars' as vars;
+
+$noty-primary-color: #333;
+$noty-default-width: 360px;
+$noty-corner-space: 20px;
+
+// Alert warning
+$noty-alert-warning-text-color: #eede2c;
+
+// Loading warning
+$noty-loading-warning-bg-color: #fff9e7;
+$noty-loading-warning-text-color: #1f1e1d;
+
+// =============================================
+// Noty theme fado Alert / success / warning
+// =============================================
+.noty_theme__my-loading {
+  &.noty_type__warning,
+  &.noty_type__danger,
+  &.noty_type__success,
+  &.noty_type__default {
+    color: #fff;
+    border-radius: 4px;
+    box-shadow: 0 0 8px rgba(#000,0.2);
+    padding: 4px 10px;
+    background: vars.$mz-gray-darker;
+    font-size: 13px;
+    line-height: 18px;
+
+    .noty_body {
+      display: flex;
+
+      &__icon-col {
+        flex: 0 0 24px;
+        width: 24px;
+        padding: 4px 0;
+        min-width: 1px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 10px;
+      }
+
+      &__icon {
+        font-size: 24px;
+        line-height: 24px;
+      }
+
+      &__content-col {
+        flex: 1 1;
+        min-width: 1px;
+        display: flex;
+        align-items: center;
+        padding: 4px 0;
+        text-align: center;
+        justify-content: center;
+      }
+    }// .noty_body
+  }// end noty_type...
+
+  // Warning
+  // ---------
+  &.noty_type__warning {
+    background: $noty-loading-warning-bg-color;
+    color: $noty-loading-warning-text-color;
+  }
+
+  // Danger
+  // ---------
+  &.noty_type__danger {
+    background: #a94442;
+  }
+
+  // Success
+  // ---------
+  &.noty_type__success {
+    background: #3c763d;
+  }
+}// .noty_theme__fd

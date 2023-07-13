@@ -1,0 +1,25 @@
+@use 'vars' as vars;
+
+.prime-coming-soon-section {
+  height: 558px;
+  position: relative;
+  overflow: hidden;
+  background: #0296d6;
+  z-index: vars.$mz-z-index-lv-1;
+
+  .bner-field {
+    // text-align: center;
+    // position: absolute;
+    height: 948px;
+    // top: 0;
+    // left: 50%;
+    // transform: translateX(-50%);
+  }
+
+  .bner-img {
+    height: 100%;
+    width: auto;
+    // max-width: none;
+    object-fit: cover;
+  }
+}

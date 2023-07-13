@@ -1,0 +1,49 @@
+@use 'vars' as vars;
+
+$btnSize: 40px;
+$bottomPosition: 122px;
+$facebookHeight: 80px;
+$zaloHeight: 70px;
+
+.side-sticky-bar-section {
+  position: fixed;
+  bottom: $bottomPosition;
+  z-index: vars.$mz-z-index-lv-1;
+  transition: vars.$mz-transition-time-default;
+
+  &.bar-at-right {
+    right: 16px;
+  }
+
+  &.bar-at-left {
+    left: 34px;
+  }
+
+  .bar-item {
+    cursor: pointer;
+    width: $btnSize;
+    height: $btnSize;
+    background: #fff;
+    display: flex;
+    border-radius: 60px;
+    padding: 4px;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    box-shadow: 0 4px 8px 0 rgba(vars.$mz-gray-darker, 0.1);
+    color: vars.$mz-primary;
+    font-size: 20px;
+    line-height: 1;
+    transition: vars.$mz-transition-time-default;
+    margin-bottom: 16px;
+
+    &.is-hidden {
+      display: none;
+    }
+  }
+
+  &.is-hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+}

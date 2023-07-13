@@ -1,0 +1,332 @@
+@use 'vars' as vars;
+@use 'mixin/mz-text-size' as mz-text-size;
+
+$_main-bner-height: 216px;
+$_heading-height: 56px;
+$_section-bg-color-default: #fff;
+
+.bf-product-section {
+  position: relative;
+  background: $_section-bg-color-default url(vars.$mz-image-url + '/page/blackfriday-page/product-section-pattern-bg.png' + vars.$mz-cache-ver-suffix) bottom center no-repeat;
+
+  .section-inner {
+    position: relative;
+    z-index: 5;
+    padding-top: $_main-bner-height - $_heading-height;
+    padding-bottom: 80px;
+  }
+
+  .section-body {
+    position: relative;
+  }
+}// .bf-product-section
+
+
+
+
+/* ------------------
+  Section background field
+--------------------- */
+.bf-product-section {
+  .section-bg-field {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: $_main-bner-height;
+    overflow: hidden;
+    background: #fff;
+  }
+
+  .section-bg-field-inner {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    height: 100%;
+    transform: translateX(-50%);
+  }
+
+  .section-bg-img {
+    height: 100%;
+    max-height: none;
+    max-width: none;
+  }
+}// .bf-product-section
+
+
+
+
+
+/* ------------------
+  Section head
+--------------------- */
+.bf-product-section {
+  .section-head {
+    min-height: $_heading-height;
+    margin-bottom: 24px;
+    position: relative;
+    text-align: center;
+  }
+
+  .section-title-field {
+    position: relative;
+    display: inline-flex;
+    @include mz-text-size.mz-text-size(28px);
+    font-weight: 700;
+    padding: 8px 16px 0;
+
+    .section-title-bg {
+      background: $_section-bg-color-default;
+      height: $_heading-height;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: -1;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -8px;
+        height: calc(100% + 2px);
+        width: 50%;
+        border-radius: 10px 0 0 0;
+        transform-origin: top right;
+        background: $_section-bg-color-default;
+        transform: skew(-20deg);
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: -8px;
+        height: calc(100% + 2px);
+        width: 50%;
+        border-radius: 0 10px 0 0;
+        transform-origin: top left;
+        background: $_section-bg-color-default;
+        transform: skew(20deg);
+      }
+    }// .block-head-bg
+
+    a.section-title {
+      color: vars.$mz-text-body-color;
+    }// .section-title
+  }// .section-title-field
+}// .bf-product-section
+
+
+
+
+
+/* ------------------
+  Tab segment
+--------------------- */
+.bf-product-section {
+  .tab-segment {
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+
+    .tab-item {
+      border-radius: 18px;
+      margin: 0 2px 8px 2px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      border: 1px dashed transparent;
+      background: transparent;
+      padding: 4px;
+      transition: border vars.$mz-transition-time-default;
+
+      .tab-item-inner {
+        border-radius: 14px;
+        box-shadow: vars.$mz-shadow-sm;
+        background: #fff;
+        padding: 0 16px;
+        height: 42px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background vars.$mz-transition-time-default;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      &:hover {
+        color: vars.$mz-primary;
+      }
+
+      &.is-active {
+        background: #fff;
+        color: #fff;
+        border: 1px dashed vars.$mz-primary;
+
+        .tab-item-inner {
+          background: vars.$mz-primary;
+          box-shadow: none;
+        }
+      }
+
+      &.is-disabled {
+        opacity: 0.3;
+        pointer-events: none;
+      }
+    }// .tab-item
+  }// .tab-segment
+}// .bf-product-section
+
+
+
+
+
+
+
+/* ------------------
+  Product segment
+--------------------- */
+.bf-product-section {
+  .product-segment {
+    position: relative;
+  }
+
+  .list-effect-enter-active, .list-effect-leave-active {
+    transition: 0.2s;
+  }
+
+  .list-effect-enter, .list-effect-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
+  }
+
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 16px;
+  }
+
+  .product-col {
+    min-width: 0;
+    display: flex;
+  }
+}// .bf-product-section
+
+
+
+
+
+
+
+
+
+
+/* ------------------
+  View more field
+--------------------- */
+.bf-product-section {
+  .view-more-field {
+    margin-top: 36px;
+    text-align: center;
+
+    .view-more-btn {
+      border-radius: vars.$mz-rounded-round;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: #fff;
+      padding: 0 32px;
+      border: 1px solid vars.$mz-primary;
+      color: vars.$mz-primary;
+      height: 40px;
+
+      &:hover {
+        background: vars.$mz-primary;
+        color: #fff;
+      }
+    }
+  }
+}// .bf-product-section
+
+
+
+
+
+
+
+/* ------------------
+  Loading segment
+--------------------- */
+.bf-product-section {
+  .loading-segment {
+    background: rgba(#fff,0.8);
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 50%;
+    top: 50%;
+    margin-top: -50px;
+    margin-left: -50px;
+    font-size: 42px;
+    line-height: 1;
+    z-index: vars.$mz-z-index-lv-1;
+  }
+}
+
+
+
+
+
+
+// CUSTOM COLOR FOR SECTION
+$_map-section-color: (
+  us: (
+    section-bg-color: #ebf5ff,
+    bner-bg-color: #AFD7B2,
+    tab-active-color: vars.$mz-primary,
+    btn-color: vars.$mz-primary,
+  ),
+  jp: (
+    section-bg-color: #f4e7e7,
+    bner-bg-color: #d9d9d9,
+    tab-active-color: #f44645,
+    btn-color: #d84758,
+  ),
+  de: (
+    section-bg-color: #f3edff,
+    bner-bg-color:  #060A0D,
+    tab-active-color: #763afc,
+    btn-color: #6f0bbc,
+  ),
+  uk: (
+    section-bg-color: #fbefe0,
+    bner-bg-color:  #2A9EDB,
+    tab-active-color: #e49425,
+    btn-color: #e49425,
+  ),
+  au: (
+    section-bg-color: #e0ece8,
+    bner-bg-color: #F8CDBA,
+    tab-active-color: #01965f,
+    btn-color: #01965f,
+  ),
+);
+@each $_section-idx , $_map-color in $_map-section-color{
+  .bf-product-section.section-#{ $_section-idx}{
+     $_bner-bg-color: map-get($_map-color, 'bner-bg-color');
+
+    .section-bg-field {
+      background-color: $_bner-bg-color;
+    }
+  }
+}

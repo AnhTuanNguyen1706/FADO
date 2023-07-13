@@ -1,0 +1,32 @@
+// Partials global
+// ---------
+@use "partial/global/pagination-nav-old";
+@use "partial/product/product-panel-wrap-v2";
+@use "partial/product/product-panel-v2";
+@use 'partial/global/product/product-card';
+@use 'partial/global/product/product-deal-action-card';
+@use 'partial/product/product-box';
+@use "partial/global/suggest-product-deal-block";
+@use "partial/global/mkt-editor";
+@use 'partial/global/discount-item';
+
+// Partials in cate page
+// ---------
+@use "partial/category-page/category-layout";
+@use "partial/category-page/category-side-col";
+@use "partial/category-page/category-info-section";
+
+// Partials in page
+// ---------
+@use "./_store-category-page";
+// @use "store-cate-layout";
+// @use "store-cate-sblock";
+// @use "store-filter-sblock";
+@use "store-cate-block";
+// @use "store-bner-block";
+@use "store-bner-block-old";
+// @use 'store-category-product-layout';
+// @use 'store-category-product-card-wrap';
+@use "mkt-editor-wrap";
+@use "store-category-nav";
+@use "./discount-list-section";

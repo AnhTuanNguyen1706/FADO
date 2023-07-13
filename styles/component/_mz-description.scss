@@ -1,0 +1,160 @@
+@use 'vars' as vars;
+@use 'vars-v2' as vars-v2;
+@use 'mixin/mz-general' as general;
+
+.mz-description-box {
+  position: relative;
+  margin-top: 32px;
+  padding-bottom: 32px;
+  // border-bottom: solid 1px vars.$mz-gray-lighter;
+
+  &__slider-container {
+    padding-bottom: 24px;
+    max-height: 1000px;
+    opacity: 0;
+
+    &.is-show {
+      opacity: 1;
+    }
+  }
+
+  &__slider-prev, &__slider-next {
+    position: absolute;
+    top: calc(50% - 56px);
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    background: #fff;
+    z-index: vars.$mz-z-index-lv-1;
+    border: solid 1px vars.$mz-gray;
+    @include general.mz-fix-event-click;
+  }
+
+  &__slider-prev {
+    left: 0;
+  }
+
+  &__slider-next {
+    right: 0;
+  }
+
+  .swiper-pagination-bullets {
+    bottom: 0;
+
+    .swiper-pagination-bullet {
+      border-radius: 4px;
+      transition: width vars.$mz-transition-time-default;
+    }
+
+    .swiper-pagination-bullet-active {
+      width: 24px;
+      border-radius: 4px;
+      background: vars-v2.$primary-900;
+    }
+  }
+}// .mz-description-box
+
+// ===================================
+// ======= DES ITEM =======
+
+.mz-des-item {
+  margin: 0 -8px;
+
+  &__d-flex {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+  }
+
+  &__content-col {
+    margin-bottom: -8px;
+    padding: 0 8px;
+    flex: 1 1 auto;
+  }
+
+  &__title {
+    font-family: vars.$mz-font-family-oswald;
+    color: vars.$mz-gray-dark;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+
+    &.title-with-icon {
+      font-size: 1.8rem!important;
+      font-weight: normal!important;
+      text-transform: none!important;
+      font-family: vars.$mz-font-family-default!important;
+    }
+  }
+
+  &__sub-title {
+    color: vars.$mz-gray;
+    font-weight: bold;
+  }
+
+  &__content {
+    margin-bottom: 8px;
+  }
+
+  &__image-col {
+    margin-bottom: -8px;
+    padding: 0 8px;
+    max-width: 40%;
+  }
+
+  &__image-outer {
+    margin-bottom: 8px;
+  }
+
+  &__icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  &__child-list {
+    margin-bottom: 8px;
+  }
+
+  &__grid {
+    .mz-des-item__title {
+      font-size: 2.25rem;
+    }
+
+    .mz-des-item__sub-title {
+      margin-bottom: 8px;
+    }
+  }
+
+  &__list {
+    .mz-des-item__title {
+      font-size: 2.25rem;
+    }
+
+    .mz-des-item__sub-title {
+      font-size: 2rem;
+      margin-bottom: 16px;
+    }
+  }
+
+  &__list-ul {
+    .mz-des-item__content {
+      position: relative;
+      padding-left: 10px;
+
+      &:after {
+        content: "";
+        position: absolute;
+        background: #000;
+        left: 0;
+        top: calc(50% - 1px);
+        height: 4px;
+        width: 4px;
+        border-radius: 50%;
+      }
+    }
+  }
+}
+// ======= DES ITEM =======
+// ===================================

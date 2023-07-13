@@ -1,0 +1,79 @@
+@use 'sass:math';
+@use 'vars' as vars;
+@use 'mixin/mz-text-size' as mz-text-size;
+
+.bf-coupon-section {
+  padding: 40px 0 72px;
+  background:  #F7F7F7;
+
+  .section-head {
+    text-align: center;
+    margin-bottom: 16px;
+    @include mz-text-size.mz-text-size(20px);
+    color: vars.$mz-gray;
+    font-weight: 700;
+  }// .section-head
+}// .bf-coupon-section
+
+
+
+
+
+/* ------------------
+  Coupon segment
+--------------------- */
+.bf-coupon-section {
+  .coupon-segment {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap: 16px;
+
+    .coupon-col {
+      position: relative;
+      min-width: 0;
+      width: 100%;
+      padding-bottom: percentage(math.div(224, 800));
+    }
+
+    .coupon-item {
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      transition: 0.5s;
+      cursor: pointer;
+      width: 100%;
+      height: 100%;
+
+      &:hover {
+        animation: _coupon-item-pop 0.5s ease;
+      }
+    }
+
+    .copied-alert {
+      position: absolute;
+      bottom: -50px;
+      left: 50%;
+      background: vars.$mz-success-lightest;
+      border: 1px solid vars.$mz-success-lighter;
+      border-radius: 4px;
+      height: 38px;
+      @include mz-text-size.mz-text-size-from-font-size-key('sm');
+      display: flex;
+      align-items: center;
+      padding: 0 12px;
+      transform: translateX(-50%);
+    }
+  }// .coupon-segment
+}// .prime-cate-bner-section
+
+@keyframes _coupon-item-pop {
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+

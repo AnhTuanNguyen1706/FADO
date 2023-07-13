@@ -1,0 +1,29 @@
+// Partial global
+// ---------
+@use 'partial/global/product/product-card';
+@use 'partial/global/our-feature-segment';
+@use 'partial/global/product/product-deal-action-card';
+@use 'partial/global/global-grid-section';
+@use 'partial/global/mz-masonry';
+@use 'partial/global/global/global-home-deal-card';
+@use 'partial/global/product/product-horizontal-card';
+
+// Partial in page
+// ---------
+@use './_home-page';
+@use './home-slider-section';
+@use './home-quicklink-section';
+@use './home-feature-department-section';
+@use './home-middle-bner-section';
+@use './home-deal-section';
+@use './home-trending-section';
+@use './home-suggest-section';
+@use './home-feedback-section';
+@use './home-feature-section';
+@use './home-search-trending-section';
+@use './home-select-export-section';
+@use "./home-blog-section";
+
+// Modal
+// ---------
+@use 'check-view-quotation-modal';

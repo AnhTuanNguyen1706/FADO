@@ -1,0 +1,45 @@
+@use 'function/mz/mz-color' as mz-color;
+@use 'vars' as vars;
+
+//==================================================
+// feedback-summary-rating-star-segment
+//==================================================
+.feedback-summary-rating-star-segment {
+  .mz-rating {
+    cursor: pointer;
+
+    &__percent-bar-group {
+      display: none;
+
+      &.is-show {
+        display: block;
+      }
+    }
+
+    &__percent-bar-col {
+      flex: 1 1;
+      min-width: 0;
+    }
+
+    &__percent-bar {
+      flex: 1 1;
+      min-width: 0;
+    }
+
+    .icon-col {
+      flex: 0 0 28px;
+      height: 28px;
+      align-items: center;
+      justify-content: center;
+      color: vars.$mz-gray-darker;
+      font-size: 2rem;
+      margin-left: auto;
+    }
+
+    &:hover {
+      .icon-col {
+        color: mz-color.mz-get-hover-color(vars.$mz-gray-darker);
+      }
+    } // .mz-rating:hover
+  }
+} // .feedback-summary-rating-star-segment

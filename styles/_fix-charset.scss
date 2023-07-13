@@ -1,0 +1,14 @@
+@use 'vars.scss' as vars;
+
+/*
+  (05/10/2021)
+    - Khi scss compile nếu ta đặt @charset "UTF-8"; ở đầu file mà bản thân
+    trong code scss không có chứa character đặc biệt nó sẽ tự động remove
+    bỏ đoạn charset đi, vì vậy ta phải thêm đoạn test UTF-8 để scss có thể
+    tự động add charset lên đầu file khi compile
+*/
+.test {
+  &::before {
+    content: 'Ký tự đặc biệt';
+  }
+}

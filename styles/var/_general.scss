@@ -1,0 +1,145 @@
+// ! Những biến không biết đặt ở đâu thì đặt hết vào đây
+// ######################################################
+// Box-shadow
+// ######################################################
+$mz-box-shadow-from-key-xs: 0 2px 4px 0 rgba($mz-gray-darker, 0.1);
+$mz-box-shadow-from-key-sm: 0 8px 16px -4px rgba($mz-gray-darker, 0.1);
+$mz-box-shadow-from-key-md: 0 16px 24px -8px rgba($mz-gray-darker, 0.1);
+$mz-box-shadow-from-key-lg: 0 24px 32px -12px rgba($mz-gray-darker, 0.1);
+$mz-box-shadow-from-key-block: 0 0 4px 0 rgba($mz-gray, 0.2);
+$mz-box-shadow-from-key-dropdown: 0 0 4px 0 rgba($mz-gray-darker, 0.4);
+$mz-map-box-shadow: (
+  'xs': $mz-box-shadow-from-key-xs,
+  'sm': $mz-box-shadow-from-key-sm,
+  'md': $mz-box-shadow-from-key-md,
+  'lg': $mz-box-shadow-from-key-lg,
+  'block': $mz-box-shadow-from-key-block,
+  'dropdown': $mz-box-shadow-from-key-dropdown,
+);
+
+// ######################################################
+// Border radius
+// ######################################################
+$mz-border-radius-base: 2px;
+$mz-border-radius-xs: 4px;
+$mz-border-radius-sm: 6px;
+$mz-border-radius-md: 8px;
+$mz-border-radius-lg: 10px;
+$mz-border-radius-xl: 12px;
+$mz-border-radius-round: 40px;
+$mz-border-radius-circle: 50%;
+$mz-border-radius-key-default: 'xs';
+$mz-border-radius-default: $mz-border-radius-xs;
+
+$mz-map-border-radius: (
+  'xs': $mz-border-radius-xs,
+  'sm': $mz-border-radius-sm,
+  'md': $mz-border-radius-md,
+  'lg': $mz-border-radius-lg,
+  'xl': $mz-border-radius-xl,
+  'round': $mz-border-radius-round,
+  'circle': $mz-border-radius-circle,
+);
+
+// ######################################################
+// Animation
+// ######################################################
+$mz-transition-time-xs: 0.3s;
+$mz-transition-time-default: 0.3s;
+$mz-transition-function-default: ease;
+
+// ######################################################
+// Rotote
+// ######################################################
+$mz-gradient-rotate-default: 180deg;
+
+// ######################################################
+// Other color
+// ######################################################
+// Other Web color
+// -------------------
+$mz-web-color-facebook: #315caf;
+$mz-web-color-google-plus: #ea3731;
+$mz-web-color-twitter: #1da1f2;
+$mz-web-color-zalo: #008fe5;
+
+// Payment status color
+// -------------------
+$mz-payment-status--4-color: #1ebcde; // Đã bị hủy - Cần hoàn tiền
+$mz-payment-status--3-color: #9ac430; // Đã thanh toán - Chờ đối soát
+$mz-payment-status--2-color: $mz-danger; // Chờ xác nhận thanh toán
+$mz-payment-status--1-color: #9ac430; // Đã thanh toán - Chờ kiểm duyệt
+$mz-payment-status-0-color: $mz-danger; // Đã bị hủy
+$mz-payment-status-1-color: $mz-danger; // Chờ kiểm duyệt
+$mz-payment-status-2-color: #8ec549; // Chờ thanh toán
+$mz-payment-status-3-color: #29bbff; // Đang mua hàng
+$mz-payment-status-4-color: #0773ef; // Đang cập nhật Tracking
+$mz-payment-status-5-color: #9939e3; // Chờ hàng về
+$mz-payment-status-6-color: #2c931d; // Hàng đã về
+
+$arr-payment-status-color: (
+  -4: $mz-payment-status--4-color,
+  -3: $mz-payment-status--3-color,
+  -2: $mz-payment-status--2-color,
+  -1: $mz-payment-status--1-color,
+  -0: $mz-payment-status-0-color,
+  1: $mz-payment-status-1-color,
+  2: $mz-payment-status-2-color,
+  3: $mz-payment-status-3-color,
+  4: $mz-payment-status-4-color,
+  5: $mz-payment-status-5-color,
+  6: $mz-payment-status-6-color
+);
+
+/* ##############################################################
+  Z-index
+############################################################## */
+$mz-z-index-lv-n1: -10;
+$mz-z-index-lv-0: 0;
+$mz-z-index-lv-1: 10;
+$mz-z-index-lv-2: 20;
+$mz-z-index-lv-3: 30;
+$mz-z-index-lv-4: 40;
+$mz-z-index-lv-5: 50;
+$mz-z-index-lv-6: 60; // Từ đây đổ xuống chủ yếu cho các thành phần ngoài section
+$mz-z-index-lv-7: 70;
+$mz-z-index-lv-8: 80;
+$mz-z-index-lv-9: 80;
+$mz-z-index-lv-10: 80;
+$mz-z-index-lv-11: 80;
+
+$mz-map-z-index: (
+  'lv-n1': $mz-z-index-lv-n1,
+  'lv-0': $mz-z-index-lv-0,
+  'lv-1': $mz-z-index-lv-1,
+  'lv-2': $mz-z-index-lv-2,
+  'lv-3': $mz-z-index-lv-3,
+  'lv-4': $mz-z-index-lv-4,
+  'lv-5': $mz-z-index-lv-5,
+  'lv-6': $mz-z-index-lv-6,
+  'lv-7': $mz-z-index-lv-7,
+  'lv-8': $mz-z-index-lv-8,
+  'lv-9': $mz-z-index-lv-9,
+  'lv-10': $mz-z-index-lv-10,
+  'lv-11': $mz-z-index-lv-11,
+);
+
+/* ##############################################################
+  Các size đặc biệt
+############################################################## */
+$mz-map-size-extend: (
+  's10': 10px,
+  's12': 12px,
+  's18': 18px,
+  's20': 20px,
+  's24': 24px,
+  's30': 30px,
+  's32': 32px,
+  's40': 40px,
+  's48': 48px,
+);
+
+/* ##############################################################
+  General
+############################################################## */
+$mz-home-page-section-margin: 40px; // Khoảng cách giữa các section trang chủ

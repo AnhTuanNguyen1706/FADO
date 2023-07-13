@@ -1,0 +1,20 @@
+@use 'vars' as vars;
+
+.cart-empty-section {
+  text-align: center;
+  margin-bottom: 40px;
+  width: 100%;
+
+  .empty-img {
+    max-width: 296px;
+  }
+
+  .content {
+    margin-top: 8px;
+    color: vars.$mz-gray-dark;
+  }
+
+  .shopping-btn {
+    margin-top: 16px;
+  }
+}// .cart-empty-section

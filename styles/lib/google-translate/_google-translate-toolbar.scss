@@ -1,0 +1,71 @@
+@use 'vars' as vars;
+@use 'mixin/media-queries' as media-queries;
+
+.goog-te-banner-frame.skiptranslate {
+  display: none;
+}
+
+.translated-ltr {
+  body {
+    top: auto!important; // chiều cao của google translate toolbar
+    padding-bottom: 40px;
+  }
+  /*
+    Đổi thanh toolbar dịch đặt ở dưới chân trang vì đặt đầu trang sẽ bị đè bởi các phần từ scroll trên đầu (header, menu,...)
+  */
+  .goog-te-banner-frame.skiptranslate {
+    display: block;
+    top: auto;
+    bottom: 0;
+  }
+}
+
+.gg-translate {
+  div[id^=":0.targetLanguage"] {
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: url(vars.$mz-image-svg-url + '/translate.svg' + vars.$mz-cache-ver-suffix) no-repeat center;
+      background-size: contain;
+      z-index: 4;
+      left: 10px;
+      top: 5px;
+    }
+  }
+
+  .goog-te-gadget {
+    height: 30px;
+    overflow: hidden;
+    display: none;
+
+    &:first-child {
+      display: block;
+    }
+  }
+
+  .goog-te-gadget .goog-te-combo {
+    height: 30px;
+    border: 1px solid #e1e1e1;
+    border-radius: 3px;
+    width: 100%;
+    margin: 0;
+    padding: 0 8px 0 0px;
+    text-indent: 30px;
+    cursor: pointer;
+    outline: none;
+    background: #fff;
+    font-size: 13px;
+
+    @include media-queries.media-firefox-only {
+      text-indent: 13px;
+    }
+
+    &:hover, &:focus {
+      border: 1px solid darken(#e1e1e1, 5%);
+    }
+  }//.goog-te-combo
+}// #gg-translate

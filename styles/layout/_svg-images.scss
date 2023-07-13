@@ -1,0 +1,223 @@
+@use 'vars' as vars;
+
+.svg {
+  display: inline-block;
+  vertical-align: middle;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+// Size
+// ---------
+$svg-list-size: (
+  8px,
+  12px,
+  14px,
+  16px,
+  18px,
+  20px,
+  24px,
+  28px,
+  32px,
+  34px,
+  40px,
+  64px,
+  84px,
+);
+
+@for $i from 1 through length($svg-list-size) {
+  .-svg-#{nth($svg-list-size, $i)} {
+    width: nth($svg-list-size, $i);
+    height: nth($svg-list-size, $i);
+  }
+}
+
+// Svg image
+// ---------
+$svg-list-image: (
+  'tower-grd',
+  'cart-grd',
+  'cart-gray',
+  'hot-grd',
+  'order-grd',
+  'order-gray',
+  'user-grd',
+  'user-gray',
+  'question-circle-grd',
+  'question-circle-grd-outline',
+  'mail-grd',
+  'quote-like',
+  'heart-grd-outline',
+
+  // Flag
+  'flag-circle-us',
+  'flag-circle-de',
+  'flag-circle-jp',
+  'flag-circle-uk',
+  'flag-circle-sgp',
+  'flag-circle-hkg',
+  'flag-circle-vn',
+  'flag-circle-gb',
+  'flag-circle-au',
+
+  // Flag
+  'flag-us',
+  'flag-de',
+  'flag-jp',
+  'flag-uk',
+  'flag-sgp',
+  'flag-hkg',
+  'flag-vn',
+  'flag-gb',
+  'flag-au',
+
+  // Control
+  'arrow-dot-down',
+  'remove-cross',
+
+  // Logo
+  'logo-amz-smile',
+  'logo-amz-circle',
+  'logo-zalo',
+  'logo-zalo-circle',
+  'logo-seller-circle',
+
+  // Order / Payment
+  'payment-transfer',
+  'payment-atm',
+  'payment-cc',
+  'payment-installment',
+  'payment-installment-grd',
+  'payment-fado',
+  'payment-home',
+  'payment-store',
+  'payment-cod',
+  'payment-zalopay',
+  'payment-wallet',
+  'payment-viettelpay',
+
+  // Map
+  'map-pin',
+  'map',
+
+  // Phone
+  'phone-grd',
+  'landline',
+
+  // Home page
+  'home-link-today-deals',
+  'home-link-supplement',
+  'home-link-mall',
+  'home-link-perfume',
+  'home-link-singapore',
+  'home-link-bag',
+  'home-link-watch',
+  'home-link-fashion',
+  'home-link-kitchen',
+  'home-link-shoes',
+
+  // Home benefit
+  'home-benefit-cart-gray',
+  'home-benefit-paper-gray',
+  'home-benefit-save-gray',
+  'home-benefit-shield-gray',
+  'home-benefit-tag-gray',
+
+  // Face
+  'face-boring',
+  'face-normal',
+  'face-happy',
+  'face-funny',
+
+  // Star
+  'star-outline',
+  'star-solid',
+
+  // Shipping
+  'shipping-normal',
+  'shipping-fast',
+
+  // Other
+  'check-circle-grd',
+  'shop',
+  'ship-24h-grd',
+  'sale-flower',
+  'compare-grd',
+  'receive-hand-grd',
+  'gift-box-grd',
+  'promo-code',
+  'love-emo',
+  'lighting-orange',
+  'warning-circle',
+  'phone-sms'
+);
+
+@for $i from 1 through length($svg-list-image) {
+  .-svg-#{nth($svg-list-image, $i)} {
+    background-image: url(vars.$mz-image-url + '/svg/' + nth($svg-list-image, $i) + '.svg' + vars.$mz-cache-ver-suffix);
+  }
+}
+
+
+// position này của body dùng để đi kèm .long-bg-wapper
+body {
+  position: relative;
+}
+
+$image-bg-width: 121px;
+.long-side-bg {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.left-side-bg-img {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -($image-bg-width + 2px);
+  width: 121px;
+  height: 100%;
+  background: url(vars.$mz-image-url + '/bg/left_side_bg.svg' + vars.$mz-cache-ver-suffix);
+  background-repeat: repeat-y;
+  background-position: left;
+  z-index: vars.$mz-z-index-lv-2;
+  opacity: 0;
+}
+
+.right-side-bg-img {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: -($image-bg-width + 2px);
+  width: 121px;
+  height: 100%;
+  background: url(vars.$mz-image-url + '/bg/right_side_bg.svg' + vars.$mz-cache-ver-suffix);
+  background-repeat: repeat-y;
+  background-position: right;
+  z-index: vars.$mz-z-index-lv-2;
+  opacity: 0;
+}
+
+.right-side-bg-white {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100vw;
+  top: 0;
+  left: calc(100% + 2px);
+  background: #fff;
+  z-index: vars.$mz-z-index-lv-1;
+}
+
+.left-side-bg-white {
+  content: "";
+  position: absolute;
+  height: 100%;
+  width: 100vw;
+  top: 0;
+  right: calc(100% + 2px);
+  background: #fff;
+  z-index: vars.$mz-z-index-lv-1;
+}

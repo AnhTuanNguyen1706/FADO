@@ -1,0 +1,16 @@
+//=============================================
+//  user wallet control block
+//=============================================
+.user-wallet-control-block {
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 0;
+
+  .wallet-close-btn {
+    margin-left: -12px;
+  }
+
+  .wallet-cancel-btn {
+    margin-left: auto;
+  }
+}

@@ -1,0 +1,110 @@
+@use 'lib/mz-grid-framework/function/mz-breakpoint' as mz-breakpoint-function;
+@use 'lib/mz-grid-framework/var/grid' as grid-var;
+
+/*
+DOC:
+- Sử dụng để tạo thẻ media query check kích thước màn hình tăng lên theo breakpoint key
+
+EXAM:
+- Style cho màn hình `sm` đổ lên
+  mz-media-breakpoint-up('sm') {
+    background: #000;
+  }
+*/
+@mixin mz-media-breakpoint-up($_breakpoint-key, $_map-breakpoint: grid-var.$mz-map-breakpoint) {
+  $_breakpoint-min-width: mz-breakpoint-function.mz-get-breakpoint-min-width($_breakpoint-key, $_map-breakpoint);
+
+  @if($_breakpoint-min-width != null) {
+    @media (min-width: $_breakpoint-min-width) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+/*
+DOC:
+- Sử dụng để tạo thẻ media query check kích thước màn hình giảm lên theo breakpoint key
+
+EXAM:
+- Style cho màn hình `xs` đổ xuống
+  mz-media-breakpoint-down('xs') {
+    background: #000;
+  }
+*/
+@mixin mz-media-breakpoint-down($_breakpoint-key, $_map-breakpoint: grid-var.$mz-map-breakpoint) {
+  $_breakpoint-max-width: mz-breakpoint-function.mz-get-breakpoint-max-width($_breakpoint-key, $_map-breakpoint);
+
+  @if($_breakpoint-max-width != null) {
+    @media (max-width: $_breakpoint-max-width) {
+      @content;
+    }
+  } @else {
+    @content;
+  }
+}
+
+/*
+DOC:
+- Sử dụng để tạo thẻ media query check kích thước màn hình trong khoản nào đó
+
+EXAM:
+- Style cho chỉ màn hình từ 'xs' tới 'md'
+  mz-media-breakpoint-between('xs','md') {
+    background: #000;
+  }
+*/
+@mixin mz-media-breakpoint-between($_breakpoint-lower-key, $_breakpoint-upper-key, $_map-breakpoint: grid-var.$mz-map-breakpoint) {
+  $_breakpoint-min-width: mz-breakpoint-function.mz-get-breakpoint-min-width($_breakpoint-lower-key, $_map-breakpoint);
+  $_breakpoint-max-width: mz-breakpoint-function.mz-get-breakpoint-max-width($_breakpoint-upper-key, $_map-breakpoint);
+
+  @if $_breakpoint-min-width != null and $_breakpoint-max-width != null {
+    @media (min-width: $_breakpoint-min-width) and (max-width: $_breakpoint-max-width) {
+      @content;
+    }
+  } @else if $_breakpoint-max-width == null {
+    @include mz-media-breakpoint-up($_breakpoint-lower-key, $_map-breakpoint) {
+      @content;
+    }
+  } @else if $_breakpoint-min-width == null {
+    @include mz-media-breakpoint-down($_breakpoint-upper-key, $_map-breakpoint) {
+      @content;
+    }
+  }
+}
+
+/*
+DOC:
+- Sử dụng để tạo thẻ media query check kích thước màn hình trong đúng khoản breakpoint duy nhất
+
+EXAM:
+- Style cho chỉ màn hình `md`
+  mz-media-breakpoint-only('xs') {
+    background: #000;
+  }
+*/
+@mixin mz-media-breakpoint-only($_breakpoint-key, $_map-breakpoint: grid-var.$mz-map-breakpoint) {
+  $_breakpoint-min-width: mz-breakpoint-function.mz-get-breakpoint-min-width($_breakpoint-key, $_map-breakpoint);
+  $_breakpoint-max-width: mz-breakpoint-function.mz-get-breakpoint-max-width($_breakpoint-key, $_map-breakpoint);
+
+  @if $_breakpoint-min-width != null and $_breakpoint-max-width != null {
+    @media (min-width: $_breakpoint-min-width) and (max-width: $_breakpoint-max-width) {
+      @content;
+    }
+  } @else if $_breakpoint-max-width == null {
+    @include mz-media-breakpoint-up($_breakpoint-key, $_map-breakpoint) {
+      @content;
+    }
+  } @else if $_breakpoint-min-width == null {
+    @include mz-media-breakpoint-down($_breakpoint-key, $_map-breakpoint) {
+      @content;
+    }
+  }
+}
+
+@mixin mz-media-custom-up($min-width) {
+  @media (min-width: $min-width) {
+    @content;
+  }
+}

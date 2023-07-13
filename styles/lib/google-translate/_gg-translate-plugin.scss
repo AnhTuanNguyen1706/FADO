@@ -1,0 +1,67 @@
+@use 'vars' as vars;
+@use 'mixin/media-queries' as media-queries;
+
+.gg-translate-plugin {
+  max-width: 300px;
+  margin: 0 auto;
+
+  // CUSTOM GOOGLE SELECTBOX
+  div[id^=":0.targetLanguage"] {
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: url(vars.$mz-image-svg-url + '/translate.svg' + vars.$mz-cache-ver-suffix) no-repeat center;
+      background-size: contain;
+      z-index: 4;
+      left: 10px;
+      top: 7px;
+    }
+  }
+
+  .goog-te-gadget {
+    height: 34px;
+    overflow: hidden;
+
+    &:first-child {
+      display: block;
+    }
+  }
+
+  .goog-te-gadget .goog-te-combo {
+    height: 34px;
+    border: 1px solid #e1e1e1;
+    border-radius: 3px;
+    width: 100%;
+    margin: 0;
+    padding: 0 8px 0 0px;
+    text-indent: 30px;
+    cursor: pointer;
+    outline: none;
+    background: #fff;
+    font-size: 13px;
+
+    @include media-queries.media-firefox-only {
+      text-indent: 13px;
+    }
+
+    &:hover, &:focus {
+      border: 1px solid darken(#e1e1e1, 5%);
+    }
+  }//.goog-te-combo
+
+  &__loading {
+    text-align: center;
+    font-style: italic;
+    color: vars.$mz-gray;
+  }
+
+  &__reset-btn {
+    display: none;
+    margin-top: 4px;
+    cursor: pointer;
+  }
+}// .gg-translate-plugin

@@ -1,0 +1,20 @@
+// Extend Libs
+// ---------
+@use "lib/fancybox/jquery.fancybox";
+@use "lib/fancybox/jquery.fancybox-custom" as fancy-box-custom;
+
+// Partials global
+// ---------
+@use "partial/global/modal/feedback-form-modal";
+@use "partial/global/modal/feedback-complete-modal";
+
+// Partials in page
+// ---------
+@use "./_feedback-page";
+@use "feedback-bner-section";
+@use "feedback-info-section";
+@use "feedback-content-row";
+@use "feedback-filter-block";
+@use "feedback-post-block";
+@use "feedback-summary-rating-star-segment";
+@use "feedback-summary-review-type-segment";

@@ -1,0 +1,13 @@
+// Partial global
+// ---------
+@use 'partial/global/product/product-card';
+@use 'partial/global/filter-side-section';
+
+
+// Local
+// ---------
+@use './category-lv1-section';
+@use './category-product-section';
+@use './category-layout';
+@use './related-keyword-section';
+@use './_gift-category-page';

@@ -1,0 +1,84 @@
+@use 'lib/mz-grid-framework/var/grid' as grid-var;
+
+/*
+DOC:
+- Lấy key của breakpoint
+
+EXAM:
+  mz-get-breakpoint-next-key('xs') => 'sm'
+*/
+@function mz-get-breakpoint-next-key($_breakpoint-key, $_map-breakpoint: grid-var.$mz-map-breakpoint) {
+  $_map-breakpoint-key: map-keys($_map-breakpoint);
+  $_current-breakpoint-index: index($_map-breakpoint-key,$_breakpoint-key); // index() return null if not exist $_breakpoint-key in map
+  $_breakpoint-next-key: null;
+  @if(
+    $_current-breakpoint-index != null and
+    $_current-breakpoint-index < length($_map-breakpoint-key)
+  ) {
+    $_breakpoint-next-key: nth($_map-breakpoint-key, $_current-breakpoint-index + 1);
+  }
+
+  @return $_breakpoint-next-key;
+}
+
+/*
+DOC:
+- Lấy min-width của breakpoint
+
+EXAM:
+  mz-get-breakpoint-min-width('xs') => 0
+  mz-get-breakpoint-min-width('sm') => 592px;
+  mz-get-breakpoint-min-width('abc') => error // Vì không tồn tại
+*/
+@function mz-get-breakpoint-min-width($_breakpoint-key, $_map-breakpoint: grid-var.$mz-map-breakpoint) {
+  $_breakpoint-min-width: null;
+
+  @if(map-has-key($_map-breakpoint, $_breakpoint-key)) {
+    $_breakpoint-min-width: map-get($_map-breakpoint, $_breakpoint-key);
+    @if($_breakpoint-min-width <= 0) {
+      $_breakpoint-min-width: null;
+    }
+  }
+
+  @return $_breakpoint-min-width;
+}
+
+/*
+DOC:
+- Lấy max-width của breakpoint
+
+EXAM:
+  mz-get-breakpoint-max-width('xs') => 591px;
+  mz-get-breakpoint-max-width('sm') => 592px;
+  mz-get-breakpoint-max-width('abc') => null // Vì không tồn tại
+*/
+@function mz-get-breakpoint-max-width($_breakpoint-key, $_map-breakpoint: grid-var.$mz-map-breakpoint) {
+  $_breakpoint-max-width: null;
+  $_breakpoint-next-key: mz-get-breakpoint-next-key($_breakpoint-key,$_map-breakpoint);
+
+  @if($_breakpoint-next-key) {
+    $_breakpoint-max-width: mz-get-breakpoint-min-width($_breakpoint-next-key, $_map-breakpoint) - .02;
+  }
+
+  @return $_breakpoint-max-width;
+}
+
+/*
+DOC:
+- Hàm này giúp tạo ra tên class kèm breakpoint key
+
+EXAM:
+  mz-get-breakpoint-infix-class('xs') => '-xs'
+  mz-get-breakpoint-infix-class('default') => '' // Loại bỏ default hoặc các key không hợp lệ
+*/
+@function mz-get-breakpoint-infix-class($_breakpoint-key, $_map-breakpoint: grid-var.$mz-map-breakpoint) {
+  $_breakpoint-infix-class: '';
+  $_breakpoint-min-width: mz-get-breakpoint-min-width($_breakpoint-key);
+
+  @if($_breakpoint-min-width != null) {
+    $_breakpoint-infix-class: '-' + $_breakpoint-key;
+  }
+
+  @return $_breakpoint-infix-class;
+}
+

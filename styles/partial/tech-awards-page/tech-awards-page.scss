@@ -1,0 +1,10 @@
+// Partials in page
+// ---------
+@use './_tech-awards-page';
+@use './tech-awards-event-block';
+@use './tech-awards-gift-modal';
+@use './tech-awards-gift-list-modal';
+
+// Modal
+// ---------
+@use './tech-awards-rule-modal';

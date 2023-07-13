@@ -1,0 +1,12 @@
+@use 'lib/mz-grid-framework/function/mz-grid' as mz-grid-function;
+@use 'lib/mz-grid-framework/var/grid' as grid-var;
+
+/*
+  (25-11-2019)
+  - Hỗ trợ fix tình huống vỡ layout khi hiển thị scroll ngang trên màn hình nhỏ hơn kích thước container support tối thiểu
+  - Thường sử dụng mixin này cho các phần bọc ngoài loyout chứa container ở trong (VD: section,..)
+  - VD: https://i.imgur.com/AV1VKSZ.png
+*/
+@mixin mz-fix-width-for-small-screen() {
+  min-width: mz-grid-function.mz-get-container-width(grid-var.$mz-breakpoint-key-default);
+}

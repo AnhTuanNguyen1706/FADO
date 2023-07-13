@@ -1,0 +1,181 @@
+@use 'vars' as vars;
+@use 'mixin/mz-text-size' as mz-text-size;
+
+//===========================================
+//  user wallet interest modal
+//===========================================
+.user-wallet-interest-modal {
+  .modal-dialog {
+    width: 285px;
+  }
+
+  .user-wallet-interest-scroll {
+    max-height: 550px;
+    margin: 0 -16px;
+    padding: 0 16px;
+  }
+}
+
+//===========================================
+//  user wallet interest body
+//===========================================
+.user-wallet-interest-modal {
+  .user-wallet-interest-body {
+    padding-bottom: 0;
+  }
+
+  // user interest main info
+  .user-interest-main-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+
+  .interst-icon-col {
+    margin-right: 16px;
+  }
+
+  .interst-icon-shape {
+    display: inline-flex;
+    width: 48px;
+    height: 48px;
+    align-items: center;
+    justify-content: center;
+    background: vars.$mz-primary;
+    border-radius: 50%;
+
+    i {
+      @include mz-text-size.mz-text-size('md');
+      color: #fff;
+    }
+  } // .interst-icon-shape
+
+  .main-info-title {
+    font-weight: 700;
+    color: vars.$mz-gray-dark;
+    margin-bottom: 2px;
+  }
+
+  .main-info-interest-cost {
+    @include mz-text-size.mz-text-size(20px);
+    color: vars.$mz-primary;
+    font-weight: 400;
+    font-family: vars.$mz-font-family-oswald;
+  }
+
+  .interest-notice-info {
+    @include mz-text-size.mz-text-size(13px);
+    color: vars.$mz-gray-dark;
+    margin-bottom: 8px;
+  }
+
+  .interest-notice-wallet-amount-label {
+    font-weight: 700;
+    white-space: nowrap;
+  }
+
+  .interest-notice-date-label {
+    font-weight: 700;
+  }
+
+  .interest-notice-time-label {
+    font-weight: 700;
+    margin-top: 4px;
+  }
+
+  //  history interest list info
+  .history-interest-list-info-outer {
+    margin: 0 -16px;
+  }
+
+  .history-interest-list-info {
+    padding: 0 16px;
+  }
+
+  .user-history-interest-list-info {
+    padding: 16px 16px 0;
+    margin: 0 -16px;
+    border-top: 1px solid vars.$mz-gray-lighter;
+  }
+
+  .history-interest-list-info-title {
+    @include mz-text-size.mz-text-size('md');
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+
+  .history-interest-filter {
+    margin-bottom: 16px;
+  }
+
+  .history-interest-info-title-wrap {
+    margin: 0 -16px;
+    padding: 16px;
+    background: rgba(vars.$mz-gray-lighter, 0.2);
+    border: 1px solid vars.$mz-gray-lighter;
+  }
+
+  .history-interest-title {
+    color: vars.$mz-gray;
+    font-weight: 700;
+  }
+
+  .history-interest-item-info {
+    position: relative;
+    margin: 0 -16px;
+    padding: 16px;
+
+    &:before {
+      position: absolute;
+      content: '';
+      display: block;
+      width: calc(100% - 32px);
+      height: 1px;
+      background: vars.$mz-gray-lighter;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: 0 auto;
+    }
+
+    &:last-child {
+      &:before {
+        content: none;
+      }
+    }
+  } // .history-interest-item-info
+
+  .history-interest-date-info {
+    color: vars.$mz-gray-dark;
+  }
+
+  .history-interest-value-info {
+    font-weight: 400;
+    color: vars.$mz-warning;
+    font-family: vars.$mz-font-family-oswald;
+  }
+
+  .history-interest-empty-img-outer {
+    width: 184px;
+    margin: 0 auto 16px;
+  }
+
+  .history-interest-empty-label {
+    color: vars.$mz-gray-dark;
+    text-align: center;
+    margin-bottom: 16px;
+  }
+
+  .history-interest-warning-alert {
+    padding: 10px;
+    height: 210px;
+
+    .history-interest-empty-label {
+      margin-bottom: 0;
+    }
+  }
+
+  .user-wallet-interest-body {
+    padding-bottom: 0;
+  }
+}

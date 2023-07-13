@@ -1,0 +1,49 @@
+@use 'vars' as vars;
+@use 'mixin/mz-border-radius' as mz-border-radius;
+
+.today-deals-scroll-menu-section {
+  position: fixed;
+  z-index: vars.$mz-z-index-lv-6;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  .country-item-wrap {
+    text-align: right;
+  }
+
+  .country-item {
+    margin-bottom: 16px;
+    width: 40px;
+    height: 40px;
+    position: relative;
+    display: block;
+
+    &:hover {
+      .country-item-label {
+        width: auto;
+        padding: 0 16px 0 12px;
+      }
+    }
+  }
+
+  .country-item-inner {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #fff;
+    display: flex;
+    @include mz-border-radius.mz-border-radius-from-key('round');
+    padding: 4px;
+    align-items: center;
+    color: vars.$mz-gray-dark;
+    justify-content: space-between;
+    white-space: nowrap;
+    box-shadow: 0 4px 8px 0 rgba(vars.$mz-gray-darker, 0.1);
+  }
+
+  .country-item-label {
+    width: 0;
+    transition: vars.$mz-transition-time-default;
+  }
+}// .today-deals-scroll-menu-section

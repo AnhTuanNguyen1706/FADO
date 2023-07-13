@@ -1,0 +1,24 @@
+@use 'lib/mz-grid-framework/mixin/mz-media-query' as mz-media-query;
+
+.today-deals-code-section {
+  color: #fff;
+  padding: 32px 0;
+}
+
+/* ##############################################################
+  Section body
+################################################################# */
+.today-deals-code-section {
+  .discount-code-row-outer {
+    max-width: 1000px;
+    margin: 0 auto;
+
+    @include mz-media-query.mz-media-breakpoint-up('3xl') {
+      max-width: 1200px;
+    }
+  }
+
+  .discount-code-item {
+    cursor: pointer;
+  }
+}

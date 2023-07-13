@@ -1,0 +1,102 @@
+@use 'vars' as vars;
+@use 'vars-v2' as vars-v2;
+@use 'mixin/mz-text-size' as mz-text-size;
+
+$arrMemberLevel:
+  'basic' vars-v2.$primary-900 58px,
+  'silver' vars-v2.$primary-900 60px,
+  'gold' vars-v2.$primary-900 60px,
+  'platinum' vars-v2.$primary-900 82px,
+  'supervip' vars-v2.$primary-900 82px;
+
+.mz-user-lv {
+  position: relative;
+  height: 20px;
+  display: inline-flex;
+  min-width: 0;
+  flex-wrap: nowrap;
+
+  &.has-percent {
+    padding-right: 50px;
+
+    &:before {
+      position: absolute;
+      content: "";
+      right: 47px;
+      top: 0;
+      width: 2px;
+      height: 120%;
+      transform: skew(-20deg);
+      background: #fff;
+      z-index: vars.$mz-z-index-lv-3;
+    }
+  }
+
+  &__outer {
+    display: flex;
+    flex-wrap: wrap;
+    cursor: pointer;
+  }
+
+  &__img {
+    position: relative;
+    z-index: vars.$mz-z-index-lv-2;
+    height: 20px;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
+  &__bg {
+    position: absolute;
+    content: "";
+    top: 0;
+    right: 0;
+    width: 90%;
+    height: 100%;
+    z-index: vars.$mz-z-index-lv-1;
+    border-radius: 12px;
+  }
+
+  &__percent {
+    position: absolute;
+    right: 6px;
+    top: 0;
+    z-index: vars.$mz-z-index-lv-3;
+    font-weight: bold;
+    color: #fff;
+    @include mz-text-size.mz-text-size(12px);
+
+    i {
+      margin-left: 2px;
+    }
+  }
+
+  &__upgrade-vip {
+    font-weight: bold;
+  }
+}
+
+@each $name, $bgHexColor, $width in $arrMemberLevel {
+  .mz-user-lv-#{$name}{
+    .mz-user-lv__img {
+      background-image: url(vars.$mz-image-url + '/icon-svg/member-' + $name +'-black.svg' + vars.$mz-cache-ver-suffix);
+      width: $width;
+
+      &--circle {
+        width: 20px;
+        background-size: 20px;
+        background-image: url(vars.$mz-image-url + '/icon-svg/member-' + $name +'-circle-black.svg' + vars.$mz-cache-ver-suffix);
+      }
+
+      &--symbol {
+        width: 56px;
+        background-size: 56px;
+        background-image: url(vars.$mz-image-url + '/icon-svg/member-' + $name +'-symbol.svg' + vars.$mz-cache-ver-suffix);
+      }
+    }
+
+    .mz-user-lv__bg {
+      background: $bgHexColor;
+    }
+  }
+}

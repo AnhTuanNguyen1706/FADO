@@ -1,0 +1,293 @@
+@use 'vars' as vars;
+
+$tmp-block-bg-color: #f2f2f2;
+$tmp-blue-color: #52b0de;
+
+.qa-block {
+  &__title {
+    font-size: 18px;
+    line-height: 24px;
+    color: vars.$mz-secondary-dark;
+    font-weight: 500;
+    margin-bottom: 5px;
+  }
+
+  &__desc {
+    margin-bottom: 30px;
+  }
+}// .qa-block
+
+// =============================================
+// Question answer form
+// =============================================
+.qa-block {
+  &__qa-form {
+    margin-bottom: 30px;
+    max-width: 600px;
+  }
+
+  &__qa-form.is-loading {
+    pointer-events: none;
+
+    &::before {
+      content: '';
+      z-index: 5;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(#fff,0.7);
+      background-repeat: no-repeat;
+      background-image: url(vars.$mz-loading-image-url);
+      background-position: center;
+    }
+  }
+
+  &__form-group {
+    margin-bottom: 15px;
+    display: flex;
+  }
+
+  &__form-group__lbl-col {
+    line-height: 34px;
+    text-align: right;
+    margin-right: 10px;
+    flex: 0 0 220px;
+    width: 220px;
+  }
+
+  &__form-group__info-col {
+    flex: 1 1;
+  }
+}// .qa-block
+
+// =============================================
+// Question answer panel group
+// =============================================
+.qa-block {
+  &__qa-segment-title {
+    padding-top: 15px;
+    border-top: 1px solid #e1e1e1;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+    margin-bottom: 30px;
+    color: vars.$mz-secondary-dark;
+  }
+
+  &__qa-panel-group {
+    margin-bottom: 30px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__qa-panel-group__like-btn {
+    display: inline-block;
+    margin-top: 5px;
+  }
+}// .qa-block
+
+// Qa panel
+// ------------------------------------
+.qa-block {
+  &__qa-panel {
+    display: flex;
+    width: 100%;
+  }
+
+  &__qa-panel__avatar-col {
+    display: flex;
+    flex: 0 0 50px;
+    width: 50px;
+    height: 50px;
+    background: $tmp-blue-color;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    line-height: 24px;
+    color: #fff;
+    margin-right: 20px;
+    min-width: 1px;
+    border-radius: 50%;
+  }
+
+  &__qa-panel__info-col {
+    flex: 1 1;
+    min-width: 1px;
+  }
+
+  &__qa-panel__quote-field {
+    background: #fff;
+    padding: 15px;
+    border-radius: 4px;
+    position: relative;
+    border: 1px solid $tmp-blue-color;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: -10px;
+      top: 25px;
+      width: 0;
+      margin-top: -5px;
+      height: 0;
+      border-style: solid;
+      border-width: 5px 10px 5px 0;
+      border-color: transparent $tmp-blue-color transparent transparent;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: -8px;
+      top: 25px;
+      width: 0;
+      margin-top: -5px;
+      height: 0;
+      border-style: solid;
+      border-width: 5px 10px 5px 0;
+      border-color: transparent #fff transparent transparent;
+    }
+  }
+
+  &__qa-content-field {
+    font-size: 13px;
+    line-height: 18px;
+    max-height: 54px;
+    overflow: hidden;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      height: 30px;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      background: linear-gradient(rgba(#fff,0.1),#fff);
+    }
+
+    &.is-full {
+      &::before {
+        content: none;
+      }
+
+      .qa-block__qa-view-more-btn {
+        display: none;
+      }
+    }
+
+    &.is-expand {
+      padding-bottom: 18px;
+      max-height: none;
+
+      &::before {
+        content: none;
+      }
+    }
+  }// &__qa-content-field
+
+  &__qa-view-more-btn {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 18px;
+    background: #fff;
+    padding-left: 10px;
+    color: vars.$mz-link-color;
+    font-style: italic;
+    cursor: pointer;
+
+    &:hover {
+      color: vars.$mz-link-hover-color;
+    }
+  }
+}// .qa-block
+
+// Profile field
+// ------------------------------------
+.qa-block {
+  &__profile-field {
+    display: flex;
+    margin-bottom: 15px;
+  }
+
+  &__profile-field__avatar-col {
+    flex: 0 0 40px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 10px;
+  }
+
+  &__profile-field__avatar-img {
+    max-width: 40px;
+    max-height: 40px;
+  }
+
+  &__profile-field__name {
+    font-weight: 500;
+
+    &.-is-fd {
+      color: vars.$mz-secondary-dark;
+    }
+  }
+
+  &__profile-field__email {
+    font-weight: 400;
+    margin-left: 5px;
+  }
+
+  &__profile-field__date {
+    color: #999;
+  }
+}// .qa-block
+
+
+// Fd panel
+// ------------------------------------
+.qa-block {
+  // Override qa panel normal
+  &__fd-panel {
+    margin-left: 70px;
+    border: 1px solid #e1e1e1;
+    padding: 15px;
+    border-radius: 4px;
+    margin-top: 15px;
+    position: relative;
+
+    &::before {
+      content: "";
+      top: -10px;
+      left: 30px;
+      position: absolute;
+      border-style: solid;
+      border-width: 0 5px 10px 5px;
+      border-color: transparent transparent #e1e1e1 transparent;
+    }
+
+    &::after {
+      content: "";
+      top: -8px;
+      left: 30px;
+      position: absolute;
+      border-style: solid;
+      border-width: 0 5px 10px 5px;
+      border-color: transparent transparent #fff transparent;
+    }
+  }// &__fd-panel
+}// .qa-block
+
+// =============================================
+// Pagination nav
+// =============================================
+.qa-block {
+  .pagination-nav-old {
+    margin-top: 30px;
+  }
+}

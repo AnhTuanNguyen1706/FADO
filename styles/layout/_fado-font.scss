@@ -1,0 +1,32 @@
+@use 'vars' as vars;
+
+// ------------------------------------------------------
+// Fado Font
+// ------------------------------------------------------
+@font-face {
+  font-family: 'Fadofont';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src:
+    url(vars.$mz-font-url + '/Fadofont/FadofontRegular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Fadofont';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src:
+    url(vars.$mz-font-url + '/Fadofont/FadofontItalic.woff') format('woff');
+}
+
+// BOLD
+@font-face {
+  font-family: 'Fadofont';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src:
+    url(vars.$mz-font-url + '/Fadofont/FadofontBold.woff') format('woff');
+}

@@ -1,0 +1,19 @@
+// Partials user page
+//-------------
+@use 'partial/user-page/user-layout';
+@use 'partial/user-page/user-head-section';
+@use 'partial/user-page/user-block';
+
+// Partials global
+//-------------
+@use 'partial/global/modal/discount-exchange-modal';
+
+// user wallet interest modal
+//-------------
+@use 'partial/user-wallet-history-page/user-wallet-interest-modal';
+
+// Partial in page
+//-------------
+@use './_user-home-page';
+@use './user-home-segment';
+@use './discount-code-finish-modal';

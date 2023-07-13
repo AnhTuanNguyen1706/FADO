@@ -1,0 +1,60 @@
+@use 'vars' as vars;
+
+.webh-bner-block {
+  min-width: vars.$mz-page-min-width;
+
+  .container {
+    display: flex;
+    height: 480px;
+    background: #fff;
+    overflow: hidden;
+  }
+
+  &__col-1 {
+    flex: 0 0 400px;
+    min-width: 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  &__col-2 {
+    flex: 1 1;
+    display: flex;
+    flex-wrap: wrap;
+  }
+}
+
+// ===================================
+// Col 1
+// ===================================
+.webh-bner-block {
+  &__big-bner-item {
+    display: flex;
+    height: 480px;
+    align-items: center;
+    justify-content: center;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
+// ===================================
+// Col 2
+// ===================================
+.webh-bner-block {
+  &__bner-item {
+    flex: 0 0 50%;
+    min-width: 1px;
+    height: 240px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}

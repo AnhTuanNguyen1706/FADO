@@ -1,0 +1,75 @@
+@use 'vars' as vars;
+@use 'function/mz/mz-color' as mz-color;
+
+.product-price-history-modal {
+  .modal-dialog {
+    width: 800px;
+  }
+
+  .chart-segment {
+    position: relative;
+    overflow: hidden;
+  }// .chart-segment
+
+  .highcharts-range-selector {
+    // Đè màu của flatpicker lên trên
+    border: 0 !important;
+    width: 65px !important;
+    height: 24px !important;
+    transform: translate(10px, 2px);
+    background: vars.$mz-gray-lightest;
+  }
+
+  .highcharts-tooltip-box {
+    & > span {
+      background: rgba(vars.$mz-gray-darker,0.7);
+      border-radius: 30px;
+      padding: 8px 12px;
+      color: #ffffff !important;
+    }
+  }
+
+  .highcharts-button{
+    .highcharts-button-box {
+      fill: vars.$mz-gray-lightest;
+      fill-opacity: 1;
+      rx: vars.$mz-rounded-xs;
+      ry: vars.$mz-rounded-xs;
+    }
+
+    text{
+      transform: translate(-1px,4px);
+    }
+
+    &:hover {
+      cursor: pointer;
+
+      .highcharts-button-box {
+        fill: mz-color.mz-get-hover-color(vars.$mz-gray-lightest);
+      }
+    }
+  }
+
+  //css for button and input
+  .highcharts-label-box, .highcharts-range-label, .highcharts-range-input, .highcharts-button{
+    text{
+      transform: translate(0px,4px)!important;
+    }
+  }
+
+  .highcharts-range-selector-buttons{
+    text{
+      transform: translate(0px,3px);
+    }
+  }
+
+  .highcharts-range-input{
+    .highcharts-label-box {
+      rx: vars.$mz-rounded-xs;
+      ry: vars.$mz-rounded-xs;
+      stroke: none;
+      fill: vars.$mz-gray-lightest;
+      fill-opacity: 1;
+    }
+  }//end css for button and input
+}

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="112px" height="112px" viewBox="0 0 112 112" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>fado-coin</title>
+    <defs>
+        <circle id="path-1" cx="52.7058824" cy="52.7058824" r="52.7058824"></circle>
+        <linearGradient x1="35.5224609%" y1="0%" x2="66.6625977%" y2="100%" id="linearGradient-3">
+            <stop stop-color="#FF8200" offset="0%"></stop>
+            <stop stop-color="#FFC432" offset="100%"></stop>
+        </linearGradient>
+        <circle id="path-4" cx="46.1176471" cy="46.1176471" r="39.5294118"></circle>
+        <filter x="-3.8%" y="-3.8%" width="107.6%" height="107.6%" filterUnits="objectBoundingBox" id="filter-5">
+            <feGaussianBlur stdDeviation="3" in="SourceAlpha" result="shadowBlurInner1"></feGaussianBlur>
+            <feOffset dx="0" dy="0" in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+            <feColorMatrix values="0 0 0 0 1   0 0 0 0 0.489729021   0 0 0 0 0  0 0 0 1 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
+        </filter>
+        <circle id="path-6" cx="32.9411765" cy="32.9411765" r="32.9411765"></circle>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="34.8551432%" id="linearGradient-8">
+            <stop stop-color="#000000" stop-opacity="0.494591346" offset="0%"></stop>
+            <stop stop-color="#000000" stop-opacity="0" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="70.1863607%" x2="50%" y2="100%" id="linearGradient-9">
+            <stop stop-color="#000000" stop-opacity="0" offset="0%"></stop>
+            <stop stop-color="#282828" stop-opacity="0.9" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="fado-coin">
+            <path d="M59.2941176,3.95294118 C88.4027727,3.95294118 112,27.5501685 112,56.6588235 L111.983804,57.9783846 L111.983804,57.9783846 L112,59.2941176 C112,88.4027727 88.4027727,112 59.2941176,112 C55.6287729,112 52.0508158,111.625849 48.5963551,110.913657 C22.6720809,107.601247 2.63529412,85.4581916 2.63529412,58.6352941 C2.63529412,37.205547 15.4247123,18.7629286 33.7871182,10.5238693 C41.3437388,6.33770943 50.040432,3.95294118 59.2941176,3.95294118 Z" id="Path" fill="#D57307"></path>
+            <g id="surface">
+                <mask id="mask-2" fill="white">
+                    <use xlink:href="#path-1"></use>
+                </mask>
+                <use id="Mask" fill="#FFC633" xlink:href="#path-1"></use>
+                <polygon id="Rectangle" fill="#FFFFFF" opacity="0.3" style="mix-blend-mode: soft-light;" mask="url(#mask-2)" transform="translate(49.411765, 49.411765) rotate(-315.000000) translate(-49.411765, -49.411765) " points="32.9411765 -6.58823529 65.8823529 -6.58823529 65.8823529 105.411765 32.9411765 105.411765"></polygon>
+            </g>
+            <g id="border-and-shadow" transform="translate(6.588235, 6.588235)">
+                <g id="inner-bg">
+                    <use fill="url(#linearGradient-3)" fill-rule="evenodd" xlink:href="#path-4"></use>
+                    <use fill="black" fill-opacity="1" filter="url(#filter-5)" xlink:href="#path-4"></use>
+                </g>
+                <g id="light-trail" opacity="0.3" style="mix-blend-mode: soft-light;" transform="translate(13.176471, 13.176471)">
+                    <mask id="mask-7" fill="white">
+                        <use xlink:href="#path-6"></use>
+                    </mask>
+                    <g id="Mask"></g>
+                    <polygon id="Rectangle" fill="#FFFFFF" mask="url(#mask-7)" transform="translate(36.235294, 29.647059) rotate(-315.000000) translate(-36.235294, -29.647059) " points="19.7647059 -26.3529412 52.7058824 -26.3529412 52.7058824 85.6470588 19.7647059 85.6470588"></polygon>
+                </g>
+                <path d="M46.1176471,0 C20.6475739,0 0,20.6475739 0,46.1176471 C0,71.5877202 20.6475739,92.2352941 46.1176471,92.2352941 C71.5877202,92.2352941 92.2352941,71.5877202 92.2352941,46.1176471 C92.2352941,20.6475739 71.5877202,0 46.1176471,0 Z M46.1176471,13.1764706 C64.3105565,13.1764706 79.0588235,27.9247377 79.0588235,46.1176471 C79.0588235,64.3105565 64.3105565,79.0588235 46.1176471,79.0588235 C27.9247377,79.0588235 13.1764706,64.3105565 13.1764706,46.1176471 C13.1764706,27.9247377 27.9247377,13.1764706 46.1176471,13.1764706 Z" id="border-top" fill="url(#linearGradient-8)" fill-rule="nonzero" style="mix-blend-mode: overlay;"></path>
+                <path d="M46.1176471,0 C20.6475739,0 0,20.6475739 0,46.1176471 C0,71.5877202 20.6475739,92.2352941 46.1176471,92.2352941 C71.5877202,92.2352941 92.2352941,71.5877202 92.2352941,46.1176471 C92.2352941,20.6475739 71.5877202,0 46.1176471,0 Z M46.1176471,13.1764706 C64.3105565,13.1764706 79.0588235,27.9247377 79.0588235,46.1176471 C79.0588235,64.3105565 64.3105565,79.0588235 46.1176471,79.0588235 C27.9247377,79.0588235 13.1764706,64.3105565 13.1764706,46.1176471 C13.1764706,27.9247377 27.9247377,13.1764706 46.1176471,13.1764706 Z" id="border-bot" fill="url(#linearGradient-9)" fill-rule="nonzero" style="mix-blend-mode: overlay;"></path>
+            </g>
+            <path d="M52.7058824,34.1179315 L58.4742547,46.407421 L71.4331716,48.3873673 L62.054132,58.0001547 L64.2618989,71.5348591 L52.7058824,65.1468502 L41.1498658,71.5348591 L43.3576327,58.0001547 L33.9785931,48.3873673 L46.93751,46.407421 L52.7058824,34.1179315 Z" id="Star" stroke="#FFA401" fill="#FFEAAD"></path>
+        </g>
+    </g>
+</svg>

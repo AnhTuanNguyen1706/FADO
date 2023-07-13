@@ -1,0 +1,22 @@
+@use 'vars' as vars;
+
+.new-year-page {
+  background: vars.$mz-body-bg-color;
+
+  .header-section {
+    transform: none;
+
+    &.headroom--unpinned {
+      transform: none;
+    }
+  }
+}
+
+// =============================================
+// Fix google translate
+// =============================================
+html.translated-ltr .new-year-page {
+  .header-section {
+    top: 0;
+  }
+}

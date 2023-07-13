@@ -1,0 +1,29 @@
+@use 'vars' as vars;
+
+.guide-side-section {
+  .mz-basic-sidebox__head {
+    margin-bottom: 0;
+  }
+
+  .guide-item {
+    display: flex;
+    align-items: center;
+    padding: 4px 0;
+    // border-bottom: solid 1px vars.$mz-gray-lighter;
+
+    &:last-child {
+      padding-bottom: 0;
+      border-bottom: unset;
+    }
+  }
+
+  .guide-item-icon {
+    font-size: 6px;
+    margin-right: 12px;
+    transform: translateY(2px);
+  }
+
+  .guide-item-text {
+
+  }
+}

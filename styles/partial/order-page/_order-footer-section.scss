@@ -1,0 +1,26 @@
+@use 'vars' as vars;
+
+.order-footer-section {
+  padding: 18px 0 32px;
+  border-top: 1px solid vars.$mz-gray-light;
+}
+
+.order-footer-row {
+  display: flex;
+  align-items: center;
+
+  .footer-content-col {
+    margin-right: 16px;
+  }
+
+  .footer-meta-info-col {
+    margin-left: auto;
+  }
+
+  .certify-item {
+    display: flex;
+    height: 42px;
+    align-items: center;
+    justify-content: center;
+  }
+}

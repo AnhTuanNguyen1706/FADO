@@ -1,0 +1,214 @@
+@use 'vars' as vars;
+@use 'vars-v2' as vars-v2;
+@use 'mixin/mz-text-size' as mz-text-size;
+@use 'mixin/mz-gradient' as mz-gradient;
+@use 'function/mz/mz-color' as mz-color;
+
+/* ######################################################
+- Tạo các button dạng style màu thường
+/ ###################################################### */
+$_map-btn-mixed-type: (
+  'mixed',
+);
+
+$_map-btn-type: (
+  'primary',
+  'secondary',
+  'info',
+  'success',
+  'warning',
+  'danger',
+);
+
+.mz-grd-btn {
+  display: inline-block;
+  border-radius: vars.$mz-form-border-radius-default;
+  padding: 1px;
+  background-color: transparent;
+  vertical-align: middle;
+  height: vars.$mz-form-height-default;
+  border: 0;
+  transition: vars.$mz-transition-time-xs;
+  position: relative;
+  @include mz-text-size.mz-text-size(vars.$mz-form-font-size-key-default);
+
+  &:before{
+    position: absolute;
+    content: "";
+    border-radius: inherit;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    transition: vars.$mz-transition-time-xs;
+    pointer-events: none;
+  }
+
+  &.is-disabled, &:disabled {
+    pointer-events: none;
+    opacity: 0.3;
+    cursor: not-allowed;
+  }
+
+  &__inner {
+    display: flex;
+    border-radius: 4px - 1px;
+    justify-content: center;
+    align-items: center;
+    padding: 0 12px;
+    background: #fff;
+    height: 100%;
+    position: relative;
+    z-index: 2;
+  }
+
+  &__icon-col {
+    &:first-child {
+      margin-right: 4px;
+    }
+
+    &:last-child {
+      margin-left: 4px;
+    }
+  }
+
+  &:focus, &:active {
+
+    &::before{
+      opacity: 1;
+    }
+  }
+}// .mz-grd-btn
+
+// Generate button mixed color
+// -------------------
+@each $_color-name in $_map-btn-mixed-type {
+  $map-grd-color: deep-map($_color-name + '.root',vars.$mz-map-grd-plette-color);
+  $background-color: $map-grd-color;
+
+  .mz-grd-btn-#{$_color-name} {
+    color: #fff;
+    border-color: transparent;
+    background: vars-v2.$primary-900;
+    // background: linear-gradient(107deg, $background-color);
+
+    &:before{
+      // background:
+      //   linear-gradient(0deg, rgba(#000,0.3), rgba(#000,0.3)),
+      //   linear-gradient(107deg, $background-color);
+      background: vars-v2.$primary-900;
+    }
+
+    .mz-grd-btn__inner {
+      background: transparent;
+    }
+
+    &:hover {
+      color: #fff;
+      // box-shadow: 0 16px 16px -10px rgba(nth($map-grd-color,2),0.4);
+      box-shadow: 0 16px 16px -10px vars-v2.$primary-900;;
+    }
+
+    &:focus, &:active {
+      color: #fff;
+    }
+  }
+
+  .mz-grd-btn-outline-#{$_color-name} {
+    color: vars.$mz-text-body-color;
+    // background: linear-gradient(107deg, $background-color);
+    background: vars-v2.$primary-900;
+    transition: color 0.1s;
+
+    &:hover {
+      // color: nth($map-grd-color,2);
+      color: #fff;
+    }
+
+    &:focus, &:active {
+      // color: nth($map-grd-color,2);
+      color: #fff;
+    }
+  }
+}//end generate buton color
+
+// Generate gradient button color
+// -------------------
+@each $_btn-type in $_map-btn-type {
+  $_color-name: $_btn-type;
+
+  .mz-grd-btn-#{$_color-name} {
+    color: #fff;
+    border-color: transparent;
+    @include mz-gradient.mz-gradient-bg($_color-name);
+
+    &:before{
+      @include mz-gradient.mz-gradient-bg-active($_color-name);
+    }
+
+    .mz-grd-btn__inner {
+      background: transparent;
+    }
+
+    &:hover {
+      color: #fff;
+      box-shadow: 0 16px 16px -10px rgba(mz-color.mz-get-color-with-level($_color-name),0.5);
+    }
+
+    &:focus, &:active {
+      color: #fff;
+    }
+  }
+
+  .mz-grd-btn-outline-#{$_color-name} {
+    color: vars.$mz-text-body-color;
+    @include mz-gradient.mz-gradient-bg($_color-name);
+
+    &:hover {
+      color: mz-color.mz-get-color-with-level($_color-name, 'light');
+    }
+
+    &:focus, &:active {
+      color: mz-color.mz-get-color-with-level($_color-name, 'light');
+    }
+  }
+}// end @each
+
+// Generate button radius
+// -------------------
+@each $_border-radius-size, $_border-radius-value in vars.$mz-map-rounded {
+  .mz-grd-btn-bdr-#{$_border-radius-size} {
+    border-radius: $_border-radius-value;
+
+    .mz-grd-btn__inner {
+      border-radius: $_border-radius-value - 1px;
+    }
+  }
+}
+
+.mz-grd-btn-bdr-circle {
+  border-radius: vars.$mz-rounded-circle;
+  width: vars.$mz-form-height-default;
+
+  .mz-grd-btn__inner{
+    border-radius: vars.$mz-rounded-circle;
+    padding: 0;
+  }
+}
+
+// Generate button size
+// -------------------
+@each $_size-key, $_map-size in vars.$mz-map-form-size {
+  $_font-size-key: map-get($_map-size, 'font-size-key');
+  $_btn-height: map-get($_map-size, 'height');
+
+  .mz-grd-btn-#{$_size-key} {
+    height: map-get($_map-size, 'height');
+    @include mz-text-size.mz-text-size($_font-size-key);
+
+    &.mz-grd-btn-bdr-circle {
+      width: $_btn-height;
+    }
+  }
+}

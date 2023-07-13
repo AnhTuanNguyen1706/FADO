@@ -1,0 +1,76 @@
+@use 'vars' as vars;
+@use 'mixin/mz-text-size' as mz-text-size;
+@use 'mixin/mz-border-radius' as mz-border-radius;
+@use 'mixin/mz-box-shadow' as mz-shadow;
+
+.mz-confirm-modal {
+  .modal-dialog {
+    max-width: 420px;
+  }
+
+  .modal-content {
+    @include mz-shadow.mz-shadow-from-key('modal');
+    @include mz-border-radius.mz-border-radius-from-key('md');
+    background: #fff;
+  }
+
+  &__close-btn {
+    $_btn-width: 24px;
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1;
+    color: vars.$mz-gray;
+
+    &::before {
+      content: "\f00d";
+      font-family: vars.$mz-font-family-fa5;
+      font-size: 16px;
+      font-weight: 300;
+    }
+  }
+
+  &__head {
+    padding: 16px;
+    text-align: center;
+    border-bottom: 1px solid vars.$mz-gray-lighter;
+  }
+
+  &__title {
+    font-weight: 700;
+    @include mz-text-size.mz-text-size-from-font-size-key('md');
+  }
+
+  &__body {
+    padding: 16px;
+    text-align: center;
+  }
+
+  &__content {
+
+  }
+
+  &__control-field {
+    margin: 16px auto 0;
+    text-align: center;
+    max-width: 280px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .control-btn {
+      flex: 1 1;
+      margin-left: 8px;
+      max-width: 50%;
+
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+}// .mz-confirm-modal

@@ -1,0 +1,55 @@
+@use 'vars' as vars;
+@use 'lib/mz-grid-framework/mixin/mz-media-query' as mz-media-query;
+@use 'lib/mz-grid-framework/mixin/mz-grid' as mz-grid;
+@use 'lib/mz-grid-framework/function/mz-grid' as mz-grid-function;
+@use 'lib/mz-grid-framework/var/grid' as grid-var;
+
+.loading-field-component {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 0;
+  border-radius: vars.$mz-rounded-sm;
+  margin: 0 auto;
+  max-width: grid-var.$mz-breakpoint-xl;
+  background: #fff;
+
+  &__inner {
+    text-align: center;
+  }
+
+  &__loading-img {
+    background: url(vars.$mz-image-url + '/character/loading.svg' + vars.$mz-cache-ver-suffix) no-repeat center;
+    background-size: contain;
+    display: inline-block;
+    height: 160px;
+    width: 160px;
+    -webkit-animation: loading-field-component-jump 1.3s linear infinite;
+    animation: loading-field-component-jump 1.3s linear infinite;
+  }
+
+  &__title {
+    margin-top: 20px;
+    font-style: italic;
+  }
+}
+
+
+@keyframes loading-field-component-jump {
+  0%{
+	  //transform: translateY(0);
+    transform: translateX(0);
+  }
+  33%{
+	  //transform: translateY(-10px);
+    transform: translateX(-20px);
+  }
+  66%{
+	  //transform: translateY(10px);
+    transform: translateX(20px);
+  }
+  100%{
+	  //transform: translateY(0);
+    transform: translateX(0);
+  }
+}

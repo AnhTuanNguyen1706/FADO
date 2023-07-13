@@ -1,0 +1,99 @@
+@use 'vars' as vars;
+@use 'function/mz/mz-color' as mz-color;
+
+$_map-alert-type: (
+  'primary',
+  'secondary',
+  'info',
+  'success',
+  'warning',
+  'danger',
+);
+
+.mz-alert {
+  display: flex;
+  padding: 8px 16px;
+  margin-bottom: 16px;
+  border-radius: vars.$mz-rounded-xs;
+  align-items: center;
+
+  &__icon-col {
+    &:first-child {
+      margin-right: 16px;
+    }
+
+    &:last-child {
+      margin-left: 16px;
+    }
+  } // .mz-alert__icon-col
+
+  &__content-col {
+    flex: 1 1;
+  }
+
+  &__close-btn {
+    display: flex;
+    flex: 0 0 24px;
+    min-width: 1px;
+    width: 24px;
+    height: 24px;
+    align-self: flex-start;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: vars.$mz-rounded-circle;
+
+    &::before {
+      content: "\f00d";
+      font-family: vars.$mz-font-family-fa5;
+      font-size: vars.$mz-font-size-md;
+      line-height: vars.$mz-font-size-md;
+      font-weight: 300;
+    }
+
+    &:first-child {
+      margin-left: -8px;
+      margin-right: 8px;
+    }
+
+    &:last-child {
+      margin-right: -8px;
+      margin-left: 8px;
+    }
+  }// &__close-btn
+}// .mz-alert
+
+// Generate alert color
+// -------------------
+@each $_alert-type in $_map-alert-type {
+  $_color-name: $_alert-type;
+  $_icon-color: mz-color.mz-get-color-with-level($_color-name,'light');
+  $_icon-color-hover: mz-color.mz-get-hover-color($_icon-color);
+
+  .mz-alert-#{$_alert-type} {
+    // background-color: mz-color.mz-get-color-with-level($_color-name,'lightest');
+    border: 1px solid mz-color.mz-get-color-with-level($_color-name,'lighter');
+
+    a {
+      color: mz-color.mz-get-color-with-level($_color-name);
+
+      &:hover {
+        color: mz-color.mz-get-hover-color(mz-color.mz-get-color-with-level($_color-name));
+      }
+    }
+
+    .mz-alert__icon-col {
+      color: $_icon-color;
+      font-size: 32px;
+      line-height: 32px;
+    }
+
+    .mz-alert__close-btn {
+      color: $_icon-color;
+
+      &:hover {
+        color: $_icon-color-hover;
+      }
+    } // . end .mz-alert-...
+  }// .mz-alert-#{$_alert-type}
+}

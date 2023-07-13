@@ -1,0 +1,32 @@
+@use 'vars' as vars;
+@use 'vars-v2' as vars-v2;
+
+.product-titlebar-section {
+  margin-bottom: 16px;
+
+  .main-title {
+    font-size: 24px;
+    line-height: 1.5;
+    margin: 0;
+    font-weight: 400;
+
+    h1,
+    h2,
+    h3,
+    h4,
+    h4,
+    h6 {
+      font-size: 24px;
+      line-height: 1.5;
+      margin: 0;
+      padding: 0;
+      display: inline;
+    }
+  }
+
+  .total-field {
+    margin-top: 10px;
+    color: vars.$mz-gray-400;
+    font-weight: 600;
+  }
+}

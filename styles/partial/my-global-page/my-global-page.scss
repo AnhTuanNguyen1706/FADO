@@ -1,0 +1,11 @@
+// Partials in global
+@use 'partial/global/global-section';
+@use 'partial/global/mz-masonry';
+@use 'partial/global/global/global-deal-card';
+
+// Partials in page
+
+// ---------
+@use './global-page-section';
+@use './global-page-banner-section';
+@use './global-page-filter-section';

@@ -1,0 +1,39 @@
+@use 'vars' as vars;
+
+.mkt-event-menu-sblock {
+  margin-bottom: 40px;
+
+  &__head {
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+
+  &__link-list {
+    list-style: none;
+
+    li {
+      margin-bottom: 5px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    a {
+      color: vars.$mz-text-body-color;
+
+      &::before {
+        content: '\f105';
+        font-family: vars.$mz-font-family-fa5;
+        margin-right: 3px;
+        font-weight: 400;
+        color: #999;
+        font-size: 12px;
+      }
+
+      &:hover {
+        color: vars.$mz-link-color;
+      }
+    }
+  }// &__link-list
+}// .mkt-event-menu-sblock

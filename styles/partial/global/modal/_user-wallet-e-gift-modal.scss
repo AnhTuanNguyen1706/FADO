@@ -1,0 +1,169 @@
+@use 'vars' as vars;
+@use 'vars-v2' as vars-v2;
+@use 'mixin/mz-text-size' as mz-text-size;
+@use 'lib/mz-grid-framework/mixin/mz-grid' as mz-grid;
+@use 'mixin/mz-image' as mz-image;
+
+.user-wallet-e-gift-modal {
+
+  .modal-dialog {
+    width: 400px;
+  }
+
+  .modal-content {
+    overflow: hidden;
+  }
+
+  .mz-basic-modal__head {
+    background: #fff;
+  }
+
+  .mz-basic-modal__body {
+    margin-top: 8px;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .e-gift-modal-input-form {
+    text-align: center;
+
+    .mz-form-control {
+      position: relative;
+
+      &.is-error {
+        .mz-form-control__input {
+          border-color: vars-v2.$state2-500;
+          padding: 0 28px;
+        }
+
+        .icon-form-status {
+          color: vars-v2.$state2-500;
+          position: absolute;
+          right: 12px;
+          top: 12px;
+          font-size: 16px;;
+        }
+      }
+    }
+  }
+
+  .e-gift-placeholder-text {
+    text-align: center;
+    font-weight: bold;
+
+    &::placeholder {
+      text-transform: uppercase;
+    }
+  }
+
+  .e-gift-alert-message {
+    color: vars-v2.$state2-500;
+    @include mz-text-size.mz-text-size(13px);
+    margin-top: -8px;
+    margin-bottom: 16px;
+  }
+
+  // E Gift modal notice
+  .e-gift-modal-notice {
+    margin: 16px -16px 0;
+    padding: 20px 16px;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    min-width: 0;
+    background: vars-v2.$secondary-300;
+
+    &__text-col {
+      flex: 1 1 auto;
+      @include mz-text-size.mz-text-size(12px);
+    }
+
+    // &__image-col {
+    //   margin-left: 16px;
+    //   flex: 0 0 80px;
+    //   max-width: 80px;
+    // }
+  }
+
+  // Relative E Gift card
+  .e-gift-modal-relative-product {
+    margin-top: 16px;
+    padding-bottom: 16px;
+
+    &__title {
+      font-weight: bold;
+      margin-bottom: 8px;
+      text-align: center;
+    }
+
+    &__list {
+      @include mz-grid.mz-make-row(2);
+    }
+
+    &__viewmore {
+      margin-top: 16px;
+      text-align: center;
+      display: block;
+    }
+  }
+
+  // E Gift item
+  .e-gift-item {
+    @include mz-grid.mz-make-col-ready(2);
+    @include mz-grid.mz-make-col(3);
+
+    &__inner {
+      @include mz-image.mz-img-outer;
+      border-radius: 4px;
+      overflow: hidden;
+
+      &:after {
+        position: absolute;
+        content: "";
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        border: solid 1px vars.$mz-gray-light;
+        border-radius: 4px;
+        pointer-events: none;
+      }
+
+      &:hover {
+        &::after {
+          border: solid 2px vars.$mz-primary-light;
+        }
+      }
+    }
+
+    &__link {
+      @include mz-image.mz-img-inner;
+    }
+
+    &__img {
+      @include mz-image.mz-img-img;
+    }
+  }
+
+  // Show when success
+  .e-gift-modal-success {
+    text-align: center;
+    border-bottom: solid 1px vars.$mz-gray-light;
+    margin-top: 8px;
+    padding-bottom: 16px;
+
+    &__point {
+      @include mz-text-size.mz-text-size(28px);
+      color: vars.$mz-warning;
+      font-weight: 800;
+    }
+  }
+
+  // Vue animation
+  .fade-enter-active, .fade-leave-active {
+    transition: opacity .5s;
+  }
+  .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
+  }
+}

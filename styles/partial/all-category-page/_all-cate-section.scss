@@ -1,0 +1,131 @@
+@use 'vars' as vars;
+@use 'mixin/old-bg-fd-grd' as old-bg-fd-grd;
+@use 'mixin/mz-general' as general;
+
+.all-cate-block {
+  margin-bottom: 30px;
+
+  .container {
+    background: #fff;
+    border-radius: 4px;
+    margin-bottom: 30px;
+    padding: 15px;
+  }
+}
+
+// ===================================
+// Head
+// ===================================
+.all-cate-block {
+  &__head {
+    display: flex;
+    padding-bottom: 10px;
+    align-items: center;
+    border-bottom: 1px solid #e1e1e1;
+    margin-bottom: 15px;
+  }
+
+  &__head__icon-col {
+    flex: 0 0 36px;
+    display: flex;
+    min-width: 1px;
+    @include old-bg-fd-grd.old-bg-fd-grd(135deg);
+    color: #fff;
+    justify-content: center;
+    align-items: center;
+    height: 36px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+
+  &__head__title-col {
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+}
+
+// ===================================
+// Body
+// ===================================
+// cate panel wrap
+// ------------------
+.all-cate-block {
+  &__cate-panel-wrap {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 -15px -15px;
+  }
+
+  &__cate-panel {
+    flex: 0 0 25%;
+    padding: 0 15px;
+    margin-bottom: 15px;
+
+    &.is-expand {
+      li.is-hide {
+        display: block;
+      }
+    }
+  }
+
+  &__cate-panel__title {
+    font-weight: 500;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #ededed;
+
+    a {
+      color: vars.$mz-text-body-color;
+      @include general.mz-limit-text-line(14px, 1);
+
+      &:hover {
+        color: vars.$mz-link-color;
+      }
+    }
+  }
+
+  &__cate-list {
+    list-style: none;
+
+    li {
+      margin-bottom: 3px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      &.is-hide {
+        display: none;
+      }
+    }
+
+    a {
+      color: vars.$mz-text-body-color;
+
+      &::before {
+        content: '\f105';
+        font-family: vars.$mz-font-family-fa5;
+        font-weight: 300;
+        margin-right: 5px;
+        color: #999;
+      }
+
+      &:hover {
+        color: vars.$mz-link-color;
+      }
+    }
+  }// &__cate-list
+
+  &__cate-view-more-btn {
+    margin-top: 5px;
+    color: vars.$mz-link-color;
+    cursor: pointer;
+    font-style: italic;
+
+    &:hover {
+      color: vars.$mz-link-hover-color;
+    }
+  }
+}// .all-cate-block

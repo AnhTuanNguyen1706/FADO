@@ -1,0 +1,12 @@
+// Partials global
+// ---------
+@use "partial/global/pagination-nav-old";
+
+// Partials in page
+// ---------
+@use "news-layout";
+@use "news-panel-wrap";
+@use "news-category-block";
+@use "news-box-block";
+@use "news-cate-sblock";
+@use "news-list-sblock";

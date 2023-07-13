@@ -1,0 +1,50 @@
+@use 'vars' as vars;
+@use 'mixin/mz-image' as mz-image;
+
+.product-image-section {
+  .product-image-section-container {
+    opacity: 0;
+    max-height: 240px;
+    transition: vars.$mz-transition-time-default;
+
+    &.is-show {
+      opacity: 1;
+    }
+  }
+
+  .img-wrapper {
+    @include mz-image.mz-img-outer;
+  }
+
+  .img-inner {
+    @include mz-image.mz-img-inner;
+  }
+
+  .img-url {
+    @include mz-image.mz-img-img;
+  }
+
+  .product-image-section-btn {
+    position: absolute;
+    top: 50%;
+    width: 28px;
+    height: 28px;
+    margin-top: -22px;
+    z-index: 10;
+    cursor: pointer;
+
+    &.swiper-button-disabled {
+      opacity: 0;
+    }
+  }
+
+  .product-image-section-prev {
+    left: 10px;
+    right: auto;
+  }
+
+  .product-image-section-next {
+    right: 10px;
+    left: auto;
+  }
+}

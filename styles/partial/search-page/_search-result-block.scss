@@ -1,0 +1,48 @@
+@use 'vars' as vars;
+@use 'mixin/mz-text-size' as mz-text-size;
+@use 'mixin/mz-animation' as mz-animation;
+
+//===================================================
+// block body
+//===================================================
+.search-result-block {
+  margin-top: -16px;
+
+  .product-row {
+    position: relative;
+    min-height: 340px;
+  }
+
+  .product-col {
+    margin-top: 16px;
+  }
+}
+
+//===================================================
+// loading box
+//===================================================
+.search-result-block {
+  .loading-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 371px;
+    background: rgba(#fff, 0.5);
+    left: 0;
+    top: 0;
+
+    .loading-icon {
+      font-style: normal;
+      @include mz-animation.mz-animation-spin();
+
+      &::before {
+        @include mz-text-size.mz-text-size(24px);
+        color: vars.$mz-gray;
+        content: "\f110";
+        font-weight: 700;
+        font-family: vars.$mz-font-family-fa5;
+      }
+    }
+  }
+}

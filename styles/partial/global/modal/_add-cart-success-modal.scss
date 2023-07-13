@@ -1,0 +1,35 @@
+@use 'mixin/mz-text-size' as mz-text-size;
+@use 'mixin/mz-animation' as mz-animation;
+@use 'vars' as vars;
+
+.add-cart-success-modal {
+  .modal-content {
+    padding: 30px;
+  }
+}
+
+.add-cart-success-modal-text {
+  padding: 12px 0;
+  text-align: center;
+  font-weight: bold;
+  color: #158021;
+}
+
+
+.add-cart-success-modal-product-name {
+  display: none;
+  @include mz-text-size.mz-text-size(20px);
+  font-weight: bold;
+  padding-bottom: 24px;
+  text-align: center;
+
+  &.is-show {
+    display: block;
+  }
+}
+
+.add-cart-success-modal-control {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}

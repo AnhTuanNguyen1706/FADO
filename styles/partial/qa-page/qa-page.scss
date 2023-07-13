@@ -1,0 +1,9 @@
+// Partials global
+// ---------
+@use "partial/global/pagination-nav-old";
+@use "partial/feedback-page/feedback-layout";
+@use "partial/feedback-page/feedback-menu-sblock";
+
+// Partials in page
+// ---------
+@use "qa-block";

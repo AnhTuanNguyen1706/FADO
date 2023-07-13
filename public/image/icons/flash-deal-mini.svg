@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>fls-deal</title>
+    <defs>
+        <linearGradient x1="0%" y1="0%" x2="100%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#FFAF00" offset="0%"></stop>
+            <stop stop-color="#FF6B00" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Common-others/item-discount-label/percent-flashdeal-icon" transform="translate(-42.000000, -4.000000)" fill-rule="nonzero">
+            <g id="item-discount-label" transform="translate(2.000000, 2.000000)">
+                <g id="fls-deal" transform="translate(40.000000, 2.000000)">
+                    <rect id="Rectangle" fill="url(#linearGradient-1)" x="0" y="0" width="16" height="16" rx="8"></rect>
+                    <polygon id="Path-2" fill="#FFFFFF" points="6.33953003 4 10.8 4 8.36820506 7.48820751 10.8 7.48820751 6.57210989 13.6 7.79844006 9.37936112 5.2 9.37936112"></polygon>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

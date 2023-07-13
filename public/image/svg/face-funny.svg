@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fbd971;
+      }
+
+      .cls-2 {
+        fill: #e64c3c;
+      }
+    </style>
+  </defs>
+  <g id="user-funny-face-icon" transform="translate(-1228.083 -165.135)">
+    <path id="Path_1" data-name="Path 1" class="cls-1" d="M1276.083,189.135a24,24,0,1,1-24-24,24,24,0,0,1,24,24Zm0,0"/>
+    <path id="Path_2" data-name="Path 2" class="cls-2" d="M1247.514,180.564a4,4,0,1,1-4-4,4,4,0,0,1,4,4Zm0,0"/>
+    <path id="Path_3" data-name="Path 3" class="cls-2" d="M1265.793,180.564a4,4,0,1,1-3.994-4,4,4,0,0,1,3.994,4Zm0,0"/>
+    <path id="Path_4" data-name="Path 4" class="cls-2" d="M1264.656,192.56a12.573,12.573,0,0,1-25.145,0Zm0,0"/>
+  </g>
+</svg>

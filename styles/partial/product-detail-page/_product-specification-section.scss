@@ -1,0 +1,46 @@
+@use 'vars' as vars;
+
+.product-specification-section {
+  .mz-basic-box__body {
+    padding-top: 0;
+  }
+
+  .specification-item-wrap {
+    display: grid;
+    grid-template-columns: min-content auto;
+
+    // SPECS ITEM
+    div:nth-of-type(4n - 1) {
+      background: rgba(vars.$mz-gray, 0.1);
+    }
+
+    div:nth-of-type(4n) {
+      background: rgba(vars.$mz-gray, 0.1);
+    }
+
+    .specification-item-name {
+      white-space: nowrap;
+      font-weight: 700;
+      color: vars.$mz-gray;
+    }
+
+    .specification-item-content {
+      display: flex;
+      word-break: break-all;
+    }
+  }
+
+  .specification-item-table {
+    border-collapse: collapse;
+    width: 100%;
+
+    td, th {
+      text-align: left;
+      padding: 8px;
+    }
+
+    tr:nth-child(even) {
+      background-color: rgba(vars.$mz-gray, 0.1);
+    }
+  }
+}

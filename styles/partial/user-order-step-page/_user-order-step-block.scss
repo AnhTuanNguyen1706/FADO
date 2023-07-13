@@ -1,0 +1,466 @@
+@use 'vars' as vars;
+@use 'vars-v2' as vars-v2;
+
+$tmp-gray-color: #f9f9f9;
+
+.user-order-step-block {
+  padding: 10px 20px 20px 0;
+  background: #fff;
+  border-radius: 4px;
+  margin-bottom: 40px;
+}
+
+// ===================================
+// Head
+// ===================================
+.user-order-step-block {
+  &__head {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border-bottom: 1px solid vars-v2.$primary-900;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+  } // end user-order-step-block for __head
+
+  //#region - left col
+  &__head__left-col {
+    white-space: nowrap;
+  }
+  //#endregion
+
+  //#region - center col
+  &__head__center-col {
+    position: relative;
+    text-align: center;
+    transform: translateX(50%);
+    left: -50%;
+  }
+
+  &__head__title {
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 5px;
+  }
+
+  &__head__order-code {
+    font-size: 20px;
+  }
+
+  &__head__order-date-field {
+    line-height: 22px;
+  }
+
+  &__head__order-date-text {
+    color: vars-v2.$primary-900;
+    font-style: italic;
+  }
+
+  &__head__order-status-text {
+    font-size: 16px;
+  }
+
+  &__head__cancel-order-btn-outer {
+    text-align: center;
+    margin-top: 5px;
+  }
+  //#endregion - center col
+}// .user-order-step-block
+
+// ===================================
+// Body
+// ===================================
+.user-order-step-block {
+  &__order-product-tb {
+    width: 100%;
+    margin-bottom: 20px;
+
+    th {
+      background: $tmp-gray-color;
+      text-align: center;
+      border-right: 1px solid #fff;
+      padding: 10px 5px;
+      font-weight: 500;
+      white-space: nowrap;
+
+      &:last-child {
+        border-right: none;
+      }
+    }
+
+    td {
+      padding: 10px;
+      border-bottom: 1px solid vars-v2.$primary-900;
+      vertical-align: middle;
+    }
+  }
+
+  &__product-from-th {
+    width: 20px;
+  }
+
+  &__product-from-td {
+    vertical-align: top;
+    text-align: center;
+  }
+
+  //#region - product image td
+  &__product-img-td {
+    width: 50px;
+    text-align: center;
+    vertical-align: top;
+  }
+
+  &__product-img-field {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    border-radius: 4px;
+
+    img {
+      max-width: 54px;
+      max-height: 54px;
+    }
+  }
+  //#endregion
+
+  //#region - product info td
+  &__product-info-td {
+    vertical-align: top;
+    word-break: break-all;
+  }
+
+  &__product-name {
+    line-height: 18px;
+    margin-bottom: 3px;
+  }
+
+  &__product-desc-item {
+    font-size: 13px;
+    line-height: 18px;
+  }
+
+  &__product-desc-item__lbl {
+    display: inline-block;
+    color: vars-v2.$primary-900;
+    margin-right: 3px;
+  }
+  //#endregion
+}// .user-order-detail-block
+
+.user-order-step-block {
+  &__process-info {
+    padding: 20px;
+    border: 1px solid vars-v2.$primary-900;
+    // border-radius: 4px;
+    // background: #fdfbee;
+  }
+
+  &__process-item-wrap {
+    position: relative;
+    display: flex;
+    list-style: none;
+    list-style-type: none;
+    justify-content: space-between;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+
+    &:after {
+      content: '';
+      position: absolute;
+      display: none;
+      width: 50%;
+      height: 1px;
+      background: vars.$mz-warning;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      bottom: 0;
+    }
+  }
+
+  &__process-item {
+    flex: 1 1;
+    text-align: center;
+
+    &:nth-last-child(-n+2) {
+      .user-order-step-block__process-item-icon-group {
+        &:before {
+          display: block;
+        }
+
+        &:after {
+          display: none;
+        }
+      }
+    }
+
+    &:first-child {
+      .user-order-step-block__process-item-icon-group {
+        &:before {
+          display: none;
+        }
+
+        &:after {
+          display: block;
+          background: #fff;
+        }
+      }
+    }
+
+    &:last-child {
+      .user-order-step-block__process-item-icon-group {
+        &:after {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &__process-item-icon-group {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 0;
+    margin-bottom: 10px;
+
+    &:before, &:after {
+      content: '';
+      display: block;
+      position: absolute;
+      z-index: -1;
+      height: 3px;
+      width: 50%;
+      background: #fff;
+      top: 0;
+      bottom: 0;
+      margin: auto 0;
+    }
+
+    &:before {
+      left: -25%;
+    }
+
+    &:after {
+      right: -25%;
+      display: none;
+    }
+
+
+    &.is-active {
+      z-index: 1;
+
+      .user-order-step-block__process-item-icon {
+        background: vars-v2.$secondary-700;
+      }
+
+      &:before, &:after {
+        background: vars-v2.$secondary-700;
+      }
+    }
+
+    &.is-remove {
+      &:first-child {
+        &:after {
+          display: none;
+        }
+      }
+    }
+  }
+
+  &__process-item-icon {
+    display: flex;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: vars-v2.$secondary-400;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 22px;
+  }
+
+  &__process-item-title {
+    text-align: center;
+    font-size: 13px;
+    line-height: 16px;
+    padding: 0 10px;
+  }
+
+  &__process-iten-link {
+    display: block;
+    font-size: 14px;
+    font-style: italic;
+    color: vars.$mz-link-color;
+
+    &:hover {
+      color: vars.$mz-link-hover-color;
+    }
+  }
+} // .user-order-step-block
+
+
+// Update process segment
+.user-order-step-block {
+  &__process-update-title {
+    font-size: 16px;
+    text-align: center;
+    font-weight: 400;
+    margin-bottom: 10px;
+  }
+
+  &__process-update-date-td {
+    position: relative;
+    padding: 5px 20px 5px 30px;
+    font-size: 14px;
+    white-space: nowrap;
+    z-index: 0;
+    vertical-align: top;
+  }
+
+  &__process-update-desc-td {
+    padding: 5px 10px;
+    font-size: 14px;
+    font-weight: 500
+  }
+
+  &__process-update-time-txt {
+    font-style: italic;
+    color: vars-v2.$primary-900;
+    display: inline-block;
+    margin-left: 5px;
+  }
+
+  &__process-update-icon {
+    position: absolute;
+    height: 100%;
+    width: 30px;
+    left: 0;
+    top: 0;
+
+    &.none-line {
+      &:after {
+        display: none!important;
+      }
+    }
+
+    &:before {
+      position: absolute;
+      content: '';
+      display: block;
+      height: 10px;
+      width: 10px;
+      border-radius: 50%;
+      background: vars.$mz-warning;
+      top: 50%;
+      left: 0;
+      right: 0;
+      margin: -5px auto;
+    }
+
+    &:after {
+      position: absolute;
+      z-index: -1;
+      content: '';
+      width: 3px;
+      height: 100%;
+      background: vars.$mz-warning;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      margin: 0 auto;
+      top: 50%;
+      opacity: .8;
+    }
+  }// &__process-update-icon
+
+  &__process-update-tr {
+    &:last-child {
+      .user-order-step-block__process-update-icon {
+        &:after {
+          display: none;
+        }
+      }
+    }
+  }
+} // .user-order-step-block
+
+.user-order-step-block {
+  &__transfer-info {
+    padding: 20px;
+    background: vars-v2.$primary-900;
+    color: #fff;
+    // border: 1px solid #a8dcb6;
+    border-radius: 4px;
+  }
+
+  &__transfer-info-title {
+    font-size: 16px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  &__transfer-info-table {
+    width: 100%;
+
+    .-break-line-all {
+      word-break: break-all;
+    }
+  }
+
+  &__transfer-info-tr {
+    th {
+      background: vars-v2.$primary-900;
+      color: #fff;
+      font-weight: 500;
+      text-align: center;
+      padding: 2px 10px;
+      // border: 1px solid #f4fff0;
+      white-space: nowrap;
+    }
+  }
+
+  &__transfer-info-code-th {
+    word-break: break-all;
+  }
+
+  &__transfer-info-detail-th {
+    width: 50%;
+  }
+
+  &__transfer-info-td {
+    text-align: center;
+    padding: 10px;
+    vertical-align: top;
+  }
+
+  &__transfer-detail-tr {
+    &:last-child {
+      .user-order-step-block__transfer-detail-date-td {
+        padding-bottom: 0;
+      }
+
+      .user-order-step-block__transfer-detail-status-td {
+        padding-bottom: 0;
+      }
+    }
+  }
+
+  &__transfer-detail-date-td {
+    padding-right: 10px;
+    white-space: nowrap;
+  }
+
+  &__transfer-detail-date-td, &__transfer-detail-status-td {
+    text-align: left;
+    padding-bottom: 5px;
+    vertical-align: top;
+  }
+} // .user-order-step-block
+

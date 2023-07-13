@@ -1,0 +1,726 @@
+@use 'lib/mz-grid-framework/var/grid' as grid-var;
+@use 'function/general/blend-modes' as blend-modes;
+@use './vars-v2' as vars-v2;
+
+// ######################################################
+// Env variable
+// ######################################################
+$mz-cache-ver-suffix: ''; // ! Tham số cache truyền từ nodejs vào sử dụng để clearcache nếu up version mới
+
+// @if getScssGlobal('cacheVer') != '' {
+//   $mz-cache-ver-suffix: '?v=' + getScssGlobal('cacheVer');
+// }
+
+// Url
+// -------------------
+$mz-font-url: '../../../font';
+$mz-image-url: '../../../image';
+$mz-image-icons-url: $mz-image-url + '/icons';
+$mz-image-svg-url: $mz-image-url + '/svg';
+$mz-upload-url: '../../../upload';
+$mz-lazyload-image-url: $mz-image-url + '/icons/loading-globe-gray.png' + $mz-cache-ver-suffix;
+$mz-loading-image-url: $mz-image-url + '/gif/loading-globe.gif' + $mz-cache-ver-suffix;
+$mz-image-icon-svg-url: $mz-image-url + '/icon-svg';
+
+// Prime day evnet
+$mz-prime-day-image-url: $mz-image-url + '/page/prime-day';
+
+// Project prefix
+// -------------------
+$mz-prefix: 'mz';
+
+
+
+
+
+
+
+
+
+// ######################################################
+// Main Color
+// ######################################################
+// Main color pallete
+// -------------------
+// Gray
+$mz-gray-base: #1b2028;
+$mz-gray: lighten($mz-gray-base, 53%);
+$mz-gray-root: $mz-gray;
+$mz-gray-light: lighten($mz-gray-base, 70%);
+$mz-gray-lighter: lighten($mz-gray-base, 80%);
+$mz-gray-lightest: lighten($mz-gray-base, 83%);
+$mz-gray-dark: lighten($mz-gray-base, 26%);
+$mz-gray-darker: lighten($mz-gray-base, 10%);
+//$mz-gray-overlay: blend-modes.blend-hardlight($mz-gray-light, lighten($mz-gray-base, 60%)); blend sai mau
+$mz-gray-overlay: #EAEFF6;
+
+// Grayscales
+$mz-gray-900: $mz-gray-base;
+$mz-gray-800: lighten($mz-gray-base, 10%);
+$mz-gray-700: lighten($mz-gray-base, 20%);
+$mz-gray-600: lighten($mz-gray-base, 30%);
+$mz-gray-500: lighten($mz-gray-base, 40%);
+$mz-gray-400: lighten($mz-gray-base, 50%);
+$mz-gray-300: lighten($mz-gray-base, 60%);
+$mz-gray-200: lighten($mz-gray-base, 70%);
+$mz-gray-100: lighten($mz-gray-base, 80%);
+
+//Primary
+$mz-primary: vars-v2.$primary-300;
+$mz-primary-root: vars-v2.$primary-300;
+$mz-primary-light: vars-v2.$primary-200;
+$mz-primary-lighter: vars-v2.$primary-100;
+$mz-primary-lightest: vars-v2.$primary-50;
+$mz-primary-dark: vars-v2.$primary-400;
+$mz-primary-darker: vars-v2.$primary-900;
+$mz-primary-overlay: vars-v2.$primary-900;
+
+//secondary
+$mz-secondary: vars-v2.$primary-300;
+$mz-secondary-root: vars-v2.$primary-300;
+$mz-secondary-light: vars-v2.$primary-200;
+$mz-secondary-lighter: vars-v2.$primary-100;
+$mz-secondary-lightest: vars-v2.$primary-50;
+$mz-secondary-dark: vars-v2.$primary-400;
+$mz-secondary-darker: vars-v2.$primary-900;
+$mz-secondary-overlay: vars-v2.$primary-900;
+
+//Info
+$mz-info: vars-v2.$primary-300;
+$mz-info-root: vars-v2.$primary-300;
+$mz-info-light: vars-v2.$primary-200;
+$mz-info-lighter: vars-v2.$primary-100;
+$mz-info-lightest: vars-v2.$primary-50;
+$mz-info-dark: vars-v2.$primary-400;
+$mz-info-darker: vars-v2.$primary-900;
+$mz-info-overlay: vars-v2.$primary-900;
+
+//Success
+$mz-success: vars-v2.$primary-300;
+$mz-success-root: vars-v2.$primary-300;
+$mz-success-light: vars-v2.$primary-200;
+$mz-success-lighter: vars-v2.$primary-100;
+$mz-success-lightest: vars-v2.$primary-50;
+$mz-success-dark: vars-v2.$primary-400;
+$mz-success-darker: vars-v2.$primary-900;
+$mz-success-overlay: vars-v2.$primary-900;
+
+//Warning
+$mz-warning: vars-v2.$primary-300;
+$mz-warning-root: vars-v2.$primary-300;
+$mz-warning-light: vars-v2.$primary-200;
+$mz-warning-lighter: vars-v2.$primary-100;
+$mz-warning-lightest: vars-v2.$primary-50;
+$mz-warning-dark: vars-v2.$primary-400;
+$mz-warning-darker: vars-v2.$primary-900;
+$mz-warning-overlay: vars-v2.$primary-900;
+
+//Danger
+$mz-danger: vars-v2.$primary-300;
+$mz-danger-root: vars-v2.$primary-300;
+$mz-danger-light: vars-v2.$primary-200;
+$mz-danger-lighter: vars-v2.$primary-100;
+$mz-danger-lightest: vars-v2.$primary-50;
+$mz-danger-dark: vars-v2.$primary-400;
+$mz-danger-darker: vars-v2.$primary-900;
+$mz-danger-overlay: vars-v2.$primary-900;
+
+// Extend color
+$mz-purple: #530f9c;
+
+// Full main map color
+$mz-map-palette-color-with-level: (
+  'gray': (
+    'lightest': $mz-gray-lightest,
+    'lighter': $mz-gray-lighter,
+    'light': $mz-gray-light,
+    'root': $mz-gray-root,
+    'dark': $mz-gray-dark,
+    'darker': $mz-gray-darker,
+  ),
+  'primary': (
+    'lightest': $mz-primary-lightest,
+    'lighter': $mz-primary-lighter,
+    'light': $mz-primary-light,
+    'root': $mz-primary-root,
+    'dark': $mz-primary-dark,
+    'darker': $mz-primary-darker,
+  ),
+  'secondary': (
+    'lightest': $mz-secondary-lightest,
+    'lighter': $mz-secondary-lighter,
+    'light': $mz-secondary-light,
+    'root': $mz-secondary-root,
+    'dark': $mz-secondary-dark,
+    'darker': $mz-secondary-darker,
+  ),
+  'info': (
+    'lightest': $mz-info-lightest,
+    'lighter': $mz-info-lighter,
+    'light': $mz-info-light,
+    'root': $mz-info-root,
+    'dark': $mz-info-dark,
+    'darker': $mz-info-darker,
+  ),
+  'success': (
+    'lightest': $mz-success-lightest,
+    'lighter': $mz-success-lighter,
+    'light': $mz-success-light,
+    'root': $mz-success-root,
+    'dark': $mz-success-dark,
+    'darker': $mz-success-darker,
+  ),
+  'warning': (
+    'lightest': $mz-warning-lightest,
+    'lighter': $mz-warning-lighter,
+    'light': $mz-warning-light,
+    'root': $mz-warning-root,
+    'dark': $mz-warning-dark,
+    'darker': $mz-warning-darker,
+  ),
+  'danger': (
+    'lightest': $mz-danger-lightest,
+    'lighter': $mz-danger-lighter,
+    'light': $mz-danger-light,
+    'root': $mz-danger-root,
+    'dark': $mz-danger-dark,
+    'darker': $mz-danger-darker,
+  ),
+);
+
+// Theme color
+$mz-map-theme-color: (
+  'gray': $mz-gray,
+  'primary': $mz-primary,
+  'secondary': $mz-secondary,
+  'info': $mz-info,
+  'success': $mz-success,
+  'warning': $mz-warning,
+  'danger': $mz-danger,
+);
+
+// -------------------
+// Gradient color
+// -------------------
+$mz-grd-mixed: (
+  $mz-danger,
+  $mz-purple,
+  $mz-secondary-dark,
+);
+
+$mz-grd-mixed-root: $mz-grd-mixed;
+
+$mz-map-grd-plette-color: (
+  'mixed': (
+    'root': $mz-grd-mixed,
+  ),
+);
+
+// -------------------
+// Map level color
+// -------------------
+$mz-map-color-level-index: (
+  'lightest': -3,
+  'lighter': -2,
+  'light': -1,
+  'root': 0,
+  'dark': 1,
+  'darker': 2,
+);
+
+$mz-map-color-level-key: (
+  -3: 'lightest',
+  -2: 'lighter',
+  -1: 'light',
+  0: 'root',
+  1: 'dark',
+  2: 'darker',
+);
+
+$mz-max-color-level-index: 2;
+
+$mz-map-color-overlay: (
+  'gray':$mz-gray-overlay,
+  'primary': $mz-primary-overlay,
+  'secondary': $mz-secondary-overlay,
+  'info': $mz-info-overlay,
+  'success': $mz-success-overlay,
+  'warning': $mz-warning-overlay,
+  'danger': $mz-danger-overlay,
+);
+
+$mz-map-color-extend: (
+  'purple': $mz-purple,
+);
+
+/* ##############################################################
+  Mixed color
+############################################################## */
+$mz-mixed-01: #510bc4;
+$mz-mixed-02: #996200;
+
+$mz-map-mixed-color: (
+  'mixed-01': $mz-mixed-01,
+  'mixed-02': $mz-mixed-02,
+);
+
+
+
+
+
+
+
+
+// ######################################################
+// Typography
+// ######################################################
+// Text color
+// -------------------
+$mz-text-body-color: vars-v2.$text-color;
+
+// Link Color
+// -------------------
+$mz-link-color: vars-v2.$link-color;
+$mz-link-hover-color: vars-v2.$link-color-hover;
+$mz-link-focus-color: vars-v2.$link-color-hover;
+$mz-link-active-color: vars-v2.$link-color-hover;
+
+
+
+// Font family
+// -------------------
+$fa-font-path: $mz-font-url + '/fontawesome' !default; // Path to file Fontawesome 5
+$mz-font-family-fa5: 'Font Awesome 5 Pro';
+$mz-font-family-oswald: 'Oswald', 'Roboto', 'Helvetica Neue', sans-serif;
+$mz-font-family-flow-rounded: 'flow rounded', 'Roboto', 'Helvetica Neue', sans-serif; // ! (02/10/2020) sau này khi thay giao diện checkout mới thì loại bỏ font này
+$mz-font-family-fado: 'Fadofont', -apple-system, BlinkMacSystemFont, 'Roboto', 'Helvetica Neue', sans-serif;
+$mz-font-family-default: $mz-font-family-fado;
+
+
+
+
+// Font size / line height for text
+// -------------------
+$mz-font-size-xs: 12px;
+$mz-font-size-sm: 13px;
+$mz-font-size-md: 16px;
+$mz-font-size-lg: 18px;
+$mz-font-size-normal: 14px;
+$mz-font-size-key-default: 'normal';
+$mz-font-size-default: $mz-font-size-normal;
+$mz-font-size-root: 8px; // for html element
+
+$mz-map-font-size: (
+  'xs': $mz-font-size-xs,
+  'sm': $mz-font-size-sm,
+  'md': $mz-font-size-md,
+  'lg': $mz-font-size-lg,
+  'normal': $mz-font-size-normal,
+  'default': $mz-font-size-default,
+);
+
+
+// Line height for text
+// -------------------
+$mz-line-height-default: 1.5;
+
+
+
+// Font size / line height for heading
+// -------------------
+$mz-h1-font-size: 32px;
+$mz-h2-font-size: 28px;
+$mz-h3-font-size: 24px;
+$mz-h4-font-size: 20px;
+$mz-h5-font-size: 18px;
+$mz-h6-font-size: 16px;
+
+$mz-map-heading-font-size: (
+  'h1': $mz-h1-font-size,
+  'h2': $mz-h2-font-size,
+  'h3': $mz-h3-font-size,
+  'h4': $mz-h4-font-size,
+  'h5': $mz-h5-font-size,
+  'h6': $mz-h6-font-size,
+);
+
+
+
+
+
+
+
+
+// ! Những biến không biết đặt ở đâu thì đặt hết vào đây
+// ######################################################
+// Box-shadow
+// ######################################################
+$mz-shadow-xs: 0 2px 4px 0 rgba($mz-gray-darker, 0.1);
+$mz-shadow-sm: 0 8px 16px -4px rgba($mz-gray-darker, 0.1);
+$mz-shadow-md: 0 16px 24px -8px rgba($mz-gray-darker, 0.1);
+$mz-shadow-lg: 0 24px 32px -12px rgba($mz-gray-darker, 0.1);
+$mz-shadow-block: 0 0 4px 0 rgba($mz-gray, 0.2);
+$mz-shadow-dropdown: 0 0 4px 0 rgba($mz-gray-darker, 0.4);
+$mz-map-shadow: (
+  'xs': $mz-shadow-xs,
+  'sm': $mz-shadow-sm,
+  'md': $mz-shadow-md,
+  'lg': $mz-shadow-lg,
+  'block': $mz-shadow-block,
+  'dropdown': $mz-shadow-dropdown,
+);
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ######################################################
+// Border radius
+// ######################################################
+$mz-rounded-none: 0;
+$mz-rounded-xs: 4px;
+$mz-rounded-sm: 6px;
+$mz-rounded-md: 8px;
+$mz-rounded-lg: 10px;
+$mz-rounded-xl: 12px;
+$mz-rounded-round: 60px;
+$mz-rounded-circle: 50%;
+$mz-rounded-full: 9999px;
+$mz-rounded-default: $mz-rounded-xs;
+
+$mz-map-rounded: (
+  'none': $mz-rounded-none,
+  'xs': $mz-rounded-xs,
+  'sm': $mz-rounded-sm,
+  'md': $mz-rounded-md,
+  'lg': $mz-rounded-lg,
+  'xl': $mz-rounded-xl,
+  'round': $mz-rounded-round,
+  'circle': $mz-rounded-circle,
+  'full': $mz-rounded-full,
+  'default': $mz-rounded-default,
+);
+
+
+
+
+
+
+
+/* ##############################################################
+  Z-index
+############################################################## */
+$mz-z-index-lv-n1: -10;
+$mz-z-index-lv-0: 0;
+$mz-z-index-lv-1: 10;
+$mz-z-index-lv-2: 20;
+$mz-z-index-lv-3: 30;
+$mz-z-index-lv-4: 40;
+$mz-z-index-lv-5: 50;
+$mz-z-index-lv-6: 60; // Từ đây đổ xuống chủ yếu cho các thành phần ngoài section
+$mz-z-index-lv-7: 70;
+$mz-z-index-lv-8: 80;
+$mz-z-index-lv-9: 80;
+$mz-z-index-lv-10: 80;
+$mz-z-index-lv-11: 80;
+
+$mz-map-z-index: (
+  'lv-n1': $mz-z-index-lv-n1,
+  'lv-0': $mz-z-index-lv-0,
+  'lv-1': $mz-z-index-lv-1,
+  'lv-2': $mz-z-index-lv-2,
+  'lv-3': $mz-z-index-lv-3,
+  'lv-4': $mz-z-index-lv-4,
+  'lv-5': $mz-z-index-lv-5,
+  'lv-6': $mz-z-index-lv-6,
+  'lv-7': $mz-z-index-lv-7,
+  'lv-8': $mz-z-index-lv-8,
+  'lv-9': $mz-z-index-lv-9,
+  'lv-10': $mz-z-index-lv-10,
+  'lv-11': $mz-z-index-lv-11,
+);
+
+
+
+
+
+
+
+// ######################################################
+// Animation
+// ######################################################
+$mz-transition-time-xs: 0.3s;
+$mz-transition-time-default: 0.3s;
+$mz-transition-function-default: ease;
+
+
+
+
+
+
+
+// ######################################################
+// Rotote
+// ######################################################
+$mz-gradient-rotate-default: 180deg;
+
+
+
+
+
+
+
+
+/* ##############################################################
+  Form size
+############################################################## */
+$mz-form-height-xs: 24px;
+$mz-form-height-sm: 28px;
+$mz-form-height-md: 34px;
+$mz-form-height-lg: 40px;
+$mz-form-height-xl: 48px;
+
+$mz-form-height-key-default: 'lg';
+$mz-form-height-default: $mz-form-height-lg;
+$mz-form-font-size-key-default: 'normal';
+$mz-form-border-radius-key-default: 'xs';
+$mz-form-border-radius-default: $mz-rounded-xs;
+
+$mz-map-form-height: (
+  'xs' : $mz-form-height-xs,
+  'sm' : $mz-form-height-sm,
+  'md' : $mz-form-height-md,
+  'lg' : $mz-form-height-lg,
+  'xl' : $mz-form-height-xl,
+);
+
+$mz-map-form-font-size-key: (
+  'xs' : 'xs',
+  'sm' : 'sm',
+  'md' : 'normal',
+  'lg' : 'normal',
+  'xl' : 'md',
+);
+
+
+
+
+
+
+/* ##############################################################
+  Modal size
+############################################################## */
+$mz-modal-width-xs: 360px;
+$mz-modal-width-sm: 488px;
+$mz-modal-width-md: 624px;
+$mz-modal-width-lg: 992px;
+
+$mz-map-modal-width: (
+  'xs': $mz-modal-width-xs,
+  'sm': $mz-modal-width-sm,
+  'md': $mz-modal-width-md,
+  'lg': $mz-modal-width-lg,
+);
+
+
+
+
+
+
+
+
+
+
+/* ##############################################################
+  Các size đặc biệt
+############################################################## */
+$mz-map-size-extend: (
+  's10': 10px,
+  's12': 12px,
+  's18': 18px,
+  's20': 20px,
+  's24': 24px,
+  's30': 30px,
+  's32': 32px,
+  's40': 40px,
+  's48': 48px,
+);
+
+
+
+
+
+
+
+
+// ######################################################
+// Other color
+// ######################################################
+// Payment status color
+// -------------------
+$mz-payment-status--4-color: #1ebcde; // Đã bị hủy - Cần hoàn tiền
+$mz-payment-status--3-color: #9ac430; // Đã thanh toán - Chờ đối soát
+$mz-payment-status--2-color: $mz-danger; // Chờ xác nhận thanh toán
+$mz-payment-status--1-color: #9ac430; // Đã thanh toán - Chờ kiểm duyệt
+$mz-payment-status-0-color: $mz-danger; // Đã bị hủy
+$mz-payment-status-1-color: $mz-danger; // Chờ kiểm duyệt
+$mz-payment-status-2-color: #8ec549; // Chờ thanh toán
+$mz-payment-status-3-color: #29bbff; // Đang mua hàng
+$mz-payment-status-4-color: #0773ef; // Đang cập nhật Tracking
+$mz-payment-status-5-color: #9939e3; // Chờ hàng về
+$mz-payment-status-6-color: #2c931d; // Hàng đã về
+
+$arr-payment-status-color: (
+  -4: $mz-payment-status--4-color,
+  -3: $mz-payment-status--3-color,
+  -2: $mz-payment-status--2-color,
+  -1: $mz-payment-status--1-color,
+  -0: $mz-payment-status-0-color,
+  1: $mz-payment-status-1-color,
+  2: $mz-payment-status-2-color,
+  3: $mz-payment-status-3-color,
+  4: $mz-payment-status-4-color,
+  5: $mz-payment-status-5-color,
+  6: $mz-payment-status-6-color
+);
+
+
+
+
+
+
+/* ##############################################################
+  General
+############################################################## */
+$mz-font-content-loading: '\f110';
+$mz-body-bg-color: #fff;
+$mz-page-min-width: grid-var.$mz-breakpoint-default - grid-var.$mz-window-scrollbar-width; // ! Min with tối thiểu cần set cho các block component, thẻ body không bị scroll ngang
+$mz-home-page-section-margin: 40px; // Khoảng cách giữa các section trang chủ
+
+
+
+
+
+/* ##############################################################
+  Slider grid type 1
+############################################################## */
+$mz-slider-grid-1-xs: 264px;
+$mz-slider-grid-1-sm: 264px;
+$mz-slider-grid-1-md: 264px;
+$mz-slider-grid-1-lg: 296px;
+$mz-slider-grid-1-xl: 328px;
+$mz-slider-grid-1-2xl: 328px;
+
+$mz-map-slider-grid-1: (
+  'xs': $mz-slider-grid-1-xs,
+  'sm': $mz-slider-grid-1-sm,
+  'md': $mz-slider-grid-1-md,
+  'lg': $mz-slider-grid-1-lg,
+  'xl': $mz-slider-grid-1-xl,
+  '2xl': $mz-slider-grid-1-2xl,
+);
+
+/* ##############################################################
+  Slider grid type 2
+############################################################## */
+$mz-slider-grid-2-xs: 128px;
+$mz-slider-grid-2-sm: 128px;
+$mz-slider-grid-2-md: 144px;
+$mz-slider-grid-2-lg: 160px;
+$mz-slider-grid-2-xl: 160px;
+$mz-slider-grid-2-2xl: 160px;
+
+$mz-map-slider-grid-2: (
+  'xs': $mz-slider-grid-2-xs,
+  'sm': $mz-slider-grid-2-sm,
+  'md': $mz-slider-grid-2-md,
+  'lg': $mz-slider-grid-2-lg,
+  'xl': $mz-slider-grid-2-xl,
+  '2xl': $mz-slider-grid-2-2xl,
+);
+
+/* ##############################################################
+  Slider grid type 3
+############################################################## */
+$mz-slider-grid-3-xs: 88px;
+$mz-slider-grid-3-sm: 88px;
+$mz-slider-grid-3-md: 104px;
+$mz-slider-grid-3-lg: 104px;
+$mz-slider-grid-3-xl: 104px;
+$mz-slider-grid-3-2xl: 104px;
+
+$mz-map-slider-grid-3: (
+  'xs': $mz-slider-grid-3-xs,
+  'sm': $mz-slider-grid-3-sm,
+  'md': $mz-slider-grid-3-md,
+  'lg': $mz-slider-grid-3-lg,
+  'xl': $mz-slider-grid-3-xl,
+  '2xl': $mz-slider-grid-3-2xl,
+);
+
+/* ##############################################################
+  Slider grid type 4
+############################################################## */
+$mz-slider-grid-4-xs: 72px;
+$mz-slider-grid-4-sm: 72px;
+$mz-slider-grid-4-md: 72px;
+$mz-slider-grid-4-lg: 72px;
+$mz-slider-grid-4-xl: 72px;
+$mz-slider-grid-4-2xl: 72px;
+
+$mz-map-slider-grid-4: (
+  'xs': $mz-slider-grid-4-xs,
+  'sm': $mz-slider-grid-4-sm,
+  'md': $mz-slider-grid-4-md,
+  'lg': $mz-slider-grid-4-lg,
+  'xl': $mz-slider-grid-4-xl,
+  '2xl': $mz-slider-grid-4-2xl,
+);
+
+/* ##############################################################
+  Slider grid type 5
+############################################################## */
+$mz-slider-grid-5-xs: 56px;
+$mz-slider-grid-5-sm: 56px;
+$mz-slider-grid-5-md: 56px;
+$mz-slider-grid-5-lg: 56px;
+$mz-slider-grid-5-xl: 56px;
+$mz-slider-grid-5-2xl: 56px;
+
+$mz-map-slider-grid-5: (
+  'xs': $mz-slider-grid-5-xs,
+  'sm': $mz-slider-grid-5-sm,
+  'md': $mz-slider-grid-5-md,
+  'lg': $mz-slider-grid-5-lg,
+  'xl': $mz-slider-grid-5-xl,
+  '2xl': $mz-slider-grid-5-2xl,
+);
+
+// Map all slider grid type
+$mz-map-slider-grid: (
+  1: $mz-map-slider-grid-1,
+  2: $mz-map-slider-grid-2,
+  3: $mz-map-slider-grid-3,
+  4: $mz-map-slider-grid-4,
+  5: $mz-map-slider-grid-5,
+);
+
+
+
+
+// ######################################################
+// Font awesonme map weight
+// ######################################################
+$mz-font-awesome-map-weight: (
+  'light': 300,
+  'regular':400,
+  'solid':900,
+);

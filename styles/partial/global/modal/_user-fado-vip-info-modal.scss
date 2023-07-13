@@ -1,0 +1,71 @@
+@use 'sass:math';
+@use 'vars' as vars;
+@use 'mixin/mz-text-size' as mz-text-size;
+
+//=======================================================
+// user fado vip info modal
+//=======================================================
+.user-fado-vip-info-modal {
+  &__close-btn {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    cursor: pointer;
+
+    i {
+      @include mz-text-size.mz-text-size(24px);
+      color: #ffffff;
+    }
+  }
+
+  .modal-dialog {
+    width: 970px;
+  }
+
+  .modal-content {
+    position: relative;
+    background: none;
+  }
+
+  .fado-vip-control-row {
+    $_fado-vip-item-total: 4;
+
+    position: absolute;
+    display: flex;
+    width: 560px;
+    min-height: calc(100% - 65px);
+    right: 0;
+    bottom: 3px;
+
+    &__control-col {
+      flex: 0 0 percentage(math.div(1, $-fado-vip-item-total));
+      transition: opacity vars.$mz-transition-time-default ease;
+
+      &__buy-now {
+        display: block;
+        height: 100%;
+        background: vars.$mz-gray-darker;
+        opacity: 0;
+
+        &:hover {
+          opacity: 0.1;
+        }
+      } // .fado-vip-buy-now__control-col__buy-now
+
+      &__control-group {
+        display: flex;
+        padding-top: 10px;
+        justify-content: center;
+      }
+
+      &__readmore {
+        border-color: vars.$mz-gray-lightest;
+        color: vars.$mz-gray-lightest;
+
+        &:hover {
+          color: vars.$mz-gray-dark;
+        }
+      }
+    } // .fado-vip-buy-now__control-col
+  } // .fado-vip-buy-now
+}

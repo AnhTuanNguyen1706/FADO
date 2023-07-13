@@ -1,0 +1,250 @@
+@use 'vars' as vars;
+@use 'vars-v2' as vars-v2;
+@use 'mixin/mz-text-size' as mz-text-size;
+@use 'mixin/mz-general' as general;
+@use 'mixin/mz-animation' as mz-animation;
+
+//===========================================
+//  regist get point modal
+//===========================================
+.regist-get-point-modal {
+  .modal-dialog {
+    max-width: 700px;
+  }
+
+  .modal-content {
+    background: none;
+    border: none;
+  }
+
+  .close-btn {
+    position: absolute;
+    display: flex;
+    height: 40px;
+    width: 40px;
+    justify-content: center;
+    align-items: center;
+    background: none;
+    border: none;
+    right: 0;
+    top: 0;
+
+    i {
+      @include mz-text-size.mz-text-size(24px);
+    }
+  }
+}
+
+//===========================================
+//  regist get point modal section
+//===========================================
+.regist-get-point-modal {
+}
+
+//===========================================
+//  regist get point modal form block
+//===========================================
+.regist-get-point-modal {
+  &__form-block {
+    position: relative;
+    display: flex;
+    color: #fff;
+    background: #fff url(vars.$mz-image-url + '/bg/regist-point-main-bg.jpg') center/cover no-repeat;
+    border-radius: 4px;
+  }
+}
+
+.regist-get-point-form {
+  &__form-col {
+    flex: 1 1;
+    padding: 48px 44px 34px 32px;
+  }
+
+  &__bg-col {
+    width: 282px;
+    background: url(vars.$mz-image-url + '/bg/regist-point-sub-bg.png') center/ cover no-repeat;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
+  }
+
+  // regist-get-point-form__notice
+  //--------------------------------
+  &__notice {
+    margin-bottom: 24px;
+  }
+
+  &__notice-label {
+    @include mz-text-size.mz-text-size('h2');
+    font-weight: 700;
+    margin-bottom: 16px;
+
+    span {
+      @include mz-text-size.mz-text-size(18px);
+    }
+  }
+
+  &__notice-point {
+    @include mz-text-size.mz-text-size(48px);
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+
+  // regist-get-point-form__form
+  //--------------------------------
+  &__form {
+    margin-bottom: 26px;
+
+    .mz-form-error-label {
+      position: relative;
+      text-align: left;
+      color: #fff;
+      top: -8px;
+      margin-top: 0;
+      margin-bottom: 8px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__input-outer {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 16px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+    button {
+      position: absolute;
+      right: 0;
+      top: 0;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+
+  &__input {
+    padding-right: 40px;
+    border: none;
+
+    &:focus {
+      border: none;
+      box-shadow: none;
+    }
+  }
+
+  &__captch-input {
+    text-align: center;
+    padding: 0 12px;
+  }
+
+  &__captcha-img {
+    height: 34px;
+    margin-right: 8px;
+  }
+
+  &__captcha-btn {
+    border-color: #fff;
+    color: #fff;
+
+    &:hover {
+      background: #fff;
+      color: vars.$mz-primary;
+    }
+  }
+
+  &__skip-label {
+    text-decoration: underline;
+    @include general.mz-fix-event-click();
+  }
+}
+
+//===========================================
+//  regist get point modal form loading
+//===========================================
+.regist-get-point-modal {
+  &__form-block {
+    .loading-box {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: rgba(#fff, 0.5);
+      left: 0;
+      top: 0;
+      opacity: 0;
+      z-index: -1;
+
+      .loading-icon {
+        font-style: normal;
+        @include mz-animation.mz-animation-spin();
+
+        &::before {
+          @include mz-text-size.mz-text-size(24px);
+          color: vars.$mz-gray;
+          content: "\f110";
+          font-weight: 700;
+          font-family: vars.$mz-font-family-fa5;
+        }
+      }
+    } // .loading-box
+
+    &.is-loading {
+      .loading-box {
+        z-index: 1;
+        opacity: 1;
+        transition: 0.3s;
+        transition-property: opacity;
+      }
+    } // .is-loading
+  }
+}
+
+//===========================================
+//  regist get point modal notice block
+//===========================================
+.regist-get-point-modal {
+  &__notice-block {
+    position: relative;
+    text-align: center;
+    background: #fff url(vars.$mz-image-url + '/bg/regist-point-success-bg.png') center/cover no-repeat;
+    padding: 36px 16px;
+
+    &__inner {
+      max-width: 410px;
+      margin: 0 auto;
+    }
+  }
+}
+
+.regist-get-point-notice {
+  &__success-icon {
+    height: 129px;
+    margin-bottom: 16px;
+  }
+
+  &__thank-label {
+    @include mz-text-size.mz-text-size('h3');
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+
+  &__email-info-label {
+    @include mz-text-size.mz-text-size('md');
+    font-weight: 700;
+    margin-bottom: 14px;
+
+    &.--is-inline {
+      white-space: nowrap;
+    }
+  }
+
+  &__content {
+    color: vars.$mz-gray-dark;
+  }
+}

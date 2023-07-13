@@ -1,0 +1,77 @@
+@use 'vars' as vars;
+
+.landing-product-layout {
+  margin-bottom: 40px;
+  min-width: vars.$mz-page-min-width;
+  padding-top: 370px;
+  position: relative;
+
+  &__bner {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 430px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  &__body {
+    background: #fff;
+    padding: 16px;
+    position: relative;
+    z-index: 2;
+    min-height: 300px;
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 200px;
+      z-index: -1;
+      box-shadow: 0 20px 0 0 #fff, 0 0 15px 0 rgba(0,0,0,.08);
+    }
+  }
+
+  &__title {
+    text-align: center;
+    font-size: 20px;
+    line-height: 26px;
+    font-weight: 500;
+    margin: 10px 0 30px;
+  }
+}// .landing-product-layout
+
+// ===================================
+//  Bner Segment
+// ===================================
+.landing-product-layout {
+  &__bner-segment {
+    display: flex;
+    margin: 0 -15px;
+    flex-wrap: wrap;
+    padding-bottom: 10px;
+  }
+
+  &__bner-col {
+    min-width: 1px;
+    flex: 0 0 50%;
+    padding: 0 15px;
+    margin-bottom: 30px;
+  }
+
+  &__bner-item {
+    display: block;
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  &__bner-img {
+    width: 100%;
+  }
+}//

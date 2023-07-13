@@ -1,0 +1,106 @@
+@use 'vars' as vars;
+@use 'mixin/mz-text-size' as mz-text-size;
+@use 'function/mz/mz-color' as mz-color;
+
+.seller-product-block {
+
+  .seller-product-info-row {
+    display: flex;
+    flex-wrap: nowrap;
+    margin-top: 8px;
+
+    &:first-child {
+      margin-top: 0;
+    }
+  }
+
+  .seller-product-info-col {
+    position: relative;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    padding-right: 18px;
+
+    &:before {
+      position: absolute;
+      content: "";
+      top: 10px;
+      right: 8px;
+      width: 3px;
+      height: 3px;
+      border-radius: 50%;
+      background: vars.$mz-gray-dark;
+    }
+
+    &:last-child {
+      padding-right: 0;
+
+      &:before {
+        content: unset;
+      }
+    }
+  }
+
+  .seller-product-info-name {
+    @include mz-text-size.mz-text-size-from-font-size-key('md');
+    font-weight: 700;
+    color: vars.$mz-gray-darker;
+
+    &:hover {
+      color: mz-color.mz-get-hover-color(vars.$mz-gray-darker);
+    }
+  }
+
+
+  .seller-product-info-rating {
+    .rating-number {
+      @include mz-text-size.mz-text-size-from-font-size-key('normal');
+      font-weight: 700;
+      color: vars.$mz-gray-darker;
+      margin-right: 8px;
+    }
+
+    .rating-star {
+      i {
+        letter-spacing: 2px;
+        @include mz-text-size.mz-text-size-from-font-size-key('xs');
+      }
+    }
+
+    .total-review-label {
+      @include mz-text-size.mz-text-size-from-font-size-key('xs');
+      margin-left: 8px;
+    }
+  }
+
+  .seller-product-info-source, .seller-product-info-brand {
+    color: vars.$mz-gray-darker;
+    @include mz-text-size.mz-text-size-from-font-size-key('xs');
+  }
+
+  .seller-product-info-title {
+    margin-right: 4px;
+  }
+
+  .seller-product-info-variation {
+    display: flex;
+    flex-wrap: nowrap;
+  }
+
+  .variation-col {
+    display: flex;
+    flex-wrap: nowrap;
+    margin-right: 8px;
+    color: vars.$mz-gray-dark;
+    @include mz-text-size.mz-text-size-from-font-size-key('xs');
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    .variation-name {
+      font-weight: 700;
+      margin-right: 4px;
+    }
+  }
+}

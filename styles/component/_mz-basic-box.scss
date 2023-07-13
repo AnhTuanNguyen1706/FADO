@@ -1,0 +1,66 @@
+@use 'vars' as vars;
+@use 'mixin/mz-text-size' as mz-text-size;
+@use 'mixin/mz-general' as general;
+
+.mz-basic-box {
+  position: relative;
+  margin-top: 32px;
+  padding-bottom: 32px;
+  border-bottom: solid 1px vars.$mz-gray-light;
+
+  &:last-child {
+    border-bottom: unset;
+  }
+
+  &__overlay {
+    position: absolute;
+    z-index: 5;
+    border-radius: vars.$mz-rounded-sm;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    opacity: 0.4;
+  }
+
+  &__head {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16px;
+    align-items: center;
+  }
+
+  &__title-viewmore {
+    margin-right: auto;
+    margin-left: 16px;
+    font-weight: 700;
+    color: vars.$mz-primary;
+    @include general.mz-fix-event-click;
+  }
+
+  &__title {
+    @include mz-text-size.mz-text-size(18px);
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    text-transform: uppercase;
+  }
+
+  &__body {
+  }
+
+  &.has-box {
+    padding: 16px;
+    border-radius: 8px;
+    border: solid 1px rgba(vars.$mz-gray-light, 0.5);
+    overflow: hidden;
+    margin-top: 16px;
+  }
+}// .mz-basic-box
+
+.product-detail-page {
+  .mz-basic-box__title {
+    font-weight: 800;
+  }
+}

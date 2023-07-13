@@ -1,0 +1,191 @@
+@use 'vars' as vars;
+@use 'vars-v2' as vars-v2;
+@use 'mixin/mz-text-size' as mz-text-size;
+@use 'mixin/mz-border-radius' as mz-border-radius;
+
+.user-notification-section {
+
+}// .user-notification-section
+
+/* ##############################################################
+  Section head
+################################################################# */
+.user-notification-section {
+  .section-head {
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+  }
+
+  .section-title {
+    @include mz-text-size.mz-text-size(24px);
+    margin-right: 16px;
+  }
+
+  .notification-couter-field {
+    @include mz-border-radius.mz-border-radius-from-key('round');
+    padding: 0 10px;
+    color: #fff;
+    @include mz-text-size.mz-text-size(10px);
+    background: vars.$mz-primary;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    position: relative;
+    top: 2px; // hiệu chỉnh cân bằng với section title
+  }
+
+  .filter-segment {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+
+    .filter-label {
+      margin-right: 8px;
+      @include mz-text-size.mz-text-size-from-font-size-key('sm');
+      font-weight: 700;
+    }
+
+    .filter-form-control {
+      width: 170px;
+    }
+  }// .filter-segment
+}// .user-notification-section
+
+/* ##############################################################
+  Section body
+################################################################# */
+
+/* =============================================
+  Notification list block
+================================================ */
+.user-notification-section {
+  .notification-list-block {
+    border: 1px solid vars.$mz-gray-lighter;
+    @include mz-border-radius.mz-border-radius-from-key('xs');
+  }
+
+  .notification-card {
+    border-bottom: 1px solid vars.$mz-gray-lighter;
+    display: flex;
+    padding: 16px 24px 16px 0;
+    background: vars.$mz-gray-lightest;
+
+    &:first-child {
+      border-radius: vars.$mz-rounded-xs vars.$mz-rounded-xs 0 0;
+    }
+
+    &:last-child {
+      border-bottom: 0;
+    }
+
+    &__date-col {
+      flex: 0 0 132px;
+      min-width: 0;
+      display: flex;
+      justify-content: center;
+      @include mz-text-size.mz-text-size-from-font-size-key('xs');
+      text-align: center;
+    }
+
+    &__icon-col {
+      flex: 0 0 40px;
+      min-width: 0;
+      display: flex;
+      justify-content: center;
+      margin-right: 16px;
+    }
+
+    &__content-col {
+      flex: 1 1;
+      min-width: 0;
+    }
+
+    &__title {
+      font-weight: 700;
+
+    }
+
+    &__content {
+      margin-top: 4px;
+      @include mz-text-size.mz-text-size-from-font-size-key('xs');
+      color: vars.$mz-gray-dark;
+      margin-right: auto;
+    }
+
+    &__action-col {
+      margin-left: 16px;
+      display: flex;
+      align-items: center;
+    }
+
+    &__label-btn {
+      background: vars.$mz-primary;
+      @include mz-border-radius.mz-border-radius-from-key('round');
+      height: 24px;
+      display: inline-flex;
+      align-items: center;
+      @include mz-text-size.mz-text-size-from-font-size-key('xs');
+      color: #fff;
+      padding: 0 12px;
+    }
+
+    &__img-col {
+      flex: 0 0 80px;
+      margin: -8px 0 -8px 16px;
+    }
+
+    &__img-field {
+      text-align: center;
+    }
+
+    &__img {
+      max-width: 80px;
+      height: auto;
+    }
+
+    &.is-seen {
+      background: #fff;
+    }
+
+    &.has-hover {
+      &:hover {
+        background: vars-v2.$secondary-300;
+        cursor: pointer;
+      }
+    }
+  }// .notification-card
+
+  .next-segment {
+    border-top: 1px solid vars.$mz-gray-lighter;
+    text-align: center;
+    padding: 16px;
+    color: vars.$mz-link-color;
+    cursor: pointer;
+
+    &:hover {
+      background: vars-v2.$secondary-300;
+    }
+  }
+}// .user-notification-section
+
+/* =============================================
+  Empty block
+================================================ */
+.user-notification-section {
+  .empty-block {
+    padding: 200px 0;
+    margin: 0 auto;
+    text-align: center;
+
+    .empty-img {
+      max-width: 140px;
+    }
+
+    .block-title {
+      margin-top: 22px;
+      @include mz-text-size.mz-text-size(20px);
+    }
+  }// .empty-block
+}// .user-notification-section

@@ -1,0 +1,12 @@
+.news-category-block {
+  &__news-panel-wrap {
+    position: relative;
+    left: -20px;
+    width: 800px;
+  }
+
+  .pagination-nav-old {
+    border-top: 1px solid #e1e1e1;
+    padding: 15px 0;
+  }
+}// .news-category-block

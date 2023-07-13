@@ -1,0 +1,167 @@
+@use 'vars' as vars;
+@use 'mixin/old-bg-fd-grd' as old-bg-fd-grd;
+
+.foreign-branch-block {
+  &__title {
+    text-align: center;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 20px;
+  }
+
+}// .foreign-branch-block
+
+// ===================================
+// Tab list
+// ===================================
+.foreign-branch-block {
+  &__tab-list {
+    display: flex;
+    height: 40px;
+    margin-bottom: 15px;
+    padding: 2px;
+    list-style: none;
+    border: 1px solid #e1e1e1;
+    border-radius: 50px;
+  }
+
+  &__tab-item {
+    display: flex;
+    flex: 1 1;
+    justify-content: center;
+    align-items: center;
+    height: 34px;
+    border-radius: 50px;
+    cursor: pointer;
+    font-size: 16px;
+    line-height: 22px;
+
+    &.is-active {
+      font-weight: 500;
+      background: #e1e1e1;
+      cursor: auto;
+
+      &:hover {
+        color: vars.$mz-text-body-color;
+      }
+    }
+
+    &:hover {
+      color: vars.$mz-link-color;
+    }
+  } // &__tab-item
+}// .foreign-branch-block
+
+// ===================================
+// Foreign tab
+// ===================================
+.foreign-branch-block {
+  &__foreign-tab-wrap {
+    position: relative;
+    height: 500px;
+  }
+
+  &__foreign-tab {
+    position: absolute;
+    left: 20px;
+    top: 20px;
+    background: #fff;
+    display: none;
+    width: 360px;
+    z-index: 5;
+    box-shadow: 0 0 5px rgba(#000,0.1);
+
+    &.is-show {
+      display: block;
+    }
+  }
+
+  //#region - branch segment
+  // ---------
+  &__branch-segment {
+    border-bottom: 1px solid #e1e1e1;
+
+    &:last-child {
+      border-bottom: 0;
+    }
+  }
+
+  &__branch-segment__title {
+    font-weight: 500;
+    padding: 10px 15px;
+  }
+  //#endregion - branch segment
+
+  //#region - branch panel
+  // ---------
+  &__branch-panel {
+    padding: 10px 15px;
+    border-bottom: 1px dashed #e1e1e1;
+    position: relative;
+    cursor: pointer;
+
+    &:last-child {
+      border-bottom: 0;
+    }
+
+    &:hover {
+      background: lighten(#e1e1e1,9%);
+    }
+
+    &.is-active {
+      &::before {
+        content: '';
+        @include old-bg-fd-grd.old-bg-fd-grd();
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 3px;
+        height: 100%;
+        z-index: 2;
+      }
+    }
+  }
+
+  &__branch-info-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }// &__branch-info-item
+
+  &__branch-info-item__icon-col {
+    color: vars.$mz-link-color;
+    flex: 0 0 24px;
+    margin-right: 10px;
+  }
+
+  &__branch-work-time {
+    color: #2c931d;
+    font-style: italic;
+  }
+
+  &__branch-phone {
+    color: vars.$mz-text-body-color;
+
+    &:hover {
+      color: vars.$mz-link-color;
+    }
+  }
+  //#endregion - branch panel
+
+  &__map-frame {
+    height: 500px;
+    background: #ededed;
+
+    .map-content {
+      font-size: 13px;
+      line-height: 18px;
+      text-align: center;
+      max-width: 290px;
+    }
+  }
+}// .foreign-branch-block

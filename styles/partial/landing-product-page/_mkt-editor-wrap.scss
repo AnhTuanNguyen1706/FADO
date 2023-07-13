@@ -1,0 +1,11 @@
+@use 'vars' as vars;
+
+//=============================================
+// mkt-editor-wrap
+//=============================================
+.mkt-editor-wrap {
+  padding: 40px;
+  margin-bottom: vars.$mz-home-page-section-margin;
+  margin-top: vars.$mz-home-page-section-margin;
+  background: rgba(#ffffff, 0.4);
+}

@@ -1,0 +1,227 @@
+@use 'sass:math';
+@use 'vars' as vars;
+@use 'vars-v2' as vars-v2;
+@use 'mixin/mz-text-size' as mz-text-size;
+@use 'function/mz/mz-color' as mz-color;
+@use 'mixin/mz-general' as general;
+
+.home-feedback-section {
+  background: #fff;
+  position: relative;
+  margin-bottom: 40px;
+}// .home-feedback-section
+
+
+//===================================
+// Section head
+//===================================
+.home-feedback-section {
+  .section-head {
+    position: relative;
+
+    &:before {
+      content: "";
+      top: 50%;
+      position: absolute;
+      margin-top: -0.5px;
+      width: 100%;
+      height: 1px;
+      background: rgba(vars.$mz-gray, 0.2);
+      z-index: vars.$mz-z-index-lv-0;
+    }
+  }
+
+  .section-head-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .section-title-group {
+    position: relative;
+    display: flex;
+    background: #fff;
+    padding-left: 10px;
+    padding-right: 16px;
+    z-index: vars.$mz-z-index-lv-1;
+    top: -2px;
+    align-items: center;
+  }
+
+  .section-title {
+
+    i {
+      margin-left: 8px;
+      position: relative;
+      top: 2px;
+    }
+  }
+
+  .readmore-label {
+    position: relative;
+    margin-left: 12px;
+    top: 3px;
+  }
+
+  .readmore-label-inner {
+    font-weight: 700;
+  }
+
+  .section-title-inner {
+    position: relative;
+    z-index: vars.$mz-z-index-lv-1;
+  }
+
+  .write-feedback-btn {
+    position: relative;
+    z-index: vars.$mz-z-index-lv-1;
+    padding: 0 16px;
+    font-weight: 700;
+  }
+}
+
+//===================================
+// Home feedback block
+//===================================
+.home-feedback-block {
+  position: relative;
+  padding: 32px 0 0;
+}
+
+//===================================
+// Slider segmemt
+//===================================
+.home-feedback-section {
+  .slider-segment {
+    position: relative;
+  }
+
+  .swiper-control {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 24px;
+  }
+
+  .swiper-pagination-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+  }
+
+  .swiper-pagination-feedback {
+    background: #fff;
+    z-index: 2;
+    padding: 0 16px;
+
+    span{
+      margin: 0 6px;
+      background: vars.$mz-gray-light;
+      opacity: 1;
+      outline: unset!important;
+
+      &.swiper-pagination-bullet-active {
+        background: vars-v2.$primary-900;
+      }
+
+      &:hover {
+        background: vars-v2.$primary-900;
+      }
+    }
+  }
+}
+
+//===================================
+// Feedback panel
+//===================================
+.home-feedback-block {
+  .feedback-panel-outer {
+    width: (math.div(100%, 4));
+  }
+
+  .panel-head {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+
+  .img-col {
+    margin-right: 8px;
+  }
+
+  .info-col {
+    flex: 0 1 auto;
+  }
+
+  .customer-name {
+    font-weight: 700;
+    margin-bottom: 4px;
+    display: flex;
+    justify-content: space-between;
+    @include general.mz-limit-text-line(16px, 1);
+  }
+
+  .customer-rating {
+    @include mz-text-size.mz-text-size(16px);
+    font-weight: 600;
+    color: vars.$mz-warning;
+  }
+
+  .customer-job {
+    @include mz-text-size.mz-text-size('sm');
+    color: vars.$mz-gray;
+  }
+
+  .panel-body {
+    color: vars.$mz-gray-dark;
+    @include mz-text-size.mz-text-size('sm');
+    @include general.mz-limit-text-line('sm',3);
+  }
+}
+
+//===================================
+// avatar-field
+//===================================
+.home-feedback-block {
+  .avatar-field {
+    display: flex;
+    width: 48px;
+    height: 48px;
+    border-radius: vars.$mz-rounded-circle;
+    background: vars-v2.$primary-900;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+    padding-top: 2px;
+    color: vars.$mz-gray-dark;
+    text-transform: uppercase;
+    box-shadow: 0 0 1px rgba(#000,0.1) inset;
+
+    $_map-avatar-color: (
+      'primary','danger','warning','success','info',
+    );
+
+    // @each $_color-key in $_map-avatar-color {
+    //   &.is-#{$_color-key} {
+    //     background: mz-get-color-with-level($_color-key);
+    //   }
+    // }
+
+    .avatar-label {
+      color: #fff;
+    }
+  } // end .avatar-field
+
+  .avatar-label {
+    font-size: 18px;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+}

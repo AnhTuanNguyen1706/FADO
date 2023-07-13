@@ -1,0 +1,81 @@
+@use 'vars' as vars;
+@use 'mixin/mz-text-size' as mz-text-size;
+
+.seller-product-tab {
+  position: relative;
+  display: flex;
+  width: 100%;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+
+  &:before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 1px;
+    left: 0;
+    bottom: 0;
+    background: rgba(vars.$mz-gray-light, 0.5);
+    z-index: vars.$mz-z-index-lv-0;
+  }
+
+  .seller-product-tab-list {
+    display: flex;
+    flex-wrap: nowrap;
+    z-index: vars.$mz-z-index-lv-1;
+  }
+
+  .seller-product-tab-item {
+    position: relative;
+    padding: 12px 0;
+    @include mz-text-size.mz-text-size-from-font-size-key('xs');
+    color: vars.$mz-gray;
+    margin-right: 16px;
+    text-transform: uppercase;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &:before {
+      position: absolute;
+      content: none;
+      width: 100%;
+      height: 1px;
+      bottom: 0;
+      left: 0;
+      background: vars.$mz-gray-darker;
+    }
+
+    &:hover {
+      color: vars.$mz-gray-darker;
+    }
+
+    &.is-active {
+      color: vars.$mz-gray-darker;
+
+      &:before {
+        content: '';
+      }
+    }
+  }
+
+  .seller-list-get-extra-info {
+    width: 120px;
+
+    .loading-extra-info {
+      display: none;
+    }
+
+    &.is-loading {
+      .mz-btn__icon-col, .mz-btn__label-col {
+        display: none;
+      }
+
+      .loading-extra-info {
+        display: block;
+      }
+    }
+  }
+}

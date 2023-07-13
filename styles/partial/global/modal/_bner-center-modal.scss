@@ -1,0 +1,34 @@
+@use 'mixin/mz-general' as general;
+@use 'lib/mz-grid-framework/mixin/mz-screen-max' as mz-screen-max;
+
+.bner-center-modal {
+  .modal-dialog {
+    margin: 0 auto;
+    @include mz-screen-max.mz-screen-max();
+  }
+
+  .modal-content {
+    position: relative;
+  }
+
+  .close-btn {
+    position: absolute;
+    right: 0;
+    bottom: 100%;
+    height: 32px;
+    width: 32px;
+    display: flex;
+    background: transparent;
+    border: 0;
+    @include general.mz-fix-event-click();
+    font-size: 18px;
+    line-height: 1;
+    color: rgba(#fff,0.8);
+    justify-content: center;
+    align-items: center;
+  }
+
+  .bner-img-field {
+    display: block;
+  }
+}// .bner-center-modal

@@ -1,0 +1,284 @@
+@use 'vars' as vars;
+@use 'mixin/mz-text-size' as mz-text-size;
+
+$_circle-width: 594px;
+
+.prime-lucky-draw-section {
+  // background: #0296d6 url(vars.$mz-image-url + '/page/prime-day/lucky-wheel-bg-desktop1.png' + vars.$mz-cache-ver-suffix) no-repeat top center;
+  height: 948px;
+
+  .main-bner-primeday {
+    height: 100%;
+    width: auto;
+    object-fit: cover;
+  }
+
+  .section-inner {
+    padding: 64px 0;
+    position: relative;
+  }
+
+  &+ .prime-cate-bner-section {
+    position: relative;
+    z-index: 10;
+    margin-top: -388px;
+    // padding-top: 104px;
+  }
+
+  &.is-show-full + .prime-cate-bner-section {
+    margin-top: 0;
+    padding-top: 32px;
+  }
+}
+
+
+
+/* ------------------
+  Logo segment
+--------------------- */
+.prime-lucky-draw-section {
+  .logo-segment {
+    text-align: center;
+    margin-bottom: 32px;
+
+    .logo-img {
+      width: 320px;
+    }
+  }// .logo-segment
+}// .prime-lucky-draw-section
+
+
+
+
+
+
+
+
+
+
+
+/* ------------------
+  Left column
+--------------------- */
+.prime-lucky-draw-section {
+  .open-rule-field {
+    position: absolute;
+    left: 50%;
+    margin-left: -316px;
+    top: 246px;
+
+    .open-rule-btn {
+      display: inline-flex;
+      width: 174px;
+      height: 61px;
+      cursor: pointer;
+
+      &:hover {
+        .btn-img {
+          background-image: url(vars.$mz-image-url + '/page/prime-day/open-rule-btn-hover@2x.png' + vars.$mz-cache-ver-suffix);
+        }
+      }
+    }
+
+    .btn-img {
+      background: url(vars.$mz-image-url + '/page/prime-day/open-rule-btn@2x.png' + vars.$mz-cache-ver-suffix) no-repeat center;
+      background-size: auto 61px;
+      width: 100%;
+      height: 100%;
+    }
+  }// .open-rule-field
+}// .prime-lucky-draw-section
+
+
+
+
+
+
+
+
+/* ------------------
+ Game segment
+--------------------- */
+.prime-lucky-draw-section {
+  .game-segment {
+    position: relative;
+    height: $_circle-width;
+    width: $_circle-width;
+    margin: 0 auto;
+    top: 52px;
+
+    &.is-blur {
+      filter: blur(2px);
+      pointer-events: none;
+    }
+  }
+
+  // CIRCLE
+  .circle {
+    height: 100%;
+  }// .circle
+
+  .circle-inner {
+    will-change: transform;
+  }
+
+  .circle-arrow-shape {
+    position: absolute;
+    width: 54px;
+    left: 50%;
+    margin-left: -27px;
+    top: 190px;
+  }
+
+  .circle-img {
+    width: 100%;
+  }
+
+  .play-btn {
+    z-index: 20; // nằm trên phần bner section bên dưới
+    position: absolute;
+    width: 148px;
+    height: 148px;
+    left: 50%;
+    top: 50%;
+    margin-left: -74px;
+    margin-top: -74px;
+    background: url(vars.$mz-image-url + '/page/prime-day/play-btn.png' + vars.$mz-cache-ver-suffix) no-repeat center;
+    background-size: contain;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    color: #fff;
+    @include mz-text-size.mz-text-size(24px);
+    font-weight: 700;
+
+    &.is-disabled {
+      background-image: url(vars.$mz-image-url + '/page/prime-day/play-btn-disabled.png' + vars.$mz-cache-ver-suffix);
+      cursor: pointer;
+    }
+
+    &:hover {
+      animation: _coupon-item-pop 0.5s ease;
+    }
+  }
+}// .prime-lucky-draw-section
+
+@keyframes _play-btn-pop {
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ------------------
+  Right column
+--------------------- */
+.prime-lucky-draw-section {
+  .right-col {
+    position: absolute;
+    top: 260px;
+    width: 336px;
+    right: 0;
+    text-align: right;
+  }
+
+  .today-gift-segment {
+    display: flex;
+    align-items: flex-end;
+
+    .today-gift-field {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 8px;
+      width: 232px;
+    }
+
+    .gift-col {
+      min-width: 0;
+    }
+
+    .gift-item {
+      position: relative;
+
+      &::before {
+        content: '';
+        display: block;
+        padding-bottom: 100%;
+      }
+    }
+
+    .gift-item-inner {
+      background: #fff;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border-radius: 16px;
+      border: 1px dashed #bbd7ed;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 12px;
+    }
+  }// .today-gift-field
+
+  .open-gift-list-btn {
+    position: relative;
+    top: 32px;
+    border: 0;
+    display: inline-flex;
+    width: 110px;
+    height: 148px;
+    margin-right: -8px;
+    cursor: pointer;
+    background: url(vars.$mz-image-url + '/page/prime-day/open-gift-list-btn@3x.png' + vars.$mz-cache-ver-suffix) no-repeat left center;
+    background-size: auto 148px;
+
+    &:hover {
+      background-position-x: -110px;
+    }
+
+    &:focus, &:active {
+      background-position-x: -220px;
+    }
+  }
+
+  .open-share-field {
+    margin: 32px 0 0 auto;
+
+    .open-share-btn {
+      display: inline-flex;
+      width: 258px;
+      height: 96px;
+      margin-right: -8px;
+      cursor: pointer;
+      background: url(vars.$mz-image-url + '/page/prime-day/open-share-btn@2x.png' + vars.$mz-cache-ver-suffix) no-repeat top center;
+      background-size: 258px auto;
+      border: 0;
+
+      &:hover {
+        background-position-y: -96px;
+      }
+
+      &:focus, &:active {
+        background-position-y: -192px;
+      }
+    }
+  }// .open-share-field
+}// .prime-lucky-draw-section

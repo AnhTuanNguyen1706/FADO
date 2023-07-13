@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 64 (93537) - https://sketch.com -->
+    <title>icon-qrcode</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="icon-qrcode" fill="#0080FF" fill-rule="nonzero">
+            <path d="M15,0 L0,0 L0,15 L15,15 L15,0 Z M12.5,12.5 L2.5,12.5 L2.5,2.5 L12.5,2.5 L12.5,12.5 Z" id="Shape"></path>
+            <polygon id="Path" points="5 5 10 5 10 10 5 10"></polygon>
+            <path d="M0,40 L15,40 L15,25 L0,25 L0,40 Z M2.5,27.5 L12.5,27.5 L12.5,37.5 L2.5,37.5 L2.5,27.5 Z" id="Shape"></path>
+            <polygon id="Path" points="5 30 10 30 10 35 5 35"></polygon>
+            <path d="M25,0 L25,15 L40,15 L40,0 L25,0 Z M37.5,12.5 L27.5,12.5 L27.5,2.5 L37.5,2.5 L37.5,12.5 Z" id="Shape"></path>
+            <polygon id="Path" points="30 5 35 5 35 10 30 10"></polygon>
+            <polygon id="Path" points="5 17.5 0 17.5 0 22.5 7.5 22.5 7.5 20 5 20"></polygon>
+            <polygon id="Path" points="17.5 22.5 22.5 22.5 22.5 27.5 17.5 27.5"></polygon>
+            <polygon id="Path" points="7.5 17.5 12.5 17.5 12.5 20 7.5 20"></polygon>
+            <polygon id="Path" points="22.5 30 17.5 30 17.5 32.5 20 32.5 20 35 22.5 35 22.5 32.5"></polygon>
+            <polygon id="Path" points="15 17.5 15 20 12.5 20 12.5 22.5 17.5 22.5 17.5 17.5"></polygon>
+            <polygon id="Path" points="20 10 22.5 10 22.5 15 20 15"></polygon>
+            <polygon id="Path" points="22.5 20 22.5 22.5 27.5 22.5 27.5 17.5 20 17.5 20 20"></polygon>
+            <polygon id="Path" points="17.5 15 20 15 20 17.5 17.5 17.5"></polygon>
+            <polygon id="Path" points="22.5 35 27.5 35 27.5 40 22.5 40"></polygon>
+            <polygon id="Path" points="17.5 35 20 35 20 40 17.5 40"></polygon>
+            <polygon id="Path" points="22.5 27.5 25 27.5 25 30 22.5 30"></polygon>
+            <polygon id="Path" points="22.5 7.5 22.5 2.5 20 2.5 20 0 17.5 0 17.5 10 20 10 20 7.5"></polygon>
+            <polygon id="Path" points="30 35 32.5 35 32.5 40 30 40"></polygon>
+            <polygon id="Path" points="30 30 35 30 35 32.5 30 32.5"></polygon>
+            <polygon id="Path" points="27.5 32.5 30 32.5 30 35 27.5 35"></polygon>
+            <polygon id="Path" points="25 30 27.5 30 27.5 32.5 25 32.5"></polygon>
+            <polygon id="Path" points="35 25 35 27.5 37.5 27.5 37.5 30 40 30 40 25 37.5 25"></polygon>
+            <polygon id="Path" points="37.5 32.5 35 32.5 35 40 40 40 40 35 37.5 35"></polygon>
+            <polygon id="Path" points="25 25 25 27.5 32.5 27.5 32.5 22.5 27.5 22.5 27.5 25"></polygon>
+            <polygon id="Path" points="30 17.5 30 20 35 20 35 22.5 40 22.5 40 17.5 35 17.5"></polygon>
+        </g>
+    </g>
+</svg>

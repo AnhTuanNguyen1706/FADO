@@ -1,0 +1,22 @@
+@use 'vars' as vars;
+
+.deal-page {
+  background: vars.$mz-gray-lightest;
+
+  .header-section {
+    transform: none;
+
+    &.headroom--unpinned {
+      transform: none;
+    }
+  }
+}
+
+// =============================================
+// Fix google translate
+// =============================================
+html.translated-ltr .deal-page {
+  .header-section {
+    top: 0;
+  }
+}

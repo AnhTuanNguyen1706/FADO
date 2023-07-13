@@ -1,0 +1,17 @@
+// Partials in order page
+// ---------
+
+@use "partial/order-page/order-header-section";
+@use "partial/order-page/order-footer-section";
+
+body {
+  height: 100vh;
+}
+
+.order-footer-section {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+}

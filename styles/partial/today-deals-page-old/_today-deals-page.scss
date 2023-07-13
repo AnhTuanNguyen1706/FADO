@@ -1,0 +1,27 @@
+@use 'vars' as vars;
+
+.today-deals-page {
+  background: vars.$mz-body-bg-color;
+
+  .header-section {
+    transform: none;
+
+    &.headroom--unpinned {
+      transform: none;
+    }
+  }
+}
+
+.today-deals-page-body {
+  position: relative;
+  overflow: hidden;
+}
+
+// =============================================
+// Fix google translate
+// =============================================
+html.translated-ltr .today-deals-page {
+  .header-section {
+    top: 0;
+  }
+}

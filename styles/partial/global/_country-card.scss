@@ -1,0 +1,130 @@
+@use 'vars' as vars;
+@use 'mixin/mz-text-size' as mz-text-size;
+@use 'mixin/mz-box-shadow' as mz-shadow;
+
+// ========================================================================
+// country-card
+// ========================================================================
+$_country-code-map: (
+  'us',
+  'uk',
+  'de',
+  'jp',
+  'sgp',
+  'au',
+);
+
+.country-card  {
+  position: relative;
+  top: 0;
+  transition: all vars.$mz-transition-time-xs ease;
+
+  &__inner {
+    display: block;
+    padding: 12px 12px 20px 12px;
+    border-radius: vars.$mz-rounded-md;
+    background: #fff;
+    text-align: center;
+    transition: all vars.$mz-transition-time-xs ease;
+    @include mz-shadow.mz-shadow-from-key('lg');
+  }
+
+  &__flag-icon {
+    position: absolute;
+    display: block;
+    left: 8px;
+    top: 12px;
+
+    &:before {
+      content: '';
+      display: block;
+      width: 42px;
+      height: 36px;
+      background: center/contain no-repeat;
+    }
+
+    @each $_country-code in $_country-code-map {
+      &.is-flag-#{$_country-code} {
+        &:before {
+          background-image: url(vars.$mz-image-url+'/icons/flag-'+$_country-code+'.png');
+        }
+      }
+    }
+  } // end .country-card-segment__flag-icon
+
+  &__img-outer {
+    position: relative;
+    height: 124px;
+    margin-top: -8px;
+    margin-bottom: 8px;
+    overflow: hidden;
+
+    &:before {
+      position: absolute;
+      content: '';
+      display: block;
+      width: 100%;
+      height: 200px;
+      left: 0;
+      bottom: 0;
+      transition: background 0.3s ease;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    max-width: none;
+    max-height: none;
+    -webkit-filter: grayscale(100%);
+    filter: grayscale(100%);
+    mix-blend-mode: normal;
+    transition: mix-blend-mode 0.3s ease;
+  }
+
+  &__title {
+    @include mz-text-size.mz-text-size('h3');
+    color: vars.$mz-gray-darker;
+  }
+
+  &__product-quantity {
+    color: vars.$mz-gray-root;
+    margin-top: 4px;
+  }
+} // end .country-card
+
+// ----------------------------------------------------
+// .country-card__item :hover, .is-active
+// ----------------------------------------------------
+$country-bg-color-map: (
+  'us': vars.$mz-primary-lighter,
+  'uk': vars.$mz-warning-lighter,
+  'de': vars.$mz-info-lighter,
+  'jp': vars.$mz-danger-lighter,
+  'sgp': #cec9c1,
+  'au': vars.$mz-secondary-lighter,
+);
+
+.country-card {
+  &:hover, &.is-active {
+    top: -4px;
+
+    @each $_country-code in $_country-code-map {
+      $country-bg-color: map-get($country-bg-color-map, $_country-code);
+
+      &.is-#{$_country-code} {
+        .country-card__inner {
+          background: $country-bg-color;
+          box-shadow: 0 24px 32px -12px rgba($country-bg-color, 0.3);
+        }
+      }
+    }
+
+    .country-card__img {
+      mix-blend-mode: luminosity;
+    }
+
+    .country-card__title {
+      font-weight: bold;
+    }
+  }
+} // end .country-card

@@ -1,0 +1,26 @@
+@use 'vars' as vars;
+
+.category-page {
+  .mz-layout__pagination {
+    &.is-search-page {
+      display: flex;
+      align-items: baseline;
+      justify-content: center;
+
+    }
+
+    .category-view-more-link {
+      color: vars.$mz-gray-dark;
+      font-weight: 600;
+      margin-right: auto;
+
+      &:hover {
+        color: vars.$mz-primary;
+      }
+
+      i {
+        margin-left: 4px;
+      }
+    }
+  }
+}

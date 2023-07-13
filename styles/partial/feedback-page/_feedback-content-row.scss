@@ -1,0 +1,47 @@
+@use 'function/mz/mz-space' as mz-space;
+
+//======================================
+// feedback content row
+//======================================
+.feedback-content-row {
+  display: flex;
+  padding: mz-space.mz-get-space-from-base(4) 0 mz-space.mz-get-space-from-base(2);
+} // .feedback-content-row
+
+//======================================
+// feedback content row
+//======================================
+// feedback content main col
+//--------------------------------------
+.feedback-content-row {
+  &__main-col {
+    flex: 1 1;
+    min-width: 0;
+  }
+} // .feedback-content-row
+
+//======================================
+// feedback content row
+//======================================
+// feedback sidebar col
+//--------------------------------------
+.feedback-content-row {
+  &__sidebar-col {
+    flex: 0 0 329px;
+    margin-left: mz-space.mz-get-space-from-base(2.5);
+
+    .open-feedback-form-modal-btn {
+      display: none;
+
+      &.is-show {
+        display: flex;
+      }
+    }
+
+    &__inner {
+      position: -webkit-sticky; /* Safari */
+      position: sticky;
+      top: 170px;
+    }
+  }
+} // .feedback-content-row

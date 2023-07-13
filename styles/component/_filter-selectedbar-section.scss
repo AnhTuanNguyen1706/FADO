@@ -1,0 +1,57 @@
+@use 'vars' as vars;
+@use 'vars-v2' as vars-v2;
+
+.filter-selectedbar-section {
+  margin-bottom: 16px;
+
+  .section-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: -8px;
+  }
+
+  .filter-item {
+    margin-right: 8px;
+    margin-bottom: 8px;
+    font-size: 13px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  .filter-item-inner {
+    display: flex;
+    padding: 2px 12px 4px;
+    border-radius: 32px;
+    background: vars.$mz-gray-100;
+    align-items: center;
+
+    .name-field {
+      max-width: 160px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .icon-field {
+      margin-left: 8px;
+      font-size: 12px;
+    }
+
+    &:hover {
+      background: vars.$mz-gray-200;
+    }
+  }// .filter-item-inner
+
+  .clear-all-btn {
+    font-size: 13px;
+    margin-bottom: 8px;
+
+    .btn-inner {
+      display: flex;
+      padding: 2px 8px 4px;
+    }
+  }// .clear-all-btn
+}// .filter-selectedbar-section

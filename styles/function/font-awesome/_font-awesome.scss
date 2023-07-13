@@ -1,0 +1,10 @@
+@use 'vars' as vars;
+
+@function mz-get-font-awesome-weight($_weight-name){
+  @if map-has-key(vars.$mz-font-awesome-map-weight, $_weight-name ){
+    @return map-get(vars.$mz-font-awesome-map-weight, $_weight-name );
+  }
+  @else{
+    @error 'Font weight name not in list: light, regular, solid';
+  }
+}

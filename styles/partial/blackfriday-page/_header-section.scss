@@ -1,0 +1,40 @@
+@use 'vars' as vars;
+@use 'vars-v2' as vars-v2;
+
+.header-section {
+  .section-foot {
+    background: #fff;
+  }
+
+  .header-menu-nav {
+    .country-cate-dropdown-head {
+      color: #231F20;
+
+      // img {
+      //   -webkit-filter: invert(100%); /* Safari/Chrome */
+      //   filter: invert(100%);
+      // }
+
+      // &:hover {
+      //   color: vars-v2.$secondary-400;
+      // }
+    }
+  }
+
+  .header-menu-nav__link-col::before,
+  .header-menu-nav__quicklink-dropdown-col::before {
+    background: vars.$mz-gray-darker;
+  }
+
+  .header-menu-nav__link-item {
+    color: #231F20;
+
+    // &:hover {
+    //   color: vars-v2.$secondary-400;
+    // }
+  }
+
+  .quicklink-dropdown-head {
+    color: #fff;
+  }
+}

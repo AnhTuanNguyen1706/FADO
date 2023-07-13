@@ -1,0 +1,12 @@
+@use 'vars' as vars;
+@use 'vars-v2' as vars-v2;
+@use 'mixin/mz-border-radius' as mz-border-radius;
+
+.product-loading-card {
+  &.has-box {
+    background: #fff;
+    padding: 16px;
+    // @include mz-border-radius.mz-border-radius-from-key('md');
+    border: 1px solid vars-v2.$primary-900;
+  }
+}

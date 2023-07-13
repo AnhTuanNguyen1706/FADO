@@ -1,0 +1,171 @@
+@use 'vars' as vars;
+@use 'vars-v2' as vars-v2;
+@use 'mixin/mz-text-size' as mz-text-size;
+
+$_btn-width: 40px;
+
+.mz-number-control {
+  width: 128px;
+  height: vars.$mz-form-height-default;
+  position: relative;
+
+  &__input {
+    width: 100%;
+    padding: 0 #{ 8px + $_btn-width };
+    transition: vars.$mz-transition-time-xs;
+    background: #fff;
+    border: 1px solid vars.$mz-gray-light;
+    border-radius: vars.$mz-rounded-xs;
+    height: vars.$mz-form-height-default;
+    color: vars.$mz-text-body-color;
+    text-align: center !important;
+
+    // Xóa mũi tên lên xuống
+    &[type=number]::-webkit-inner-spin-button,
+    &[type=number]::-webkit-outer-spin-button {
+      -moz-appearance: none;
+      appearance: none;
+      -webkit-appearance: none;
+    }
+
+    &:disabled, &.is-disabled {
+      background: vars.$mz-gray-lightest;
+      pointer-events: none;
+    }
+  }
+
+  @mixin btn-hover {
+    background: vars.$mz-primary-lightest;
+    color: vars.$mz-primary;
+    border-color: vars.$mz-primary;
+  }
+
+  &__up-btn, &__down-btn {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    background: vars.$mz-gray-lightest;
+    border: 1px solid vars.$mz-gray-light;
+    transition: vars.$mz-transition-time-xs;
+    width: $_btn-width;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    &:hover {
+      // @include btn-hover;
+      background: vars-v2.$secondary-300;
+      border-color: vars-v2.$secondary-300;
+      color: #fff;
+    }
+
+    &.is-disabled, &:disabled {
+      pointer-events: none;
+      color: vars.$mz-gray;
+      opacity: 0.3;
+
+      .mz-number-control__btn-icon {
+        background: vars.$mz-gray;
+
+        &::before {
+          background: vars.$mz-gray;
+        }
+      }
+    }
+  }
+
+  &__btn-icon {
+    // Style dấu gạch ngang
+    height: 2px;
+    width: 12px;
+    position: relative;
+    background: vars.$mz-gray-dark;
+    line-height: 1px;
+    pointer-events: none; // ! (07/09/2020) trong một số tình huống chưa hiểu tại sao không thể click lên icon để trigger event click của button nên cần bổ sung attr này
+
+    &::before { // Dấu gạch đứng để tạo dấu +
+      display: block;
+      height: 12px;
+      left: 50%;
+      top: 50%;
+      width: 2px;
+      margin-top: -6px;
+      margin-left: -1px;
+      background: vars.$mz-gray-dark;
+      position: absolute;
+    }
+  }
+
+  &__down-btn {
+    border-radius: vars.$mz-rounded-xs 0 0 vars.$mz-rounded-xs;
+    left: 0;
+  }
+
+  &__up-btn {
+    border-radius: 0 vars.$mz-rounded-xs vars.$mz-rounded-xs 0;
+    right: 0;
+
+    .mz-number-control__btn-icon {
+      &::before {
+        content: '';
+      }
+    }
+  }
+
+  // FOCUS TO INPUT
+  &__input:focus {
+    border-color: vars.$mz-gray;
+    box-shadow: 0 0 0 4px rgba(vars.$mz-gray-lighter,0.6);
+
+    &+ .mz-number-control__btn-wrap {
+      .mz-number-control__down-btn, .mz-number-control__up-btn {
+        border-color: vars.$mz-gray;
+
+        &:hover {
+          @include btn-hover;
+        }
+      }
+    }
+  }// &__input:focus
+
+  // IS ERROR
+  &.is-error {
+    .mz-number-control__input {
+      border-color: vars-v2.$state2-500;
+    }
+
+    .mz-number-control__btn-wrap {
+      .mz-number-control__down-btn, .mz-number-control__up-btn {
+        border-color: vars-v2.$state2-500;
+
+        &:hover {
+          @include btn-hover;
+        }
+      }
+    }// .mz-number-control__btn-wrap
+  }// &.is-error
+
+  // IS DISABLED
+  // - (13/08/2020) Dựa trên - https://prnt.sc/tyr911
+  &.is-disabled {
+    opacity: 0.3;
+    pointer-events: none;
+  }
+}// .mz-number-control
+
+// -------------------
+// Size
+// -------------------
+@each $_breakpoint-key, $_height-value in vars.$mz-map-form-height {
+  $_font-size-key: map-get(vars.$mz-map-form-font-size-key, $_breakpoint-key);
+
+  .mz-number-control-#{$_breakpoint-key} {
+    @include mz-text-size.mz-text-size($_font-size-key);
+    height: map-get(vars.$mz-map-form-height, $_breakpoint-key);
+
+    .mz-number-control__input {
+      height: map-get(vars.$mz-map-form-height, $_breakpoint-key);
+    }
+  }
+}

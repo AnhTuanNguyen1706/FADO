@@ -1,0 +1,215 @@
+@use 'vars' as vars;
+@use 'mixin/mz-text-size' as mz-text-size;
+
+$_header-top-block-height: 32px;
+$_header-top-block-content-height: $_header-top-block-height - 8px;
+$_header-top-block-font-key: 'xs';
+$_text-color:  rgba(#fff,0.8);
+
+.header-top-block  {
+  height: $_header-top-block-height;
+  padding-top: 8px;
+
+  .mz-container {
+    display: flex;
+    justify-content: space-between;
+    height: $_header-top-block-content-height;
+  }
+
+  &__col-1 {
+    display: flex;
+    align-items: center;
+  }
+
+  &__col-2 {
+    display: flex;
+    align-items: center;
+  }
+
+  // Top link item
+  .top-link-item {
+    @include mz-text-size.mz-text-size($_header-top-block-font-key);
+    margin-right: 16px;
+    color: #fff;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  .header-top-block__col-2 .top-link-item {
+    color: $_text-color;
+  }
+
+  .header-top-phone {
+    text-decoration: unset!important;
+  }
+}// .header-top-block
+
+// ------------------
+// Top menu panel
+// ------------------
+.header-top-block {
+  .top-menu-panel {
+    margin-left: 16px;
+
+    &:first-child {
+      margin-left: 0;
+      margin-right: 16px;
+    }
+
+    .panel-head {
+      @include mz-text-size.mz-text-size($_header-top-block-font-key);
+      color: $_text-color;
+      display: flex;
+      height: $_header-top-block-content-height;
+      align-items: center;
+      cursor: pointer;
+
+      &.has-box {
+        padding: 0 8px;
+        border: 1px solid;
+      }
+
+      &.has-round {
+        border-radius: vars.$mz-rounded-round;
+      }
+    }
+
+    .panel-head-icon {
+      margin-right: 4px;
+    }
+
+    .panel-head-arrow {
+      margin-left: 6px;
+
+      &::before {
+        content: '\f107';
+        font-weight: 300;
+        font-family: vars.$mz-font-family-fa5;
+      }
+    }
+
+    .mz-dropdown-menu {
+      z-index: vars.$mz-z-index-lv-2;
+    }
+
+    // &.user-fado-vip-panel {
+    //   .panel-head {
+    //     border-color: vars.$mz-warning;
+    //     color: vars.$mz-warning;
+
+    //     i {
+    //       position: relative;
+    //       @include mz-text-size.mz-text-size(10px);
+    //       line-height: 0;
+    //       top: -1px;
+    //     }
+    //   }
+    // } // .user-fado-vip-panel
+
+    &:hover {
+      .gg-translate-panel__head {
+        background: #ffffff;
+        color: vars.$mz-gray-darker;
+      }
+    }
+  }// .top-menu-panel
+}// .header-top-block
+
+// ------------------
+// Search order form
+// ------------------
+.header-top-block {
+  .search-order-form {
+    padding: 16px;
+    position: relative;
+
+    // Add loading... status
+    &::after {
+      top: 5px;
+      left: 5px;
+      right: 5px;
+      bottom: 5px;
+      position: absolute;
+      display: block;
+      z-index: 5;
+      background: rgba(#fff,0.6) url(vars.$mz-loading-image-url) no-repeat center;
+    }
+
+    &.is-loading {
+      &::after {
+        content: '';
+      }
+    }
+  }//.search-order-form
+
+  .order-question-field {
+    color: vars.$mz-gray-darker;
+    display: flex;
+    align-items: center;
+    background: vars.$mz-primary-lightest;
+    border-top: 1px solid vars.$mz-primary-lighter;
+    border-radius: 0 0 vars.$mz-rounded-sm vars.$mz-rounded-sm;
+    padding: 16px;
+    @include mz-text-size.mz-text-size('sm');
+  }// .order-question-field
+}// .header-top-block
+
+
+
+
+// ------------------
+// Google translate panel
+// ------------------
+.header-top-block {
+  .gg-translate-panel {
+    .mz-dropdown-menu__inner-space {
+      padding: 8px 12px;
+    }
+
+    &__head {
+      position: relative;
+      background: rgba(vars.$mz-gray-light, 0.4);
+      padding: 0 8px;
+      @include mz-text-size.mz-text-size(12px);
+      color: rgba(#fff, 0.8);
+      display: flex;
+      height: 24px;
+      align-items: center;
+      cursor: pointer;
+
+      &.has-box {
+        border: none;
+      }
+
+      &.has-round {
+        border-radius: 40px;
+      }
+    }
+
+    &__head-icon {
+      margin-right: 4px;
+    }
+
+    &__dropdown-icon {
+      position: relative;
+      margin-left: 4px;
+      font-size: 8px;
+      top: 1px;
+    }
+  }
+
+  // Google translate in search
+  .gg-translate-in-search {
+    margin-bottom: 16px;
+
+    .gg-translate-panel__head {
+      @include mz-text-size.mz-text-size(13px);
+      background: vars.$mz-primary;
+      color: #fff;
+      padding: 8px 16px;
+      height: unset;
+    }
+  }
+}// .header-top-block

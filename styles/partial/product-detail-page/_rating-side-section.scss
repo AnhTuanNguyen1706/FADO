@@ -1,0 +1,36 @@
+@use 'vars' as vars;
+@use 'mixin/mz-text-size' as mz-text-size;
+@use 'mixin/mz-general' as general;
+@use 'mixin/mz-animation' as mz-animation;
+@use 'function/mz/mz-color' as mz-color;
+
+.rating-side-section {
+  .mz-basic-sidebox__head {
+    font-weight: bold;
+  }
+
+  .mz-rating-panel {
+    min-width: unset;
+  }
+
+  .mz-rating__rating-number {
+    font-size: 50px;
+  }
+
+  .mz-rating__rating-star-field {
+    font-size: 16px;
+  }
+
+  .mz-rating__label {
+    font-size: 12px;
+  }
+
+  .feedback-summary-review-type-segment__percentage-col {
+    min-width: 56px;
+    font-size: 18px;
+  }
+
+  .feedback-summary-review-type-segment__label-col {
+    font-size: 12px;
+  }
+}

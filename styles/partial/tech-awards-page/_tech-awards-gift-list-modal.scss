@@ -1,0 +1,84 @@
+@use 'vars' as vars;
+
+.tech-awards-gift-list-modal {
+  .modal-dialog {
+    width: 420px;
+  }
+
+  .modal-header {
+    padding-top: 30px;
+  }
+
+  &__icon-field {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    top: -100px;
+    left: 50%;
+    margin-left: -60px;
+  }
+
+  &__gift-panel-wrap {
+    max-height: 50vh;
+    overflow: auto;
+    margin-top: 15px;
+    position: relative;
+
+    &.ps.ps--active-y {
+      padding-right: 15px;
+    }
+
+    .ps__rail-y {
+      opacity: 1;
+    }
+
+    .ps__thumb-y {
+      background: #ddd;
+    }
+  }
+
+  &__gift-panel {
+    padding: 10px 15px;
+    background: vars.$mz-gray-lightest;
+
+    &:nth-child(even) {
+      background: #fff;
+    }
+  }
+
+  &__gift-panel__head {
+    display: flex;
+    align-items: center;
+  }
+
+  &__gift-panel__title-col {
+    flex: 1 1;
+  }
+
+  &__gift-panel__control-col {
+    margin-left: 10px;
+  }
+
+  &__discount-code {
+    display: inline-flex;
+    padding: 5px 10px;
+    border: 1px dashed vars.$mz-secondary-dark;
+  }
+
+  &__gift-panel__body {
+    margin-top: 5px;
+    font-size: 13px;
+    line-height: 18px;
+  }
+
+  &__view-more-field {
+    text-align: center;
+    margin-top: 5px;
+    border-top: 1px solid vars.$mz-gray-lightest;
+    padding-top: 10px;
+    font-style: italic;
+    color: #999;
+    font-size: 13px;
+    line-height: 18px;
+  }
+}// .tech-awards-gift-list-modal

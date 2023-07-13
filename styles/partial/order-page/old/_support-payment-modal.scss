@@ -1,0 +1,158 @@
+@use 'vars' as vars;
+@use 'mixin/mz-text-size' as mz-text-size;
+
+.support-payment-modal {
+  .mz-basic-modal__body {
+    position: relative;
+  }
+
+  .loading-box {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    left: 0;
+    top: 0;
+    background: rgba(#fff, 0.5);
+    justify-content: center;
+    align-items: center;
+    @include mz-text-size.mz-text-size(24px);
+    z-index: 3;
+  }
+
+  .loading-icon {
+    font-style: normal;
+    @include mz-animation.mz-animation-spin();
+
+    &::before {
+      content: "\f110";
+      font-weight: 700;
+      font-family: vars.$mz-font-family-fa5;
+    }
+  }
+
+
+}// .suggest-payment-modal
+
+/* =============================================
+
+================================================ */
+
+/* ------------------
+  Profile segment
+--------------------- */
+.support-payment-modal {
+  .profile-segment {
+    border-bottom: 1px solid vars.$mz-gray-lighter;
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+  }
+
+  .profile-item-label {
+    font-weight: 700;
+    color: vars.$mz-gray-dark;
+    margin-bottom: 8px;
+  }
+}// .support-payment-modal
+
+
+/* ------------------
+  Option segment
+--------------------- */
+.support-payment-modal {
+  .option-segment {
+    margin-bottom: 16px;
+
+    .segment-title {
+      font-weight: 700;
+      color: vars.$mz-gray-dark;
+      margin-bottom: 8px;
+    }
+  }// .option-segment
+
+  .option-item-wrap {
+    display: flex;
+    margin-bottom: 16px;
+
+    .option-item {
+      @include mz-border-radius.mz-border-radius-from-key('md');
+      background: vars.$mz-gray-lighter;
+      padding: 12px;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      white-space: nowrap;
+      width: 100%;
+      flex: 1 1;
+      margin-right: 16px;
+      cursor: pointer;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      &.is-active {
+        background: vars.$mz-primary-light;
+        color: #fff;
+        box-shadow: 0 16px 16px -10px rgba(vars.$mz-primary-light, 0.5);
+      }
+    }// .option-item
+  }// .option-item-wrap
+
+  .content-control {
+    margin-top: 16px;
+  }
+}// .support-payment-modal
+
+/* ------------------
+  Hotline segment
+--------------------- */
+.support-payment-modal {
+  .hotline-segment {
+    text-align: center;
+    color: vars.$mz-gray-dark;
+
+    .hotline-field {
+      display: block;
+      text-align: center;
+      margin-top: 8px;
+      position: relative;
+
+      &::before {
+        content: '';
+        display: block;
+        height: 1px;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        position: absolute;
+        background: vars.$mz-gray-lighter;
+        margin-top: -0.5px;
+      }
+    }
+
+    .hotline-field-inner {
+      display: inline-flex;
+      background: #fff;
+      padding: 0 16px;
+      position: relative;
+      z-index: 2;
+      color: vars.$mz-primary;
+      font-weight: 800;
+      @include mz-text-size.mz-text-size-from-font-size-key('lg');
+      align-items: center;
+    }
+  }// .hotline-segment
+}// .support-payment-section
+
+/* ------------------
+  Button segment
+--------------------- */
+.support-payment-modal {
+  .btn-segment {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+  }
+}

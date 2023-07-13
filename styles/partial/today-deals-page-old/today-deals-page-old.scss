@@ -1,0 +1,23 @@
+// Partials global
+// ---------
+@use './partial/global/global/global-item-card';
+@use './partial/global/product/product-deal-action-card';
+
+// Partials in page
+// ---------
+@use './_today-deals-page';
+@use './today-deals-bner-section';
+@use './today-deals-header-section';
+@use './today-deals-code-section';
+@use './today-deals-header-sticky-section';
+@use './today-deals-country-section';
+@use './today-deals-scroll-menu-section';
+
+// Modal
+// ---------
+
+
+// Lunar new year event
+// ---------
+@use './lunar-new-year-page/lunar-new-year-page';
+@use './lunar-new-year-page/today-deals-header-section' as lunar-header-section;

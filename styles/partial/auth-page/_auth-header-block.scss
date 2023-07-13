@@ -1,0 +1,20 @@
+@use 'vars' as vars;
+
+.auth-header-block {
+  min-width: vars.$mz-page-min-width;
+  text-align: center;
+  margin-bottom: 20px;
+  margin: 30px 0;
+
+  &__logo-field {
+    display: inline-flex;
+    width: 222px;
+  }
+
+  &__logo-img {
+    width: 222px;
+    height: 70px;
+  }
+}
+
+

@@ -1,0 +1,48 @@
+@use 'vars' as vars;
+@use 'mixin/mz-text-size' as mz-text-size;
+
+.brand-page-des-section {
+  padding: 36px 0;
+  border-top: solid 1px vars.$mz-gray-lightest;
+
+  .brand-page-des-collapse {
+    &.is-limit {
+      max-height: 400px;
+      overflow: hidden;
+    }
+  }
+
+  .view-more-brand-des {
+    margin-top: 12px;
+    cursor: pointer;
+    text-decoration: underline;
+  }
+
+  .brand-page-des-content {
+    color: vars.$mz-gray-dark;
+    margin-bottom: 12px;
+  }
+
+  .brand-page-des-title {
+    @include mz-text-size.mz-text-size(16px);
+    font-weight: bold;
+
+    &.h2 {
+      @include mz-text-size.mz-text-size(20px);
+      margin-top: 44px;
+    }
+
+    &.h3 {
+      margin-bottom: 0;
+    }
+  }
+
+  .brand-page-brand-name-with-link {
+    text-decoration: underline;
+  }
+
+  .brand-page-app-link {
+    font-weight: bold;
+    text-decoration: underline;
+  }
+}

@@ -1,0 +1,75 @@
+@use 'vars' as vars;
+@use 'vars-v2' as vars-v2;
+@use 'mixin/is-loading' as is-loading;
+
+.cancel-order-modal {
+  .modal-dialog {
+    width: 400px;
+  }
+
+  .modal-body {
+    position: relative;
+
+    &.is-loading::before {
+      content: '';
+      @include is-loading.beforeIsLoading();
+    }
+  }
+
+  &__title {
+    text-align: center;
+    font-size: 16px;
+    line-height: 22px;
+  }
+
+  &__notice-title {
+    display: block;
+    margin-bottom: 7px;
+  }
+
+  &__reason-request {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  &__removed-notice {
+    margin-bottom: 20px;
+    &:last-of-type{
+      margin-bottom: 10px;
+    }
+  }
+
+  &__removed-img-outer {
+    margin-bottom: 20px;
+    text-align: center;
+
+    img{
+      display: inline-block;
+      max-height: 210px;
+    }
+  }
+
+  &__error-notice {
+    text-align: center;
+    color: vars-v2.$state2-500;
+    margin-bottom: 15px;
+  }
+}// .cancel-order-modal
+
+// ===================================
+// Form
+// ===================================
+.cancel-order-modal {
+  &__btn-wrap {
+    margin-top: 15px;
+    text-align: center;
+
+    .my-btn {
+      margin-right: 10px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }// &__btn-wrap
+}// .cancel-order-modal

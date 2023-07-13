@@ -1,0 +1,104 @@
+@use 'vars' as vars;
+@use 'vars-v2' as vars-v2;
+@use 'mixin/mz-text-size' as mz-text-size;
+@use 'function/mz/mz-color' as mz-color;
+
+.mz-breadcrumb-section {
+  position: relative;
+  @include mz-text-size.mz-text-size('sm');
+  z-index: vars.$mz-z-index-lv-1;
+  background: #fff;
+}
+
+.mz-breadcrumb-block {
+  padding: 16px 0;
+
+  &__list {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    flex-wrap: nowrap;
+    width: 100%;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    margin-right: 8px;
+    position: relative;
+
+    &::after {
+      content: '';
+      z-index: 2;
+      width: 1px;
+      height: 20px;
+      border-right: 1px solid vars-v2.$secondary-300;
+      margin-top: -10px;
+      position: absolute;
+      transform: rotate(20deg);
+      top: 50%;
+      right: -4px;
+    }
+  }
+
+  &__item-inner {
+    color: vars-v2.$primary-300;
+    padding: 0 8px;
+    max-width: 500px;
+  }
+
+  &__item-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  // First breadcrum item
+  &__item:first-child {
+    .mz-breadcrumb-block__item-inner {
+      padding-left: 0;
+    }
+  }
+
+  // Last breadcrum item
+  &__item:last-child {
+    &::after {
+      content: none;
+    }
+
+    .mz-breadcrumb-block__item-inner {
+      color: vars.$mz-text-body-color;
+      max-width: 700px;
+    }
+
+    a.mz-breadcrumb-block__item-inner {
+      &:hover {
+        color: mz-color.mz-get-hover-color(vars.$mz-text-body-color);
+      }
+    }
+  }
+
+  // Overwrite dropdown
+  .mz-dropdown {
+    cursor: pointer;
+
+    .mz-breadcrumb-block__item-inner {
+      &:hover {
+        color: mz-color.mz-get-hover-color(vars.$mz-text-body-color);
+      }
+    }
+  }
+
+  .mz-dropdown-menu {
+    top: calc(100% + 8px);
+    left: -8px;
+    min-width: auto;
+    white-space: nowrap;
+  }
+}// .mz-breadcrumb-block
+
+a.mz-breadcrumb-block__item-inner {
+  &:hover {
+    color: mz-color.mz-get-hover-color(vars.$mz-gray);
+  }
+}

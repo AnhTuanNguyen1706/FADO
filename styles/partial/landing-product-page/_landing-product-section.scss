@@ -1,0 +1,26 @@
+@use 'vars' as vars;
+@use 'lib/mz-grid-framework/mixin/mz-grid' as mz-grid;
+
+.landing-product-section {
+  .product-row {
+    @include mz-grid.mz-make-row(8);
+    border-top: 1px solid vars.$mz-gray-lighter;
+  }
+
+  .product-col {
+    @include mz-grid.mz-make-col-ready(8);
+    @include mz-grid.mz-make-col(1, 5);
+    display: flex; // để sản phẩm các cột dãn đều chiều cao
+    border-bottom: 1px solid vars.$mz-gray-lighter;
+    border-right: 1px solid vars.$mz-gray-lighter;
+    padding: 16px;
+
+    &:nth-child(5n) {
+      border-right: vars.$mz-gray-lighter;
+    }
+  }
+
+  .pagination-nav {
+    margin-top: 32px;
+  }
+}// .landing-product-section

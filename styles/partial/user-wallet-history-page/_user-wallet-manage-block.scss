@@ -1,0 +1,190 @@
+@use 'vars' as vars;
+@use 'mixin/mz-text-size' as mz-text-size;
+@use 'mixin/mz-border-radius' as mz-border-radius;
+@use 'function/mz/mz-color' as mz-color;
+
+//===========================================
+//  user wallet manage block
+//===========================================
+.user-wallet-manage-block {
+  padding: 16px 16px 0;
+  background: #fff;
+  @include mz-border-radius.mz-border-radius(8px);
+  box-shadow: 0 0 4px 0 rgba(vars.$mz-gray, 0.2);
+}
+
+//===========================================
+//  wallet manage block header
+//===========================================
+.user-wallet-manage-block {
+  .wallet-manage-block-header {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 16px;
+  }
+
+  .manage-title {
+    @include mz-text-size.mz-text-size(16px);
+    font-weight: 700;
+    margin-right: 8px;
+  }
+
+  .wallet-manage-filter-form {
+    display: flex;
+  }
+
+  .wallet-manage-filter-input-outer {
+    position: relative;
+    width: 128px;
+    margin-right: 8px;
+    z-index: 0;
+  }
+
+  .filter-date-input {
+    background: none;
+    padding-right: 24px;
+
+    &[readonly] {
+      background: none;
+    }
+  }
+
+  .filter-date-icon {
+    display: inline-flex;
+    position: absolute;
+    align-items: center;
+    @include mz-text-size.mz-text-size-from-key('md');
+    top: 0;
+    bottom: 0;
+    right: 8px;
+    z-index: -1;
+  }
+
+  .wallet-search-btn {
+    width: 28px;
+    padding: 0;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+//===========================================
+//  wallet manage block body
+//===========================================
+.user-wallet-manage-block {
+  .wallet-manage-block-body {
+    margin: 0 -16px;
+    border-bottom: 1px solid vars.$mz-gray-lighter;
+
+    &.--no-border {
+      border-bottom: none;
+    }
+  }
+
+  .wallet-manage-warning-alert-outer {
+    padding: 0 16px 16px;
+  }
+
+  .wallet-transfer-code {
+    color: vars.$mz-primary;
+    cursor: pointer;
+    word-break: break-all;
+
+    &:hover {
+      color: mz-color.mz-get-hover-color(vars.$mz-primary);
+    }
+  }
+
+  .wallet-transfer-type {
+    color: vars.$mz-gray-dark;
+  }
+
+  .wallet-transfer-cost {
+    font-weight: 400;
+    color: vars.$mz-gray-dark;
+    font-family: vars.$mz-font-family-oswald;
+  }
+
+  .wallet-manage-item-list {
+    padding: 0 16px;
+  }
+
+  .wallet-transfer-time {
+    @include mz-text-size.mz-text-size(13px);
+  }
+
+  .wallet-status-tag-item {
+    @include mz-text-size.mz-text-size('xs');
+  }
+
+  .wallet-transfer-content {
+    color: vars.$mz-gray-dark;
+  }
+
+  .wallet-transfer-order-link {
+    margin-left: 4px;
+  }
+
+  .wallet-manage-item-list-header {
+    display: flex;
+    margin: 0 -16px;
+    background: rgba(vars.$mz-gray-lighter, 0.2);
+    border-top: 1px solid vars.$mz-gray-lighter;
+    border-bottom: 1px solid vars.$mz-gray-lighter;
+  }
+
+  .wallet-manage-item-title {
+    color: vars.$mz-gray;
+    font-weight: 700;
+  }
+
+  .wallet-manage-item-title,
+  .wallet-manage-item-info {
+    flex: 0 0 14%;
+    padding: 16px;
+
+    &:first-child {
+      flex: 0 0 22%;
+    }
+
+    &:last-child {
+      flex: 0 0 23%;
+      word-break: break-word;
+    }
+  }
+
+  .wallet-manage-item {
+    position: relative;
+    display: flex;
+    margin: 0 -16px;
+
+    &:before {
+      content: '';
+      position: absolute;
+      display: block;
+      width: calc(100% - 32px);
+      height: 1px;
+      background: vars.$mz-gray-lighter;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+    }
+
+    &:last-child {
+      &:before {
+        content: none;
+      }
+    }
+  } // .wallet-manage-item
+}
+
+//===========================================
+//  wallet manage block footer
+//===========================================
+.user-wallet-manage-block {
+  .wallet-manage-pagination {
+    margin: 0 -16px;
+    padding: 16px 0;
+  }
+}

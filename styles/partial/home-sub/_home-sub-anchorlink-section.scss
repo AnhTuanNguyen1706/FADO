@@ -1,0 +1,106 @@
+@use 'sass:math';
+@use 'vars' as vars;
+@use 'mixin/mz-general' as general;
+@use 'mixin/mz-border-radius' as mz-border-radius;
+
+.home-sub-anchorlink-section {
+  margin: vars.$mz-home-page-section-margin 0;
+}// .home-sub-anchorlink-section
+
+/* ##############################################################
+
+################################################################# */
+.home-sub-anchorlink-section {
+  .section-body {
+    position: relative;
+  }
+
+  // SLIDER
+  .swiper-wrapper {
+    display: flex;
+
+    &.no-slider {
+      justify-content: center;
+      margin: 0 -4px;
+      width: auto;
+
+      .swiper-slide {
+        flex: 0 0 percentage(math.div(1, 6));
+        padding: 0 4px;
+      }
+    }// &.no-slider
+  }// .swiper-wrapper
+
+  .swiper-slide {
+    display: flex;
+    height: auto;
+  }
+
+  // ANCHOR ITEM
+  .anchorlink-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    padding: 12px 16px;
+    text-align: center;
+    font-weight: 700;
+    background: rgba(vars.$mz-gray,0.1);
+    @include mz-border-radius.mz-border-radius-from-key('round');
+    color: vars.$mz-text-body-color;
+    transition: vars.$mz-transition-time-default;
+
+    &:hover {
+      background: rgba(vars.$mz-primary, 0.1);
+      color: vars.$mz-primary;
+    }
+  }
+
+  .anchorlink-item-name {
+    @include general.mz-limit-text-line('normal',2);
+  }
+
+
+  // CONTROL NAVIGATION
+  .slider-control-btn {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    @include mz-border-radius.mz-border-radius-from-key('circle');
+    background: rgba(#000,0.5);
+    top: 50%;
+    margin-top: -20px;
+    border: 0;
+    color: #fff;
+    font-size: 24px;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    z-index: 4;
+    transition: vars.$mz-transition-time-default;
+
+    &:hover {
+      background: vars.$mz-primary;
+    }
+  }
+
+  .slider-prev-btn {
+    left: -20px;
+  }
+
+  .slider-next-btn {
+    right: -20px;
+  }
+
+  &:hover {
+    .slider-control-btn {
+      opacity: 1;
+
+      &.swiper-button-disabled {
+        opacity: 0.2;
+      }
+    }
+  }
+}// .home-sub-anchorlink-section

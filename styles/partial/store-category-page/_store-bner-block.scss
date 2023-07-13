@@ -1,0 +1,66 @@
+@use 'vars' as vars;
+
+.store-bner-block {
+  margin-bottom: 40px;
+
+  &__container {
+    background-repeat: no-repeat;
+    background-position: top 0 left 0, bottom 0 right 0;
+    border-radius: 4px;
+    background-color: #fff;
+    padding: 20px 30px 30px 30px;
+  }
+
+  &__bner-info {
+    margin-bottom: 25px;
+    text-align: center;
+  }
+
+  &__bner-title {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 22px;
+    margin-bottom: 3px;
+    color: vars.$mz-text-body-color;
+  }
+
+  &__bner-desc {
+    font-size: 14px;
+    color: #999;
+  }
+
+  &__bner-link {
+    position: relative;
+    display: block;
+    height: 100%;
+
+    &:before {
+      content: '';
+      position: absolute;
+      display: none;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      background: rgba(#fff, 0.3);
+    }
+
+    &:hover {
+      &:before {
+        display: block;
+      }
+    }
+  }
+
+  &__bner-item {
+    margin-top: 30px;
+
+    &:nth-child(-n+2) {
+      margin-top: 0;
+    }
+  }
+
+  &__bner-img {
+    width: 100%;
+  }
+}

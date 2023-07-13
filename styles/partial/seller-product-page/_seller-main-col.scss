@@ -1,0 +1,19 @@
+//==================================================
+// seller main col
+//==================================================
+.seller-main-col {
+  flex: 1 1;
+  padding-left: 24px;
+
+  // .col-head
+  //-----------
+  .col-head {
+    margin-bottom: 18px;
+  }
+
+  // .col-body
+  //------------
+  .col-body {
+    margin: 0 -24px;
+  }
+}

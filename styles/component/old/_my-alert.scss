@@ -1,0 +1,72 @@
+@use 'vars-v2' as vars-v2;
+
+.my-alert {
+  margin-bottom: 15px;
+  font-size: 14px;
+  line-height: 20px;
+  padding: 10px 10px;
+  background: #ededed;
+  border: 1px solid #e1e1e1;
+  border-radius: 4px;
+}
+
+// Has icon
+// ------------------------------------
+.my-alert {
+  &__icon-col {
+    margin-right: 10px;
+  }
+
+  &__info-col {
+    flex: 1 1;
+  }
+
+  &__control-col {
+    padding-left: 10px;
+  }
+
+  &.-alert-has-col {
+    display: flex;
+    align-items: center;
+  }
+}
+
+// Size
+// ------------------------------------
+.-alert-sm {
+  font-size: 12px;
+  line-height: 16px;
+  padding: 5px 10px;
+}
+
+.-alert-md {
+  font-size: 13px;
+  line-height: 18px;
+  padding: 7px 10px;
+}
+
+// Color
+// ------------------------------------
+// .-alert-warning {
+//   border-color: #faebcc;
+//   background: #fdfbee;
+//   color: #8a6d3b;
+// }
+
+// .-alert-warning-light {
+//   border-color: #ffe9b5;
+//   background: #fffef9;
+//   color: #595959;
+// }
+
+// .-alert-success {
+//   background: #ebf6e7;
+//   border-color: #d8ebc9;
+//   color: #3c763d;
+// }
+
+// .-alert-danger {
+//   border-color: #edd0d4;
+//   background: #f7ebeb;
+//   color: #a94442;
+// }

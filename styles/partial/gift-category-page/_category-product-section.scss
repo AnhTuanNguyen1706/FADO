@@ -1,0 +1,110 @@
+@use 'vars' as vars;
+@use 'vars-v2' as vars-v2;
+@use 'mixin/mz-text-size' as mz-text-size;
+@use 'lib/mz-grid-framework/mixin/mz-grid' as mz-grid;
+
+.category-product-section {
+
+}// .category-product-section
+
+/* ##############################################################
+  Section head
+################################################################# */
+.category-product-section {
+  .section-head {
+    margin-bottom: 16px;
+  }
+}
+
+/* =============================================
+  Title segment
+================================================ */
+.category-product-section {
+  .title-segment {
+    display: flex;
+    align-items: flex-start;
+
+    .title-col {
+      font-weight: 700;
+      margin-right: auto;
+    }
+
+    .control-col {
+      margin-left: 16px;
+    }
+
+    .sort-control {
+      width: 160px;
+    }
+  }// .title-col
+}// .category-product-section
+
+/* =============================================
+  Filter segment
+================================================ */
+.category-product-section {
+  .filter-segment {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 4px;
+  }
+
+  .filter-group-label {
+    @include mz-text-size.mz-text-size-from-font-size-key('sm');
+    font-weight: 700;
+    margin: 2px 4px 0 0; // set tương đối với .remove-filter-btn để tránh bị lệch
+    color: vars.$mz-gray-dark;
+  }
+
+  .remove-filter-btn {
+    margin-top: 4px;
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+
+  .remove-all-filter-btn {
+    color: #fff;
+    background: vars-v2.$primary-900;
+    margin-top: 2px;
+    font-weight: 700;
+    @include mz-text-size.mz-text-size-from-font-size-key('sm');
+  }
+}// .category-product-section
+
+/* ##############################################################
+  Section body
+################################################################# */
+.category-product-section {
+
+}
+
+/* =============================================
+  Product segment
+================================================ */
+.category-product-section {
+  .product-segment {
+    .product-row {
+      @include mz-grid.mz-make-row(4);
+      margin-top: -16px;
+    }
+
+    .product-col {
+      @include mz-grid.mz-make-col-ready(4);
+      @include mz-grid.mz-make-col(1, 4);
+      margin-top: 16px;
+      display: flex;
+    }
+  }// .product-segment
+}// .category-product-section
+
+/* =============================================
+  Pagination nav
+================================================ */
+.category-product-section {
+  .pagination-nav {
+    margin-top: 24px;
+  }
+}// .category-product-section

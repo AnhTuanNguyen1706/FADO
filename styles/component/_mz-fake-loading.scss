@@ -1,0 +1,23 @@
+@use 'vars' as vars;
+@use 'mixin/mz-fake-loading' as mz-fake-loading;
+
+//===============================
+// .mz-fake-loading
+//===============================
+.mz-fake-loading {
+  @include mz-fake-loading.mz-make-fake-loading-ready();
+
+  // .mz-fake-loading-square
+  &-square {
+    @include mz-fake-loading.mz-make-fake-loading-square();
+  }
+
+  // .mz-fake-loading-line
+  &-line {
+    position: relative;
+    height: 12px;
+    background: vars.$mz-gray-lightest;
+    margin-bottom: 8px;
+    overflow: hidden;
+  }
+} // end .mz-fake-loading

@@ -1,0 +1,18 @@
+// Lib
+//-------------
+@use 'lib/flatpickr/flatpickr';
+@use 'partial/global/modal/product-price-history-modal';
+
+// Partials user page
+//-------------
+@use 'partial/user-page/user-layout';
+@use 'partial/user-page/user-head-section';
+@use 'partial/user-page/user-sblock';
+@use 'partial/user-page/user-block';
+
+// Local Partials
+//-------------
+@use './_user-tracking-price-list-page' as page;
+@use './user-tracking-price-list-section';
+@use './product-detail-modal';
+@use './edit-tracking-price-modal';

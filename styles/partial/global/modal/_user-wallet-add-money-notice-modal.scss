@@ -1,0 +1,85 @@
+@use 'vars' as vars;
+@use 'mixin/mz-text-size' as mz-text-size;
+@use 'mixin/mz-border-radius' as mz-border-radius;
+
+//================================================
+//  user wallet add money notice modal
+//================================================
+.user-wallet-add-money-notice-modal {
+  &:last-child {
+    border-bottom: none;
+  }
+
+  .wallet-add-money-notice-alert {
+    margin: 0 -16px;
+    border-radius: unset;
+  }
+
+  // wallet-other-info-segment
+  .wallet-other-info-segment {
+    margin-bottom: 16px;
+    margin-top: 24px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  .other-info-segment-inner {
+    display: flex;
+  }
+
+  .other-info-title {
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .other-info-table {
+    flex: 1 1 0;
+
+    td {
+      padding: 4px 0;
+    }
+  }
+
+  .other-info-title-col {
+    width: 40%;
+  }
+
+  .copy-btn {
+    i {
+      @include mz-text-size.mz-text-size(20px);
+      color: vars.$mz-gray;
+    }
+  }
+
+  .info-table-copy-btn-outer {
+    .copy-btn {
+      margin-top: 24px;
+    }
+  }
+
+  .transfer-code-field {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(vars.$mz-gray-lightest, 0.5);
+    padding: 4px 16px;
+    @include mz-border-radius.mz-border-radius(4px);
+  }
+
+  .other-info-note {
+    @include mz-text-size.mz-text-size('xs');
+    color: vars.$mz-gray-dark;
+    margin-top: 8px;
+  }
+
+  .transfer-code-col {
+    @include mz-text-size.mz-text-size(20px);
+    margin-right: 8px;
+  }
+
+  .transfer-code-copy-btn-col {
+    margin-right: -16px;
+  }
+}

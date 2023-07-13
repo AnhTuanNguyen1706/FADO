@@ -1,0 +1,287 @@
+@use 'vars' as vars;
+@use 'mixin/mz-text-size' as mz-text-size;
+@use 'mixin/mz-general' as general;
+@use 'mixin/mz-border-radius' as mz-border-radius;
+@use 'lib/mz-grid-framework/mixin/mz-media-query' as mz-media-query;
+@use 'lib/mz-grid-framework/mixin/mz-grid' as mz-grid;
+@use 'function/mz/mz-color' as mz-color;
+
+.noel-country-section {
+  margin-bottom: 40px;
+  position: relative;
+  z-index: vars.$mz-z-index-lv-3;
+}
+
+/* ##############################################################
+  Section head
+################################################################# */
+$_map-color: (
+  'us': (
+    'bg-color': linear-gradient(96deg, #4994f2, vars.$mz-secondary),
+  ),
+  'de': (
+    'bg-color': linear-gradient(96deg, vars.$mz-warning-light, vars.$mz-warning-dark),
+  ),
+  'jp': (
+    'bg-color': linear-gradient(96deg, #eb5766, vars.$mz-danger),
+  ),
+  'uk': (
+    'bg-color': linear-gradient(96deg, #55daec, vars.$mz-info),
+  ),
+  'sgp': (
+    'bg-color': linear-gradient(96deg, #00d2ff, vars.$mz-primary),
+  ),
+);
+
+.noel-country-section {
+  .section-head {
+    $_bg-color: map-get(map-get($_map-color,'us'),'bg-color');
+    background: $_bg-color;
+    display: flex;
+    justify-content: space-between;
+    color: #fff;
+    align-items: center;
+    border-radius: vars.$mz-rounded-xl vars.$mz-rounded-xl 0 0;
+    position: relative;
+
+    a {
+      color: #fff;
+
+      &:hover {
+        color: mz-color.mz-get-hover-color(#fff);
+      }
+    }
+  }
+
+  .section-head-bg {
+    position: absolute;
+    background: url(vars.$mz-upload-url + '/page/noel/country-section-head-bg@2x.png') no-repeat -80px top;
+    background-size: cover;
+    height: 100%;
+    width: 658px;
+    mix-blend-mode: difference;
+    border-top-left-radius: vars.$mz-rounded-xl;
+  }
+
+  .section-title {
+    @include mz-text-size.mz-text-size(40px);
+    padding: 24px;
+    position: relative;
+    z-index: vars.$mz-z-index-lv-1;
+    font-weight: 700;
+  }
+
+  @each $_country-code, $_map-country in $_map-color {
+    &.section-#{$_country-code} {
+      .section-head {
+        $_bg-color: map-get($_map-country,'bg-color');
+        background: $_bg-color;
+      }
+    }
+  }
+}// .noel-country-section
+
+/* ------------------
+  Menu item wrap
+--------------------- */
+.noel-country-section {
+  .menu-item-wrap {
+    position: relative;
+    z-index: vars.$mz-z-index-lv-1;
+    display: flex;
+    margin-left: auto;
+    flex-wrap: nowrap;
+  }
+
+  .menu-item {
+    padding: 16px;
+    display: none;
+    color: #fff;
+    text-align: center;
+    min-width: 0;
+
+    &:nth-child(n + 4) {
+      display: block;
+    }
+
+    @include mz-media-query.mz-media-breakpoint-up('2xl') {
+      &:nth-child(n + 3) {
+        display: block;
+      }
+    }
+
+    @include mz-media-query.mz-media-breakpoint-up('3xl') {
+      &:nth-child(n) {
+        display: block;
+      }
+    }
+
+    &:hover {
+      color: mz-color.mz-get-hover-color(#fff);
+
+      .menu-item-img {
+        transform: scale(1.2);
+      }
+    }
+  }
+
+  .menu-item-img-field {
+    margin-bottom: 8px;
+  }
+
+  .menu-item-img-shape {
+    width: 78px;
+    height: 78px;
+    background: #fff;
+    @include mz-border-radius.mz-border-radius-from-key('circle');
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+  }
+
+  .menu-item-img {
+    width: 62px;
+    height: 62px;
+    object-fit: contain;
+    transform-origin: bottom center;
+    transition: vars.$mz-transition-time-default;
+  }
+
+  .menu-item-title {
+    @include general.mz-limit-text-line('normal',2);
+    max-width: 100px;
+  }
+}// .noel-country-section
+
+/* ------------------
+  View more column
+--------------------- */
+.noel-country-section {
+  .view-more-col {
+    align-self: stretch;
+    border-left: 1px solid rgba(#fff,0.2);
+  }
+
+  .view-more-item {
+    padding: 16px 20px;
+    text-align: center;
+
+    &:hover {
+      color: mz-color.mz-get-hover-color(#fff);
+
+      .view-more-item-img {
+        transform: scale(1.2);
+      }
+    }
+  }
+
+  .view-more-item-img-field {
+    margin-bottom: 8px;
+  }
+
+  .view-more-item-img-shape {
+    width: 78px;
+    height: 78px;
+    background: transparent;
+    @include mz-border-radius.mz-border-radius-from-key('circle');
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+  }
+
+  .view-more-item-img {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+    transform-origin: bottom center;
+    transition: vars.$mz-transition-time-default;
+  }
+
+  .view-more-item-title {
+    @include general.mz-limit-text-line('normal',2);
+    max-width: 110px;
+  }
+}// .noel-country-section
+
+/* ##############################################################
+  Section body
+################################################################# */
+.noel-country-section {
+  .section-body {
+    padding: 24px 24px 48px;
+    background: #fff;
+    border-radius: 0 0 vars.$mz-rounded-xl vars.$mz-rounded-xl;
+  }
+
+  .product-row {
+    @include mz-grid.mz-make-row(6);
+
+    &:not(.is-start) {
+      margin-bottom: 24px;
+    }
+  }
+
+  .product-col {
+    @include mz-grid.mz-make-col-ready(6);
+    @include mz-grid.mz-make-col(1,4);
+    display: none;
+
+    &:nth-child(n + 3) {
+      display: flex;
+    }
+
+    @include mz-media-query.mz-media-breakpoint-up('2xl') {
+      @include mz-grid.mz-make-col(1,5);
+
+      &:nth-child(n + 2) {
+        display: flex;
+      }
+    }
+
+    @include mz-media-query.mz-media-breakpoint-up('3xl') {
+      @include mz-grid.mz-make-col(1,6);
+
+      &:nth-child(n) {
+        display: flex;
+      }
+    }
+  }
+
+  .view-more-field {
+    text-align: center;
+
+    .view-more-btn {
+      padding: 0 24px;
+    }
+  }
+}
+
+/* =============================================
+  Banner list
+================================================ */
+.noel-country-section {
+  .bner-row {
+    @include mz-grid.mz-make-row(4);
+    margin-bottom: 40px;
+  }
+
+  .bner-col {
+    @include mz-grid.mz-make-col-ready(4);
+    @include mz-grid.mz-make-col(1,3);
+    display: none;
+
+    &:nth-child(n + 2) {
+      display: block;
+    }
+
+    @include mz-media-query.mz-media-breakpoint-up('3xl') {
+      @include mz-grid.mz-make-col(1,4);
+
+      &:nth-child(n) {
+        display: block;
+      }
+    }
+  }
+}// .noel-country-section

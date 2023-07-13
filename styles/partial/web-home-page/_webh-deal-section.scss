@@ -1,0 +1,146 @@
+@use 'vars' as vars;
+@use 'mixin/mz-text-size' as mz-text-size;
+@use 'lib/mz-grid-framework/var/grid' as grid-var;
+@use 'lib/mz-grid-framework/mixin/mz-media-query' as mz-media-query;
+@use 'function/mz/mz-color' as mz-color;
+@use 'lib/mz-grid-framework/mixin/mz-grid' as mz-grid;
+
+//=============================================
+// home deal section
+//=============================================
+.webh-deal-section {
+  margin: vars.$mz-home-page-section-margin 0;
+
+  &.is-start {
+    min-height: 809px;
+
+    @include mz-media-query.mz-media-breakpoint-up('2xl') {
+      min-height: 820px;
+    }
+  }
+}
+
+//=============================================
+// home deal block
+//=============================================
+// block head
+//--------------
+.webh-deal-block {
+  .block-head {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+
+  // block head title
+  .block-head-title {
+    display: flex;
+    align-items: center;
+    position: relative;
+
+    .deal-icon-col {
+      position: relative;
+      top: -6px;
+      margin-right: 12px;
+    }
+
+    .title-col {
+      margin-right: 16px;
+    }
+
+    .main-title {
+      @include mz-text-size.mz-text-size(20px);
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+
+    .sub-title {
+      color: vars.$mz-gray-dark;
+    }
+  }
+
+  // tab item wrap
+  .tab-item-wrap {
+    display: flex;
+    margin-left: auto;
+  }
+
+  .tab-item {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    height: 44px;
+    margin-right: 16px;
+    @include mz-text-size.mz-text-size(14px);
+    color: vars.$mz-gray;
+    font-weight: 700;
+    cursor: pointer;
+
+    &:hover {
+      color: mz-color.mz-get-hover-color(vars.$mz-gray);
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &.is-active {
+      color: vars.$mz-primary;
+
+      &:before {
+        position: absolute;
+        content: '';
+        display: block;
+        width: 100%;
+        height: 3px;
+        background: vars.$mz-primary;
+        bottom: 0;
+        left: 0;
+      }
+    }
+  } // end .tab-item
+}
+
+//=============================================
+// home deal block
+//=============================================
+// block body
+//--------------
+.webh-deal-block {
+  .block-body {
+    &.is-empty {
+      display: flex;
+      height: 310px;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  .product-large-row {
+    @include mz-grid.mz-make-row(4);
+    margin-bottom: 24px;
+
+    .product-large-col {
+      @include mz-grid.mz-make-col-ready(4);
+      @include mz-grid.mz-make-col(1,5);
+    }
+
+    .product-deal-action-card {
+      height: 100%;
+
+      &:hover {
+        border-color: vars.$mz-primary;
+      }
+    }
+  } // end .large-product-deal-item-wrap
+
+  .view-more-btn-outer {
+    text-align: center;
+    padding-top: 16px;
+  }
+
+  .view-more-btn {
+    padding: 0 30px;
+    font-weight: 700;
+  }
+}

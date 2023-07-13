@@ -1,0 +1,38 @@
+@use 'mixin/mz-text-size' as mz-text-size;
+
+//===================================================
+// confirm update address book type modal
+//===================================================
+.confirm-update-address-book-type-modal {
+  .mz-basic-modal__head {
+    border-bottom: none;
+    padding-right: 16px;
+    padding-top: 8px;
+  }
+
+  .mz-basic-modal__close-btn {
+    position: static;
+    margin-top: auto;
+    margin-left: auto;
+    top: auto;
+  }
+
+  .confirm-alert {
+    text-align: center;
+    @include mz-text-size.mz-text-size-from-font-size-key('md');
+    margin-bottom: 16px;
+  }
+
+  .confirm-control-field {
+    display: flex;
+    align-items: center;
+
+    .close-modal-btn {
+      cursor: pointer;
+    }
+
+    .update-modal-btn {
+      margin-left: auto;
+    }
+  }
+}

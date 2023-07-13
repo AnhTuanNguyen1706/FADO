@@ -1,0 +1,101 @@
+@use 'vars' as vars;
+@use 'mixin/mz-text-size' as mz-text-size;
+
+.home-sub-article-section {
+  background: #fff;
+  margin: 0;
+  padding: 40px 0;
+}// .home-sub-article-section
+
+.home-sub-article-section {
+  // [class*="mz-col-"] {
+  //   display: flex;
+  // }
+
+  .article-card {
+    display: block;
+    padding: 1px;
+    width: 100%;
+    border-radius: 12px;
+    background: linear-gradient(to bottom, vars.$mz-gray-light, #fff 80%);
+    transition: vars.$mz-transition-time-default;
+
+    .card-inner {
+      display: flex;
+      width: 100%;
+      padding: 24px 24px 0;
+      border-radius: 12px;
+      box-shadow: inset 0 4px 1px 0 vars.$mz-gray-lightest;
+      background: #fff;
+      transition: vars.$mz-transition-time-default;
+    }
+
+    // ---- ICON COLUMN ----
+    .icon-col {
+      flex: 0 0 56px;
+      margin-right: 16px;
+    }
+
+    .icon-shape {
+      display: flex;
+      width: 56px;
+      justify-content: center;
+    }
+
+    .icon-img {
+      max-height: 56px;
+    }
+
+    // ---- CONTENT COLUMN ----
+    .content-col {
+      flex: 1 1;
+    }
+
+    .title {
+      @include mz-text-size.mz-text-size(18px);
+      font-weight: 700;
+      color: vars.$mz-gray-darker;
+      transition: vars.$mz-transition-time-default;
+    }
+
+    .desc {
+      margin-top: 4px;
+      @include mz-text-size.mz-text-size-from-font-size-key('sm');
+      color: vars.$mz-gray-dark;
+    }
+
+    // ---- BUTTON COLUMN ----
+    .more-btn {
+      align-self: center;
+      margin: 0 -8px 0 16px;
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: vars.$mz-gray-dark;
+      transition: vars.$mz-transition-time-default;
+      font-size: 24px;
+      line-height: 1;
+    }
+  }// .article-card
+
+  // Link tag
+  a.article-card {
+    &:hover {
+      background: linear-gradient(to bottom, vars.$mz-primary-lighter, #fff 80%);
+
+      .card-inner {
+        box-shadow: inset 0 4px 1px 0 vars.$mz-primary-lightest;
+      }
+
+      .title {
+        color: vars.$mz-link-color;
+      }
+
+      .more-btn {
+        color: vars.$mz-link-color
+      }
+    }// &:hover
+  }// a.article-card
+}// .home-sub-article-section

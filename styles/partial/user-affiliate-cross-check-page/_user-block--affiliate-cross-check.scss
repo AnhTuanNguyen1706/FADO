@@ -1,0 +1,79 @@
+@use 'vars' as vars;
+@use 'vars-v2' as vars-v2;
+@use 'mixin/mz-text-size' as mz-text-size;
+@use 'function/mz/mz-color' as mz-color;
+@use 'mixin/mz-border-radius' as mz-border-radius;
+
+
+.user-block--affiliate-cross-check {
+  padding: 16px 16px;
+  background: #fff;
+  @include mz-border-radius.mz-border-radius(8px);
+  box-shadow: 0 0 4px 0 rgba(vars.$mz-gray, 0.2);
+
+  &__head-title {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 700;
+    margin-right: 8px;
+  }
+
+  &__head {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 16px;
+  }
+
+  &__block-body {
+    margin: 0 -16px;
+  }
+
+  &__manage-body {
+    display: grid;
+    grid-template-columns: repeat(7, auto);
+  }
+
+  &__manage-item {
+    padding: 16px;
+    border-bottom: 1px solid vars.$mz-gray-lighter;
+
+  }
+
+  &__item-title {
+    padding: 16px;
+
+    background: rgba(vars.$mz-gray-lighter, 0.2);
+    border-top: 1px solid vars.$mz-gray-lighter;
+    border-bottom: 1px solid vars.$mz-gray-lighter;
+    width: 100%;
+    font-weight: 600;
+    color: vars.$mz-gray;
+  }
+
+  .total-price-td {
+    color: vars-v2.$primary-900;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+
+  .user-block__data-tb {
+    .user-block {
+      &__bank-code-td {
+        white-space: nowrap;
+      }
+
+      &__date-td {
+        width: 80px;
+        white-space: nowrap;
+      }
+    }
+  } // .user-block__data-tb
+}// .user-block--affiliate-cross-check
+
+.current-price{
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 36px;
+  font-family: "Oswald", "Roboto", "Helvetica Neue", sans-serif;
+  color: vars-v2.$primary-900;
+}

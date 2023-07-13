@@ -1,0 +1,32 @@
+@use 'vars' as vars;
+@use 'vars-v2' as vars-v2;
+@use 'mixin/mz-text-size' as mz-text-size;
+
+//=========================================
+// order layout
+//=========================================
+.order-layout {
+  display: flex;
+  margin-bottom: 32px;
+
+  &__main-col {
+    flex: 1 1;
+    min-width: 0;
+  }
+
+  &__sidebar-col {
+    flex: 0 0 344px;
+    padding-left: 3rem;
+    margin-left: auto;
+    min-width: 0;
+  }
+
+  .ship-fee-alert {
+    border: 1px dashed vars.$mz-warning;
+    background: vars-v2.$secondary-300;
+    border-radius: vars.$mz-rounded-xs;
+    padding: 8px 16px;
+    margin-bottom: 16px;
+    @include mz-text-size.mz-text-size-from-font-size-key('sm');
+  }
+}

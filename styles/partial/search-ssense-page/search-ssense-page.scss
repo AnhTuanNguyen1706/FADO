@@ -1,0 +1,31 @@
+/*
+- Trường hợp chỉ có 1 dòng sản phẩm, không có phân trang - http://dev-v2.fado.vn/us/s/search?rh=k:sadsadasd&keywords=sadsadasd
+*/
+// Partials global
+// ---------
+@use "component/_product-titlebar-section";
+@use 'partial/global/product/product-card';
+@use 'partial/global/product/product-deal-action-card';
+@use "partial/global/search-tab-section";
+@use "partial/global/search-correct-segment";
+@use "partial/global/suggest-product-deal-block";
+@use "partial/global/search-fail-keyword-block";
+@use "partial/global/related-blog-section";
+
+// Partials other page
+//----------
+@use "partial/search-page/search-correct-dropdown";
+@use 'partial/fado-category-page/category-page-description-section';
+
+// Partials in page
+// ---------
+@use "./_category-page";
+@use "./category-layout";
+@use "./category-product-card-wrap";
+@use "./mkt-event-top-block";
+@use "./mkt-event-content-block";
+@use "./mkt-event-menu-sblock";
+@use "./mkt-content-block";
+@use "./category-side-col";
+@use "./category-info-section";
+@use "./category-related-list-section";

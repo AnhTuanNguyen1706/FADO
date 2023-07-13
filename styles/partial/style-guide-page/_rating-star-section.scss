@@ -1,0 +1,20 @@
+//=====================================
+// rating star section
+//=====================================
+.rating-star-section {
+  .section-body {
+    display: flex;
+  }
+}
+
+// rating-star-custom-list
+//-------------------------
+.rating-star-section {
+  .rating-star-custom-row {
+    margin-bottom: 32px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  } // .rating-star-custom-row
+}

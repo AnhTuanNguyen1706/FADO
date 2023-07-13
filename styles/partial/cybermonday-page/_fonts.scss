@@ -1,0 +1,17 @@
+@use 'vars' as vars;
+
+@font-face {
+  font-family: 'r0c0iLinotte';
+  font-style: normal;
+  font-weight: 400;
+  src:
+    url(vars.$mz-font-url + '/r0c0iLinotte/r0c0iLinotte-Regular.woff2');
+}
+
+@font-face {
+  font-family: 'r0c0iLinotte';
+  font-style: normal;
+  font-weight: 700;
+  src:
+    url(vars.$mz-font-url + '/r0c0iLinotte/r0c0iLinotte-Bold.woff2');
+}

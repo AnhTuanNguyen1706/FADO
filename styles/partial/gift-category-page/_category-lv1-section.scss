@@ -1,0 +1,115 @@
+@use 'vars' as vars;
+@use 'mixin/mz-text-size' as mz-text-size;
+@use 'mixin/mz-border-radius' as mz-border-radius;
+@use 'mixin/mz-placeholder' as mz-placeholder;
+
+.category-lv1-section {
+  padding: 16px 0 32px;
+  box-shadow: inset 0 -1px 2px 0 vars.$mz-gray-light;
+
+  .section-row {
+    display: flex;
+    align-items: center;
+  }
+}// .category-lv1-section
+
+/* =============================================
+  Category col
+================================================ */
+.category-lv1-section {
+  .category-col {
+    min-width: 0;
+    display: flex;
+    flex-wrap: nowrap;
+    flex: 1 1;
+    align-items: baseline;
+  }// .category-col
+
+  .category-item-wrap {
+    min-width: 0;
+    display: flex;
+    align-items: baseline;
+    flex-wrap: nowrap;
+    overflow: hidden;
+  }
+
+  .category-item {
+    white-space: nowrap;
+    @include mz-text-size.mz-text-size(20px);
+    font-weight: 800;
+    color: vars.$mz-gray;
+    margin: 0;
+    margin-left: 24px;
+
+    &:hover {
+      color: vars.$mz-link-color;
+    }
+
+    &.is-active {
+      color: vars.$mz-text-body-color;
+    }
+
+    &:first-child {
+      margin-left: 0;
+    }
+  }// .category-item
+
+  // DROPDOWN MENU
+  .category-dropdown {
+    margin-left: 24px;
+    min-width: 16px; // ! Set để không bị .category-item-wrap chiếm width
+
+    .mz-dropdown-menu__inner-space {
+      max-height: 30vh;
+    }
+  }
+
+  .dropdown-btn {
+    @include mz-text-size.mz-text-size(16px);
+    color: vars.$mz-gray;
+    cursor: pointer;
+
+    &:hover {
+      color: vars.$mz-link-color;
+    }
+  }// .dropdown-btn
+}// .category-lv1-section
+
+/* =============================================
+  Search col
+================================================ */
+.category-lv1-section {
+  .search-col {
+    min-width: 0;
+    margin-left: auto;
+  }
+
+  .search-form {
+    width: 164px;
+    position: relative;
+  }
+
+  .keywords-input {
+    width: 100%;
+    height: 34px;
+    @include mz-border-radius.mz-border-radius-from-key('round');
+    border: 1px solid vars.$mz-gray-light;
+    background: #fff;
+    padding: 0 36px 0 12px;
+
+    @include mz-placeholder.placeholder() {
+      color: vars.$mz-gray-light;
+    }
+  }
+
+  .submit-btn {
+    background: transparent;
+    width: 34px;
+    height: 32px;
+    position: absolute;
+    border: 0;
+    right: 4px;
+    top: 50%;
+    margin-top: -16px;
+  }
+}// .category-lv1-section

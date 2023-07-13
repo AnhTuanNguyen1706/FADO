@@ -1,0 +1,76 @@
+@use 'vars' as vars;
+@use 'mixin/mz-text-size' as mz-text-size;
+@use 'function/mz/mz-color' as mz-color;
+@use 'mixin/mz-border-radius' as mz-border-radius;
+
+.user-block--payment-info {
+  padding: 16px 16px 0;
+  background: #fff;
+  @include mz-border-radius.mz-border-radius(8px);
+  box-shadow: 0 0 4px 0 rgba(vars.$mz-gray, 0.2);
+
+  &__head {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 16px;
+  }
+
+  &__head-title {
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 700;
+    margin-right: 8px;
+  }
+
+  &__block-body {
+    margin: 0 -16px;
+  }
+
+  &__manage-body {
+    display: grid;
+    grid-template-columns: repeat(6, auto);
+  }
+
+  &__manage-item {
+    padding: 16px;
+    border-bottom: 1px solid vars.$mz-gray-lighter;
+
+  }
+
+  &__item-title {
+    padding: 16px;
+    color: vars.$mz-gray;;
+    font-weight: 700;
+
+    background: rgba(vars.$mz-gray-lighter, 0.2);
+    border-top: 1px solid vars.$mz-gray-lighter;
+    border-bottom: 1px solid vars.$mz-gray-lighter;
+    width: 100%;
+  }
+
+  .user-block__input-form {
+    .user-block__form-group__lbl-col {
+      flex: 0 0 170px;
+    }
+  } // .user-block
+
+  // Payment info table
+  .user-block__data-tb {
+    .user-block__control-td {
+      white-space: nowrap;
+    }
+
+    .my-control-btn {
+      width: auto;
+      margin: 0 5px 0 0;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+
+    .check-control {
+      display: inline-block;
+    }
+  } // .user-block__data-tb
+}// .user-block--payment-info

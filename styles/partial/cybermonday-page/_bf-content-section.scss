@@ -1,0 +1,127 @@
+@use 'vars' as vars;
+@use 'mixin/mz-text-size' as mz-text-size;
+
+.bf-content-section {
+  background: #12171d url(vars.$mz-image-url + '/page/blackfriday-page/bf-content-section-bg.jpg' + vars.$mz-cache-ver-suffix) no-repeat bottom center;
+  padding: 60px 0;
+
+  .section-head {
+    margin-bottom: 24px;
+  }
+
+  .section-title {
+    @include mz-text-size.mz-text-size(36px);
+    text-align: center;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: #fff;
+  }
+}// .bf-content-section
+
+
+
+
+
+
+
+/* ------------------
+  Global segment
+--------------------- */
+.bf-content-section {
+  .global-segment {
+    margin-bottom: 90px;
+
+    .view-more-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 36px auto 0;
+      width: 136px;
+      height: 40px;
+      border: 1px solid #fff;
+      border-radius: vars.$mz-rounded-round;
+      background: transparent;
+      color: #fff;
+
+      &:hover {
+        color: vars.$mz-primary;
+        border-color: vars.$mz-primary;
+      }
+    }
+  }// .global-segment
+}// .bf-content-section
+
+
+
+
+
+/* ------------------
+  Content segment
+--------------------- */
+.bf-content-section {
+  .content {
+    @include mz-text-size.mz-text-size-from-font-size-key('sm');
+    text-align: center;
+    color: vars.$mz-gray-light;
+    max-height: 88px;
+    overflow: hidden;
+
+    .title {
+      color: #fff;
+    }
+
+    a{
+      text-decoration:none;
+      color: vars.$mz-gray-light;
+
+    }
+    a:hover{
+      color: #fff;
+    }
+
+    h1.title {
+      text-transform: uppercase;
+      @include mz-text-size.mz-text-size(20px);
+      font-weight: 700;
+    }
+
+    h2.title {
+      @include mz-text-size.mz-text-size(18px);
+      font-weight: 700;
+    }
+
+    h3.title {
+      @include mz-text-size.mz-text-size(18px);
+      font-weight: 700;
+    }
+
+    &.is-expand {
+      max-height: none;
+      overflow: visible;
+    }
+  }// .content
+
+  .expand-field {
+    text-align: center;
+    color: vars.$mz-primary;
+    position: relative;
+    cursor: pointer;
+
+    &::before, &::after {
+      content: '';
+      height: 1px;
+      width: 240px;
+      top: 50%;
+      background: vars.$mz-gray-light;
+      position: absolute;
+    }
+
+    &::before {
+      right: calc(50% + 60px);
+    }
+
+    &::after {
+      left: calc(50% + 60px);
+    }
+  }
+}// .bf-content-section

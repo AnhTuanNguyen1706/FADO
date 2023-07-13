@@ -1,0 +1,131 @@
+@use 'vars' as vars;
+
+$tmp-border-color: #eee;
+
+.payment-guide-modal {
+
+}// .payment-guide-modal
+
+// ===================================
+// Order info table
+// ===================================
+.payment-guide-modal {
+  &__order-info-tb {
+    width: 100%;
+    border-top: 2px solid $tmp-border-color;
+    border-bottom: 2px solid $tmp-border-color;
+
+    td {
+      padding: 8px 10px;
+      border-bottom: 1px solid $tmp-border-color;
+    }
+  }
+
+  &__order-info-tb__lbl-td {
+    white-space: nowrap;
+    width: 100px;
+    color: #999;
+    font-style: italic;
+  }
+}// .payment-guide-modal
+
+// ===================================
+// Bank info table
+// ===================================
+.payment-guide-modal {
+  &__bank-info-tb {
+    width: 100%;
+    border-bottom: 2px solid $tmp-border-color;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    td {
+      padding: 8px 10px;
+      border-bottom: 1px solid $tmp-border-color;
+    }
+  }
+
+  &__bank-info-tb__lbl-td {
+    white-space: nowrap;
+    width: 100px;
+    color: #999;
+    font-style: italic;
+  }
+}// .payment-guide-modal
+
+//==========================================
+// bank select list
+//==========================================
+.payment-guide-modal {
+  .bank-select-list {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 -15px;
+    padding: 0 15px;
+
+    &:before {
+      content: '';
+      position: absolute;
+      display: block;
+      width: 100%;
+      height: 1px;
+      left: 0;
+      bottom: 0;
+      background: #eee;
+    }
+
+    .bank-select-item {
+      position: relative;
+      display: flex;
+      padding: 8px;
+      padding-bottom: 16px;
+
+      &:before {
+        content: none;
+        position: absolute;
+        display: block;
+        height: 1px;
+        width: 100%;
+        left: 0;
+        bottom: 0;
+        background: vars.$mz-primary;
+      }
+
+      &.is-active {
+        &:before {
+          content: '';
+        }
+
+        .bank-img {
+          -webkit-filter: grayscale(0); /* Safari 6.0 - 9.0 */
+          filter: grayscale(0);
+        }
+      }
+    }
+
+    .mz-state-control__icon {
+      border-radius: 50%;
+      right: 0;
+      left: auto;
+    }
+
+    .bank-img-outer {
+      height: 20px;
+    }
+
+    .bank-img {
+      display: block;
+
+      -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+      filter: grayscale(100%);
+    }
+
+    .mz-state-control__inner {
+      padding-left: 0;
+    }
+  } // .bank-select-list
+} // .order-finish-body-block

@@ -1,0 +1,16 @@
+// Partials global
+// ---------
+@use "partial/order-page/order-header-section";
+@use "partial/order-page/order-footer-section";
+@use 'partial/global/product/product-card';
+
+// Order finish block
+// ---------
+@use "./_order-finish-page";
+@use "order-finish-section";
+@use "order-finish-head-block";
+@use "order-finish-body-block";
+
+// Modal
+// ---------
+@use "partial/modal/payoo-modal";

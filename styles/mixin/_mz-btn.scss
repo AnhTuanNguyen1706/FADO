@@ -1,0 +1,244 @@
+@use 'mixin/mz-text-size' as mz-text-size;
+@use 'mixin/mz-border-radius' as mz-border-radius;
+@use 'mixin/mz-hover' as mz-hover;
+@use 'vars' as vars;
+@use 'vars-v2' as vars-v2;
+@use 'function/mz/mz-color' as mz-color;
+
+/*
+DOC:
+- Khởi tạo bộ khung cơ bản cho 1 mz-btn
+*/
+@mixin mz-make-btn-ready() {
+  height: vars.$mz-form-height-default;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  vertical-align: middle;
+  border: 1px solid transparent;
+  background-color: transparent;
+  padding: 0 12px;
+  transition: vars.$mz-transition-time-xs;
+  color: vars.$mz-text-body-color;
+  @include mz-border-radius.mz-border-radius-from-key(vars.$mz-form-border-radius-key-default);
+  @include mz-text-size.mz-text-size(vars.$mz-form-font-size-key-default);
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &.is-disabled,
+  &:disabled {
+    pointer-events: none;
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+
+  [class*="__icon-col"] { // Style for child icon column
+    display: block;
+
+    &:first-child {
+      margin-right: 4px;
+    }
+
+    &:last-child {
+      margin-left: 4px;
+    }
+  }
+}
+
+/*
+DOC:
+- Tạo button dạng fill màu trong bảng color theme
+
+ISSUE:
+- Khi chỉ tạo màu này thì hover vào button cũng màu khác, cần xem xét tối ưu kiểu khác
+*/
+@mixin mz-make-btn-color($_color-name, $_map-theme-color: vars.$mz-map-theme-color) {
+  @if(map-has-key($_map-theme-color, $_color-name)) {
+    $_text-color: #ffffff;
+    $_bg-color: mz-color.mz-get-color-with-level($_color-name);
+
+    @if($_color-name == 'gray') {
+      $_bg-color: vars.$mz-gray-lighter;
+      $_text-color: vars.$mz-gray-dark;
+    }
+
+    background: $_bg-color;
+    color: $_text-color;
+    border-color: $_bg-color;
+  }
+}
+
+/*
+DOC:
+- Tạo màu trạng thái hover cho button fill màu trong bảng color theme
+*/
+@mixin mz-make-btn-hover-color($_color-name, $_map-theme-color: vars.$mz-map-theme-color) {
+  @if(map-has-key($_map-theme-color, $_color-name)) {
+    $_bg-color-hover: mz-color.mz-get-color-with-level($_color-name,'light');
+    $_text-color-hover: #ffffff;
+
+    @if($_color-name == 'gray') {
+      $_bg-color-hover: vars.$mz-gray-lighter;
+      $_text-color-hover: vars.$mz-gray-darker;
+    }
+
+    background: vars-v2.$primary-900;
+    border-color: vars-v2.$primary-900;
+    color: #fff;
+    box-shadow: 0 16px 16px -10px rgba($_bg-color-hover,0.5);
+  }
+}
+
+/*
+DOC:
+- Tạo trạng thái màu sắc cho button focus
+*/
+@mixin mz-make-btn-focus-color($_color-name, $_map-theme-color: vars.$mz-map-theme-color) {
+  @if(map-has-key($_map-theme-color, $_color-name)) {
+    $_text-color-focus: #ffffff;
+    $_bg-color-focus: mz-color.mz-get-color-with-level($_color-name,'dark');
+
+    @if($_color-name == 'gray') {
+      $_text-color-focus: #ffffff;
+      $_bg-color-focus: vars.$mz-gray;
+    }
+
+    background: vars-v2.$primary-900;
+    border-color: vars-v2.$primary-900;
+    color: #fff;
+    box-shadow: none;
+  }// @if
+}
+
+@mixin mz-make-btn-outline-color($_color-name, $_map-theme-color: vars.$mz-map-theme-color) {
+  @if(map-has-key($_map-theme-color, $_color-name)) {
+    $_text-color: mz-color.mz-get-color-with-level($_color-name);
+    $_border-color: mz-color.mz-get-color-with-level($_color-name);
+
+    @if($_color-name == 'gray') {
+      $_text-color: vars-v2.$primary-900;
+      $_border-color: vars-v2.$primary-900;
+    }
+
+    background: transparent;
+    color: vars-v2.$primary-900;
+    border-color: vars-v2.$primary-900;
+  }
+}
+
+@mixin mz-make-btn-outline-hover-color($_color-name, $_map-theme-color: vars.$mz-map-theme-color) {
+  @if(map-has-key($_map-theme-color, $_color-name)) {
+    $_text-color: mz-color.mz-get-color-with-level($_color-name,'light');
+    $_bg-color: mz-color.mz-get-color-with-level($_color-name,'lightest');
+    $_border-color: mz-color.mz-get-color-with-level($_color-name,'light');
+
+    @if($_color-name == 'gray') {
+      $_text-color: mz-color.mz-get-color-with-level($_color-name,'dark');
+      $_bg-color: mz-color.mz-get-color-with-level($_color-name,'lightest');
+      $_border-color: mz-color.mz-get-color-with-level($_color-name);
+    }
+
+    background: vars-v2.$primary-900;
+    color: #ffffff;
+    // color: $_text-color;
+    border-color: $_border-color;
+  }
+}
+
+
+@mixin mz-make-btn-outline-focus-color($_color-name, $_map-theme-color: vars.$mz-map-theme-color) {
+  @if(map-has-key($_map-theme-color, $_color-name)) {
+    $_text-color: mz-color.mz-get-color-with-level($_color-name,'light');
+    $_bg-color: mz-color.mz-get-color-with-level($_color-name,'lighter');
+    $_border-color: mz-color.mz-get-color-with-level($_color-name,'light');
+
+    @if($_color-name == 'gray') {
+      $_text-color: mz-color.mz-get-color-with-level($_color-name,'dark');
+      $_bg-color: mz-color.mz-get-color-with-level($_color-name,'lighter');
+      $_border-color: mz-color.mz-get-color-with-level($_color-name);
+    }
+
+    background: vars-v2.$primary-900;
+    border-color: vars-v2.$primary-900;
+    color: #fff;
+  }
+}
+
+/*
+DOC:
+- Tọa khung css cơ bản cho các button có icon dạng tương tác active. VD: favorite, compare,...
+- *Lưu ý: chỉ sử dụng cho bộ mz-btn chuẩn, không sử dụng cho custom
+*/
+@mixin mz-make-btn-icon-ready() {
+  @include mz-make-btn-color('gray');
+
+  @include mz-hover.mz-hover() {
+    @include mz-make-btn-hover-color('gray');
+  }
+}
+
+/*
+DOC:
+- Tọa khung css cơ bản cho các button có icon dạng tương tác active background transparent
+- *Lưu ý: chỉ sử dụng cho bộ mz-btn chuẩn, không sử dụng cho custom
+*/
+@mixin mz-make-btn-icon-trans-ready() {
+  color: vars.$mz-gray;
+  background: transparent;
+  border: 0;
+
+  @include mz-hover.mz-hover() {
+    color: vars.$mz-gray-dark;
+  }
+}
+
+
+/*
+DOC:
+- Biến button chiếm trọn diện tích chiều ngang của không gian layout
+*/
+@mixin mz-make-btn-block() {
+  width: 100%;
+}
+
+/*
+DOC:
+- Tạo kích thước button
+*/
+@mixin mz-make-btn-size($_size-key, $_map-form-height: vars.$mz-map-form-height, $_map-form-font-size-key: vars.$mz-map-form-font-size-key) {
+  @if(map-has-key($_map-form-height, $_size-key)) {
+    $_font-size-key: map-get($_map-form-font-size-key, $_size-key);
+    $_heigh-value: map-get($_map-form-height, $_size-key);
+
+    @include mz-text-size.mz-text-size-from-key($_font-size-key);
+    height: $_heigh-value;
+  }
+}
+
+/*
+DOC:
+- Tạo border radius button
+*/
+@mixin mz-make-btn-border-radius($_bdr-key, $_map-border-radius: vars.$mz-map-rounded, $_btn-height: vars.$mz-form-height-default) {
+  // Set pass argument in mixin
+  @if($_map-border-radius == null) {
+    $_map-border-radius: vars.$mz-map-rounded;
+  }
+
+  @if(map-has-key($_map-border-radius, $_bdr-key)) {
+    $_bdr-value: map-get($_map-border-radius, $_bdr-key);
+    border-radius: $_bdr-value;
+
+    @if($_bdr-key == 'circle') {
+      width: $_btn-height;
+      padding: 0;
+
+      [class*="__icon-col"] { // Style for child icon column
+        margin: 0;
+      }
+    }
+  }
+}

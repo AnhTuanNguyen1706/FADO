@@ -1,0 +1,80 @@
+@use 'sass:math';
+@use 'vars-v2' as vars-v2;
+@use 'mixin/mz-text-size' as mz-text-size;
+@use 'mixin/mz-general' as general;
+
+.discount-section {
+  margin-bottom: 40px;
+
+  .discount-block {
+    margin-top: 40px;
+  }
+
+  .discount-block-head {
+    position: relative;
+    text-align: center;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 2px;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      background: vars-v2.$primary-700;
+      z-index: 5;
+    }
+  }
+
+  .discount-block-head-title {
+    position: relative;
+    z-index: 10;
+    display: inline-block;
+    padding: 12px 44px;
+    background: vars-v2.$primary-900;
+    border-radius: 40px;
+    @include mz-text-size.mz-text-size(32px);
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: 600;
+  }
+
+  .discount-block-body {
+    // margin-top: 40px;
+  }
+
+  .discount-sub-group {
+    margin-top: 40px;
+  }
+
+  .sub-group-head {
+    @include mz-text-size.mz-text-size(18px);
+    text-transform: uppercase;
+  }
+
+  .sub-group-body {
+    margin-top: 24px;
+  }
+
+  .discount-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 24px;
+    padding-right: 1px;
+
+    &.limit-height {
+      max-height: 248px;
+      overflow: hidden;
+    }
+  }
+
+  .view-more {
+    text-align: center;
+    margin-top: 24px;
+  }
+
+  .sub-group-banner {
+    margin-top: 40px;
+  }
+}

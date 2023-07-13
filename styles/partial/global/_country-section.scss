@@ -1,0 +1,35 @@
+@use 'vars' as vars;
+@use 'mixin/mz-text-size' as mz-text-size;
+
+// ========================================================================
+// Country section
+// ========================================================================
+.country-section {
+  box-shadow: 0 1px 0 0 vars.$mz-gray-light;
+  padding-bottom: 58px;
+  background: vars.$mz-gray-lightest;
+
+  .mz-container {
+    background: url(vars.$mz-image-url + '/bg/global-card-bg.png') top 16px center/contain no-repeat;
+  }
+}
+
+// ========================================================================
+// Country block
+// ========================================================================
+.country-block {
+  margin-top: -#{50px};
+  padding-top: 76px;
+
+  .block-title {
+    @include mz-text-size.mz-text-size('h2');
+    font-weight: bold;
+    color: rgba(vars.$mz-gray-darker,0.7);
+    text-align: center;
+    margin-bottom: 30px;
+  } // end .country-title-block
+
+  .country-card-wrap {
+    justify-content: center;
+  }
+}

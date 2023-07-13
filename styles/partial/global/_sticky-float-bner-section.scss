@@ -1,0 +1,201 @@
+@use 'vars' as vars;
+@use 'mixin/mz-text-size' as mz-text-size;
+@use 'mixin/mz-border-radius' as mz-border-radius;
+@use 'mixin/mz-box-shadow' as mz-shadow;
+
+$_section-width: 128px;
+$_margin-with-container: 16px;
+
+.sticky-float-bner-section {
+  position: fixed;
+  right: 50%;
+  bottom: $_margin-with-container;
+  z-index: vars.$mz-z-index-lv-6;
+  width: $_section-width;
+
+  .close-btn {
+    width: 20px;
+    height: 20px;
+    left: 0;
+    top: 0;
+    cursor: pointer;
+    border: 2px solid #8e8e8e;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include mz-text-size.mz-text-size(10px);
+    @include mz-border-radius.mz-border-radius-from-key('circle');
+    color: vars.$mz-gray-dark;
+    z-index: 4;
+
+    &:hover {
+      background: vars.$mz-gray-light;
+    }
+  }
+
+  .section-inner {
+    transition: vars.$mz-transition-time-default;
+  }
+
+  &:hover {
+    .section-inner {
+      animation-name: zoomInOut;
+      animation-duration: 0.6s;
+    }
+  }
+}// .sticky-float-bner-section
+
+@keyframes zoomInOut {
+  0%   { transform: scale(1); }
+  50%  { transform: scale(1.2); }
+  100%   { transform: scale(1); }
+}
+
+
+/* =============================================
+  Symbol segment
+================================================ */
+.sticky-float-bner-section {
+  .symbol-segment {
+    position: relative;
+    z-index: 3;
+
+    .symbol-shape {
+      cursor: pointer;
+    }
+  }// .symbol-segment
+
+  &.is-no-countdown {
+    .symbol-segment {
+      margin-bottom: -28px;
+    }
+  }
+}// .sticky-float-bner-section
+
+/* =============================================
+  Label segment
+================================================ */
+.sticky-float-bner-section {
+  .label-segment {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 1;
+    margin-top: -20px; // ! Khi làm quản trị sẽ trao đổi lại con số chỗ này, hoặc loại bỏ đi
+    cursor: pointer;
+
+    .segment-inner {
+      display: flex;
+      background: #ba1313;
+      border-radius: 8px 8px 0 0;
+      height: 20px;
+      align-items: center;
+      padding: 0 6px;
+      font-size: 10px;
+      color: rgba(#fff,0.8);
+      position: relative;
+
+      &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: -2px;
+        height: 100%;
+        width: 50%;
+        border-radius: 10px 0 0 0;
+        transform-origin: top right;
+        background: #ba1313;
+        transform: skew(-10deg);
+        z-index: -1;
+      }
+
+      &::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        right: -2px;
+        height: 100%;
+        width: 50%;
+        border-radius: 0 10px 0 0;
+        transform-origin: top left;
+        background: #ba1313;
+        transform: skew(10deg);
+        z-index: -1;
+      }
+    }
+
+    .label-text {
+      text-transform: uppercase;
+    }
+  }// .label-segment
+}
+
+/* =============================================
+  Countdown segment
+================================================ */
+.sticky-float-bner-section {
+  .countdown-segment {
+    display: flex;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+    cursor: pointer;
+
+    .segment-inner {
+      min-width: 128px;
+      background: #ee2424;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      @include mz-border-radius.mz-border-radius-from-key('round');
+      height: 28px;
+      padding: 0 8px;
+      color: #fff;
+      @include mz-shadow.mz-shadow-from-key('lg');
+    }
+
+    .day-field {
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      text-transform: uppercase;
+    }
+
+    .day {
+      font-size: 24px;
+      line-height: 1;
+      margin: 0 4px;
+    }
+
+    .time-item-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+
+      &.is-one-hour {
+        color: #fffe6b;
+
+        .seperate-item {
+          background: #fffe6b;
+        }
+      }
+    }
+
+    .time-item {
+      font-size: 18px;
+      line-height: 1;
+      font-weight: 700;
+      width: 26px;
+    }
+
+    .seperate-item {
+      width: 1px;
+      height: 16px;
+      line-height: 1;
+      background: #fff;
+      margin: 0 4px;
+    }
+  }// .countdown-segment
+}

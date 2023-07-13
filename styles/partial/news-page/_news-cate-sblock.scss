@@ -1,0 +1,68 @@
+@use 'vars' as vars;
+@use 'mixin/old-bg-fd-grd' as old-bg-fd-grd;
+
+.news-cate-sblock {
+  padding: 20px;
+  border-bottom: 1px solid #ededed;
+
+  &__sblock-title {
+    font-size: 16px;
+    line-height: 22px;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    margin-bottom: 10px;
+  }
+
+  &__sblock-icon-field {
+    width: 32px;
+    height: 32px;
+    display: inline-flex;
+    @include old-bg-fd-grd.old-bg-fd-grd(135deg);
+    border-radius: 50%;
+    color: #fff;
+    align-items: center;
+    justify-content: center;
+    margin-right: 5px;
+  }
+
+  &:last-child {
+    border-bottom: 0;
+  }
+}// .news-cate-sblock
+
+// =============================================
+// Link list
+// =============================================
+.news-cate-sblock {
+  &__link-list {
+    list-style: none;
+
+    li {
+      margin-bottom: 5px;
+
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+
+    a {
+      color: vars.$mz-text-body-color;
+
+      &::before {
+        content: '\f105';
+        font-family: vars.$mz-font-family-fa5;
+        margin-right: 5px;
+        display: inline-block;
+        color: #999;
+        font-weight: 400;
+        font-size: 12px;
+        vertical-align: middle;
+      }
+
+      &:hover {
+        color: vars.$mz-link-color;
+      }
+    }
+  }// .link-list
+}// .news-cate-sblock

@@ -1,0 +1,191 @@
+@use 'sass:math';
+@use 'vars' as vars;
+@use 'mixin/mz-text-size' as mz-text-size;
+@use 'function/mz/mz-color' as mz-color;
+
+.store-showcase-section {
+  margin: 40px 0 0;
+}// .store-showcase-section
+
+/* =============================================
+  Bner panel
+================================================ */
+.store-showcase-section {
+  .bner-panel-col {
+    margin-bottom: 40px;
+  }
+
+  // PANEL HEADING
+  .bner-panel {
+    .panel-head {
+      margin-bottom: 16px;
+    }
+
+    .bner-img-outer {
+      display: flex;
+      position: relative;
+      align-items: center;
+      justify-content: center;
+      padding-bottom: math.div(100% * 9, 16);
+
+      &:before {
+        position: absolute;
+        content: '';
+        display: block;
+        width: 100%;
+        height: 100%;
+        border: 1px solid rgba(vars.$mz-gray-darker,0.1);
+        left: 0;
+        top: 0;
+        z-index: 3;
+      }
+    } // end .bner-img-outer
+
+    .bner-img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      max-height: none;
+      max-width: none;
+      object-fit: cover;
+      object-position: center;
+      left: 0;
+      top: 0;
+    }
+  }// .bner-panel
+
+  // PANEL BODY
+  .bner-panel {
+    .panel-body {
+      display: flex;
+      align-items: center;
+      width: 100%;
+    }
+
+    // Brand info col
+    $_brand-img-height: 64px;
+
+    .panel-body__brand-col {
+      flex: 0 0 $_brand-img-height + 8px;
+      width: $_brand-img-height + 8px;
+      height: $_brand-img-height;
+      min-width: 1px;
+      padding-right: 8px;
+      border-right: 1px solid rgba(#000, 0.05);
+      margin-right: 16px;
+    }
+
+    .brand-img-outer {
+      width: $_brand-img-height;
+      height: $_brand-img-height;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    // Bner info col
+    .panel-body__info-col {
+      overflow: hidden;
+      flex: 1 1;
+    }
+
+    .bner-title {
+      @include mz-text-size.mz-text-size('md');
+      color: vars.$mz-gray-darker;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      transition: vars.$mz-transition-time-default;
+    }
+
+    .bner-info-field {
+      display: flex;
+      align-items: baseline;
+      margin-top: 8px;
+    }
+
+    .price-label {
+      color: vars.$mz-gray;
+    }
+
+    .curr-price {
+      font-family: vars.$mz-font-family-oswald;
+      font-weight: 400;
+      @include mz-text-size.mz-text-size('md');
+      color: vars.$mz-warning;
+      margin-left: 8px;
+    }
+
+    .rest-of-time {
+      color: vars.$mz-gray-dark;
+      display: flex;
+      align-items: center;
+
+      &:before {
+        $_height: 12px;
+        content: '';
+        display: block;
+        width: 1px;
+        height: $_height;
+        background: rgba(#979797,0.5);
+        left: 0;
+        position: relative;
+        top: -1px;
+        margin: 0 12px;
+      }
+    }
+
+    // Bnner country col
+    .panel-body__country-col {
+      width: 37px;
+      height: 32px;
+      margin-left: 16px;
+      align-self: flex-start;
+      position: relative;
+      top: -8px;
+    }
+
+    // Banner percent colum
+    .panel-body__percent-col {
+      margin-left: 12px;
+      align-self: flex-start;
+      position: relative;
+      top: -8px;
+    }
+
+    .percent-tag {
+      display: flex;
+      @include mz-text-size.mz-text-size(20px);
+      padding: 0 12px;
+      border-radius: vars.$mz-rounded-xs;
+      background: vars.$mz-danger-light;
+      font-weight: 700;
+      color: #fff;
+      height: 32px;
+    }
+
+    .percent-unit {
+      @include mz-text-size.mz-text-size-from-key('xs');
+      line-height: 1;
+      font-weight: 400;
+      margin: 13px 0 0 2px;
+    }
+  }// .bner-panel
+
+  // PANEL HOVER
+  .bner-panel:hover {
+    .bner-title {
+      color: mz-color.mz-get-hover-color(vars.$mz-text-body-color);
+    }
+  }// .bner-panel
+}// .store-showcase-section
+
+
+/* =============================================
+  Pagination
+================================================ */
+.store-showcase-section {
+  .pagination-nav-old {
+    margin-bottom: 40px;
+  }
+}

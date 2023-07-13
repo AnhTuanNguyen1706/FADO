@@ -1,0 +1,108 @@
+@use 'vars' as vars;
+@use 'mixin/mz-text-size' as mz-text-size;
+
+//============================================
+// user info sblock
+//============================================
+.user-info-sblock {}
+
+//=========================================================
+// user menu segment
+//=========================================================
+.user-menu-segment {
+  // user-feature-box
+  .user-feature-box {
+    margin-bottom: 12px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  .box-head {
+    display: flex;
+    align-items: center;
+    margin-bottom: 4px;
+    padding: 8px 16px;
+    padding-left: 0;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  } // .box-head
+  a.box-head {
+    &.is-actived,
+    &:hover {
+      .title-label {
+        color: vars.$mz-primary;
+      }
+    }
+  }
+  .head-icon-col {
+    margin-right: 8px;
+    .icon-shape {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 24px;
+      height: 24px;
+      @include mz-text-size.mz-text-size-from-font-size-key('lg');
+      color: vars.$mz-primary;
+    }
+  } // .head-icon-col
+  .title-label {
+    @include mz-text-size.mz-text-size-from-font-size-key('md');
+    font-weight: 700;
+    color: vars.$mz-gray-darker;
+  }
+  // .user-feature-item-list
+  .user-feature-item-list {
+    position: relative;
+    list-style: none;
+    list-style-type: none;
+    z-index: 0;
+    .feature-item {
+      list-style: none;
+    }
+    &:before {
+      position: absolute;
+      content: '';
+      display: block;
+      height: 100%;
+      width: 1px;
+      background: vars.$mz-gray-lighter;
+      left: 11px;
+      z-index: -1;
+      top: 50%;
+      -webkit-transform: translateY(-50%); /* Ch <36, Saf 5.1+, iOS < 9.2, An =<4.4.4 */
+      -ms-transform: translateY(-50%); /* IE 9 */
+      transform: translateY(-50%); /* IE 10, Fx 16+, Op 12.1+ */
+    }
+    .feature-item {
+      padding: 12px 0;
+    }
+    .feature-label {
+      position: relative;
+      display: block;
+      padding-left: 32px;
+      color: vars.$mz-gray-darker;
+      &:before {
+        position: absolute;
+        content: '';
+        display: none;
+        width: 3px;
+        height: 24px;
+        background: vars.$mz-primary;
+        left: 10.5px;
+        top: 0;
+      }
+      &.is-actived {
+        font-weight: 700;
+        color: vars.$mz-primary;
+        &:before {
+          display: block;
+        }
+      }
+      &:hover {
+        color: vars.$mz-primary;
+      }
+    } // .feature-label
+  } // .user-feature-item-list
+}

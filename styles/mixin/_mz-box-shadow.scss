@@ -1,0 +1,6 @@
+@use 'vars' as vars;
+
+@mixin mz-shadow-from-key($_shadow-key: 'xs') {
+  $_box-shadow: map-get(vars.$mz-map-shadow, $_shadow-key);
+  box-shadow: $_box-shadow;
+}

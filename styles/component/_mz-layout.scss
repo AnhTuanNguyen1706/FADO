@@ -1,0 +1,71 @@
+@use 'vars' as vars;
+
+.mz-layout {
+  padding-top: 16px;
+  position: relative;
+
+  &__loading {
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: vars.$mz-gray;
+  }
+
+  &__inner {
+    background: #fff;
+    display: flex;
+    flex-wrap: nowrap;
+    margin: 0 -8px;
+  }
+
+  &__main-col {
+    padding: 0 8px;
+    flex: 1 1 auto;
+    margin: 0 auto 40px;
+    min-width: 0;
+  }
+
+  &__main-col-loading {
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    color: vars.$mz-gray;
+  }
+
+  &__pagination {
+    margin-top: 24px;
+  }
+
+  &__side-col {
+    padding: 0 8px;
+    flex: 0 0 240px;
+    max-width: 240px;
+    padding-bottom: 16px;
+    min-width: 0;
+  }
+
+  &__sticky {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 160px;
+
+    &.sticky-at-0 {
+      top: 16px;
+    }
+  }
+}
+
+// Custom each page
+.product-detail-page {
+  .mz-layout__sticky {
+    top: 96px;
+
+    &.sticky-at-0 {
+      top: 16px;
+    }
+  }
+}

@@ -1,0 +1,11 @@
+// Partials user page
+//-------------
+@use 'partial/user-page/user-layout';
+@use 'partial/user-page/user-head-section';
+@use 'partial/user-page/user-sblock';
+@use 'partial/user-page/user-block';
+
+// Local Partials
+//-------------
+@use './_user-notification-page';
+@use './user-notification-section';

@@ -1,0 +1,15 @@
+.product-panel-wrap-v2 {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: stretch;
+  margin: 0 -10px -30px;
+
+  &__col {
+    flex: 0 0 25%;
+    min-width: 1px;
+    min-height: 1px;
+    margin-bottom: 30px;
+    padding: 0 10px;
+    position: relative;
+  }
+}

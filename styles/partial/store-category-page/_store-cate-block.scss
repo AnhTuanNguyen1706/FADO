@@ -1,0 +1,327 @@
+@use 'vars' as vars;
+@use 'mixin/mz-placeholder' as mz-placeholder;
+@use 'mixin/old-bg-fd-grd' as old-bg-fd-grd;
+
+.store-cate-block {
+  padding: 15px 20px 15px;
+  background: #fff;
+  border-radius: 5px;
+  margin-bottom: 40px;
+
+  &__head {
+    margin-bottom: 20px;
+    border-bottom: 1px solid #e1e1e1;
+    position: relative;
+  }
+
+  &__title {
+    margin-bottom: 15px;
+    font-size: 16px;
+    line-height: 22px;
+    position: relative;
+
+    &::before {
+      content: '';
+      top: -2px;
+      bottom: -2px;
+      width: 5px;
+      left: -20px;
+      position: absolute;
+      @include old-bg-fd-grd.old-bg-fd-grd(135deg);
+    }
+  }
+
+  &__title-sub {
+    font-size: 13px;
+    font-style: italic;
+    color: #999;
+  }
+
+  &__filtered-tag-segment {
+    margin-bottom: 30px;
+    padding: 10px 15px 0;
+    background: #fffef9;
+    border: 1px dashed #ffeab2;
+    border-radius: 5px;
+    font-size: 12px;
+    line-height: 16px;
+  } // &__filtered-tag-segment
+
+  &__filtered-tag-list {
+    display: inline;
+    list-style: none;
+    list-style-type: none;
+
+    li {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      margin-right: 10px;
+      margin-bottom: 10px;
+      padding: 0 5px;
+      height: 26px;
+      border: 1px solid #e1e1e1;
+      border-radius: 4px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+
+    .store-cate-block__filtered-remove-all-item {
+      margin-left: 10px;
+      padding: 0;
+
+      a {
+        display: flex;
+        height: 100%;
+        background: #eee;
+        padding: 0 5px;
+
+        .fa-times{
+          color: vars.$mz-danger;
+        }
+
+        color:#212529;
+
+        &:hover{
+          color:#212529;
+          background:#e9e9e9;
+        }
+      }
+
+      span{
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        height: 100%;
+      }
+
+      &__left{
+        padding-right: 5px;
+        border-right: 1px solid #e1e1e1;
+      }
+
+      &__right{
+        padding-left: 5px;
+      }
+    }// .store-cate-block__filtered-remove-all-item
+  }//&__filtered-tag-list
+
+  &__filtered-tag-remove-btn {
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    z-index: 1;
+    display: block;
+    width: 14px;
+    height: 14px;
+    color: vars.$mz-danger;
+    font-size: 10px;
+    line-height: 16px;
+    text-align: center;
+    text-decoration: none;
+    background: #e1e1e1;
+    border-radius: 50%;
+
+    &:hover {
+      color: vars.$mz-danger;
+      background: #d4d4d4;
+    }
+
+    i {
+      font-weight: 400;
+    }
+  }
+
+  &__filtered-tag-segment-label {
+    display: inline-block;
+    margin-right: 10px;
+    vertical-align: middle;
+  }
+
+  &__search-success-alert {
+    margin-top: -15px;
+  }
+
+  &__no-product-alert {
+    margin-top: -15px;
+    margin-bottom: 0;
+  }
+
+  &__pagination {
+    margin-top: 30px;
+    padding-top: 15px;
+    border-top: 1px solid #e1e1e1;
+  }
+
+  &__notice {
+    margin-top: 20px;
+    text-align: center;
+  }
+}// .store-cate-block
+
+// Sort segment
+// -----------------------------
+.store-cate-block {
+  &__sort-segment {
+    display: flex;
+    font-size: 13px;
+    line-height: 18px;
+    padding-bottom: 10px;
+    align-items: center;
+  }
+
+  &__sort-segment-title {
+    margin-right: 15px;
+  }
+
+  &__sort-list {
+    display: flex;
+    list-style: none;
+
+    li {
+      margin-right: 15px;
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+
+      &.is-active {
+        a {
+          color: vars.$mz-text-body-color;
+          border-color: vars.$mz-warning;
+
+          &::before {
+            content: '';
+            position: absolute;
+            bottom: -13px;
+            left: 0;
+            z-index: 1;
+            width: 100%;
+            height: 3px;
+
+            @include old-bg-fd-grd.old-bg-fd-grd(90deg);
+          }
+        }
+      } // &.is-active
+    } // li
+
+    a {
+      position: relative;
+      color: #999;
+      display: inline-flex;
+      height: 30px;
+      border: 1px solid #e1e1e1;
+      border-radius: 4px;
+      align-items: center;
+      justify-content: center;
+      padding: 0 5px;
+
+      &:hover {
+        color: vars.$mz-link-color;
+        border: 1px solid vars.$mz-link-color;
+      }
+    }
+  } // &__sort-list
+}// .store-cate-block
+
+// Search form
+// -----------------------------
+.store-cate-block {
+  &__search-form {
+    position: relative;
+    // position: absolute;
+    // width: 240px;
+    font-size: 13px;
+    line-height: 18px;
+    // right: 0;
+    // bottom: 10px;
+    // height: 30px;
+    margin-bottom: 16px;
+  }
+
+  &__keyword-input {
+    display: block;
+    width: 100%;
+    padding-right: 35px;
+    height: 30px;
+    text-indent: 10px;
+    background: darken(#ededed,0%);
+    border-radius: 4px;
+    border: 0;
+
+    @include mz-placeholder.placeholder {
+      font-style: italic;
+    }
+
+    &:hover, &:focus {
+      background: darken(#ededed,3%);
+    }
+  }
+
+  &__search-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 30px;
+    height: 30px;
+    margin: auto 0;
+    background: none;
+    border: none;
+    z-index: 2;
+
+    i {
+      font-weight: 400;
+    }
+
+    &:hover {
+      color: vars.$mz-link-color;
+    }
+  } // &__search-btn
+
+  &__search-remove-btn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    bottom: 0;
+    display: block;
+    width: 20px;
+    height: 30px;
+    color: #000;
+    line-height: 30px;
+    text-align: center;
+    text-decoration: none;
+    background: none;
+    border: none;
+    outline: none;
+    z-index: 1;
+
+    &:hover {
+      color: #000;
+
+      i {
+        opacity: .7;
+      }
+    }
+
+    i {
+      color: vars.$mz-danger;
+      font-weight: 400;
+    }
+
+    &+ .store-cate-block__keyword-input {
+      padding-right: 45px;
+    }
+  }//&__search-remove-btn
+}// .store-cate-block
+
+// Product panel wrap custom
+// -----------------------------
+.store-cate-block .product-grid {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+} // .product-panel-wrap

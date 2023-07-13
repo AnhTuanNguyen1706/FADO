@@ -1,0 +1,78 @@
+@use 'vars' as vars;
+@use 'function/general/type' as type;
+
+/*
+  Giới hạn số dòng text và hiển thị ... ở dòng cuối giới hạn
+  VD:
+    - Ta có chuỗi
+      `Est elit amet veniam
+      sunt sit eiusmod irure
+      irure tempor et quis
+      non ipsum.`
+    - Sử dụng hàm
+      mz-limit-text-line('default',3)
+    - Kết quả sẽ hiển thị là
+      `Est elit amet veniam
+      sunt sit eiusmod irure
+      irure tempor et...`
+*/
+@mixin mz-limit-text-line($_font-size: vars.$mz-font-size-default, $_line-limit: 2) {
+  @if not type.is-integer($_line-limit) {
+    @error '$_line-limit: ' + $_line-limit + ' is not valid';
+  }
+
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: $_line-limit;
+}
+
+@mixin mz-fix-event-click {
+  cursor: pointer;
+}
+
+// ! sửa trường hợp bị lỗi fit-content trên firefox
+@mixin mz-width-fit-content {
+  width: -moz-fit-content;
+  width: -webkit-fit-content;
+  width: fit-content;
+}
+
+@mixin mz-height-fit-content {
+  height: -moz-fit-content;
+  height: -webkit-fit-content;
+  height: fit-content;
+}
+
+@mixin mz-position-center {
+  position: absolute;
+  content:"";
+  top:50%;
+  left:50%;
+  transform: translate(-50%,-50%);
+  @include mz-width-fit-content;
+  @include mz-height-fit-content;
+}
+
+@mixin mz-position-center-x {
+  position: absolute;
+  content:"";
+  left:50%;
+  transform: translateX(-50%);
+  @include mz-width-fit-content;
+  @include mz-height-fit-content;
+}
+
+@mixin mz-position-center-y {
+  position: absolute;
+  content:"";
+  top:50%;
+  transform: translateY(-50%);
+  @include mz-width-fit-content;
+  @include mz-height-fit-content;
+}
+
+@mixin mz-smooth-scroll() {
+  -webkit-overflow-scrolling: touch; // ! giúp cho khi vuốt chạm sẽ smooth hơn
+}

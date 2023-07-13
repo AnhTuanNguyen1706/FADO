@@ -1,0 +1,17 @@
+@use 'vars' as vars;
+
+@mixin old-bg-fd-grd($deg: 180deg, $darken: 0%) {
+  background-color: vars.$mz-secondary-dark;
+  background-image: -ms-linear-gradient(
+    $deg,
+    darken(#bd2a36, $darken),
+    darken(#9b4599, $darken),
+    darken(#214181, $darken)
+  );
+  background-image: linear-gradient(
+    $deg,
+    darken(#bd2a36, $darken),
+    darken(#9b4599, $darken),
+    darken(#214181, $darken)
+  );
+}

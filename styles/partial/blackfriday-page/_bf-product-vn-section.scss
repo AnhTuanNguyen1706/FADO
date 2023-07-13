@@ -1,0 +1,143 @@
+@use 'vars' as vars;
+
+.bf-product-vn-section {
+  padding: 80px 0;
+  background: #fff;
+}// .bf-product-vn-section
+
+
+
+
+
+
+
+/* ------------------
+  Section head
+--------------------- */
+.bf-product-vn-section {
+  .section-head {
+    margin-bottom: 32px;
+
+    .bner-img {
+      width: 100%;
+    }
+  }
+}
+
+
+
+
+
+
+/* ------------------
+  Tab segment
+--------------------- */
+.bf-product-vn-section {
+  .tab-segment {
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .tab-item {
+      border-radius: 18px;
+      margin-right: 4px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      border: 1px dashed transparent;
+      background: transparent;
+      padding: 4px;
+      transition: border vars.$mz-transition-time-default;
+
+      .tab-item-inner {
+        border-radius: 14px;
+        box-shadow: vars.$mz-shadow-sm;
+        background: #fff;
+        padding: 0 16px;
+        height: 42px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background vars.$mz-transition-time-default;
+      }
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      &:hover {
+        color: vars.$mz-primary;
+      }
+
+      &.is-active {
+        background: #fff;
+        color: #fff;
+        border: 1px dashed vars.$mz-primary;
+
+        .tab-item-inner {
+          background: vars.$mz-primary;
+          box-shadow: none;
+        }
+      }
+
+      &.is-disabled {
+        opacity: 0.3;
+        pointer-events: none;
+      }
+    }// .tab-item
+  }// .tab-segment
+}// .bf-product-vn-section
+
+
+
+
+
+
+
+/* ------------------
+  Product segment
+--------------------- */
+.bf-product-vn-section {
+  .product-segment {
+    position: relative;
+  }
+
+  .list-effect-enter-active, .list-effect-leave-active {
+    transition: 0.2s;
+  }
+
+  .list-effect-enter, .list-effect-leave-to /* .fade-leave-active below version 2.1.8 */ {
+    opacity: 0;
+  }
+
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-gap: 16px;
+  }
+
+  .product-col {
+    min-width: 0;
+    display: flex;
+  }
+}// .bf-product-vn-section
+
+
+
+
+/* ------------------
+  View more
+--------------------- */
+.bf-product-vn-section {
+  .view-more-field {
+    margin-top: 36px;
+    text-align: center;
+
+    .view-more-btn {
+      min-width: 130px;
+    }
+  }
+}

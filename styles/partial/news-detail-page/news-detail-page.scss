@@ -1,0 +1,11 @@
+// Partials global
+// ---------
+@use "partial/news-page/news-layout";
+@use "partial/news-page/news-cate-sblock";
+@use "partial/news-page/news-list-sblock";
+@use "partial/global/content-editor";
+
+// Partials in page
+// ---------
+@use "news-detail-block";
+@use "news-list-block";

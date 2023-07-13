@@ -1,0 +1,13 @@
+//===================================
+//  also bought product block
+//===================================
+.also-bought-product-section {
+  &.is-start {
+    min-height: 361px;
+  }
+
+  .col { // Để fix tình huống lúc 5 lúc 6 sp ỏ block này
+    flex: 0 0 20%;
+    max-width: 20%;
+  }
+}// .also-bought-product-section
