@@ -14,7 +14,7 @@ $mz-cache-ver-suffix: ''; // ! Tham số cache truyền từ nodejs vào sử d�
 // Url
 // -------------------
 $mz-font-url: '../../../font';
-$mz-image-url: '../../../image';
+$mz-image-url: '../../../../public/image';
 $mz-image-icons-url: $mz-image-url + '/icons';
 $mz-image-svg-url: $mz-image-url + '/svg';
 $mz-upload-url: '../../../upload';
