@@ -1,3 +1,7 @@
+/* eslint-disable no-unused-vars */
+import headerMainBlock from '@/styles/partial/global/header/_header-main-block.scss'
+import headerSection from '@/styles/partial/global/header/_header-section.scss'
+import mzDropDown from '@/styles/component/_mz-dropdown.scss'
 type HeaderProps = {};
 
 const Header = ({}: HeaderProps) => {
@@ -138,11 +142,14 @@ const Header = ({}: HeaderProps) => {
         </div>
       </div>
 
-      <div className="section-body">
-        <div className="header-main-block">
-          <div className="mz-container">
-            <div className="header-main-block__logo-col">
-              <a className="logo-field" href="https://fado.vn">
+      <div /*className="section-body"*/ 
+      className={headerSection.sectionBody}>
+        <div /*className="header-main-block"*/ className={headerMainBlock.headerMainBlock}>
+          <div /*className="mz-container"*/
+          className={headerMainBlock.mzContainer}>
+            <div /*className="header-main-block__logo-col"*/
+            className={headerMainBlock.headerMainBlock_logoCol}>
+              <a /*className="logo-field" href="https://fado.vn"*/>
                 <img
                   className="logo-img"
                   src="https://st-fe-v2.fado.vn/desktop/image/logo/fado_black_v2.svg"
@@ -151,19 +158,25 @@ const Header = ({}: HeaderProps) => {
               </a>
             </div>
 
-            <div className="header-main-block__search-col">
-              <div className="search-form">
-                <div className="mz-header-vsearch">
-                  <div className="mz-header-vsearch__input-group">
+            <div /*className="header-main-block__search-col"*/
+            className={headerMainBlock.headerMainBlock_searchCol}>
+              <div /*className="search-form"*/
+              className={headerMainBlock.searchForm}>
+                <div /*className="mz-header-vsearch"*/
+                className={headerMainBlock.mzHeaderVsearch}>
+                  <div /*className="mz-header-vsearch__input-group"*/
+                  className={headerMainBlock.mzHeaderVsearch__inputGroup}>
                     <div
                       data-mz-dropdown="toggle"
-                      className="search-from-dropdown mz-dropdown"
+                      /*className="search-from-dropdown mz-dropdown"*/
+                      className={`${headerMainBlock.searchFromDropdown} ${headerMainBlock.mzDropdown}` }
                       data-mz-dropdown-init="true"
                     >
                       <div data-mz-dropdown-trigger="" className="dropdown-head">
-                        <span className="dropdown-title">Từ Mỹ</span>
+                        <span /*className="dropdown-title"*/
+                        className={headerMainBlock.dropdownTitle}>Từ Mỹ</span>
                       </div>
-                      <div data-mz-dropdown-target="" className="mz-dropdown-menu">
+                      <div data-mz-dropdown-target="" /*className="mz-dropdown-menu*/ className={headerMainBlock.mzDropDownMenu}>
                         <div className="mz-dropdown-menu__inner-space">
                           <ul className="mz-dropdown-menu__list">
                             <li className="mz-dropdown-menu__list-item-outer">

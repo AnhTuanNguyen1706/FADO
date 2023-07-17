@@ -9,16 +9,16 @@
 @use 'mixin/mz-animation' as mz-animation;
 @use 'mixin/mz-gradient' as mz-gradient;
 
-$_header-main-block-height: 64px;
+$_headerMainBlock-height: 64px;
 $_user-col-height: 34px;
 
 // ###########################################################
 // Main segment
 // ###########################################################
-.header-main-block {
-  .mz-container {
+.headerMainBlock {
+  .mzContainer {
     display: flex;
-    // height: $_header-main-block-height;
+    // height: $_headerMainBlock-height;
     align-items: center;
   }
   .ins-preview-wrapper {
@@ -30,7 +30,7 @@ $_user-col-height: 34px;
     margin-bottom: 0;
     margin-top: 0;
   }
-  &__logo-col {
+  &__logoCol {
     display: flex;
     align-items: center;
     margin-right: 32px;
@@ -43,7 +43,7 @@ $_user-col-height: 34px;
     // height: $_user-col-height;
     // margin-left: auto;
 
-    .mz-dropdown {
+    .mzDropdown {
       &:first-child {
         margin-left: 0;
       }
@@ -54,12 +54,12 @@ $_user-col-height: 34px;
     // height: 80px;
     width: 173px;
   }
-} // .header-main-block
+} // .headerMainBlock
 
 // ###########################################################
 // Logo column
 // ###########################################################
-.header-main-block {
+.headerMainBlock {
   .event-logo-field {
     height: 50px;
     margin-left: 12px;
@@ -73,20 +73,20 @@ $_user-col-height: 34px;
 // ###########################################################
 // Search column
 // ###########################################################
-.header-main-block {
-  $_search-form-height: 40px;
+.headerMainBlock {
+  $_searchForm-height: 40px;
   $_submit-btn-width: 56px;
   $_submit-btn-trianggle-width: 14px;
 
-  &__search-col {
+  &__searchCol {
     margin-left: 80px;
     margin-right: 56px;
     flex: 1 0 auto;
   }
 
-  .search-form {
+  .searchForm {
     width: 100%;
-    height: $_search-form-height;
+    height: $_searchForm-height;
     position: relative;
     background: transparent;
     z-index: 5;
@@ -113,7 +113,7 @@ $_user-col-height: 34px;
     .submit-btn-bg {
       position: absolute;
       width: #{$_submit-btn-width - $_submit-btn-trianggle-width};
-      height: $_search-form-height;
+      height: $_searchForm-height;
       border-radius: 0 vars.$mz-rounded-round vars.$mz-rounded-round 0;
       right: -1px;
       top: 0;
@@ -125,7 +125,7 @@ $_user-col-height: 34px;
         content: '';
         position: absolute;
         background: vars.$mz-primary-lighter;
-        height: $_search-form-height;
+        height: $_searchForm-height;
         transform: skewX(-10deg);
         width: #{$_submit-btn-trianggle-width + 3px};
         bottom: 0;
@@ -136,7 +136,7 @@ $_user-col-height: 34px;
         content: '';
         position: absolute;
         background: vars.$mz-primary;
-        height: $_search-form-height;
+        height: $_searchForm-height;
         transform: skewX(-18deg);
         width: #{$_submit-btn-trianggle-width + 3px};
         bottom: 0;
@@ -148,23 +148,23 @@ $_user-col-height: 34px;
       position: relative;
       z-index: 2;
     }
-  } // .search-form
+  } // .searchForm
 
-  .mz-header-vsearch {
+  .mzHeaderVsearch {
     width: 100%;
-    height: $_search-form-height;
+    height: $_searchForm-height;
 
-    .mz-header-vsearch__input-group {
+    .mzHeaderVsearch__inputGroup {
       border-radius: vars.$mz-rounded-round;
       border: solid 1px vars-v2.$primary-900;
       transition: vars.$mz-transition-time-xs;
       position: relative;
       width: 100%;
       display: flex;
-      height: $_search-form-height;
+      height: $_searchForm-height;
     }
 
-    .mz-header-vsearch__keyword-input {
+    .mzHeaderVsearch__keyword-input {
       height: 100%;
       width: 100%;
       // border-radius: 0 vars.$mz-rounded-round vars.$mz-rounded-round 0;
@@ -233,7 +233,7 @@ $_user-col-height: 34px;
 
     // FOCUS TO INPUT EFFECT
     &.is-focus {
-      .mz-header-vsearch__input-group {
+      .mzHeaderVsearch__inputGroup {
         box-shadow: 0 0 0 2px vars.$mz-primary;
       }
 
@@ -245,16 +245,16 @@ $_user-col-height: 34px;
         }
       }
     }
-  } // .mz-header-vsearch
+  } // .mzHeaderVsearch
 
   // SEARCH FROM DROPDOWN SELECT
-  .search-from-dropdown {
-    .dropdown-title {
+  .searchFromDropdown {
+    .dropdownTitle {
       line-height: 0;
       margin-bottom: 2px;
     }
 
-    .dropdown-head {
+    .dropdownHead {
       display: flex;
       align-items: center;
       justify-content: center;
@@ -277,11 +277,11 @@ $_user-col-height: 34px;
       }
     }
 
-    .mz-dropdown-menu {
+    .mzDropDownMenu {
       min-width: 50px;
       white-space: nowrap;
     }
-  } // .search-form-dropdown
+  } // .searchForm-dropdown
 
   // SEARCH FROM SUGGEST KEYWORDS
   .suggest-keywords-panel {
@@ -338,12 +338,12 @@ $_user-col-height: 34px;
       cursor: pointer;
     }
   } //.suggest-keywords-panel
-} // .header-main-block
+} // .headerMainBlock
 
 // ###########################################################
 // User column
 // ###########################################################
-.header-main-block {
+.headerMainBlock {
   .user-fado-vip-panel {
     display: flex;
     align-items: center;
@@ -415,12 +415,12 @@ $_user-col-height: 34px;
       color: vars.$mz-text-body-color;
     }
   } // .social-btn
-} // .header-main-block
+} // .headerMainBlock
 
 /* =============================================
   User dropdown
 ================================================ */
-.header-main-block {
+.headerMainBlock {
   .user-dropdown {
     // margin-right: 16px;
 
@@ -876,13 +876,13 @@ $_user-col-height: 34px;
 
     // affiliate-bner
     .affiliate-bner {
-      //! set margin: -4px để tạm nối liền affliate-bner với mz-dropdown-menu__inner-space element ở trên
+      //! set margin: -4px để tạm nối liền affliate-bner với mzDropDownMenu__inner-space element ở trên
       display: block;
       height: 87px;
       margin-top: -4px;
     } // .affiliate-bner
 
-    .mz-dropdown-menu {
+    .mzDropDownMenu {
       width: 280px;
       z-index: 5;
     }
@@ -961,15 +961,15 @@ $_user-col-height: 34px;
       margin-left: 8px;
     }
   } // .user-menu-list
-} // .header-main-block
+} // .headerMainBlock
 
 /* =============================================
   Cart panel
 ================================================ */
-.header-main-block {
+.headerMainBlock {
   .cart-dropdown {
     // margin-right: 8px;
-    .mz-dropdown-menu {
+    .mzDropDownMenu {
       width: 280px;
     }
   }
@@ -1042,4 +1042,4 @@ $_user-col-height: 34px;
       // }
     } // &.is-active
   } // .cart-btn
-} // .header-main-block
+} // .headerMainBlock
