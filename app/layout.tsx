@@ -1,6 +1,8 @@
-import '@/styles/vendor-1.scss';
-import type { Metadata } from 'next';
+/* eslint-disable no-undef */
 
+import type { Metadata } from 'next';
+import './page.module.css'
+import './global.css'
 export const metadata: Metadata = {
   title: 'FadoVN',
   description: 'FadoVN Description'
